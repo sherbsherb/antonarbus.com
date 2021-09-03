@@ -10,8 +10,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-<<<<<<< HEAD
-=======
 
 // some comment during file execution on production server
->>>>>>> 2578c88773d7dc5e54cfca2babe7410bbadfdaa5

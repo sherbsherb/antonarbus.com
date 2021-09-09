@@ -6,11 +6,20 @@ export function NavItem(props) {
       className="nav-item" 
       onClick={(e) => {
         e.stopPropagation()
-        if(!props.forMenuId) return
-        if(props.showElemWithId.length) {
+
+    
+        const navItemWithoutMenu = !props.forMenuId
+        if(navItemWithoutMenu) return
+
+
+        // ! menu not closing on adjacent navItem click
+        const menuIsOpened = props.showElemWithId.length
+        if(menuIsOpened) {
           props.setShowElemWithId([])
           return 
         }
+
+     
         props.setShowElemWithId([...props.showElemWithId, props.forMenuId])
       }}
     >

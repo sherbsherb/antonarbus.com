@@ -1,24 +1,119 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './nav.css';
 
+// import & set icons
 import { FaChevronRight } from 'react-icons/fa';
-import { FaChevronLeft } from 'react-icons/fa';
+// can use alias with 'as'
+import { FaChevronLeft as LeftIcon } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
-const arrowRightIcon = React.createElement(FaChevronRight, {});
-const arrowLeftIcon = React.createElement(FaChevronLeft, {});
+// can insert component as a JS variable instead of JSX tag
 const closeIcon = React.createElement(GrClose, {});
 
-export function NavBar({ navState, openedMenuState, setOpenedMenuState }) {
+// navbar
+export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
+  // helper funcs
+  // ! helper funcs are in the top component
+  // ! wish to move them up, tu they use state
+  // ! but state can be created only inside a component
+
+  // update state to show menu
+  function showMenu(menuWithSubMenu) {
+    const isSubMenu = menuWithSubMenu.menu;
+
+    if (!isSubMenu) {
+      setOpenedMenuState(null);
+      console.log('no sub-menu');
+    }
+
+    if (isSubMenu) {
+      const subMenu = menuWithSubMenu.menu;
+      // for previous menu return when click on Back
+
+      setOpenedMenuState({
+        ...subMenu,
+        underNavItemId: menuWithSubMenu.id,
+        prevMenu: [],
+      });
+
+      console.log('showed menu');
+    }
+  }
+
+  // update state to change menu
+  function changeMenu(menuWithSubMenu) {
+    const isSubMenu = menuWithSubMenu.menu;
+
+    if (!isSubMenu) {
+      console.log('no sub-menu');
+      return;
+    }
+
+    const subMenu = menuWithSubMenu.menu;
+    setOpenedMenuState({
+      ...subMenu,
+      underNavItemId: openedMenuState.underNavItemId,
+      prevMenu: [...openedMenuState.prevMenu, openedMenuState],
+    });
+
+    console.log('one level down in menu');
+  }
+
+  // update state to close menu
+  function closeMenu(e) {
+    console.log('menu closed')
+    e?.stopPropagation();
+    openedMenuState && setOpenedMenuState(null);
+  }
+
+  // assign previous menu obj from array to a state to re-render it
+  function prevMenu(e) {
+    e?.stopPropagation();
+    setOpenedMenuState(openedMenuState.prevMenu.pop());
+    console.log('clicked Back');
+  }
+
+  // add actions for Escape, Backspace, Enter, Arrows
+  function navKeyboardHandler(e) {
+    const { key, keyCode } = e;
+    console.log(keyCode);
+    if (!openedMenuState) return;
+    const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
+    isNestedMenu && key === 'Backspace' && prevMenu();
+    !isNestedMenu && key === 'Backspace' && closeMenu();
+    key === 'Escape' && closeMenu();
+  }
+
+  // use events to navigate over menu with keys
+  // ! we listen for keys on Window, how to do it properly no clue
+  // ! how to disable an event listener on menu close && activate on menu pop-up
+  useEffect(() => {
+    window.addEventListener('keydown', navKeyboardHandler);
+    // ! do not understand why func is returned
+    return () => window.removeEventListener('keydown', navKeyboardHandler);
+  }, [openedMenuState]);
+
+  // close menu if click outside
+  // ! nice to listen for it on menu popup and stop listening when menu is off
+  useEffect(() => {
+    window.addEventListener('click', closeMenu);
+    return () => window.removeEventListener('click', closeMenu);
+  }, [openedMenuState]);
+
+  // NavBar component, is the container on the top
   return (
+    // ? we throw props over & over again, is there more elegant way?
     <nav className="navbar">
       <ul className="navbar-nav">
-        {navState.map(
+        {navContent.map(
           (navItem) =>
             navItem.visible && (
               <NavItem
                 navItem={navItem}
                 openedMenuState={openedMenuState}
-                setOpenedMenuState={setOpenedMenuState}
+                prevMenu={prevMenu}
+                closeMenu={closeMenu}
+                showMenu={showMenu}
+                changeMenu={changeMenu}
               />
             )
         )}
@@ -27,120 +122,98 @@ export function NavBar({ navState, openedMenuState, setOpenedMenuState }) {
   );
 }
 
-export function NavItem({ navItem, openedMenuState, setOpenedMenuState }) {
-  function showMenu(e) {
-    e.stopPropagation();
-
-    if (!navItem.menu) {
-      setOpenedMenuState(null);
-      console.log('no folded menu');
-    }
-
-    if (navItem.menu) {
-      // for previous menu return when click on Back
-
-      setOpenedMenuState({
-        ...navItem.menu,
-        underNavItemId: navItem.id,
-        prevMenu: [],
-      });
-
-      console.log('showed menu');
-    }
-  }
-
+// component inside the NavBar = icons
+export function NavItem({
+  navItem,
+  openedMenuState,
+  prevMenu,
+  closeMenu,
+  showMenu,
+  changeMenu,
+}) {
   return (
-    <li className="nav-item" onClick={showMenu}>
+    <li
+      className="nav-item"
+      // when clicked 'setOpenedMenuState' is updated and menu is re-rendered
+      onClick={(e) => {
+        e.stopPropagation();
+        showMenu(navItem);
+      }}
+    >
       <a href="#" className="icon-button">
         {navItem.icon}
         {navItem.text}
       </a>
+
+      {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
       {openedMenuState && openedMenuState.underNavItemId === navItem.id && (
         <DropdownMenu
           openedMenuState={openedMenuState}
-          setOpenedMenuState={setOpenedMenuState}
+          prevMenu={prevMenu}
+          closeMenu={closeMenu}
+          changeMenu={changeMenu}
         />
       )}
     </li>
   );
 }
 
-export function DropdownMenu({ openedMenuState, setOpenedMenuState }) {
+// menu with 'back' & 'close' buttons on top & DropdownItems
+export function DropdownMenu({
+  openedMenuState,
+  prevMenu,
+  closeMenu,
+  changeMenu,
+}) {
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   return (
     <div className="dropdown">
-
-      {isNestedMenu && <BackItem openedMenuState={openedMenuState} setOpenedMenuState={setOpenedMenuState} />}
-      {!isNestedMenu && <CloseItem setOpenedMenuState={setOpenedMenuState} />}
-      
+      {isNestedMenu && <BackItem prevMenu={prevMenu} />}
+      {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
 
       {openedMenuState.menuItems.map((menuItem) => (
         <DropdownItem
           menuItem={menuItem}
-          openedMenuState={openedMenuState}
-          setOpenedMenuState={setOpenedMenuState}
+          changeMenu={changeMenu}
         />
       ))}
     </div>
   );
 }
 
-export function DropdownItem({
-  menuItem,
-  openedMenuState,
-  setOpenedMenuState,
-}) {
-  function swapMenu(e) {
-    e.stopPropagation();
-    if (!menuItem.menu) {
-      console.log('no sub-menu');
-      return;
-    }
-
-    setOpenedMenuState({
-      ...menuItem.menu,
-      underNavItemId: openedMenuState.underNavItemId,
-      prevMenu: [...openedMenuState.prevMenu, openedMenuState]
-    });
-
-    console.log('one level down in menu');
-  }
-
+// item inside menu
+export function DropdownItem({ menuItem, changeMenu }) {
   return (
-    <a href="#1" className="menu-item" onClick={swapMenu}>
+    <a
+      href="#1"
+      className="menu-item"
+      onClick={(e) => {
+        e?.stopPropagation();
+        changeMenu(menuItem);
+      }}
+    >
       <span className="icon-button">{menuItem.iconLeft}</span>
       {menuItem.text}
+      {/* add arrow if sub-menu is available */}
       {menuItem.menu && (
-        <span className="icon-button icon-right">{arrowRightIcon}</span>
+        <span className="icon-button icon-right">{<FaChevronRight />}</span>
       )}
     </a>
   );
 }
 
-export function BackItem({ openedMenuState, setOpenedMenuState }) {
-  function goBack(e) {
-    e.stopPropagation();
-    setOpenedMenuState(openedMenuState.prevMenu.pop());
-    console.log('clicked Back');
-  }
-
+export function BackItem({ prevMenu }) {
   return (
-    <a href="#1" className="menu-item" onClick={goBack}>
-      <span className="icon-button">{arrowLeftIcon}</span>
+    <a href="#1" className="menu-item" onClick={prevMenu}>
+      <span className="icon-button">{<LeftIcon />}</span>
       Back
     </a>
   );
 }
 
-export function CloseItem({ setOpenedMenuState }) {
-  function close(e) {
-    e.stopPropagation();
-    setOpenedMenuState(null);
-    console.log('closed');
-  }
-
+export function CloseItem({ closeMenu }) {
   return (
-    <a href="#1" className="menu-item" onClick={close}>
+    <a href="#1" className="menu-item" onClick={closeMenu}>
       <span className="icon-button">{closeIcon}</span>
       Close
     </a>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { NavBar } from './components/nav/Nav.js';
@@ -155,35 +155,12 @@ const Window = styled.div`
 `;
 
 function App() {
-  const [navState] = useState(navContent);
   const [openedMenuState, setOpenedMenuState] = useState(null);
 
-  function closeNavMenu(e) {
-    openedMenuState && setOpenedMenuState(null);
-    openedMenuState && console.log('close nav menu');
-  }
-
-  function navKeyboardHandler(e) {
-    console.log(666)
-    // console.log(openedMenuState)
-    if (!openedMenuState) return;
-    if (e.key === 'Escape') closeNavMenu();
-    const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
-    console.log(isNestedMenu)
-
-    isNestedMenu &&
-      e.key === 'Backspace' &&
-      console.log('go back');
-
-    !isNestedMenu &&
-      e.key === 'Backspace' &&
-      console.log('close');
-  }
-
   return (
-    <Window onClick={closeNavMenu} onKeyDown={navKeyboardHandler}>
+    <Window>
       <NavBar
-        navState={navState}
+        navContent={navContent}
         openedMenuState={openedMenuState}
         setOpenedMenuState={setOpenedMenuState}
       />

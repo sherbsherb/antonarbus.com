@@ -1,89 +1,196 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import './App.css';
+import { NavBar } from './components/nav/Nav.js';
+import shortid from 'shortid';
 
-import {NavBar} from './components/nav/NavBar.js';
-import {NavItem} from './components/nav/NavItem.js';
-import {DropdownMenu} from './components/nav/DropdownMenu.js';
-import {DropdownItem} from './components/nav/DropdownItem.js';
-import {SubDropdownMenu} from './components/nav/SubDropdownMenu.js';
+import { FaApple } from 'react-icons/fa';
+import { FaReact } from 'react-icons/fa';
+import { FaRedhat } from 'react-icons/fa';
+import { AiOutlinePlus } from 'react-icons/ai';
 
-import { ReactComponent as PlusIcon } from './components/nav/icons/plus.svg';
-import { ReactComponent as CogIcon } from './components/nav/icons/cog.svg';
-import { ReactComponent as ChevronIcon } from './components/nav/icons/chevron.svg';
-// import { ReactComponent as BellIcon } from './components/nav/icons/bell.svg';
-// import { ReactComponent as MessengerIcon } from './components/nav/icons/messenger.svg';
-// import { ReactComponent as CaretIcon } from './components/nav/icons/caret.svg';
-// import { ReactComponent as ArrowIcon } from './components/nav/icons/arrow.svg';
-// import { ReactComponent as BoltIcon } from './components/nav/icons/bolt.svg';
+const appleIcon = React.createElement(FaApple, {});
+const reactIcon = React.createElement(FaReact, {});
+const redHatIcon = React.createElement(FaRedhat, {});
+const plusIcon = React.createElement(AiOutlinePlus, {});
 
-import { useState } from "react"
+const navContent = [
+  {
+    navItem: true,
+    visible: true,
+    icon: appleIcon,
+    text: '',
+    menu: false,
+    id: shortid.generate(),
+  },
+  {
+    navItem: true,
+    visible: true,
+    icon: reactIcon,
+    text: '',
+    menu: false,
+    id: shortid.generate(),
+  },
+  {
+    navItem: true,
+    visible: true,
+    icon: redHatIcon,
+    text: '',
+    menu: {
+      visible: false,
+      menuItems: [
+        {
+          text: 'text: ' + shortid.generate(),
+          iconLeft: '😇',
+          menu: false,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text: ' + shortid.generate(),
+          iconLeft: '😇',
+          menu: false,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text: ' + shortid.generate(),
+          iconLeft: '😇',
+          menu: false,
+          id: shortid.generate(),
+        },
+      ],
+    },
+    id: shortid.generate(),
+  },
+  {
+    navItem: true,
+    visible: true,
+    icon: plusIcon,
+    text: '',
+    menu: {
+      visible: true,
+      menuItems: [
+        {
+          text: 'text: ' + shortid.generate(),
+          iconLeft: '😇',
+          menu: false,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text: ' + shortid.generate(),
+          iconLeft: '😇',
+          menu: {
+            visible: false,
+            menuItems: [
+              {
+                text: 'text: ' + shortid.generate(),
+                iconLeft: '😎',
+                menu: false,
+                id: shortid.generate(),
+              },
+              {
+                text: 'text: ' + shortid.generate(),
+                iconLeft: '😎',
+                menu: false,
+                id: shortid.generate(),
+              },
+              {
+                text: 'text: ' + shortid.generate(),
+                iconLeft: '😎',
+                menu: {
+                  visible: false,
+                  menuItems: [
+                    {
+                      text: 'text: ' + shortid.generate(),
+                      iconLeft: '🥸',
+                      menu: false,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text: ' + shortid.generate(),
+                      iconLeft: '🥸',
+                      menu: false,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text: ' + shortid.generate(),
+                      iconLeft: '🥸',
+                      menu: false,
+                      id: shortid.generate(),
+                    },
+                  ],
+                },
+                id: shortid.generate(),
+              },
+            ],
+          },
+          id: shortid.generate(),
+        },
+        {
+          text: 'text: ' + shortid.generate(),
+          iconLeft: '😇',
+          menu: false,
+          id: shortid.generate(),
+        },
+      ],
+    },
+    id: shortid.generate(),
+  },
+];
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+`;
+
+const Window = styled.div`
+  text-align: center;
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: whitesmoke;
+  ${'' /* max-width: 600px; */}
+`;
 
 function App() {
-  const [showElemWithId, setShowElemWithId] = useState([])
-  return (
-    <div
-      className="App"
-      onClick={(e) => {
-        setShowElemWithId([]);
-      }}
-    >
-      <NavBar>
-        <NavItem
-          icon={<PlusIcon />}
-          forMenuId={'id1'}
-          showElemWithId={showElemWithId}
-          setShowElemWithId={setShowElemWithId}
-        >
-          <DropdownMenu menuId={'id1'} showElemWithId={showElemWithId}>
-            <DropdownItem text={'text1'} />
-            <DropdownItem leftIcon={'😆'} text={'text2'} />
-            <DropdownItem leftIcon={<CogIcon />} text={'text3'} />
-            <DropdownItem leftIcon={<CogIcon />} text={'text4'} />
-            <DropdownItem leftIcon={<CogIcon />} text={'text5'} />
-            <DropdownItem
-              leftIcon={<CogIcon />}
-              text={'sub-menu'}
-              rightIcon={<ChevronIcon />}
-              forSubMenuId={'id2'}
-              showElemWithId={showElemWithId}
-              setShowElemWithId={setShowElemWithId}
-            >
-              <SubDropdownMenu
-                subMenuId={'id2'}
-                showElemWithId={showElemWithId}
-                setShowElemWithId={setShowElemWithId}
-              >
-                <DropdownItem leftIcon={'😆'} text={'text6'} />
-                <DropdownItem leftIcon={'😆'} text={'text7'} />
-                <DropdownItem
-                  leftIcon={<CogIcon />}
-                  text={'sub-menu'}
-                  rightIcon={<ChevronIcon />}
-                  forSubMenuId={'id3'}
-                  showElemWithId={showElemWithId}
-                  setShowElemWithId={setShowElemWithId}
-                >
-                  <SubDropdownMenu
-                    subMenuId={'id3'}
-                    showElemWithId={showElemWithId}
-                    setShowElemWithId={setShowElemWithId}
-                  >
-                    <DropdownItem leftIcon={'😆'} text={'text7'} />
-                    <DropdownItem leftIcon={'😆'} text={'text8'} />
-                  </SubDropdownMenu>
-                </DropdownItem>
-              </SubDropdownMenu>
-            </DropdownItem>
-          </DropdownMenu>
-        </NavItem>
-        <NavItem icon="😀"></NavItem>
-        <NavItem icon="😡"></NavItem>
-        <NavItem icon="😇"></NavItem>
-      </NavBar>
+  const [navState] = useState(navContent);
+  const [openedMenuState, setOpenedMenuState] = useState(null);
 
-      <main>
+  function closeNavMenu(e) {
+    openedMenuState && setOpenedMenuState(null);
+    openedMenuState && console.log('close nav menu');
+  }
+
+  function navKeyboardHandler(e) {
+    console.log(666)
+    // console.log(openedMenuState)
+    if (!openedMenuState) return;
+    if (e.key === 'Escape') closeNavMenu();
+    const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
+    console.log(isNestedMenu)
+
+    isNestedMenu &&
+      e.key === 'Backspace' &&
+      console.log('go back');
+
+    !isNestedMenu &&
+      e.key === 'Backspace' &&
+      console.log('close');
+  }
+
+  return (
+    <Window onClick={closeNavMenu} onKeyDown={navKeyboardHandler}>
+      <NavBar
+        navState={navState}
+        openedMenuState={openedMenuState}
+        setOpenedMenuState={setOpenedMenuState}
+      />
+      <Main>
         <p>First React website for Anton</p>
-      </main>
-    </div>
+      </Main>
+    </Window>
   );
 }
 

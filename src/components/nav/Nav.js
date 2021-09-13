@@ -103,8 +103,6 @@ export function DropdownItem({
       prevMenu: [...openedMenuState.prevMenu, openedMenuState]
     });
 
-    // for previous menu return when click on Back
-
     console.log('one level down in menu');
   }
 

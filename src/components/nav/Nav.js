@@ -1,4 +1,8 @@
+// ! how to make similar hamburger, which dynamically pop up when there is no space
+// ! we can not grab an el with querySelector as we do in native JS
+
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import './nav.css';
 
 // import & set icons
@@ -9,9 +13,28 @@ import { GrClose } from 'react-icons/gr';
 // can insert component as a JS variable instead of JSX tag
 const closeIcon = React.createElement(GrClose, {});
 
+// CSS const
+const textColor ='#dadce1'
+
 // navbar
+
+const NavStyled = styled.nav`
+  height: 60px;
+  background-color: #242526;
+  padding: 0 1rem;
+  border-bottom: 1px solid #474a4d;
+  
+  ul {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+
 export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
-  // helper funcs
+  //#region HELPER FUNCS
+
   // ! helper funcs are in the top component
   // ! wish to move them up, tu they use state
   // ! but state can be created only inside a component
@@ -60,7 +83,7 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
 
   // update state to close menu
   function closeMenu(e) {
-    console.log('menu closed')
+    console.log('menu closed');
     e?.stopPropagation();
     openedMenuState && setOpenedMenuState(null);
   }
@@ -83,6 +106,10 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
     key === 'Escape' && closeMenu();
   }
 
+  //#endregion
+
+  //#region EVENT LISTENERS FOR WINDOW
+
   // use events to navigate over menu with keys
   // ! we listen for keys on Window, how to do it properly no clue
   // ! how to disable an event listener on menu close && activate on menu pop-up
@@ -99,11 +126,13 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
     return () => window.removeEventListener('click', closeMenu);
   }, [openedMenuState]);
 
+  //#endregion
+
   // NavBar component, is the container on the top
   return (
     // ? we throw props over & over again, is there more elegant way?
-    <nav className="navbar">
-      <ul className="navbar-nav">
+    <NavStyled>
+      <ul>
         {navContent.map(
           (navItem) =>
             navItem.visible && (
@@ -118,9 +147,44 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
             )
         )}
       </ul>
-    </nav>
+    </NavStyled>
   );
 }
+
+const NavLiStyled = styled.li`
+  width: calc(60 * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  a {
+    margin-left: 10px;
+    text-decoration: none;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+
+    .icon-button {
+      width: 35px;
+      height: 35px;
+      background-color: #484a4d;
+      border-radius: 50%;
+      padding: 2px;
+      margin: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: filter 300ms;
+    }
+
+    .icon-text {
+      margin: 3px;
+      font-size: 1rem;
+    }
+  }
+`;
 
 // component inside the NavBar = icons
 export function NavItem({
@@ -132,17 +196,18 @@ export function NavItem({
   changeMenu,
 }) {
   return (
-    <li
-      className="nav-item"
+    <NavLiStyled
       // when clicked 'setOpenedMenuState' is updated and menu is re-rendered
       onClick={(e) => {
         e.stopPropagation();
         showMenu(navItem);
       }}
+      // onMouseEnter={() => showMenu(navItem)}
+      // onMouseLeave={() => closeMenu()}
     >
-      <a href="#" className="icon-button">
-        {navItem.icon}
-        {navItem.text}
+      <a href="#">
+        <span className="icon-button">{navItem.icon}</span>
+        <span className="icon-text">{navItem.text}</span>
       </a>
 
       {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
@@ -154,9 +219,24 @@ export function NavItem({
           changeMenu={changeMenu}
         />
       )}
-    </li>
+    </NavLiStyled>
   );
 }
+
+const MenuStyled = styled.div `
+  position: absolute;
+  top: 58px;
+  width: auto;
+  transform: translateX(-45%);
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  /* transition: height var(--speed) ease; */
+  z-index: 666;
+  
+`
 
 // menu with 'back' & 'close' buttons on top & DropdownItems
 export function DropdownMenu({
@@ -167,24 +247,26 @@ export function DropdownMenu({
 }) {
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   return (
-    <div className="dropdown">
+    <MenuStyled>
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
-
       {openedMenuState.menuItems.map((menuItem) => (
-        <DropdownItem
-          menuItem={menuItem}
-          changeMenu={changeMenu}
-        />
+        <DropdownItem menuItem={menuItem} changeMenu={changeMenu} />
       ))}
-    </div>
+    </MenuStyled>
   );
 }
+
+const MenuItemStyled = styled.a `
+  color: ${textColor};
+  text-decoration: none;
+
+`
 
 // item inside menu
 export function DropdownItem({ menuItem, changeMenu }) {
   return (
-    <a
+    <MenuItemStyled
       href="#1"
       className="menu-item"
       onClick={(e) => {
@@ -198,7 +280,7 @@ export function DropdownItem({ menuItem, changeMenu }) {
       {menuItem.menu && (
         <span className="icon-button icon-right">{<FaChevronRight />}</span>
       )}
-    </a>
+    </MenuItemStyled>
   );
 }
 

@@ -145,7 +145,7 @@ const Main = styled.main`
   height: 50vh;
 `;
 
-const Window = styled.div`
+const TopContainer = styled.div`
   text-align: center;
   background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
   min-height: 100vh;
@@ -158,7 +158,7 @@ function App() {
   const [openedMenuState, setOpenedMenuState] = useState(null);
 
   return (
-    <Window>
+    <TopContainer>
       <NavBar
         navContent={navContent}
         openedMenuState={openedMenuState}
@@ -167,7 +167,7 @@ function App() {
       <Main>
         <p>First React website for Anton</p>
       </Main>
-    </Window>
+    </TopContainer>
   );
 }
 

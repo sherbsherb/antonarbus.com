@@ -13,22 +13,29 @@ import { GrClose } from 'react-icons/gr';
 // can insert component as a JS variable instead of JSX tag
 const closeIcon = React.createElement(GrClose, {});
 
-// CSS const
-const textColor ='#dadce1'
-
 // navbar
 
+// CSS const
+const bg = '#242526';
+const subMenuColor = '#18191a';
+const bgAccent = '#484a4d';
+const textColor = '#dadce1';
+const navSize = '60px';
+const border = '1px solid #474a4d';
+const borderRadius = '8px';
+const speed = '500ms';
+
 const NavStyled = styled.nav`
-  height: 60px;
-  background-color: #242526;
+  height: ${navSize};
+  background-color: ${bg};
   padding: 0 1rem;
-  border-bottom: 1px solid #474a4d;
-  
+  border-bottom: ${border};
+
   ul {
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
+      max-width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
   }
 `;
 
@@ -151,41 +158,6 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
   );
 }
 
-const NavLiStyled = styled.li`
-  width: calc(60 * 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-
-  a {
-    margin-left: 10px;
-    text-decoration: none;
-
-    &:hover {
-      filter: brightness(1.2);
-    }
-
-    .icon-button {
-      width: 35px;
-      height: 35px;
-      background-color: #484a4d;
-      border-radius: 50%;
-      padding: 2px;
-      margin: 2px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: filter 300ms;
-    }
-
-    .icon-text {
-      margin: 3px;
-      font-size: 1rem;
-    }
-  }
-`;
-
 // component inside the NavBar = icons
 export function NavItem({
   navItem,
@@ -196,7 +168,8 @@ export function NavItem({
   changeMenu,
 }) {
   return (
-    <NavLiStyled
+    <li
+      className="nav-item"
       // when clicked 'setOpenedMenuState' is updated and menu is re-rendered
       onClick={(e) => {
         e.stopPropagation();
@@ -205,9 +178,9 @@ export function NavItem({
       // onMouseEnter={() => showMenu(navItem)}
       // onMouseLeave={() => closeMenu()}
     >
-      <a href="#">
-        <span className="icon-button">{navItem.icon}</span>
-        <span className="icon-text">{navItem.text}</span>
+      <a href="#" className="icon-button">
+        {navItem.icon}
+        {navItem.text}
       </a>
 
       {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
@@ -219,24 +192,9 @@ export function NavItem({
           changeMenu={changeMenu}
         />
       )}
-    </NavLiStyled>
+    </li>
   );
 }
-
-const MenuStyled = styled.div `
-  position: absolute;
-  top: 58px;
-  width: auto;
-  transform: translateX(-45%);
-  background-color: var(--bg);
-  border: var(--border);
-  border-radius: var(--border-radius);
-  padding: 1rem;
-  overflow: hidden;
-  /* transition: height var(--speed) ease; */
-  z-index: 666;
-  
-`
 
 // menu with 'back' & 'close' buttons on top & DropdownItems
 export function DropdownMenu({
@@ -247,26 +205,21 @@ export function DropdownMenu({
 }) {
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   return (
-    <MenuStyled>
+    <div className="dropdown">
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
+
       {openedMenuState.menuItems.map((menuItem) => (
         <DropdownItem menuItem={menuItem} changeMenu={changeMenu} />
       ))}
-    </MenuStyled>
+    </div>
   );
 }
-
-const MenuItemStyled = styled.a `
-  color: ${textColor};
-  text-decoration: none;
-
-`
 
 // item inside menu
 export function DropdownItem({ menuItem, changeMenu }) {
   return (
-    <MenuItemStyled
+    <a
       href="#1"
       className="menu-item"
       onClick={(e) => {
@@ -280,7 +233,7 @@ export function DropdownItem({ menuItem, changeMenu }) {
       {menuItem.menu && (
         <span className="icon-button icon-right">{<FaChevronRight />}</span>
       )}
-    </MenuItemStyled>
+    </a>
   );
 }
 

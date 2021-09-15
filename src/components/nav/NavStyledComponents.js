@@ -26,7 +26,6 @@ export const Main = styled.main`
   height: 50vh;
 `;
 
-
 export const NavStyled = styled.nav`
   height: ${navSize};
   background-color: ${bg};
@@ -79,7 +78,8 @@ export const NavItemLi = styled.li`
 export const MenuContainer = styled.div`
   position: absolute;
   top: 58px;
-  width: 300px;
+  width: auto;
+  transition: width 1.5s ease;
   transform: translateX(-45%);
   background-color: ${bg};
   border: ${border};
@@ -96,6 +96,7 @@ export const MenuLink = styled.a`
   border-radius: ${borderRadius};
   padding: 0.5rem;
   color: ${textColor};
+  white-space: nowrap;
 
   &:hover {
     background-color: #525357;

@@ -42,19 +42,19 @@ const navContent = [
       visible: false,
       menuItems: [
         {
-          text: 'text: ' + shortid.generate(),
+          text: 'text1',
           iconLeft: '😇',
           menu: false,
           id: shortid.generate(),
         },
         {
-          text: 'text: ' + shortid.generate(),
+          text: 'text2',
           iconLeft: '😇',
           menu: false,
           id: shortid.generate(),
         },
         {
-          text: 'text: ' + shortid.generate(),
+          text: 'text3',
           iconLeft: '😇',
           menu: false,
           id: shortid.generate(),
@@ -72,49 +72,43 @@ const navContent = [
       visible: true,
       menuItems: [
         {
-          text: 'text: ' + shortid.generate(),
-          iconLeft: '😇',
-          menu: false,
-          id: shortid.generate(),
-        },
-        {
-          text: 'text: ' + shortid.generate(),
+          text: 'text5',
           iconLeft: '😇',
           menu: {
             visible: false,
             menuItems: [
               {
-                text: 'text: ' + shortid.generate(),
+                text: 'text6',
                 iconLeft: '😎',
                 menu: false,
                 id: shortid.generate(),
               },
               {
-                text: 'text: ' + shortid.generate(),
+                text: 'text7',
                 iconLeft: '😎',
                 menu: false,
                 id: shortid.generate(),
               },
               {
-                text: 'text: ' + shortid.generate(),
+                text: 'text8',
                 iconLeft: '😎',
                 menu: {
                   visible: false,
                   menuItems: [
                     {
-                      text: 'text: ' + shortid.generate(),
+                      text: 'text999999999',
                       iconLeft: '🥸',
                       menu: false,
                       id: shortid.generate(),
                     },
                     {
-                      text: 'text: ' + shortid.generate(),
+                      text: 'text10',
                       iconLeft: '🥸',
                       menu: false,
                       id: shortid.generate(),
                     },
                     {
-                      text: 'text: ' + shortid.generate(),
+                      text: 'text11',
                       iconLeft: '🥸',
                       menu: false,
                       id: shortid.generate(),
@@ -128,7 +122,7 @@ const navContent = [
           id: shortid.generate(),
         },
         {
-          text: 'text: ' + shortid.generate(),
+          text: 'text12',
           iconLeft: '😇',
           menu: false,
           id: shortid.generate(),

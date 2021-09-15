@@ -11,6 +11,12 @@ const StyleReset = createGlobalStyle `
     padding: 0px;
   }
 
+  
+  a {
+    text-decoration: none;
+  }
+
+
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

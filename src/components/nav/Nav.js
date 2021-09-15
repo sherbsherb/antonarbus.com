@@ -2,7 +2,20 @@
 // ! we can not grab an el with querySelector as we do in native JS
 
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+// import styled components
+import {
+  NavStyled,
+  NavItemStyled,
+  Icon,
+  NavItemLi,
+  MenuContainer,
+  MenuLink,
+  MenuIcon,
+  MenuIconRight,
+  MenuText,
+  BackLink,
+  CloseLink,
+} from './NavStyledComponents';
 import './nav.css';
 
 // import & set icons
@@ -14,34 +27,6 @@ import { IoClose } from 'react-icons/io5';
 const closeIcon = React.createElement(IoClose, {});
 
 // navbar
-
-// CSS const
-const bg = '#242526';
-const subMenuColor = '#18191a';
-const bgAccent = '#484a4d';
-const textColor = '#dadce1';
-const navSize = '60px';
-const border = '1px solid #474a4d';
-const borderRadius = '8px';
-const speed = '500ms';
-
-const NavStyled = styled.nav`
-  height: ${navSize};
-  background-color: ${bg};
-  padding: 0 1rem;
-  border-bottom: ${border};
-`;
-
-const NavItemStyled = styled.ul`
-  max-width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
 
 export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
   //#region HELPER FUNCS
@@ -162,37 +147,6 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
   );
 }
 
-const Icon = styled.a`
-  width: ${parseInt(navSize) * 0.5}px;
-  height: ${parseInt(navSize) * 0.5}px;
-  background-color: #484a4d;
-  border-radius: 50%;
-  padding: 5px;
-  margin: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: filter 300ms;
-  color: ${textColor};
-
-  svg {
-    fill: ${textColor};
-    width: 20px;
-    height: 20px;
-  }
-
-  &:hover {
-    filter: brightness(1.2);
-  }
-`;
-
-const NavItemLi = styled.li`
-  width: ${parseInt(navSize) * 0.8}px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 // component inside the NavBar = icons
 export function NavItem({
   navItem,
@@ -231,20 +185,6 @@ export function NavItem({
 }
 
 // menu with 'back' & 'close' buttons on top & MenuItems
-
-const MenuContainer = styled.div`
-  position: absolute;
-  top: 58px;
-  width: 300px;
-  transform: translateX(-45%);
-  background-color: ${bg};
-  border: ${border};
-  border-radius: ${borderRadius};
-  padding: 1rem;
-  overflow: hidden;
-  z-index: 666;
-`;
-
 export function DropdownMenu({
   openedMenuState,
   prevMenu,
@@ -264,34 +204,6 @@ export function DropdownMenu({
 }
 
 // item inside menu
-const MenuLink = styled.a`
-  height: 50px;
-  display: flex;
-  align-items: center;
-  border-radius: ${borderRadius};
-  padding: 0.5rem;
-  color: ${textColor};
-
-  &:hover {
-    background-color: #525357;
-  }
-`;
-
-const MenuIcon = styled(Icon)`
-  &:hover {
-    filter: none;
-  }
-`;
-
-const MenuIconRight = styled(Icon)`
-  margin-left: auto;
-  background-color: transparent;
-`;
-
-const MenuText = styled.span`
-  margin-left: 10px;
-`;
-
 export function MenuItem({ menuItem, changeMenu }) {
   return (
     <MenuLink
@@ -312,8 +224,6 @@ export function MenuItem({ menuItem, changeMenu }) {
   );
 }
 
-const BackLink = styled(MenuLink)``;
-
 export function BackItem({ prevMenu }) {
   return (
     <BackLink href="#1" onClick={prevMenu}>
@@ -324,8 +234,6 @@ export function BackItem({ prevMenu }) {
     </BackLink>
   );
 }
-
-const CloseLink = styled(MenuLink)``;
 
 export function CloseItem({ closeMenu }) {
   return (

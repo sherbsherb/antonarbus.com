@@ -4,6 +4,8 @@ import './App.css';
 import { NavBar } from './components/nav/Nav.js';
 import shortid from 'shortid';
 
+import {TopContainer, Main} from './components/nav/NavStyledComponents'
+
 import { FaApple } from 'react-icons/fa';
 import { FaReact } from 'react-icons/fa';
 import { FaRedhat } from 'react-icons/fa';
@@ -136,23 +138,6 @@ const navContent = [
     id: shortid.generate(),
   },
 ];
-
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-`;
-
-const TopContainer = styled.div`
-  text-align: center;
-  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  color: whitesmoke;
-  ${'' /* max-width: 600px; */}
-`;
 
 function App() {
   const [openedMenuState, setOpenedMenuState] = useState(null);

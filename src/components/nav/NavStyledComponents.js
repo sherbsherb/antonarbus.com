@@ -1,11 +1,31 @@
 import styled from 'styled-components';
 
-// CSS const
-const bg = '#242526';
-const textColor = '#dadce1';
-const navSize = '60px';
-const border = '1px solid #474a4d';
-const borderRadius = '8px';
+//#region CSS const
+
+  const bg = '#242526';
+  const textColor = '#dadce1';
+  const navSize = '60px';
+  const border = '1px solid #474a4d';
+  const borderRadius = '8px';
+
+//#endregion
+
+export const TopContainer = styled.div`
+  text-align: center;
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: whitesmoke;
+`;
+
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+`;
+
 
 export const NavStyled = styled.nav`
   height: ${navSize};

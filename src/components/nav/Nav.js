@@ -2,6 +2,7 @@
 // ! we can not grab an el with querySelector as we do in native JS
 
 import React, { useState, useEffect } from 'react';
+import shortid from 'shortid';
 // import styled components
 import {
   NavStyled,
@@ -16,85 +17,244 @@ import {
   BackLink,
   CloseLink,
 } from './NavStyledComponents';
-import './nav.css';
+//import './nav.css';
 
 // import & set icons
-import { FaChevronRight } from 'react-icons/fa';
+import { FaApple } from 'react-icons/fa';
+import { FaReact } from 'react-icons/fa';
+import { FaRedhat } from 'react-icons/fa';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { FaChevronRight as RightArrowIcon } from 'react-icons/fa';
 // can use alias with 'as'
-import { FaChevronLeft as LeftIcon } from 'react-icons/fa';
+import { FaChevronLeft as LeftArrowIcon } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
+
+const appleIcon = React.createElement(FaApple, {});
+const reactIcon = React.createElement(FaReact, {});
+const redHatIcon = React.createElement(FaRedhat, {});
+const plusIcon = React.createElement(AiOutlinePlus, {});
 // can insert component as a JS variable instead of JSX tag
 const closeIcon = React.createElement(IoClose, {});
 
-// navbar
+// menu structure
+const navContent = [
+  {
+    navItem: true,
+    visible: true,
+    icon: appleIcon,
+    text: '',
+    menu: null,
+    id: shortid.generate(),
+  },
+  {
+    navItem: true,
+    visible: true,
+    icon: reactIcon,
+    text: '',
+    menu: null,
+    id: shortid.generate(),
+  },
+  {
+    navItem: true,
+    visible: true,
+    icon: redHatIcon,
+    text: '',
+    menu: {
+      visible: false,
+      menuItems: [
+        {
+          text: 'text1',
+          iconLeft: '😇',
+          menu: null,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text2',
+          iconLeft: '',
+          menu: null,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text3',
+          iconLeft: '😇',
+          menu: null,
+          id: shortid.generate(),
+        },
+      ],
+    },
+    id: shortid.generate(),
+  },
+  {
+    navItem: true,
+    visible: true,
+    icon: plusIcon,
+    text: '',
+    menu: {
+      visible: true,
+      menuItems: [
+        {
+          text: 'text5',
+          iconLeft: '😇',
+          menu: {
+            visible: false,
+            menuItems: [
+              {
+                text: 'text6',
+                iconLeft: '😎',
+                menu: null,
+                id: shortid.generate(),
+              },
+              {
+                text: 'text7',
+                iconLeft: '😎',
+                menu: null,
+                id: shortid.generate(),
+              },
+              {
+                text: 'text8',
+                iconLeft: '😎',
+                menu: {
+                  visible: false,
+                  menuItems: [
+                    {
+                      text: 'long long long text',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text10',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text11',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                  ],
+                },
+                id: shortid.generate(),
+              },
+            ],
+          },
+          id: shortid.generate(),
+        },
+        {
+          text: 'text12',
+          iconLeft: '😇',
+          menu: null,
+          id: shortid.generate(),
+        },
+      ],
+    },
+    id: shortid.generate(),
+  },
+];
 
-export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
+// var
+let willOpenTopMenu = true
+
+// navbar
+export function NavBar() {
+  // states
+  const [openedMenuState, setOpenedMenuState] = useState(null);
+  const [showMenuContainerState, setShowMenuContainerState] = useState(false);
+
+  
+
   //#region HELPER FUNCS
 
   // ! helper funcs are in the top component
-  // ! wish to move them up, tu they use state
-  // ! but state can be created only inside a component
+  // ! wish to move them up, but they use 'state'
+  // ! but 'state' can be created only inside a component
 
   // update state to show menu
-  function showMenu(menuWithSubMenu) {
-    const isSubMenu = menuWithSubMenu.menu;
+  function showMenu(o) {
+    console.log('showMenu() func fired');
+    const isMenu = o.menu;
 
-    if (!isSubMenu) {
-      setOpenedMenuState(null);
-      console.log('no sub-menu');
+    if (!isMenu) {
+      console.log('no menu inside navItem');
+      // if menu container is ON, remove it
+      if (showMenuContainerState) {
+        closeMenu();
+        return;
+      }
+
+      if (!showMenuContainerState) {
+        console.log('no showing menu, do nothing');
+        return;
+      }
     }
 
-    if (isSubMenu) {
-      const subMenu = menuWithSubMenu.menu;
-      // for previous menu return when click on Back
-
+    if (isMenu) {
+      const menu = o.menu;
+      willOpenTopMenu = true
+      setShowMenuContainerState(true);
       setOpenedMenuState({
-        ...subMenu,
-        underNavItemId: menuWithSubMenu.id,
+        ...menu,
+        underNavItemId: o.id,
+        // just opened first menu, no previous menus exist yet
         prevMenu: [],
       });
-
       console.log('showed menu');
     }
   }
 
   // update state to change menu
-  function changeMenu(menuWithSubMenu) {
-    const isSubMenu = menuWithSubMenu.menu;
+  function changeMenu(o) {
+    console.log('changeMenu() func fired');
+
+    const isSubMenu = o.menu;
 
     if (!isSubMenu) {
       console.log('no sub-menu');
       return;
     }
 
-    const subMenu = menuWithSubMenu.menu;
+    console.log('fall one level down in menu');
+    willOpenTopMenu = false
+    const subMenu = o.menu;
     setOpenedMenuState({
       ...subMenu,
       underNavItemId: openedMenuState.underNavItemId,
       prevMenu: [...openedMenuState.prevMenu, openedMenuState],
     });
-
-    console.log('one level down in menu');
   }
 
   // update state to close menu
   function closeMenu(e) {
-    console.log('menu closed');
+    console.log('closeMenu() func fired');
+
     e?.stopPropagation();
-    openedMenuState && setOpenedMenuState(null);
+
+    if (showMenuContainerState) {
+      willOpenTopMenu = false
+      setShowMenuContainerState(false);
+      setOpenedMenuState(null);
+      console.log('closed existing menu');
+    }
   }
 
   // assign previous menu obj from array to a state to re-render it
   function prevMenu(e) {
+    console.log('prevMenu() func fired');
+
     e?.stopPropagation();
+    willOpenTopMenu = false
     setOpenedMenuState(openedMenuState.prevMenu.pop());
     console.log('clicked Back');
   }
 
   // add actions for Escape, Backspace, Enter, Arrows
   function navKeyboardHandler(e) {
+    console.log('navKeyboardHandler() func fired');
+
     const { key, keyCode } = e;
-    console.log(keyCode);
+    //console.log(keyCode);
     if (!openedMenuState) return;
     const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
     isNestedMenu && key === 'Backspace' && prevMenu();
@@ -124,21 +284,24 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
 
   //#endregion
 
-  // NavBar component, is the container on the top
+  console.log('NavBar rendered');
   return (
     // ? we throw props over & over again, is there more elegant way?
     <NavStyled>
       <NavItemStyled>
         {navContent.map(
-          (navItem) =>
-            navItem.visible && (
+          (navObj) =>
+            navObj.visible && (
               <NavItem
-                navItem={navItem}
+                navObj={navObj}
                 openedMenuState={openedMenuState}
                 prevMenu={prevMenu}
                 closeMenu={closeMenu}
                 showMenu={showMenu}
                 changeMenu={changeMenu}
+                showMenuContainerState={showMenuContainerState}
+                willOpenTopMenu={willOpenTopMenu}
+                key={navObj.id}
               />
             )
         )}
@@ -149,97 +312,128 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
 
 // component inside the NavBar = icons
 export function NavItem({
-  navItem,
+  navObj,
   openedMenuState,
   prevMenu,
   closeMenu,
   showMenu,
   changeMenu,
+  showMenuContainerState,
+  willOpenTopMenu
 }) {
+  console.log('NavItem rendered');
   return (
-    <NavItemLi
-      // when clicked 'setOpenedMenuState' is updated and menu is re-rendered
-      onClick={(e) => {
-        e.stopPropagation();
-        showMenu(navItem);
-      }}
-      // onMouseEnter={() => showMenu(navItem)}
-      // onMouseLeave={() => closeMenu()}
-    >
-      <Icon href="#">
-        {navItem.icon}
-        {navItem.text}
+    <NavItemLi>
+      <Icon
+        href="#"
+        onClick={(e) => {
+          e.stopPropagation();
+          showMenu(navObj);
+        }}
+        // onMouseEnter={() => showMenu(navItem)}
+        // onMouseLeave={() => closeMenu()}
+      >
+        {navObj.icon}
+        {navObj.text}
       </Icon>
 
       {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
-      {openedMenuState && openedMenuState.underNavItemId === navItem.id && (
-        <DropdownMenu
-          openedMenuState={openedMenuState}
-          prevMenu={prevMenu}
-          closeMenu={closeMenu}
-          changeMenu={changeMenu}
-        />
-      )}
+      {showMenuContainerState &&
+        openedMenuState?.underNavItemId === navObj.id && (
+          <Menu
+            openedMenuState={openedMenuState}
+            prevMenu={prevMenu}
+            closeMenu={closeMenu}
+            changeMenu={changeMenu}
+            willOpenTopMenu={willOpenTopMenu}
+          />
+        )}
     </NavItemLi>
   );
 }
 
 // menu with 'back' & 'close' buttons on top & MenuItems
-export function DropdownMenu({
-  openedMenuState,
-  prevMenu,
-  closeMenu,
-  changeMenu,
-}) {
+export function Menu({ openedMenuState, prevMenu, closeMenu, changeMenu, willOpenTopMenu}) {
+  // ! every time we press item inside MenuContainer
+  // ! we update the openedMenuState with changeMenu() func
+  // ! changeMenu() func updates openedMenuState, which triggers re-render
+  // ! ... and we should get new MenuContainer, but no!!!
+  // ! if we color els in dev tool we can see els are not touched
+  // ! how come?
+  console.log('Menu rendered');
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   return (
     <MenuContainer>
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
       {openedMenuState.menuItems.map((menuItem) => (
-        <MenuItem menuItem={menuItem} changeMenu={changeMenu} />
+        <MenuItem
+          menuItem={menuItem}
+          changeMenu={changeMenu}
+          key={menuItem.id}
+          willOpenTopMenu={willOpenTopMenu}
+        />
       ))}
     </MenuContainer>
   );
 }
 
+// ! MenuContainer width: auto
+// ! want to apply transition, which requires fixed width
+// ! such manipulations are done by JS, but how to grab an element in React?
+
 // item inside menu
-export function MenuItem({ menuItem, changeMenu }) {
+export function MenuItem({ menuItem, changeMenu, willOpenTopMenu }) {
+  console.log('MenuItem rendered');
+  const subMenuExists = menuItem.menu;
+  console.log(willOpenTopMenu)
   return (
     <MenuLink
       href="#1"
+      willOpenTopMenu={willOpenTopMenu}
       onClick={(e) => {
         e?.stopPropagation();
         changeMenu(menuItem);
       }}
     >
-      <Icon>{menuItem.iconLeft}</Icon>
-      <MenuText>{menuItem.text}</MenuText>
-      {menuItem.menu && (
-        <MenuIconRight>
-          <FaChevronRight />
-        </MenuIconRight>
+      <span className="left-part">
+        <Icon>{menuItem.iconLeft}</Icon>
+        <MenuText>{menuItem.text}</MenuText>
+      </span>
+
+      {subMenuExists && (
+        <span className="right-part">
+          <MenuIconRight>
+            <RightArrowIcon />
+          </MenuIconRight>
+        </span>
       )}
     </MenuLink>
   );
 }
 
 export function BackItem({ prevMenu }) {
+  console.log('BackItem rendered');
   return (
     <BackLink href="#1" onClick={prevMenu}>
-      <MenuIcon>
-        <LeftIcon />
-      </MenuIcon>
-      <MenuText>Back</MenuText>
+      <span className="left-part">
+        <MenuIcon>
+          <LeftArrowIcon />
+        </MenuIcon>
+        <MenuText>Back</MenuText>
+      </span>
     </BackLink>
   );
 }
 
 export function CloseItem({ closeMenu }) {
+  console.log('CloseItem rendered');
   return (
     <CloseLink href="#1" onClick={closeMenu}>
-      <MenuIcon>{closeIcon}</MenuIcon>
-      <MenuText>Close</MenuText>
+      <span className="left-part">
+        <MenuIcon>{closeIcon}</MenuIcon>
+        <MenuText>Close</MenuText>
+      </span>
     </CloseLink>
   );
 }

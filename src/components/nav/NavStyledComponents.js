@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 //#region CSS const
 
-  const bg = '#242526';
-  const textColor = '#dadce1';
-  const navSize = '60px';
-  const border = '1px solid #474a4d';
-  const borderRadius = '8px';
+const bg = '#242526';
+const textColor = '#dadce1';
+const navSize = '60px';
+const border = '1px solid #474a4d';
+const borderRadius = '8px';
 
 //#endregion
 
@@ -61,6 +61,7 @@ export const Icon = styled.a`
     fill: ${textColor};
     width: 20px;
     height: 20px;
+    margin-top: 1px;
   }
 
   &:hover {
@@ -75,28 +76,69 @@ export const NavItemLi = styled.li`
   justify-content: center;
 `;
 
+const slideDownAnimation = keyframes`
+  from {
+    transform: scaleY(0) translateX(-45%);
+  }
+  to {
+    transform: scaleY(1) translateX(-45%);
+  }
+`;
+
 export const MenuContainer = styled.div`
   position: absolute;
   top: 58px;
-  width: auto;
-  transition: width 1.5s ease;
-  transform: translateX(-45%);
+  width: 300px;
   background-color: ${bg};
   border: ${border};
   border-radius: ${borderRadius};
   padding: 1rem;
   overflow: hidden;
   z-index: 666;
+  animation: ${slideDownAnimation} 200ms linear forwards;
+  transform-origin: 0 0;
 `;
 
+const appearAnimation = keyframes`
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+// todo: use props to animate only nested menu
+// todo: do not animate close & back
 export const MenuLink = styled.a`
   height: 50px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-radius: ${borderRadius};
   padding: 0.5rem;
   color: ${textColor};
   white-space: nowrap;
+  /* animation: ${appearAnimation} 200ms linear; */
+  color: ${(props) => props.color};
+  animation: ${(props) =>
+    props.willOpenTopMenu
+      ? css`none`
+      : css`${appearAnimation} 200ms linear`};
+
+  .left-part {
+    width: auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .right-part {
+    margin-left: 40px;
+  }
 
   &:hover {
     background-color: #525357;
@@ -110,14 +152,20 @@ export const MenuIcon = styled(Icon)`
 `;
 
 export const MenuIconRight = styled(Icon)`
-  margin-left: auto;
   background-color: transparent;
+  margin-right: -5px;
 `;
 
 export const MenuText = styled.span`
   margin-left: 10px;
 `;
 
-export const BackLink = styled(MenuLink)``;
+export const BackLink = styled(MenuLink)`
+  color: #858383;
+  animation: none;
+`;
 
-export const CloseLink = styled(MenuLink)``;
+export const CloseLink = styled(MenuLink)`
+  color: #858383;
+  animation: none;
+`;

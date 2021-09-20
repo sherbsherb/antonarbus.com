@@ -117,7 +117,7 @@ const navContent = [
                   visible: false,
                   menuItems: [
                     {
-                      text: 'long long long text',
+                      text: 'long long long long long long long long text',
                       iconLeft: '🥸',
                       menu: null,
                       id: shortid.generate(),

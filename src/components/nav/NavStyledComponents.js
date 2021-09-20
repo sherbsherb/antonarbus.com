@@ -155,7 +155,7 @@ export const MenuLink = styled.a`
   };
 
   .left-part {
-    width: auto;
+    width: 100%;
     display: inline-flex;
     flex-direction: row;
     align-content: center;
@@ -186,6 +186,9 @@ export const MenuIconRight = styled(Icon)`
 
 export const MenuText = styled.span`
   margin-left: 10px;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
 `;
 
 export const BackLink = styled(MenuLink)`

@@ -63,19 +63,19 @@ const navContent = [
       visible: false,
       menuItems: [
         {
-          text: 'text1',
+          text: 'text',
           iconLeft: '😇',
           menu: null,
           id: shortid.generate(),
         },
         {
-          text: 'text2',
+          text: 'text',
           iconLeft: '',
           menu: null,
           id: shortid.generate(),
         },
         {
-          text: 'text3',
+          text: 'text',
           iconLeft: '😇',
           menu: null,
           id: shortid.generate(),
@@ -93,25 +93,25 @@ const navContent = [
       visible: true,
       menuItems: [
         {
-          text: 'text5',
+          text: 'text',
           iconLeft: '😇',
           menu: {
             visible: false,
             menuItems: [
               {
-                text: 'text6',
+                text: 'text',
                 iconLeft: '😎',
                 menu: null,
                 id: shortid.generate(),
               },
               {
-                text: 'text7',
+                text: 'text',
                 iconLeft: '😎',
                 menu: null,
                 id: shortid.generate(),
               },
               {
-                text: 'text8',
+                text: 'text',
                 iconLeft: '😎',
                 menu: {
                   visible: false,
@@ -123,13 +123,37 @@ const navContent = [
                       id: shortid.generate(),
                     },
                     {
-                      text: 'text10',
+                      text: 'text',
                       iconLeft: '🥸',
                       menu: null,
                       id: shortid.generate(),
                     },
                     {
-                      text: 'text11',
+                      text: 'text',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text',
+                      iconLeft: '🥸',
+                      menu: null,
+                      id: shortid.generate(),
+                    },
+                    {
+                      text: 'text',
                       iconLeft: '🥸',
                       menu: null,
                       id: shortid.generate(),
@@ -143,7 +167,25 @@ const navContent = [
           id: shortid.generate(),
         },
         {
-          text: 'text12',
+          text: 'text',
+          iconLeft: '😇',
+          menu: null,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text',
+          iconLeft: '😇',
+          menu: null,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text',
+          iconLeft: '😇',
+          menu: null,
+          id: shortid.generate(),
+        },
+        {
+          text: 'text',
           iconLeft: '😇',
           menu: null,
           id: shortid.generate(),
@@ -155,15 +197,13 @@ const navContent = [
 ];
 
 // var
-let willOpenTopMenu = true
+let willOpenTopMenu = true;
 
 // navbar
 export function NavBar() {
   // states
   const [openedMenuState, setOpenedMenuState] = useState(null);
   const [showMenuContainerState, setShowMenuContainerState] = useState(false);
-
-  
 
   //#region HELPER FUNCS
 
@@ -192,7 +232,7 @@ export function NavBar() {
 
     if (isMenu) {
       const menu = o.menu;
-      willOpenTopMenu = true
+      willOpenTopMenu = true;
       setShowMenuContainerState(true);
       setOpenedMenuState({
         ...menu,
@@ -216,7 +256,7 @@ export function NavBar() {
     }
 
     console.log('fall one level down in menu');
-    willOpenTopMenu = false
+    willOpenTopMenu = false;
     const subMenu = o.menu;
     setOpenedMenuState({
       ...subMenu,
@@ -232,7 +272,7 @@ export function NavBar() {
     e?.stopPropagation();
 
     if (showMenuContainerState) {
-      willOpenTopMenu = false
+      willOpenTopMenu = false;
       setShowMenuContainerState(false);
       setOpenedMenuState(null);
       console.log('closed existing menu');
@@ -244,7 +284,7 @@ export function NavBar() {
     console.log('prevMenu() func fired');
 
     e?.stopPropagation();
-    willOpenTopMenu = false
+    willOpenTopMenu = false;
     setOpenedMenuState(openedMenuState.prevMenu.pop());
     console.log('clicked Back');
   }
@@ -290,7 +330,7 @@ export function NavBar() {
     <NavStyled>
       <NavItemStyled>
         {navContent.map(
-          (navObj) =>
+          navObj =>
             navObj.visible && (
               <NavItem
                 navObj={navObj}
@@ -319,14 +359,14 @@ export function NavItem({
   showMenu,
   changeMenu,
   showMenuContainerState,
-  willOpenTopMenu
+  willOpenTopMenu,
 }) {
   console.log('NavItem rendered');
   return (
     <NavItemLi>
       <Icon
         href="#"
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation();
           showMenu(navObj);
         }}
@@ -353,7 +393,13 @@ export function NavItem({
 }
 
 // menu with 'back' & 'close' buttons on top & MenuItems
-export function Menu({ openedMenuState, prevMenu, closeMenu, changeMenu, willOpenTopMenu}) {
+export function Menu({
+  openedMenuState,
+  prevMenu,
+  closeMenu,
+  changeMenu,
+  willOpenTopMenu,
+}) {
   // ! every time we press item inside MenuContainer
   // ! we update the openedMenuState with changeMenu() func
   // ! changeMenu() func updates openedMenuState, which triggers re-render
@@ -366,7 +412,7 @@ export function Menu({ openedMenuState, prevMenu, closeMenu, changeMenu, willOpe
     <MenuContainer>
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
-      {openedMenuState.menuItems.map((menuItem) => (
+      {openedMenuState.menuItems.map(menuItem => (
         <MenuItem
           menuItem={menuItem}
           changeMenu={changeMenu}
@@ -386,12 +432,11 @@ export function Menu({ openedMenuState, prevMenu, closeMenu, changeMenu, willOpe
 export function MenuItem({ menuItem, changeMenu, willOpenTopMenu }) {
   console.log('MenuItem rendered');
   const subMenuExists = menuItem.menu;
-  console.log(willOpenTopMenu)
   return (
     <MenuLink
       href="#1"
       willOpenTopMenu={willOpenTopMenu}
-      onClick={(e) => {
+      onClick={e => {
         e?.stopPropagation();
         changeMenu(menuItem);
       }}

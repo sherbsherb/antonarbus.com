@@ -31,6 +31,7 @@ export const NavStyled = styled.nav`
   background-color: ${bg};
   padding: 0 1rem;
   border-bottom: ${border};
+  position: relative;
 `;
 
 export const NavItemStyled = styled.ul`
@@ -85,18 +86,43 @@ const slideDownAnimation = keyframes`
   }
 `;
 
+const slideDownAnimationPhone = keyframes`
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+`;
+
 export const MenuContainer = styled.div`
   position: absolute;
-  top: 58px;
+  top: 110%;
   width: 300px;
+  /* width: auto; */
   background-color: ${bg};
   border: ${border};
   border-radius: ${borderRadius};
   padding: 1rem;
   overflow: hidden;
   z-index: 666;
-  animation: ${slideDownAnimation} 200ms linear forwards;
-  transform-origin: 0 0;
+
+  animation-name: ${slideDownAnimation};
+  animation-duration: 500ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  animation-fill-mode: forwards;
+  transform-origin: top;
+
+  @media screen and (max-width: 480px) {
+    transform: translateX(0px) !important;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    animation-name: ${slideDownAnimationPhone};
+  }
 `;
 
 const appearAnimation = keyframes`
@@ -120,11 +146,13 @@ export const MenuLink = styled.a`
   color: ${textColor};
   white-space: nowrap;
   /* animation: ${appearAnimation} 200ms linear; */
-  color: ${(props) => props.color};
-  animation: ${(props) =>
+  color: ${props => props.color};
+  animation: ${props =>
+    // @ts-ignore
     props.willOpenTopMenu
       ? css`none`
-      : css`${appearAnimation} 200ms linear`};
+      : css`${appearAnimation} 200ms cubic-bezier(0, 1, 0.5, 1)`
+  };
 
   .left-part {
     width: auto;

@@ -10,28 +10,13 @@ const borderRadius = '8px';
 
 //#endregion
 
-export const TopContainer = styled.div`
-  text-align: center;
-  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  color: whitesmoke;
-`;
-
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-`;
-
 export const NavStyled = styled.nav`
   height: ${navSize};
-  background-color: ${bg};
+  /* background-color: ${bg}; */
   padding: 0 1rem;
   border-bottom: ${border};
   position: relative;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
 `;
 
 export const NavItemStyled = styled.ul`
@@ -79,19 +64,27 @@ export const NavItemLi = styled.li`
 
 const slideDownAnimation = keyframes`
   from {
-    transform: scaleY(0) translateX(-45%);
+    /* transform: scaleY(0) translateX(-45%); */
+    transform: translateY(-50%) translateX(-45%);
+    opacity: 0;
   }
   to {
-    transform: scaleY(1) translateX(-45%);
+    /* transform: scaleY(1) translateX(-45%); */
+    transform: translateY(0%) translateX(-45%);
+    opacity: 1;
   }
 `;
 
 const slideDownAnimationPhone = keyframes`
   from {
-    transform: scaleY(0);
+    /* transform: scaleY(0); */
+    transform: translateY(-50%);
+    opacity: 0;
   }
   to {
-    transform: scaleY(1);
+    /* transform: scaleY(1); */
+    transform: translateY(0%);
+    opacity: 1;
   }
 `;
 
@@ -101,6 +94,7 @@ export const MenuContainer = styled.div`
   width: 300px;
   /* width: auto; */
   background-color: ${bg};
+  
   border: ${border};
   border-radius: ${borderRadius};
   padding: 1rem;

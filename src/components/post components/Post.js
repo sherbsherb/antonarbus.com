@@ -6,19 +6,20 @@ import Prism from 'prismjs';
 import '/Users/Sherb/Git/antonarbus.com/node_modules/prismjs/components/prism-jsx.js';
 import '/Users/Sherb/Git/antonarbus.com/node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
 import './prism.css';
+import uuid from 'react-uuid';
 
 export function returnArrOfJsx(arr) {
   return arr.map((el, index) => {
-    if (el.type === 'text') return <Text key={index}>{el.val}</Text>;
-    if (el.type === 'code') return <Code key={index}>{el.val}</Code>;
-    if (el.type === 'output') return <Output key={index}>{el.val}</Output>;
-    return <div key={index}>{el.val}</div>;
+    if (el.type === 'text') return <Text key={uuid()}>{el.val}</Text>;
+    if (el.type === 'code') return <Code key={uuid()}>{el.val}</Code>;
+    if (el.type === 'output') return <Output key={uuid()}>{el.val}</Output>;
+    return <div key={uuid()}>{el.val}</div>;
   });
 }
 
 export function returnArrOfTags(tagsArr) {
   return tagsArr.map((tag, index) => {
-    return <StyledTag key={'tag' + index}>{tag}</StyledTag>;
+    return <StyledTag key={uuid()}>{tag}</StyledTag>;
   });
 }
 
@@ -92,7 +93,7 @@ export function Code(props) {
       'remove-indent': true,
       'left-trim': true,
       'right-trim': true,
-      'break-lines': 60, //max number of characters in each line before break
+      'break-lines': 600, //max number of characters in each line before break
     });
 
     Prism.highlightAll();

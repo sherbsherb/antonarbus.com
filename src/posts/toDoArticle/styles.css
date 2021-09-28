@@ -1,0 +1,42 @@
+.toDoApp {
+  width: 90%;
+  border: 1px solid grey;
+  background-color: #FFF;
+  border-radius: 4px;
+  margin: 0px auto;
+  padding: 5px;
+}
+
+form {
+  margin: 10px;
+  text-align: center;
+}
+
+form input {
+  padding: 3px;
+}
+
+form button {
+  margin-left: 10px;
+  width: 50px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.toDoList {
+
+}
+
+.toDoItem {
+  margin: 5px 0px;
+  padding: 5px;
+  border-bottom: 1px dotted grey;
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.delBtn {
+  cursor: pointer;
+}

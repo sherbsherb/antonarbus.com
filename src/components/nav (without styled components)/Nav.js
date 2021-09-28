@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import './nav.css';
-
+import uuid from 'react-uuid';
 // import & set icons
 import { FaChevronRight } from 'react-icons/fa';
 // can use alias with 'as'
@@ -150,6 +150,7 @@ export function NavBar({ navContent, openedMenuState, setOpenedMenuState }) {
                 closeMenu={closeMenu}
                 showMenu={showMenu}
                 changeMenu={changeMenu}
+                key={uuid()}
               />
             )
         )}
@@ -210,7 +211,7 @@ export function DropdownMenu({
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
 
       {openedMenuState.menuItems.map((menuItem) => (
-        <DropdownItem menuItem={menuItem} changeMenu={changeMenu} />
+        <DropdownItem menuItem={menuItem} changeMenu={changeMenu} key={uuid()} />
       ))}
     </div>
   );

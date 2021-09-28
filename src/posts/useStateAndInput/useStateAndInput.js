@@ -23,7 +23,7 @@ export const useStateAndInput = {
     </>
   ),
   date: '2021.09.26',
-  tagsArr: ['react', 'state', 'useState', 'input', 'basics'],
+  tagsArr: ['react', 'state', 'useState', 'input', 'basics', 'hook'],
   abstract: 'abstract from the article',
   articlesArr: [
     {
@@ -31,7 +31,7 @@ export const useStateAndInput = {
       val: (
         <>
           We have to use <CodeInline>useState()</CodeInline> to be able to see
-          an input changed on the screen.
+          an input changes on the screen.
         </>
       ),
     },

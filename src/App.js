@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import uuid from 'react-uuid';
 //import './App.css';
 import styled from 'styled-components';
 import { NavBar } from './components/nav/Nav.js';
@@ -8,14 +9,17 @@ import { allPosts } from './posts/allPosts.js';
 
 const StyledApp = styled.div`
   text-align: left;
+  /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
+
+  background: #c9ccd3;
   background-image: linear-gradient(
-    to top,
-    #d5d4d0 0%,
-    #d5d4d0 1%,
-    #eeeeec 31%,
-    #efeeec 75%,
-    #e9e9e7 100%
+    -180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(0, 0, 0, 0.5) 100%
   );
+  background-blend-mode: lighten;
+
   min-height: 100vh;
   color: whitesmoke;
 `;
@@ -30,14 +34,14 @@ const StyledMain = styled.main`
 
 function App() {
   console.log('App rendered');
-  console.log(allPosts)
+  console.log(allPosts);
 
   return (
     <StyledApp>
       <NavBar />
       <StyledMain>
         {allPosts.map(item => (
-          <Post post={item} key={item.title} />
+          <Post post={item} key={uuid()} />
         ))}
       </StyledMain>
     </StyledApp>

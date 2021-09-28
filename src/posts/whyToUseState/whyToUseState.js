@@ -51,13 +51,13 @@ function ComponentWithState() {
 export const whyToUseState = {
   title: <>Why to use <CodeInline>useState()</CodeInline></>,
   date: '2021.09.25',
-  tagsArr: ['react', 'state', 'useState', 'basics'],
+  tagsArr: ['react', 'state', 'useState', 'basics', 'hook'],
   abstract: 'abstract from the article',
   articlesArr: [
     {
       type: 'text',
       val: <>Let's create an incrementor.</>,
-    },
+    }, 
     {
       type: 'code',
       val: `

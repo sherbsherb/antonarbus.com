@@ -99,7 +99,9 @@ export const whyToUseState = {
     },
     {
       type: 'text',
-      val: <>As far as react renders only changes in virtual DOM, we need to tell him about changes. It can be done with <CodeInline>useState()</CodeInline> <Link link={'https://reactjs.org/docs/hooks-state.html'}>hook</Link>.</>,
+      val: <>As far as react renders only changes in virtual DOM, we need 
+      to tell him about changes. It can be done with <CodeInline>useState()</CodeInline>  
+      {' '} <Link link={'https://reactjs.org/docs/hooks-state.html'}>hook</Link>.</>,
     },
     {
       type: 'code',

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 // import styled, { keyframes, css } from 'styled-components';
-import styled, { keyframes, css } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 // import './styles.css';
 import Prism from 'prismjs';
-import '/Users/Sherb/Git/antonarbus.com/node_modules/prismjs/components/prism-jsx.js';
-import '/Users/Sherb/Git/antonarbus.com/node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
+import './../../../node_modules/prismjs/components/prism-jsx.js';
+import './../../../node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
 import './prism.css';
 import uuid from 'react-uuid';
 

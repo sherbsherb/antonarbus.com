@@ -293,7 +293,7 @@ export function NavBar() {
   function navKeyboardHandler(e) {
     console.log('navKeyboardHandler() func fired');
 
-    const { key, keyCode } = e;
+    const { key } = e;
     //console.log(keyCode);
     if (!openedMenuState) return;
     const isNestedMenu = openedMenuState?.prevMenu?.length > 0;

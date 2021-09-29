@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
+import { CodeInline } from '../../components/post components/Post';
 
 function InputWithState() {
   const [inpVal, setInpVal] = useState('initial text');

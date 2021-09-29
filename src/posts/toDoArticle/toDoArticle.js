@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
 import './styles.css';
 
 function ToDoApp() {
@@ -101,7 +100,7 @@ function ToDoItem({
   getToDoList,
 }) {
   function removeItem() {
-    const newList = toDoListState.filter(o => o.id != id);
+    const newList = toDoListState.filter(o => o.id !== id);
     localStorage.setItem('toDoArr', JSON.stringify(newList));
     setToDoListState(getToDoList());
   }
@@ -231,7 +230,7 @@ export const toDoArticle = {
           getToDoList,
         }) {
           function removeItem() {
-            const newList = toDoListState.filter(o => o.id != id);
+            const newList = toDoListState.filter(o => o.id !== id);
             localStorage.setItem('toDoArr', JSON.stringify(newList));
             setToDoListState(getToDoList());
           }

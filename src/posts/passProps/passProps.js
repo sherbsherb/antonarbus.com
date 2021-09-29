@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CodeInline, Link} from '../../components/post components/Post';
+import React from 'react';
+import { CodeInline } from '../../components/post components/Post';
 
 function Component1(props) {
   return (

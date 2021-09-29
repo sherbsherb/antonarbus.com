@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
+import React from 'react';
+import { CodeInline } from '../../components/post components/Post';
 
 export const jsVsJsx = {
   title: 'JS vs JSX',

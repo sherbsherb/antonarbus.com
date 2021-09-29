@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
 
 const btnCss = {
   padding: '5px 20px',

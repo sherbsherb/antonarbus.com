@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
+import { CodeInline } from '../../components/post components/Post';
 
 const greenCss = { color: 'green' }
 const redCss = { color: 'red' }
@@ -15,14 +15,14 @@ function StateIsImmutable() {
           onClick={() => {
             state.push(state[state.length - 1] + 1); 
             // incorrect
-            // state is changed, but not rendered
+            // state is updated, but not rendered
 
             console.log(state)
           }}
         >
           Add value directly to the state array
         </button>
-        <span style={{...marginCss, ...redCss}}>state is not rendered!</span>
+        <span style={{...marginCss, ...redCss}}>ç</span>
       </div>
       <div style={marginCss}>
         <button
@@ -85,13 +85,13 @@ export const immutableState = {
                 onClick={() => {
                   state.push(state[state.length - 1] + 1); 
                   // incorrect
-                  // state is changed, but not rendered
+                  // state is updated, but not rendered
                   console.log(state)
                 }}
               >
                 Add value directly to the state array
               </button>
-              <span style={{...marginCss, ...redCss}}>state is not rendered!</span>
+              <span style={{...marginCss, ...redCss}}>state is updated, but not rendered!</span>
             </div>
             <div style={marginCss}>
               <button

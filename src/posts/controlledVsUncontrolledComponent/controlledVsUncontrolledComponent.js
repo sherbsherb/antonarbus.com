@@ -16,6 +16,8 @@ function ControlledInput() {
   );
 }
 
+const toRender1 = <ControlledInput />
+
 function UncontrolledInput() {
   const [inpVal, setInpVal] = useState('initial text');
   const inpRef = useRef('initial text')
@@ -32,6 +34,8 @@ function UncontrolledInput() {
     </>
   );
 }
+
+const toRender2 = <UncontrolledInput />
 
 export const controlledVsUncontrolledComponent = {
   title: 'Controlled vs uncontrolled component',
@@ -69,11 +73,13 @@ export const controlledVsUncontrolledComponent = {
             </>
           );
         }
+
+        const toRender1 = <ControlledInput />
       `,
     },
     {
       type: 'output',
-      val: <ControlledInput></ControlledInput>,
+      val: toRender1
     },
     {
       type: 'text',
@@ -106,6 +112,8 @@ export const controlledVsUncontrolledComponent = {
             </>
           );
         }
+
+        const toRender2 = <UncontrolledInput />
       `,
     },
     {
@@ -118,7 +126,7 @@ export const controlledVsUncontrolledComponent = {
     },
     {
       type: 'output',
-      val: <UncontrolledInput></UncontrolledInput>,
+      val: toRender2
     },
     
   ],

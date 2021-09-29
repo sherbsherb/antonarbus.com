@@ -10,7 +10,9 @@ export const jsVsJsx = {
     {
       type: 'text',
       val: <>
-        In React we generate html by javascript. We can use <CodeInline>React.createElement()</CodeInline> function from the React library to add an HTML element or we can use JSX syntax.
+        In React we generate html by javascript. We can use 
+        <CodeInline>React.createElement()</CodeInline> function from the React 
+        library to add an HTML element or we can use JSX syntax.
       </>
     },
     { 

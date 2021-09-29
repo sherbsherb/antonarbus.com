@@ -115,6 +115,8 @@ function ToDoItem({
   );
 }
 
+const toRender = <ToDoApp />
+
 export const toDoArticle = {
   title: 'ToDo app',
   date: '2021.09.26',
@@ -244,11 +246,13 @@ export const toDoArticle = {
             </div>
           );
         }
+
+        const toRender = <ToDoApp />
       `,
     },
     {
       type: 'output',
-      val: <ToDoApp></ToDoApp>,
+      val: toRender
     },
   ],
 };

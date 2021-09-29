@@ -39,8 +39,8 @@ function App() {
     <StyledApp>
       <NavBar />
       <StyledMain>
-        {allPosts.map(item => (
-          <Post post={item} key={uuid()} />
+        {allPosts.map((item, index) => (
+          <Post post={item} key={uuid()} num={allPosts.length - index}/>
         ))}
       </StyledMain>
     </StyledApp>

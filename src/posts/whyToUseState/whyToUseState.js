@@ -25,6 +25,8 @@ function ComponentWithoutState() {
   )
 }
 
+const toRender1 = <ComponentWithoutState />
+
 function ComponentWithState() {
 
   const [likes, setLikes] = useState(0)
@@ -37,8 +39,6 @@ function ComponentWithState() {
     setLikes(likes - 1) 
   }
 
-  
-
   return (
     <>
       <h1>{likes}</h1>
@@ -47,6 +47,8 @@ function ComponentWithState() {
     </>
   )
 }
+
+const toRender2 = <ComponentWithState/>
 
 export const whyToUseState = {
   title: <>Why to use <CodeInline>useState()</CodeInline></>,
@@ -85,6 +87,8 @@ export const whyToUseState = {
             </>
           )
         }
+
+        const toRender1 = <ComponentWithoutState/>
       `
     },
     {
@@ -93,9 +97,7 @@ export const whyToUseState = {
     },
     {
       type: 'output',
-      val: (
-        <ComponentWithoutState/>
-      ),
+      val: toRender1
     },
     {
       type: 'text',
@@ -132,13 +134,12 @@ export const whyToUseState = {
           )
         }
 
+        const toRender2 = <ComponentWithState/>
       `
     },
     {
       type: 'output',
-      val: (
-        <ComponentWithState/>
-      ),
+      val: toRender2,
     },
     {
       type: 'text',

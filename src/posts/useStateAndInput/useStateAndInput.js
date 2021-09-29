@@ -16,6 +16,8 @@ function InputWithState() {
   );
 }
 
+const toRender = <InputWithState />
+
 export const useStateAndInput = {
   title: (
     <>
@@ -58,11 +60,13 @@ export const useStateAndInput = {
             </>
           );
         }
+
+        const toRender = <InputWithState />
       `,
     },
     {
       type: 'output',
-      val: <InputWithState></InputWithState>,
+      val: toRender
     },
   ],
 };

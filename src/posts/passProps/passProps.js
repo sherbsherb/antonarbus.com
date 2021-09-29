@@ -11,6 +11,8 @@ function Component1(props) {
   );
 }
 
+const toRender1 = <Component1 prop1='hello' prop2='my' prop3='friend'/>
+
 function Component2({ prop1, prop2, prop3 }) {
   return (
     <div>
@@ -20,6 +22,8 @@ function Component2({ prop1, prop2, prop3 }) {
     </div>
   );
 }
+
+const toRender2 = <Component2 prop1='hello' prop2='my' prop3='friend'/>
 
 function Component3({ prop1, prop2, prop3 }) {
   return (
@@ -36,6 +40,8 @@ const userProps = {
   prop2: 'my',
   prop3: 'friend',
 }
+
+const toRender3 = <Component3 {...userProps}/>
 
 export const passProps = {
   title: 'How to pass props',
@@ -63,6 +69,8 @@ export const passProps = {
             </div>
           );
         }
+
+        const toRender1 = <Component1 prop1='hello' prop2='my' prop3='friend'/>
       `,
     },
     {
@@ -73,9 +81,7 @@ export const passProps = {
     },
     {
       type: 'output',
-      val: (
-        <Component1 prop1='hello' prop2='my' prop3='friend' />
-      ),
+      val: toRender1,
     },
 
     {
@@ -98,6 +104,8 @@ export const passProps = {
             </div>
           );
         }
+
+        const toRender2 = <Component2 prop1='hello' prop2='my' prop3='friend'/>
       `,
     },
     {
@@ -108,9 +116,7 @@ export const passProps = {
     },
     {
       type: 'output',
-      val: (
-        <Component2 prop1='hello' prop2='my' prop3='friend'/>
-      ),
+      val: toRender2,
     },
     {
       type: 'text',
@@ -128,35 +134,25 @@ export const passProps = {
         function Component3({ prop1, prop2, prop3 }) {
           return (
             <div>
-              prop1 = {prop1} <br/> // hello
-              prop2 = {prop2} <br/> // my
-              prop3 = {prop3} <br/> // friend
+              prop1 = {prop1} <br/>
+              prop2 = {prop2} <br/>
+              prop3 = {prop3} <br/>
             </div>
           );
         }
-      `,
-    },
-    {
-      type: 'code',
-      val: `
+        
         const userProps = {
           prop1: 'Hello',
           prop2: 'my',
           prop3: 'friend',
         }
-      `
-    },
-    {
-      type: 'code',
-      val: `
-        <Component3 {...userProps} />
+        
+        const toRender3 = <Component3 {...userProps}/>
       `,
     },
     {
       type: 'output',
-      val: (
-        <Component3 {...userProps} />
-      ),
+      val: toRender3,
     },
   ],
 };

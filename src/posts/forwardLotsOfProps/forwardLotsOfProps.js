@@ -18,6 +18,8 @@ function ChildComponent(props) {
   );
 }
 
+const toRender = <ParentComponent prop1='hello' prop2='my' prop3='friend' />
+
 export const forwardLotsOfProps = {
   title: 'Forward lots of props',
   date: '2021.09.29',
@@ -53,13 +55,13 @@ export const forwardLotsOfProps = {
             </>
           );
         }
+
+        const toRender = <ParentComponent prop1='hello' prop2='my' prop3='friend' />
       `,
     },
     {
       type: 'output',
-      val: (
-        <ParentComponent prop1='hello' prop2='my' prop3='friend' />
-      ),
+      val: toRender,
     },
 
   

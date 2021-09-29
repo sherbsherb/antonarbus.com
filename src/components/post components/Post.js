@@ -29,6 +29,7 @@ export function Post(props) {
       <Title>{props.post.title}</Title>
       <StyledSection>
         <Article>{returnArrOfJsx(props.post.articlesArr)}</Article>
+        <ArticleNum num={props.num}/>
         <Tags>{props.post.tagsArr}</Tags>
         <Date>{props.post.date}</Date>
       </StyledSection>
@@ -160,7 +161,6 @@ const StyledOutput = styled.div`
   margin: 20px 0px;
   overflow: auto;
   border-radius: 4px;
-
 `;
 
 export function Output(props) {
@@ -194,5 +194,20 @@ export function CodeInline(props) {
     <StyleCode>
       <code className="language-javascript">{props.children}</code>
     </StyleCode>
+  );
+}
+
+const StyleArticleNum = styled.span`
+  position: absolute;
+  color: #b0b0b0;
+  top: -20px;
+  right: 5px;
+`;
+
+export function ArticleNum(props) {
+  return (
+    <StyleArticleNum>
+      Article #{props.num}
+    </StyleArticleNum>
   );
 }

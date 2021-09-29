@@ -39,6 +39,8 @@ class ClassComponent extends React.Component {
   }
 }
 
+const toRender1 = <ClassComponent />
+
 function FunctionComponent() {
   const [likes, setLikes] = useState(0);
 
@@ -57,6 +59,8 @@ function FunctionComponent() {
     </div>
   );
 }
+
+const toRender2 = <FunctionComponent />
 
 export const classVsFunctionComponent = {
   title: <>Class vs Function component</>,
@@ -111,13 +115,13 @@ export const classVsFunctionComponent = {
             );
           }
         }
+
+        const toRender1 = <ClassComponent />
       `
     },
     {
       type: 'output',
-      val: (
-        <ClassComponent/>
-      ),
+      val: toRender1,
     },
     {
       type: 'text',
@@ -152,13 +156,13 @@ export const classVsFunctionComponent = {
             </div>
           );
         }
+
+        const toRender2 = <FunctionComponent />
       `
     },
     {
       type: 'output',
-      val: (
-        <FunctionComponent/>
-      ),
+      val: toRender2,
     },
     {
       type: 'text',

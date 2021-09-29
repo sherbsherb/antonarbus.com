@@ -6,11 +6,13 @@ import { forwardRef } from './forwardRef/forwardRef'
 import { immutableState } from './immutableState/immutabilityOfState'
 import { jsVsJsx } from './jsVsJsx/jsVsJsx'
 import { passProps } from './passProps/passProps'
+import { updateValueFromChildComponent } from './updateValueFromChildComponent/updateValueFromChildComponent'
 import { toDoArticle } from './toDoArticle/toDoArticle'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
 
 export const allPosts = [
+  updateValueFromChildComponent,
   forwardRef,
   controlledVsUncontrolledComponent,
   forwardLotsOfProps,

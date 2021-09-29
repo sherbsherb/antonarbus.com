@@ -40,7 +40,7 @@ export function Post(props) {
 const StyledTitle = styled.h3`
   display: block;
   margin-top: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 24px;
   color: black;
   text-align: center;

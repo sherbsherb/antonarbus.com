@@ -1,9 +1,12 @@
-import React from 'react';
+import Mark from 'mark.js';
+import Prism from 'prismjs';
+import React, { useEffect, useRef, useState } from 'react';
 import uuid from 'react-uuid';
 //import './App.css';
 import styled from 'styled-components';
 import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post components/Post.js';
+import Search from './components/search/Search.js';
 import { allPosts } from './posts/allPosts.js';
 
 const StyledApp = styled.div`
@@ -35,14 +38,39 @@ function App() {
   console.log('App rendered');
   console.log(allPosts);
 
+  const [postsState, setPostsState] = useState(allPosts);
+  const [searchState, setSearchState] = useState('');
+
+  function returnPosts() {
+    return postsState.map((item, index) => (
+      <Post post={item} key={uuid()} num={allPosts.length - index} />
+    ));
+  }
+
+  useEffect(() => {
+    Prism.plugins.NormalizeWhitespace.setDefaults({
+      'remove-trailing': true,
+      'remove-indent': true,
+      'left-trim': true,
+      'right-trim': true,
+      'break-lines': 600, //max number of characters in each line before break
+    });
+
+    Prism.highlightAll();
+
+    // highlight found words
+    var context = document.querySelector("main"); // requires an element with class "context" to exist
+    var instance = new Mark(context);
+    instance.mark(searchState); // will mark the keyword "test"
+  }, [searchState]);
+
+
+
   return (
     <StyledApp>
       <NavBar />
-      <StyledMain>
-        {allPosts.map((item, index) => (
-          <Post post={item} key={uuid()} num={allPosts.length - index}/>
-        ))}
-      </StyledMain>
+      <Search postsState={postsState} setPostsState={setPostsState} allPosts={allPosts} searchState={searchState} setSearchState={setSearchState}/>
+      <StyledMain>{returnPosts()}</StyledMain>
     </StyledApp>
   );
 }

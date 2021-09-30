@@ -97,7 +97,7 @@ export function Code(props) {
       'break-lines': 600, //max number of characters in each line before break
     });
 
-    Prism.highlightAll();
+    // Prism.highlightAll();
   }, []);
 
   return (

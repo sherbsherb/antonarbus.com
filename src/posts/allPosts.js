@@ -7,7 +7,7 @@ import { immutableState } from './immutableState/immutabilityOfState'
 import { jsVsJsx } from './jsVsJsx/jsVsJsx'
 import { passProps } from './passProps/passProps'
 import { updateValueFromChildComponent } from './updateValueFromChildComponent/updateValueFromChildComponent'
-import { toDoArticle } from './toDoArticle/toDoArticle'
+import { toDoList } from './toDoList/toDoList'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
 
@@ -18,7 +18,7 @@ export const allPosts = [
   forwardLotsOfProps,
   passProps,
   immutableState,
-  toDoArticle,
+  toDoList,
   classVsFunctionComponent,
   useStateAndInput,
   whyToUseState,

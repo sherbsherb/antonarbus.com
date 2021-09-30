@@ -88,6 +88,7 @@ function ToDoList({ setToDoListState, toDoListState, getToDoList }) {
           getToDoList={getToDoList}
         ></ToDoItem>
       ))}
+      {toDoListState.length === 0 ? 'Nothing to do' : ''}
     </div>
   );
 }
@@ -117,7 +118,7 @@ function ToDoItem({
 
 const toRender = <ToDoApp />
 
-export const toDoArticle = {
+export const toDoList = {
   title: 'ToDo app',
   date: '2021.09.26',
   tagsArr: ['react', 'ToDo', 'basics'],
@@ -220,6 +221,7 @@ export const toDoArticle = {
                   getToDoList={getToDoList}
                 ></ToDoItem>
               ))}
+              {toDoListState.length === 0 ? 'Nothing to do' : ''}
             </div>
           );
         }

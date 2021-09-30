@@ -21,7 +21,7 @@ function Child(props) {
       <h1>Child Component</h1>
       <br />
       <button onClick={() => props.setState(props.state + 1)}>
-        Add one from child and show it in parent
+        Update from child component
       </button>
       <br />
     </div>
@@ -63,7 +63,7 @@ export const updateValueFromChildComponent = {
               <h1>Child Component</h1>
               <br />
               <button onClick={() => props.setState(props.state + 1)}>
-                Add one from child and show it in parent
+                Update from child component
               </button>
               <br />
             </div>

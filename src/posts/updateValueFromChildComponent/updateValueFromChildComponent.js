@@ -31,7 +31,7 @@ function Child(props) {
 const toRender = <Parent />;
 
 export const updateValueFromChildComponent = {
-  title: 'Update value from child component',
+  title: 'Update value from a child component',
   date: '2021.09.29',
   tagsArr: ['react', 'props', 'state', 'useState', 'component', 'child', 'parent', 'basics'],
   abstract: 'abstract from the article',

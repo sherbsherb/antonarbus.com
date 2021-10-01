@@ -39,14 +39,13 @@ function App() {
   console.log(allPosts);
 
   const [postsState, setPostsState] = useState(allPosts);
-  const [searchState, setSearchState] = useState('');
+  
 
   function returnPosts() {
     return postsState.map((item, index) => (
       <Post post={item} key={uuid()} num={allPosts.length - index} />
     ));
   }
-
   useEffect(() => {
     Prism.plugins.NormalizeWhitespace.setDefaults({
       'remove-trailing': true,
@@ -57,19 +56,16 @@ function App() {
     });
 
     Prism.highlightAll();
+  }, []);
 
-    // highlight found words
-    var context = document.querySelector("main"); // requires an element with class "context" to exist
-    var instance = new Mark(context);
-    instance.mark(searchState); // will mark the keyword "test"
-  }, [searchState]);
+
 
 
 
   return (
     <StyledApp>
       <NavBar />
-      <Search postsState={postsState} setPostsState={setPostsState} allPosts={allPosts} searchState={searchState} setSearchState={setSearchState}/>
+      <Search postsState={postsState} setPostsState={setPostsState} allPosts={allPosts}/>
       <StyledMain>{returnPosts()}</StyledMain>
     </StyledApp>
   );

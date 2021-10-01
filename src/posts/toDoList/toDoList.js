@@ -1,5 +1,43 @@
 import React, { useState } from 'react';
-import './styles.css';
+import styled from 'styled-components';
+
+const StyledContainer = styled.div`
+  width: 90%;
+  border: 1px solid grey;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 0px auto;
+  padding: 5px;
+
+  form {
+    margin: 10px;
+    text-align: center;
+
+    input {
+      padding: 3px;
+    }
+
+    button {
+      margin-left: 10px;
+      width: 50px;
+      padding: 3px;
+      cursor: pointer;
+    }
+  }
+
+  .toDoItem {
+    margin: 5px 0px;
+    padding: 5px;
+    border-bottom: 1px dotted grey;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .delBtn {
+    cursor: pointer;
+  }
+`;
 
 function ToDoApp() {
   function getToDoList() {
@@ -29,7 +67,7 @@ function ToDoApp() {
   const [toDoListState, setToDoListState] = useState(getToDoList);
 
   return (
-    <div className="toDoApp">
+    <StyledContainer>
       <AddItemForm
         toDoListState={toDoListState}
         setToDoListState={setToDoListState}
@@ -40,7 +78,7 @@ function ToDoApp() {
         setToDoListState={setToDoListState}
         getToDoList={getToDoList}
       />
-    </div>
+    </StyledContainer>
   );
 }
 

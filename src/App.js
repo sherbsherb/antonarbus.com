@@ -58,10 +58,6 @@ function App() {
     Prism.highlightAll();
   }, []);
 
-
-
-
-
   return (
     <StyledApp>
       <NavBar />

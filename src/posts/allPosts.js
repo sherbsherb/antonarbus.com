@@ -11,7 +11,7 @@ import { toDoList } from './toDoList/toDoList'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
 
-export const allPosts = [
+let posts = [
   updateValueFromChildComponent,
   forwardRef,
   controlledVsUncontrolledComponent,
@@ -24,3 +24,9 @@ export const allPosts = [
   whyToUseState,
   jsVsJsx,
 ]
+
+posts.forEach((o, index) => {
+  o.sequentialNum = posts.length - index
+})
+
+export const allPosts = posts

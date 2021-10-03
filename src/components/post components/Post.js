@@ -29,7 +29,7 @@ export function Post(props) {
       <Title>{props.post.title}</Title>
       <StyledSection>
         <Article>{returnArrOfJsx(props.post.articlesArr)}</Article>
-        <ArticleNum num={props.num} />
+        <ArticleNum num={props.post.sequentialNum} />
         <Tags>{props.post.tagsArr}</Tags>
         <Date>{props.post.date}</Date>
       </StyledSection>
@@ -202,5 +202,3 @@ const StyleArticleNum = styled.span`
 export function ArticleNum(props) {
   return <StyleArticleNum>Article #{props.num}</StyleArticleNum>;
 }
-
-

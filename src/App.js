@@ -8,6 +8,7 @@ import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post components/Post.js';
 import Search from './components/search/Search.js';
 import { allPosts } from './posts/allPosts.js';
+console.log(allPosts)
 
 const StyledApp = styled.div`
   text-align: left;

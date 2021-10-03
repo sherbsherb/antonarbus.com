@@ -30,6 +30,7 @@ export const forwardRef = {
     </>
   ),
   date: '2021.09.26',
+  id: 'fhfjnxzxr',
   tagsArr: ['react', 'useRef', 'forwardRef', 'input', 'focus', 'basics', 'hook', 'DOM'],
   abstract: 'abstract from the article',
   articlesArr: [

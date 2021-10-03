@@ -159,6 +159,7 @@ const toRender = <ToDoApp />
 export const toDoList = {
   title: 'ToDo app',
   date: '2021.09.26',
+  id: '45uykqcv',
   tagsArr: ['react', 'ToDo', 'basics'],
   abstract: 'abstract from the article',
   articlesArr: [

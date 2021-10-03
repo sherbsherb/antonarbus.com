@@ -29,7 +29,7 @@ export function Post(props) {
       <Title>{props.post.title}</Title>
       <StyledSection>
         <Article>{returnArrOfJsx(props.post.articlesArr)}</Article>
-        <ArticleNum num={props.num}/>
+        <ArticleNum num={props.num} />
         <Tags>{props.post.tagsArr}</Tags>
         <Date>{props.post.date}</Date>
       </StyledSection>
@@ -164,11 +164,7 @@ const StyledOutput = styled.div`
 `;
 
 export function Output(props) {
-  return (
-    <StyledOutput>
-      {props.children}
-    </StyledOutput>
-  );
+  return <StyledOutput>{props.children}</StyledOutput>;
 }
 
 const StyleLink = styled.a`
@@ -186,8 +182,7 @@ export function Link(props) {
   );
 }
 
-const StyleCode = styled.code`
-`;
+const StyleCode = styled.code``;
 
 export function CodeInline(props) {
   return (
@@ -205,9 +200,7 @@ const StyleArticleNum = styled.span`
 `;
 
 export function ArticleNum(props) {
-  return (
-    <StyleArticleNum>
-      Article #{props.num}
-    </StyleArticleNum>
-  );
+  return <StyleArticleNum>Article #{props.num}</StyleArticleNum>;
 }
+
+

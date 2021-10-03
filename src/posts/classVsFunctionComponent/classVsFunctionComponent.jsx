@@ -65,6 +65,7 @@ const toRender2 = <FunctionComponent />
 export const classVsFunctionComponent = {
   title: <>Class vs Function component</>,
   date: '2021.09.26',
+  id: '4eretg',
   tagsArr: ['react', 'class component', 'function component', 'basics'],
   abstract: 'abstract from the article',
   articlesArr: [

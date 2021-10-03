@@ -4,6 +4,7 @@ import { CodeInline } from '../../components/post components/Post';
 export const jsVsJsx = {
   title: 'JS vs JSX',
   date: '2021.09.23',
+  id: '5sdfg',
   tagsArr: ['react', 'jsx', 'createElement', 'basics'],
   abstract: 'abstract from the article',
   articlesArr: [

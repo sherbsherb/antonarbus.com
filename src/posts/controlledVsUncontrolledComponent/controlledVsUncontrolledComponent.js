@@ -40,6 +40,7 @@ const toRender2 = <UncontrolledInput />
 export const controlledVsUncontrolledComponent = {
   title: 'Controlled vs uncontrolled component',
   date: '2021.09.26',
+  id: '6de34',
   tagsArr: ['react', 'useRef', 'useState', 'input', 'controlled', 'uncontrolled', 'basics', 'hook', 'DOM'],
   abstract: 'abstract from the article',
   articlesArr: [

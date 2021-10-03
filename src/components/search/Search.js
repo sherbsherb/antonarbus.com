@@ -1,5 +1,5 @@
-import Mark from 'mark.js';
 import React, { useEffect, useState } from 'react';
+import uuid from 'react-uuid';
 import styled from 'styled-components';
 import { Post } from '../post components/Post';
 
@@ -40,6 +40,16 @@ const FormStyled = styled.form`
       border-color: rgba(0, 157, 214, 1);
       margin: 0px;
     }
+
+    &:not(:placeholder-shown) {
+      border-color: rgba(0, 157, 214, 1);
+      margin: 0px;
+    }
+
+    /* show cancel icon not only on hover, but on focus */
+    &::-webkit-search-cancel-button {
+      opacity: 1;
+    }
   }
 
   button {
@@ -69,6 +79,8 @@ const FormStyled = styled.form`
     color: grey;
     text-align: center;
     cursor: pointer;
+    transform: translateX(-50%);
+    left: 50%;
 
     &:hover {
       color: #1c1c1c;
@@ -85,7 +97,7 @@ const SearchPreviewContainer = styled.div`
   border-style: solid;
   border-width: 1px;
   border-color: #c0c0c0;
-  padding: 30px 10px 10px 10px;
+  padding: 35px 10px 10px 10px;
   background-color: #f6f6f6;
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -113,7 +125,7 @@ const SearchPreviewStyled = styled.div`
   }
 `;
 
-function SearchPreview(props) {
+function SearchPreviewItem(props) {
   return (
     <SearchPreviewStyled>
       <h4>{props.title}</h4>
@@ -122,25 +134,53 @@ function SearchPreview(props) {
   );
 }
 
+function PostsOnScreen(props) {
+  return (
+    <div
+      style={{
+        textAlign: 'center',
+        marginTop: '15px',
+        position: 'absolute',
+        top: '30px',
+        width: '100%',
+      }}
+    >
+      <span style={{ color: 'grey' }}>
+        {props.foundPostsNumState} post
+        {props.foundPostsNumState > 1 ? 's are' : ' is'} found
+      </span>
+      <span
+        style={{
+          color: '#f99191',
+          fontSize: '20px',
+          fontWeight: 900,
+          marginLeft: '10px',
+          cursor: 'pointer',
+        }}
+        onClick={() => {
+          props.setFilterFoundPostsState(false);
+          props.setPostsOnScreenState(props.allPosts);
+          props.setSearchValState('')
+        }}
+      >
+        ⨉
+      </span>
+    </div>
+  );
+}
+
 export default function Search(props) {
-  const [searchStateVal, setSearchStateVal] = useState('');
+  // const [searchValState, setSearchValState] = useState('');
   const [foundPostsNumState, setFoundPostsNumState] = useState(
     props.allPosts.length
   );
-  const [foundPostsState, setFoundPostsState] = useState([]);
-  const [foundContainerState, setFoundContainerState] = useState(0);
+  const [foundPostsArrState, setFoundPostsArrState] = useState([]);
+  const [filterFoundPostsState, setFilterFoundPostsState] = useState(false);
 
-  useEffect(() => {
-    // highlight found words
-    var context = document.querySelector('main'); // requires an element with class "context" to exist
-    var instance = new Mark(context);
-    //instance.mark(searchStateVal); // will mark the keyword "test"
-  }, [searchStateVal]);
-
-  function updateSearchStateVal(e) {
+  function updateSearchValState(e) {
     const inputVal = e.target.value;
     console.log(inputVal);
-    setSearchStateVal(inputVal);
+    props.setSearchValState(inputVal);
   }
 
   function returnFilteredPostsArrAfterSearch(e) {
@@ -159,9 +199,7 @@ export default function Search(props) {
       );
     });
 
-    // console.log(filteredPosts)
     return filteredPosts;
-    // props.setPostsState(filteredPosts);
   }
 
   function txtFromJSXOrStr(el) {
@@ -175,19 +213,19 @@ export default function Search(props) {
 
   function FoundPosts(props) {
     if (props.foundPostsNumState === 0)
-      return <div className="found-posts">Not found</div>;
+      return <span className="found-posts">Not found</span>;
     let ending = '';
     if (props.foundPostsNumState !== 1) ending = 's';
     return (
-      <div className="found-posts">
+      <span className="found-posts" onClick={searchBtnClickHandler}>
         Show {ending ? 'all' : ''} {props.foundPostsNumState} post{ending}
-      </div>
+      </span>
     );
   }
 
   function returnArrWithTitlesAndArticle() {
-    return foundPostsState.map(post => {
-      return { title: post.title, summary: post.title };
+    return foundPostsArrState.map(post => {
+      return { title: post.title, summary: post.title, key: uuid() };
     });
   }
 
@@ -213,8 +251,12 @@ export default function Search(props) {
     const arrWithSplittedText = splitWithDelimiter(str, searchStr);
     const arrWithJSX = arrWithSplittedText.map(el => {
       if (el.toLowerCase() === searchStr.toLowerCase())
-        return <span style={{ background: 'yellow' }}>{el}</span>;
-      return <>{el}</>;
+        return (
+          <span style={{ background: 'yellow' }} key={uuid()}>
+            {el}
+          </span>
+        );
+      return <span key={uuid()}>{el}</span>;
     });
     return arrWithJSX;
   }
@@ -229,46 +271,82 @@ export default function Search(props) {
 
     const arrWithJSX = arrWithSplittedText.map(el => {
       if (el.toLowerCase() === searchStr.toLowerCase())
-        return <span style={{ background: 'yellow' }}>{el}</span>;
-      return <>{el}</>;
+        return (
+          <span style={{ background: 'yellow' }} key={uuid()}>
+            {el}
+          </span>
+        );
+      return <span key={uuid()}>{el}</span>;
     });
     return arrWithJSX;
   }
 
   console.log(returnArrWithTitlesAndArticle());
 
+  function searchBtnClickHandler(e) {
+    e.preventDefault();
+    if (props.searchValState === '') {
+      props.setPostsOnScreenState(props.allPosts);
+      setFilterFoundPostsState(false);
+      return;
+    }
+    props.setShowFoundContainerState(false);
+    props.setPostsOnScreenState(foundPostsArrState);
+    setFilterFoundPostsState(true);
+  }
+
   return (
-    <FormStyled>
+    <FormStyled
+      onClick={e => e.stopPropagation()} // do not close dropdown search menu if clicked inside
+    >
       <input
         type="search"
         name="search"
+        value={props.searchValState}
         placeholder="Search"
         autoComplete="off"
         onChange={e => {
-          updateSearchStateVal(e);
-          const foundPostsArr = returnFilteredPostsArrAfterSearch(e);
-          setFoundPostsNumState(foundPostsArr.length);
-          setFoundPostsState(foundPostsArr);
-          setFoundContainerState(foundPostsArr.length);
+          updateSearchValState(e);
+          const filteredPostsAfterSearchArr =
+            returnFilteredPostsArrAfterSearch(e);
+          setFoundPostsNumState(filteredPostsAfterSearchArr.length);
+          setFoundPostsArrState(filteredPostsAfterSearchArr);
+          props.setShowFoundContainerState(
+            !!filteredPostsAfterSearchArr.length
+          );
+          if (e.target.value === '') {
+            props.setPostsOnScreenState(props.allPosts);
+            setFilterFoundPostsState(false);
+          }
         }}
       />
-      <button>Search</button>
-      {!!foundContainerState && (
+      <button onClick={searchBtnClickHandler}>Search</button>
+      {filterFoundPostsState && (
+        <PostsOnScreen
+          foundPostsNumState={foundPostsNumState}
+          setFilterFoundPostsState={setFilterFoundPostsState}
+          setPostsOnScreenState={props.setPostsOnScreenState}
+          allPosts={props.allPosts}
+          setSearchValState={props.setSearchValState}
+        ></PostsOnScreen>
+      )}
+      {props.showFoundContainerState && (
         <SearchPreviewContainer>
           {<FoundPosts foundPostsNumState={foundPostsNumState} />}
-          {foundPostsState.map(o => {
+          {foundPostsArrState.map(o => {
             return (
-              <SearchPreview
-                title={titleWithHighlight(o.title, searchStateVal)}
-                summary={articleWithHighlight(o.articlesArr, searchStateVal)}
+              <SearchPreviewItem
+                title={titleWithHighlight(o.title, props.searchValState)}
+                summary={articleWithHighlight(
+                  o.articlesArr,
+                  props.searchValState
+                )}
+                key={uuid()}
               />
-
             );
           })}
-          {/* <SearchPreview title={'title'} summary={'summary'}/>
-        <SearchPreview title={'title'} summary={'summary'}/>
-        <SearchPreview title={'title'} summary={'summary'}/> */}
-        {/* <Post post={foundPostsState[0]} key={'xghdfgh'} /> */}
+
+          {/* <Post post={foundPostsArrState[0]} key={'xghdfgh'} /> */}
         </SearchPreviewContainer>
       )}
     </FormStyled>

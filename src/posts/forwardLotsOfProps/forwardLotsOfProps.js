@@ -23,6 +23,7 @@ const toRender = <ParentComponent prop1='hello' prop2='my' prop3='friend' />
 export const forwardLotsOfProps = {
   title: 'Forward lots of props',
   date: '2021.09.29',
+  id: 'fhjdtrwe',
   tagsArr: ['react', 'props', 'component', 'basics'],
   abstract: 'abstract from the article',
   articlesArr: [

@@ -46,6 +46,7 @@ const toRender3 = <Component3 {...userProps}/>
 export const passProps = {
   title: 'How to pass props',
   date: '2021.09.29',
+  id: 'hgjer',
   tagsArr: ['react', 'props', 'component', 'basics'],
   abstract: 'abstract from the article',
   articlesArr: [

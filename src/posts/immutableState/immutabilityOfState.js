@@ -43,6 +43,7 @@ const toRender = <StateIsImmutable />
 export const immutableState = {
   title: 'React state is immutable',
   date: '2021.09.28',
+  id: '456htj',
   tagsArr: ['react', 'state', 'useState', 'immutable', 'basics', 'hook'],
   abstract: 'abstract from the article',
   articlesArr: [

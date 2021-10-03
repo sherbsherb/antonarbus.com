@@ -25,6 +25,7 @@ export const useStateAndInput = {
     </>
   ),
   date: '2021.09.26',
+  id: '76j',
   tagsArr: ['react', 'state', 'useState', 'input', 'basics', 'hook'],
   abstract: 'abstract from the article',
   articlesArr: [

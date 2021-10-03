@@ -53,6 +53,7 @@ const toRender2 = <ComponentWithState/>
 export const whyToUseState = {
   title: <>Why to use <CodeInline>useState()</CodeInline></>,
   date: '2021.09.25',
+  id: '34sss',
   tagsArr: ['react', 'state', 'useState', 'basics', 'hook'],
   abstract: 'abstract from the article',
   articlesArr: [

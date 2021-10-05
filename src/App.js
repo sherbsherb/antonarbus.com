@@ -8,7 +8,6 @@ import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post components/Post.js';
 import Search from './components/search/Search.js';
 import { allPosts } from './posts/allPosts.js';
-console.log(allPosts)
 
 const StyledApp = styled.div`
   text-align: left;
@@ -40,7 +39,9 @@ function App() {
 
   const [showFoundContainerState, setShowFoundContainerState] = useState(false);
   const [postsOnScreenState, setPostsOnScreenState] = useState(allPosts)
+
   const [searchValState, setSearchValState] = useState('');
+  const [searchObjState, setSearchObjState] = useState({words:[], tags:[], needToSearch: false,});
 
   Prism.plugins.NormalizeWhitespace.setDefaults({
     'remove-trailing': true,
@@ -58,15 +59,13 @@ function App() {
     var context = document.querySelector('main');
     var instance = new Mark(context);
     instance.unmark();
-    instance.mark(searchValState); // will mark the keyword "test"
+    instance.mark(searchValState);
 
   }, [postsOnScreenState]);
 
-  
-
   function returnPosts() {
     return postsOnScreenState.map((item, index) => (
-      <Post post={item} key={item.id} num={allPosts.length - index} />
+      <Post post={item} key={item.id} />
     ));
   }
 
@@ -90,7 +89,6 @@ function App() {
         searchValState={searchValState}
         setSearchValState={setSearchValState}
       />
-      
       <StyledMain>{returnPostsMemo}</StyledMain>
     </StyledApp>
   );

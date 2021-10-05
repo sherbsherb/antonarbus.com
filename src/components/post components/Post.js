@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import styled, { keyframes, css } from 'styled-components';
 import styled from 'styled-components/macro';
 // import './styles.css';
@@ -9,7 +9,7 @@ import './prism.css';
 import uuid from 'react-uuid';
 
 export function returnArrOfJsx(arr) {
-  return arr.map((el, index) => {
+  return arr.map(el => {
     if (el.type === 'text') return <Text key={uuid()}>{el.val}</Text>;
     if (el.type === 'code') return <Code key={uuid()}>{el.val}</Code>;
     if (el.type === 'output') return <Output key={uuid()}>{el.val}</Output>;
@@ -17,10 +17,83 @@ export function returnArrOfJsx(arr) {
   });
 }
 
-export function returnArrOfTags(tagsArr) {
-  return tagsArr.map((tag, index) => {
-    return <StyledTag key={uuid()}>{tag}</StyledTag>;
-  });
+export const TagsContainerStyled = styled.div`
+  margin-top: 20px;
+`;
+
+export const StyledTag = styled.div`
+  display: inline-block;
+  position: relative;
+  padding: 3px 8px 3px 20px;
+  margin: 5px;
+  background: grey;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 12px;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  cursor: pointer;
+  vertical-align: middle;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  &:hover {
+    background: #5a5a5a;
+  }
+`;
+
+export function Tag(props) {
+
+  function setCaretToEnd(el) {
+    if (!el.childNodes.length) return
+    let range = document.createRange();
+    let sel = window.getSelection();
+    const lastNode = el.childNodes[el.childNodes.length - 1]
+    range.setStart(lastNode, lastNode.length);
+    range.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    el.focus();
+  }
+
+  return (
+    <StyledTag
+      contentEditable={false}
+      onClick={(e) => {
+        // add tag to search input
+        const inputEl = document.getElementById("input")
+        const tagEl = e.target
+        const clonedTag = tagEl.cloneNode(true)
+        clonedTag.style.margin = '0px 5px'
+        clonedTag.classList.add('tag')
+        console.log(tagEl)
+        inputEl.appendChild(clonedTag);
+        inputEl.append("\u00A0");
+        setCaretToEnd(inputEl)
+        inputEl.scrollLeft = 10000;
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }}
+    >
+      {props.children}
+    </StyledTag>
+  );
 }
 
 export function Post(props) {
@@ -30,7 +103,11 @@ export function Post(props) {
       <StyledSection>
         <Article>{returnArrOfJsx(props.post.articlesArr)}</Article>
         <ArticleNum num={props.post.sequentialNum} />
-        <Tags>{props.post.tagsArr}</Tags>
+        <TagsContainerStyled>
+          {props.post.tagsArr.map(tag => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </TagsContainerStyled>
         <Date>{props.post.date}</Date>
       </StyledSection>
     </>
@@ -106,43 +183,6 @@ export function Code(props) {
     </pre>
   );
 }
-
-export const StyledTags = styled.div`
-  margin-top: 20px;
-`;
-
-export function Tags(props) {
-  return <StyledTags>{returnArrOfTags(props.children)}</StyledTags>;
-}
-
-const StyledTag = styled.div`
-  display: inline-block;
-  position: relative;
-  padding: 3px 8px 3px 20px;
-  margin-bottom: 8px;
-  margin-right: 15px;
-  background: grey;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  color: white;
-  font-size: 12px;
-  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-  text-decoration: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
-  }
-`;
 
 const StyledDate = styled.time`
   font-size: 10px;

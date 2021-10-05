@@ -450,7 +450,7 @@ export default function Search(props) {
           const inputEl = e.target;
 
           updatePropsObj(e);
-          // updateSearchValState(e);
+          updateSearchValState(e);
           const filteredPostsAfterSearchArr =
             returnFilteredPostsArrAfterSearch(e);
           setFoundPostsArrState(filteredPostsAfterSearchArr);

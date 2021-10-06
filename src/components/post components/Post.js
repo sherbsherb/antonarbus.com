@@ -73,6 +73,7 @@ export function Tag(props) {
     <StyledTag
       contentEditable={false}
       onClick={(e) => {
+        e.stopPropagation()
         // add tag to search input
         const inputEl = document.getElementById("input")
         const tagEl = e.target
@@ -89,6 +90,9 @@ export function Tag(props) {
           left: 0,
           behavior: 'smooth'
         });
+        console.log('props on click inside tag')
+        console.log(props)
+
       }}
     >
       {props.children}
@@ -97,6 +101,8 @@ export function Tag(props) {
 }
 
 export function Post(props) {
+  console.log('props')
+  console.log(props)
   return (
     <>
       <Title>{props.post.title}</Title>
@@ -105,7 +111,13 @@ export function Post(props) {
         <ArticleNum num={props.post.sequentialNum} />
         <TagsContainerStyled>
           {props.post.tagsArr.map(tag => (
-            <Tag key={tag}>{tag}</Tag>
+            <Tag 
+              key={tag}
+              state={props.state}
+              setState={props.setState}
+            >
+              {tag}
+            </Tag>
           ))}
         </TagsContainerStyled>
         <Date>{props.post.date}</Date>

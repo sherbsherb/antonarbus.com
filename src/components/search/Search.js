@@ -181,12 +181,18 @@ const TagsContainerStyled = styled(SearchPreviewStyled)`
   }
 `;
 
-function TagsContainer({ state }) {
+function TagsContainer({ state, setState }) {
   const {foundTags} = state
   return (
     <TagsContainerStyled>
       {foundTags.map(tag => (
-        <Tag key={tag}> {tag} </Tag>
+        <Tag 
+          key={tag}
+          state={state}
+          setState={setState}
+        > 
+          {tag}
+        </Tag>
       ))}
     </TagsContainerStyled>
   );
@@ -370,7 +376,7 @@ export default function Search({
       {openSearchMenu && (
         <SearchPreviewContainer>
           <FoundPosts />
-          {!!foundTags.length && <TagsContainer state={state} />}
+          {!!foundTags.length && <TagsContainer state={state} setState={setState} />}
           {!!foundPosts.length &&
             inputVal &&
             foundPosts.map(o => {

@@ -132,7 +132,7 @@ function App() {
 
   function returnPosts() {
     return state.postsOnDisplay.map(o => (
-      <Post post={o} key={o.id} />
+      <Post post={o} key={o.id} state={state} setState={setState}/>
     ));
   }
 

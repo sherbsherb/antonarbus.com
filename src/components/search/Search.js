@@ -1,7 +1,7 @@
+import Mark from 'mark.js';
 import React, { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
 import styled from 'styled-components';
-import { allPosts } from '../../posts/allPosts';
 import { Tag } from '../post components/Post';
 
 const FormStyled = styled.form`
@@ -145,7 +145,7 @@ const SearchPreviewStyled = styled.div`
   cursor: pointer;
   color: black;
   padding: 5px;
-  max-height: 80px;
+  max-height: 82px;
   overflow-y: auto;
 
   &:hover {
@@ -164,7 +164,7 @@ const SearchPreviewStyled = styled.div`
 
 function SearchPreviewItem(props) {
   return (
-    <SearchPreviewStyled>
+    <SearchPreviewStyled className="post-preview">
       <h4>{props.title}</h4>
       <summary>{props.summary}</summary>
     </SearchPreviewStyled>
@@ -181,17 +181,18 @@ const TagsContainerInMenuStyled = styled(SearchPreviewStyled)`
   }
 `;
 
-function TagsContainer(props) {
+function TagsContainer({ state }) {
+  const {foundTags} = state
   return (
     <TagsContainerInMenuStyled>
-      {props.tagsArrState.map(tag => (
-        <Tag> {tag} </Tag>
+      {foundTags.map(tag => (
+        <Tag key={tag}> {tag} </Tag>
       ))}
     </TagsContainerInMenuStyled>
   );
 }
 
-function FoundPostsTextAfterSearch(props) {
+function RemoveFoundPosts(props) {
   return (
     <div
       style={{
@@ -222,212 +223,90 @@ function FoundPostsTextAfterSearch(props) {
   );
 }
 
-export default function Search(props) {
-  const [foundPostsArrState, setFoundPostsArrState] = useState(props.allPosts);
-  const [tagsArrState, setTagsArrState] = useState(
-    returnAllTagsFromArr(props.allPosts)
-  );
-  const [tagsSelectedState, setTagsSelectedState] = useState([]);
-  const [searchedPostsAreShownState, setSearchedPostsAreShownState] =
-    useState(false);
-  const [searchedPostsNumState, setSearchedPostsNumState] = useState(0);
+export default function Search({
+  state,
+  setState,
+  returnUpdatedState,
+  ...props
+}) {
+  const {
+    posts,
+    tags,
+    inputVal,
+    inputWords,
+    inputTags,
+    foundPosts,
+    postsOnDisplay,
+    foundTags,
+    openSearchMenu,
+    showFoundPosts,
+    showRemoveFoundPosts,
+  } = state;
 
-  function returnAllTagsFromArr(arr) {
-    const allTags = new Set();
-    arr.forEach(o => o.tagsArr.forEach(tag => allTags.add(tag)));
-    return Array.from(allTags);
+  function highlightPreviewWithYellow(words) {
+    const context = document.querySelectorAll('.post-preview');
+    const instance = new Mark(context);
+    instance.unmark();
+    instance.mark(words);
   }
 
-  function updateSearchValState(e) {
-    const inputVal = e.target.innerText;
-    props.setSearchValState(inputVal);
-  }
+  useEffect(() => {
+    highlightPreviewWithYellow(inputWords)
+  });
 
-  function txtFromJSXOrStr(el) {
-    if (!el) return '';
-    if (typeof el === 'string') return el;
-    const children = el.props && el.props.children;
-    if (children instanceof Array)
-      return children.map(txtFromJSXOrStr).join('');
-    return txtFromJSXOrStr(children);
-  }
 
-  const o = {
-    posts: allPosts,
-    tags: returnAllTagsFromArr(allPosts),
-    inputVal: '',
-    inputWords: [],
-    inputTags: [],
-    needToFilterPreview: false,
-    foundPosts: allPosts,
-    foundTags: returnAllTagsFromArr(allPosts),
-  };
 
-  function updatePropsObj(e) {
-    // input text
-    o.inputVal =
-      // @ts-ignore
-      e.target.innerText || document.querySelector('#input').innerText;
-
-    // nodes in input (text + tag divs)
-    const inputNodes =
-      e.target.childNodes || document.querySelector('#input').childNodes;
-    inputNodes.forEach(function (el) {
-      if (el.nodeType === Node.TEXT_NODE)
-        o.inputWords.push(...el.data.trim().toLowerCase().split(/\s+/));
-      if (el.nodeType === Node.ELEMENT_NODE)
-        o.inputTags.push(el.innerText.toLowerCase());
-    });
-
-    // get words and tags from nodes
-    o.inputWords = [...new Set(o.inputWords)].filter(el => el !== '');
-    o.inputTags = [...new Set(o.inputTags)];
-
-    // needToFilterPreview flag
-    o.needToFilterPreview = false;
-    if (o.inputWords.length || o.inputWords.length)
-      o.needToFilterPreview = true;
-
-    // found posts based on words & tags
-    function areWordsInText(wordsArr, text) {
-      return wordsArr.every(elem => text.includes(elem));
-    }
-
-    function areTagsInPost(smallArr, bigArr) {
-      return smallArr.every(elem => bigArr.includes(elem));
-    }
-
-    o.foundPosts = allPosts
-      .filter(el => areWordsInText(o.inputWords, (el.titleTxt + el.postTxt)))
-      .filter(el => areTagsInPost(o.inputTags, el.tagsArr.map(el => el.toLowerCase())));
-
-    // found tags
-    o.foundTags =  returnAllTagsFromArr(o.foundPosts)
-
-    console.log(o.foundPosts);
-  }
-
-  // to del
-  function returnFilteredPostsArrAfterSearch(e) {
-    const inputVal = e.target.innerText;
-    const filteredPosts = props.allPosts.filter(item => {
-      if (inputVal === '') return true;
-      return (
-        txtFromJSXOrStr(item.title)
-          .toLowerCase()
-          .includes(inputVal.toLowerCase()) ||
-        item.articlesArr.some(article => {
-          return txtFromJSXOrStr(article.val)
-            .toLowerCase()
-            .includes(inputVal.toLowerCase());
-        })
-      );
-    });
-
-    return filteredPosts;
-  }
-
-  // to del
-  function txtFromJSXOrStr(el) {
-    if (!el) return '';
-    if (typeof el === 'string') return el;
-    const children = el.props && el.props.children;
-    if (children instanceof Array)
-      return children.map(txtFromJSXOrStr).join('');
-    return txtFromJSXOrStr(children);
-  }
-
-  
   function FoundPosts() {
-    if (foundPostsArrState.length === 0)
+
+    if (foundPosts.length === 0)
       return <span className="found-posts">Not found</span>;
-    const ending = foundPostsArrState.length !== 1 ? 's' : '';
+    const ending = foundPosts.length !== 1 ? 's' : '';
     return (
       <span className="found-posts" onClick={searchBtnClickHandler}>
-        Show {ending ? 'all' : ''} {foundPostsArrState.length} post{ending}
+        Show {ending ? 'all' : ''} {foundPosts.length} post{ending}
       </span>
     );
   }
 
-  function returnArrWithTitlesAndArticle() {
-    return foundPostsArrState.map(post => {
-      return { title: post.title, summary: post.title, key: uuid() };
-    });
-  }
 
-  function splitWithDelimiter(str, delimiter, arr = []) {
-    if (!delimiter) return [str];
-    if (str.length === 0) return arr;
-    const index = str.toLowerCase().indexOf(delimiter.toLowerCase());
-    if (index === -1) {
-      arr.push(str);
-      return arr;
-    }
-    const strBeforeDelimiter = str.substring(0, index);
-    if (index !== 0) arr.push(strBeforeDelimiter);
-    const delimiterAsInStr = str.slice(index, index + delimiter.length);
-    arr.push(delimiterAsInStr);
-    str = str.slice(strBeforeDelimiter.length + delimiter.length, str.length);
-    splitWithDelimiter(str, delimiter, arr);
-    return arr;
-  }
-
-  function titleWithHighlight(el, searchStr) {
-    const str = txtFromJSXOrStr(el);
-    const arrWithSplittedText = splitWithDelimiter(str, searchStr);
-    const arrWithJSX = arrWithSplittedText.map(el => {
-      if (el.toLowerCase() === searchStr.toLowerCase())
-        return (
-          <span style={{ background: 'yellow' }} key={uuid()}>
-            {el}
-          </span>
-        );
-      return <span key={uuid()}>{el}</span>;
-    });
-    return arrWithJSX;
-  }
-
-  function articleWithHighlight(articlesArr, searchStr) {
-    let allText = '';
-    articlesArr.forEach(function (el) {
-      allText = allText + txtFromJSXOrStr(el.val);
-    });
-
-    const arrWithSplittedText = splitWithDelimiter(allText, searchStr);
-
-    const arrWithJSX = arrWithSplittedText.map(el => {
-      if (el.toLowerCase() === searchStr.toLowerCase())
-        return (
-          <span style={{ background: 'yellow' }} key={uuid()}>
-            {el}
-          </span>
-        );
-      return <span key={uuid()}>{el}</span>;
-    });
-    return arrWithJSX;
-  }
 
   function searchBtnClickHandler(e) {
     e.preventDefault();
-    if (props.searchValState === '') {
-      props.setPostsOnScreenState(props.allPosts);
-      setSearchedPostsAreShownState(false);
-      props.setShowFoundContainerState(false);
+
+    if (document.querySelector('#input').innerText.length === 0) {
+      setState({
+        ...state,
+        openSearchMenu: false,
+        showRemoveFoundPosts: false,
+      });
       return;
     }
 
-    setSearchedPostsNumState(foundPostsArrState.length);
-    props.setShowFoundContainerState(false);
-    props.setPostsOnScreenState(foundPostsArrState);
-    if (foundPostsArrState.length) setSearchedPostsAreShownState(true);
+    setState({
+      ...state,
+      openSearchMenu: false,
+      showRemoveFoundPosts: true,
+      postsOnDisplay: foundPosts,
+    });
   }
 
   function closeFoundPostsContainer() {
-    props.setPostsOnScreenState(props.allPosts);
-    props.setSearchValState('');
-    document.getElementById('input').innerText = '';
-    props.setShowFoundContainerState(false);
-    setSearchedPostsAreShownState(false);
+    document.querySelector('#input').innerText = '';
+    setState({
+      ...state,
+      showRemoveFoundPosts: true,
+      postsOnDisplay: posts,
+    });
+  }
+
+  function debounce(callback, wait) {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        callback.apply(this, args);
+      }, wait);
+    };
   }
 
   return (
@@ -439,26 +318,15 @@ export default function Search(props) {
         id="input"
         contentEditable={true}
         placeholder="Search"
-        onFocus={() => {
-          props.setShowFoundContainerState(true);
+        onFocus={(e) => {
+          const updateState = returnUpdatedState(e);
+          setState({ ...state, ...updateState, openSearchMenu: true });
         }}
-        onBlur={e => {
-          console.log('onBlur');
-          // if (e.target.innerText === '') closeFoundPostsContainer()
-        }}
-        onInput={e => {
-          const inputEl = e.target;
-
-          updatePropsObj(e);
-          updateSearchValState(e);
-          const filteredPostsAfterSearchArr =
-            returnFilteredPostsArrAfterSearch(e);
-          setFoundPostsArrState(filteredPostsAfterSearchArr);
-          setTagsArrState(returnAllTagsFromArr(filteredPostsAfterSearchArr));
-          props.setShowFoundContainerState(true);
-          // @ts-ignore
-          inputEl.scrollLeft = 10000;
-        }}
+        onInput={debounce(e => {
+          const updateState = returnUpdatedState(e);
+          setState({ ...state, ...updateState });
+          e.target.scrollLeft = 10000;
+        }, 300)}
         onKeyDown={e => {
           if (e.key === 'Enter') {
             e.preventDefault();
@@ -466,7 +334,7 @@ export default function Search(props) {
             return;
           }
 
-          if (e.key === 'Enter') {
+          if (e.key === 'Escape') {
             e.preventDefault();
             searchBtnClickHandler(e);
             return;
@@ -484,41 +352,22 @@ export default function Search(props) {
 
       <button onClick={searchBtnClickHandler}>Search</button>
 
-      {searchedPostsAreShownState && (
-        <FoundPostsTextAfterSearch
-          setPostsOnScreenState={props.setPostsOnScreenState}
-          allPosts={props.allPosts}
-          setSearchValState={props.setSearchValState}
-          foundPostsArrState={foundPostsArrState}
-          searchedPostsNumState={searchedPostsNumState}
-          setSearchedPostsNumState={setSearchedPostsNumState}
-          setShowFoundContainerState={props.setShowFoundContainerState}
-          setSearchedPostsAreShownState={setSearchedPostsAreShownState}
-          FoundPostsTextAfterSearch={FoundPostsTextAfterSearch}
-        ></FoundPostsTextAfterSearch>
+      {showRemoveFoundPosts && (
+        <RemoveFoundPosts state={state} setState={setState}></RemoveFoundPosts>
       )}
 
-      {props.showFoundContainerState && (
+      {openSearchMenu && (
         <SearchPreviewContainer>
           <FoundPosts />
-          {!!tagsArrState.length && (
-            <TagsContainer
-              returnAllTagsFromArr={returnAllTagsFromArr}
-              tagsArrState={tagsArrState}
-              tagsSelectedState={tagsSelectedState}
-              setTagsSelectedState={setTagsSelectedState}
-            />
-          )}
-          {props.searchValState.length > 1 &&
-            foundPostsArrState.map(o => {
+          {!!foundTags.length && <TagsContainer state={state} />}
+          {!!foundPosts.length &&
+            inputVal &&
+            foundPosts.map(o => {
               return (
                 <SearchPreviewItem
-                  title={titleWithHighlight(o.title, props.searchValState)}
-                  summary={
-                    props.searchValState.length > 2 &&
-                    articleWithHighlight(o.articlesArr, props.searchValState)
-                  }
-                  key={uuid()}
+                  title={o.titleTxt}
+                  summary={foundPosts.length < 10 && o.postTxt}
+                  key={o.id + '_preview'}
                 />
               );
             })}

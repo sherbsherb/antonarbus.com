@@ -40,10 +40,10 @@ function txtFromJSXOrStr(el) {
   return txtFromJSXOrStr(children);
 }
 
-const postsWithText = posts.map(el => ({
+const postsWithoutJSX = posts.map(el => ({
   ...el,
-  titleTxt: txtFromJSXOrStr(el.title).toLowerCase(), 
-  postTxt: el.articlesArr.map(el => txtFromJSXOrStr(el.val)).join('').toLowerCase(),
+  titleTxt: txtFromJSXOrStr(el.title), 
+  postTxt: el.articlesArr.map(el => txtFromJSXOrStr(el.val)).join('')
 }))
 
-export const allPosts = postsWithText
+export const allPosts = postsWithoutJSX

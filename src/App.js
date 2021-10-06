@@ -64,13 +64,13 @@ function App() {
     // input text
     obj.inputVal =
       // @ts-ignore
-      e.target.innerText || document.querySelector('#input').innerText;    
+      e?.target?.innerText || document.querySelector('#input').innerText;    
 
     // nodes in input (text + tag divs)
     const wordsArr = []
     const tagsArr = []
     const inputNodes =
-      e.target.childNodes || document.querySelector('#input').childNodes;
+      e?.target?.childNodes || document.querySelector('#input').childNodes;
     inputNodes.forEach(function (el) {
       if (el.nodeType === Node.TEXT_NODE)
       wordsArr.push(...el.data.trim().toLowerCase().split(/\s+/));
@@ -100,17 +100,14 @@ function App() {
       .filter(el => areTagsInPost(obj.inputTags, el.tagsArr));
 
     // found tags
-    obj.foundTags =  returnAllTagsFromArr(obj.foundPosts)
+    obj.foundTags = returnAllTagsFromArr(obj.foundPosts)
 
-    console.log(obj.foundPosts);
+    // 
+    obj.showRemoveFoundPosts = false
+    if (obj.showFoundPosts) obj.showRemoveFoundPosts = true
 
     return obj
   }
-
-  const [showFoundContainerState, setShowFoundContainerState] = useState(false);
-  const [postsOnScreenState, setPostsOnScreenState] = useState(allPosts)
-  const [searchValState, setSearchValState] = useState('');
-
 
   Prism.plugins.NormalizeWhitespace.setDefaults({
     'remove-trailing': true,
@@ -120,22 +117,21 @@ function App() {
     'break-lines': 600, //max number of characters in a line
   });
 
-  // [] - run only on load
+  
   useEffect(() => {
     Prism.highlightAll();
+  }, [state.postsOnDisplay]); // [] - run only on load
 
+  useEffect(() => {
     // highlight found words
     var context = document.querySelector('main');
     var instance = new Mark(context);
     instance.unmark();
-    instance.mark(searchValState);
-
-  }, [postsOnScreenState]);
-
-  
+    instance.mark(state.inputWords);
+  }, [state.postsOnDisplay]);
 
   function returnPosts() {
-    return postsOnScreenState.map(o => (
+    return state.postsOnDisplay.map(o => (
       <Post post={o} key={o.id} />
     ));
   }
@@ -143,7 +139,7 @@ function App() {
   // do not re-render posts on screen when search dropdown menu toggles
   const returnPostsMemo = useMemo(() => {
     return returnPosts()
-  }, [postsOnScreenState])
+  }, [state.postsOnDisplay])
 
   return (
     <StyledApp 

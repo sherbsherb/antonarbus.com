@@ -171,7 +171,7 @@ function SearchPreviewItem(props) {
   );
 }
 
-const TagsContainerInMenuStyled = styled(SearchPreviewStyled)`
+const TagsContainerStyled = styled(SearchPreviewStyled)`
   max-height: 105px;
   height: auto;
   padding: 7px;
@@ -184,15 +184,15 @@ const TagsContainerInMenuStyled = styled(SearchPreviewStyled)`
 function TagsContainer({ state }) {
   const {foundTags} = state
   return (
-    <TagsContainerInMenuStyled>
+    <TagsContainerStyled>
       {foundTags.map(tag => (
         <Tag key={tag}> {tag} </Tag>
       ))}
-    </TagsContainerInMenuStyled>
+    </TagsContainerStyled>
   );
 }
 
-function RemoveFoundPosts(props) {
+function RemoveFoundPosts({ setState, closeFoundPostsContainer, foundPostsNum }) {
   return (
     <div
       style={{
@@ -204,8 +204,8 @@ function RemoveFoundPosts(props) {
       }}
     >
       <span style={{ color: 'grey' }}>
-        {props.searchedPostsNumState} post
-        {props.searchedPostsNumState > 1 ? 's are' : ' is'} found
+        {foundPostsNum} post
+        {foundPostsNum > 1 ? 's are' : ' is'} found
       </span>
       <span
         style={{
@@ -215,7 +215,7 @@ function RemoveFoundPosts(props) {
           marginLeft: '10px',
           cursor: 'pointer',
         }}
-        onClick={props.closeFoundPostsContainer}
+        onClick={closeFoundPostsContainer}
       >
         ⨉
       </span>
@@ -243,7 +243,7 @@ export default function Search({
     showRemoveFoundPosts,
   } = state;
 
-  function highlightPreviewWithYellow(words) {
+  function highlightTextInPreview(words) {
     const context = document.querySelectorAll('.post-preview');
     const instance = new Mark(context);
     instance.unmark();
@@ -251,10 +251,8 @@ export default function Search({
   }
 
   useEffect(() => {
-    highlightPreviewWithYellow(inputWords)
+    highlightTextInPreview(inputWords)
   });
-
-
 
   function FoundPosts() {
 
@@ -262,30 +260,27 @@ export default function Search({
       return <span className="found-posts">Not found</span>;
     const ending = foundPosts.length !== 1 ? 's' : '';
     return (
-      <span className="found-posts" onClick={searchBtnClickHandler}>
+      <span 
+        className="found-posts" 
+        onClick={searchBtnClickHandler}
+      >
         Show {ending ? 'all' : ''} {foundPosts.length} post{ending}
       </span>
     );
   }
 
-
-
   function searchBtnClickHandler(e) {
     e.preventDefault();
 
     if (document.querySelector('#input').innerText.length === 0) {
-      setState({
-        ...state,
-        openSearchMenu: false,
-        showRemoveFoundPosts: false,
-      });
+      closeFoundPostsContainer() 
       return;
     }
 
     setState({
       ...state,
-      openSearchMenu: false,
       showRemoveFoundPosts: true,
+      openSearchMenu: false,
       postsOnDisplay: foundPosts,
     });
   }
@@ -294,8 +289,10 @@ export default function Search({
     document.querySelector('#input').innerText = '';
     setState({
       ...state,
-      showRemoveFoundPosts: true,
+      ...returnUpdatedState(),
+      // showRemoveFoundPosts: false,
       postsOnDisplay: posts,
+      openSearchMenu: false,
     });
   }
 
@@ -312,7 +309,9 @@ export default function Search({
   return (
     <FormStyled
       // do not close dropdown search menu if clicked inside
-      onClick={e => e.stopPropagation()}
+      onClick={
+        e => e.stopPropagation()
+      }
     >
       <div
         id="input"
@@ -320,11 +319,19 @@ export default function Search({
         placeholder="Search"
         onFocus={(e) => {
           const updateState = returnUpdatedState(e);
-          setState({ ...state, ...updateState, openSearchMenu: true });
+          setState({ 
+            ...state, 
+            ...updateState, 
+            openSearchMenu: true 
+          });
         }}
         onInput={debounce(e => {
           const updateState = returnUpdatedState(e);
-          setState({ ...state, ...updateState });
+          setState({ 
+            ...state, 
+            ...updateState,
+            openSearchMenu: true 
+          });
           e.target.scrollLeft = 10000;
         }, 300)}
         onKeyDown={e => {
@@ -336,7 +343,7 @@ export default function Search({
 
           if (e.key === 'Escape') {
             e.preventDefault();
-            searchBtnClickHandler(e);
+            closeFoundPostsContainer() 
             return;
           }
         }}
@@ -348,12 +355,16 @@ export default function Search({
           e.preventDefault();
           closeFoundPostsContainer();
         }}
-      ></button>
+      />
 
       <button onClick={searchBtnClickHandler}>Search</button>
 
       {showRemoveFoundPosts && (
-        <RemoveFoundPosts state={state} setState={setState}></RemoveFoundPosts>
+        <RemoveFoundPosts 
+          foundPostsNum={foundPosts.length} 
+          setState={setState}
+          closeFoundPostsContainer={closeFoundPostsContainer}
+        />
       )}
 
       {openSearchMenu && (

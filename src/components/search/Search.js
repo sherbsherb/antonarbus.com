@@ -53,6 +53,10 @@ const FormStyled = styled.form`
       content: attr(placeholder);
       color: #bfbfbf;
     }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   button {
@@ -145,7 +149,7 @@ const SearchPreviewStyled = styled.div`
   cursor: pointer;
   color: black;
   padding: 5px;
-  max-height: 82px;
+  max-height: 92px;
   overflow-y: auto;
 
   &:hover {
@@ -172,7 +176,7 @@ function SearchPreviewItem(props) {
 }
 
 const TagsContainerStyled = styled(SearchPreviewStyled)`
-  max-height: 105px;
+  max-height: 110px;
   height: auto;
   padding: 7px;
   padding-bottom: 3px;
@@ -182,15 +186,11 @@ const TagsContainerStyled = styled(SearchPreviewStyled)`
 `;
 
 function TagsContainer({ state, setState }) {
-  const {foundTags} = state
+  const { foundTags } = state;
   return (
     <TagsContainerStyled>
       {foundTags.map(tag => (
-        <Tag 
-          key={tag}
-          state={state}
-          setState={setState}
-        > 
+        <Tag key={tag} state={state} setState={setState}>
           {tag}
         </Tag>
       ))}
@@ -198,7 +198,11 @@ function TagsContainer({ state, setState }) {
   );
 }
 
-function RemoveFoundPosts({ setState, closeFoundPostsContainer, foundPostsNum }) {
+function RemoveFoundPosts({
+  setState,
+  closeFoundPostsContainer,
+  foundPostsNum,
+}) {
   return (
     <div
       style={{
@@ -257,19 +261,15 @@ export default function Search({
   }
 
   useEffect(() => {
-    highlightTextInPreview(inputWords)
+    highlightTextInPreview(inputWords);
   });
 
   function FoundPosts() {
-
     if (foundPosts.length === 0)
       return <span className="found-posts">Not found</span>;
     const ending = foundPosts.length !== 1 ? 's' : '';
     return (
-      <span 
-        className="found-posts" 
-        onClick={searchBtnClickHandler}
-      >
+      <span className="found-posts" onClick={searchBtnClickHandler}>
         Show {ending ? 'all' : ''} {foundPosts.length} post{ending}
       </span>
     );
@@ -279,7 +279,7 @@ export default function Search({
     e.preventDefault();
 
     if (document.querySelector('#input').innerText.length === 0) {
-      closeFoundPostsContainer() 
+      closeFoundPostsContainer();
       return;
     }
 
@@ -315,28 +315,26 @@ export default function Search({
   return (
     <FormStyled
       // do not close dropdown search menu if clicked inside
-      onClick={
-        e => e.stopPropagation()
-      }
+      onClick={e => e.stopPropagation()}
     >
       <div
         id="input"
         contentEditable={true}
         placeholder="Search"
-        onFocus={(e) => {
+        onFocus={e => {
           const updateState = returnUpdatedState(e);
-          setState({ 
-            ...state, 
-            ...updateState, 
-            openSearchMenu: true 
+          setState({
+            ...state,
+            ...updateState,
+            openSearchMenu: true,
           });
         }}
         onInput={debounce(e => {
           const updateState = returnUpdatedState(e);
-          setState({ 
-            ...state, 
+          setState({
+            ...state,
             ...updateState,
-            openSearchMenu: true 
+            openSearchMenu: true,
           });
           e.target.scrollLeft = 10000;
         }, 300)}
@@ -349,7 +347,7 @@ export default function Search({
 
           if (e.key === 'Escape') {
             e.preventDefault();
-            closeFoundPostsContainer() 
+            closeFoundPostsContainer();
             return;
           }
         }}
@@ -366,8 +364,8 @@ export default function Search({
       <button onClick={searchBtnClickHandler}>Search</button>
 
       {showRemoveFoundPosts && (
-        <RemoveFoundPosts 
-          foundPostsNum={foundPosts.length} 
+        <RemoveFoundPosts
+          foundPostsNum={foundPosts.length}
           setState={setState}
           closeFoundPostsContainer={closeFoundPostsContainer}
         />
@@ -376,7 +374,9 @@ export default function Search({
       {openSearchMenu && (
         <SearchPreviewContainer>
           <FoundPosts />
-          {!!foundTags.length && <TagsContainer state={state} setState={setState} />}
+          {!!foundTags.length && (
+            <TagsContainer state={state} setState={setState} />
+          )}
           {!!foundPosts.length &&
             inputVal &&
             foundPosts.map(o => {

@@ -1,6 +1,6 @@
 import Mark from 'mark.js';
 import Prism from 'prismjs';
-import React, { useEffect, useRef, useState, useMemo} from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import uuid from 'react-uuid';
 //import './App.css';
 import styled from 'styled-components';
@@ -8,7 +8,7 @@ import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post components/Post.js';
 import Search from './components/search/Search.js';
 import { allPosts } from './posts/allPosts.js';
-console.log(allPosts)
+console.log(allPosts);
 
 const StyledApp = styled.div`
   text-align: left;
@@ -59,23 +59,23 @@ function App() {
   }
 
   function returnUpdatedState(e) {
-    const obj = {...state}
+    const obj = { ...state };
 
     // input text
     obj.inputVal =
       // @ts-ignore
-      e?.target?.innerText || document.querySelector('#input').innerText;    
+      e?.target?.innerText || document.querySelector('#input').innerText;
 
     // nodes in input (text + tag divs)
-    const wordsArr = []
-    const tagsArr = []
+    const wordsArr = [];
+    const tagsArr = [];
     const inputNodes =
       e?.target?.childNodes || document.querySelector('#input').childNodes;
     inputNodes.forEach(function (el) {
       if (el.nodeType === Node.TEXT_NODE)
-      wordsArr.push(...el.data.trim().toLowerCase().split(/\s+/));
+        wordsArr.push(...el.data.trim().toLowerCase().split(/\s+/));
       if (el.nodeType === Node.ELEMENT_NODE)
-      tagsArr.push(el.innerText.toLowerCase());
+        tagsArr.push(el.innerText.toLowerCase());
     });
 
     // get words and tags from nodes
@@ -84,29 +84,29 @@ function App() {
 
     // found posts based on words & tags
     function areWordsInText(wordsArr, text) {
-      const wordsArrL = wordsArr.map(el => el.toLowerCase())
-      const textL = text.toLowerCase()
+      const wordsArrL = wordsArr.map(el => el.toLowerCase());
+      const textL = text.toLowerCase();
       return wordsArrL.every(elem => textL.includes(elem));
     }
 
     function areTagsInPost(smallArr, bigArr) {
-      const smallArrL = smallArr.map(el => el.toLowerCase())
-      const bigArrL = bigArr.map(el => el.toLowerCase())
+      const smallArrL = smallArr.map(el => el.toLowerCase());
+      const bigArrL = bigArr.map(el => el.toLowerCase());
       return smallArrL.every(elem => bigArrL.includes(elem));
     }
 
     obj.foundPosts = allPosts
-      .filter(el => areWordsInText(obj.inputWords, (el.titleTxt + el.postTxt)))
+      .filter(el => areWordsInText(obj.inputWords, el.titleTxt + el.postTxt))
       .filter(el => areTagsInPost(obj.inputTags, el.tagsArr));
 
     // found tags
-    obj.foundTags = returnAllTagsFromArr(obj.foundPosts)
+    obj.foundTags = returnAllTagsFromArr(obj.foundPosts);
 
-    // 
-    obj.showRemoveFoundPosts = false
-    if (obj.showFoundPosts) obj.showRemoveFoundPosts = true
+    //
+    obj.showRemoveFoundPosts = false;
+    if (obj.showFoundPosts) obj.showRemoveFoundPosts = true;
 
-    return obj
+    return obj;
   }
 
   Prism.plugins.NormalizeWhitespace.setDefaults({
@@ -117,7 +117,6 @@ function App() {
     'break-lines': 600, //max number of characters in a line
   });
 
-  
   useEffect(() => {
     Prism.highlightAll();
   }, [state.postsOnDisplay]); // [] - run only on load
@@ -132,19 +131,19 @@ function App() {
 
   function returnPosts() {
     return state.postsOnDisplay.map(o => (
-      <Post post={o} key={o.id} state={state} setState={setState}/>
+      <Post post={o} key={o.id} state={state} setState={setState} />
     ));
   }
 
   // do not re-render posts on screen when search dropdown menu toggles
   const returnPostsMemo = useMemo(() => {
-    return returnPosts()
-  }, [state.postsOnDisplay])
+    return returnPosts();
+  }, [state.postsOnDisplay]);
 
   return (
-    <StyledApp 
+    <StyledApp
       // close search dropdown menu if clicked outside
-      onClick={() => setState({...state, openSearchMenu: false})}
+      onClick={() => setState({ ...state, openSearchMenu: false })}
     >
       <NavBar />
       <Search
@@ -152,7 +151,7 @@ function App() {
         setState={setState}
         returnUpdatedState={returnUpdatedState}
       />
-      
+
       <StyledMain>{returnPostsMemo}</StyledMain>
     </StyledApp>
   );

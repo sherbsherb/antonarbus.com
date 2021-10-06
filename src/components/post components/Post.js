@@ -21,9 +21,10 @@ export const TagsContainerStyled = styled.div`
   margin-top: 20px;
 `;
 
-export const StyledTag = styled.div`
+export const TagStyled = styled.div`
   display: inline-block;
   position: relative;
+  top: -3px;
   padding: 3px 8px 3px 20px;
   margin: 5px;
   background: grey;
@@ -41,7 +42,7 @@ export const StyledTag = styled.div`
   &:before {
     content: '';
     position: absolute;
-    top: 8px;
+    top: 10px;
     left: 8px;
     width: 5px;
     height: 5px;
@@ -70,7 +71,7 @@ export function Tag(props) {
   }
 
   return (
-    <StyledTag
+    <TagStyled
       contentEditable={false}
       onClick={(e) => {
         e.stopPropagation()
@@ -96,7 +97,7 @@ export function Tag(props) {
       }}
     >
       {props.children}
-    </StyledTag>
+    </TagStyled>
   );
 }
 

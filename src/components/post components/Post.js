@@ -81,7 +81,6 @@ export function Tag(props) {
         const clonedTag = tagEl.cloneNode(true)
         clonedTag.style.margin = '0px 5px'
         clonedTag.classList.add('tag')
-        console.log(tagEl)
         inputEl.appendChild(clonedTag);
         inputEl.append("\u00A0");
         setCaretToEnd(inputEl)
@@ -91,9 +90,6 @@ export function Tag(props) {
           left: 0,
           behavior: 'smooth'
         });
-        console.log('props on click inside tag')
-        console.log(props)
-
       }}
     >
       {props.children}
@@ -102,8 +98,6 @@ export function Tag(props) {
 }
 
 export function Post(props) {
-  console.log('props')
-  console.log(props)
   return (
     <>
       <Title>{props.post.title}</Title>

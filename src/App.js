@@ -55,7 +55,7 @@ function App() {
   function returnAllTagsFromArr(arr) {
     const allTags = new Set();
     arr.forEach(o => o.tagsArr.forEach(tag => allTags.add(tag)));
-    return Array.from(allTags);
+    return Array.from(allTags).sort((a, b) => a.localeCompare(b));
   }
 
   function returnUpdatedState(e) {
@@ -99,7 +99,7 @@ function App() {
       .filter(el => areWordsInText(obj.inputWords, el.titleTxt + el.postTxt))
       .filter(el => areTagsInPost(obj.inputTags, el.tagsArr));
 
-    // found tags
+    // all tags
     obj.foundTags = returnAllTagsFromArr(obj.foundPosts);
 
     //

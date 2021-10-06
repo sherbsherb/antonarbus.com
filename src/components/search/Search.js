@@ -18,7 +18,7 @@ const FormStyled = styled.form`
   left: 50%;
   transform: translateX(-50%);
 
-  z-index: 666;
+  z-index: 1;
 
   input {
     flex-grow: 1;

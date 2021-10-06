@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from 'react'
 import { classVsFunctionComponent } from './classVsFunctionComponent/classVsFunctionComponent'
 import { controlledVsUncontrolledComponent } from './controlledVsUncontrolledComponent/controlledVsUncontrolledComponent'
 import { forwardLotsOfProps } from './forwardLotsOfProps/forwardLotsOfProps'
@@ -11,7 +10,7 @@ import { toDoList } from './toDoList/toDoList'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
 
-let posts = [
+const posts = [
   updateValueFromChildComponent,
   forwardRef,
   controlledVsUncontrolledComponent,
@@ -25,6 +24,7 @@ let posts = [
   jsVsJsx,
 ]
 
+// enumerate posts
 posts.forEach((o, index) => {
   o.sequentialNum = posts.length - index
 })

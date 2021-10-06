@@ -1,7 +1,8 @@
+import Mark from 'mark.js';
 import React, { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
 import styled from 'styled-components';
-import { Post } from '../post components/Post';
+import { Tag } from '../post components/Post';
 
 const FormStyled = styled.form`
   display: inline-flex;
@@ -13,23 +14,30 @@ const FormStyled = styled.form`
 
   margin-top: 30px;
   height: 40px;
-  max-width: 400px;
+  max-width: 500px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
 
   z-index: 1;
 
-  input {
+  div#input {
     flex-grow: 1;
     padding: 5px;
+    padding-right: 40px;
     font-size: 20px;
+    border-width: 2px;
     border-color: #c0c0c0;
     border-style: solid;
     border-radius: 4px;
     outline-style: none;
     width: auto;
     min-width: 0; /* for shrinking */
+    background-color: white;
+    color: black;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 
     &:hover {
       border-color: grey;
@@ -41,14 +49,9 @@ const FormStyled = styled.form`
       margin: 0px;
     }
 
-    &:not(:placeholder-shown) {
-      border-color: rgba(0, 157, 214, 1);
-      margin: 0px;
-    }
-
-    /* show cancel icon not only on hover, but on focus */
-    &::-webkit-search-cancel-button {
-      opacity: 1;
+    &[contenteditable]:empty:before {
+      content: attr(placeholder);
+      color: #bfbfbf;
     }
   }
 
@@ -69,6 +72,38 @@ const FormStyled = styled.form`
       border-color: grey;
       transition: border-color 200ms ease;
     }
+  }
+
+  .close {
+    border: none;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    right: 100px;
+    top: 4px;
+    background-color: transparent;
+  }
+
+  .close:before,
+  .close:after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 20px;
+    width: 4px;
+    background-color: #dcdcdc5c;
+  }
+  .close:hover:before,
+  .close:hover:after {
+    background-color: #ff6565bd;
+  }
+
+  .close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   .found-posts {
@@ -105,11 +140,13 @@ const SearchPreviewContainer = styled.div`
 
 const SearchPreviewStyled = styled.div`
   background-color: #e8e8e8;
-  margin: 5px 0px;
+  margin: 10px 0px;
   border-radius: 4px;
   cursor: pointer;
   color: black;
   padding: 5px;
+  max-height: 82px;
+  overflow-y: auto;
 
   &:hover {
     background-color: lightgrey;
@@ -127,14 +164,41 @@ const SearchPreviewStyled = styled.div`
 
 function SearchPreviewItem(props) {
   return (
-    <SearchPreviewStyled>
+    <SearchPreviewStyled className="post-preview">
       <h4>{props.title}</h4>
       <summary>{props.summary}</summary>
     </SearchPreviewStyled>
   );
 }
 
-function PostsOnScreen(props) {
+const TagsContainerStyled = styled(SearchPreviewStyled)`
+  max-height: 105px;
+  height: auto;
+  padding: 7px;
+  padding-bottom: 3px;
+  &:hover {
+    background-color: #e8e8e8;
+  }
+`;
+
+function TagsContainer({ state, setState }) {
+  const {foundTags} = state
+  return (
+    <TagsContainerStyled>
+      {foundTags.map(tag => (
+        <Tag 
+          key={tag}
+          state={state}
+          setState={setState}
+        > 
+          {tag}
+        </Tag>
+      ))}
+    </TagsContainerStyled>
+  );
+}
+
+function RemoveFoundPosts({ setState, closeFoundPostsContainer, foundPostsNum }) {
   return (
     <div
       style={{
@@ -146,8 +210,8 @@ function PostsOnScreen(props) {
       }}
     >
       <span style={{ color: 'grey' }}>
-        {props.foundPostsNumState} post
-        {props.foundPostsNumState > 1 ? 's are' : ' is'} found
+        {foundPostsNum} post
+        {foundPostsNum > 1 ? 's are' : ' is'} found
       </span>
       <span
         style={{
@@ -157,11 +221,7 @@ function PostsOnScreen(props) {
           marginLeft: '10px',
           cursor: 'pointer',
         }}
-        onClick={() => {
-          props.setFilterFoundPostsState(false);
-          props.setPostsOnScreenState(props.allPosts);
-          props.setSearchValState('')
-        }}
+        onClick={closeFoundPostsContainer}
       >
         ⨉
       </span>
@@ -169,184 +229,165 @@ function PostsOnScreen(props) {
   );
 }
 
-export default function Search(props) {
-  // const [searchValState, setSearchValState] = useState('');
-  const [foundPostsNumState, setFoundPostsNumState] = useState(
-    props.allPosts.length
-  );
-  const [foundPostsArrState, setFoundPostsArrState] = useState([]);
-  const [filterFoundPostsState, setFilterFoundPostsState] = useState(false);
+export default function Search({
+  state,
+  setState,
+  returnUpdatedState,
+  ...props
+}) {
+  const {
+    posts,
+    tags,
+    inputVal,
+    inputWords,
+    inputTags,
+    foundPosts,
+    postsOnDisplay,
+    foundTags,
+    openSearchMenu,
+    showFoundPosts,
+    showRemoveFoundPosts,
+  } = state;
 
-  function updateSearchValState(e) {
-    const inputVal = e.target.value;
-    console.log(inputVal);
-    props.setSearchValState(inputVal);
+  function highlightTextInPreview(words) {
+    const context = document.querySelectorAll('.post-preview');
+    const instance = new Mark(context);
+    instance.unmark();
+    instance.mark(words);
   }
 
-  function returnFilteredPostsArrAfterSearch(e) {
-    const inputVal = e.target.value;
-    const filteredPosts = props.allPosts.filter((item, index) => {
-      if (inputVal === '') return false;
-      return (
-        txtFromJSXOrStr(item.title)
-          .toLowerCase()
-          .includes(inputVal.toLowerCase()) ||
-        item.articlesArr.some(article => {
-          return txtFromJSXOrStr(article.val)
-            .toLowerCase()
-            .includes(inputVal.toLowerCase());
-        })
-      );
-    });
+  useEffect(() => {
+    highlightTextInPreview(inputWords)
+  });
 
-    return filteredPosts;
-  }
+  function FoundPosts() {
 
-  function txtFromJSXOrStr(el) {
-    if (!el) return '';
-    if (typeof el === 'string') return el;
-    const children = el.props && el.props.children;
-    if (children instanceof Array)
-      return children.map(txtFromJSXOrStr).join('');
-    return txtFromJSXOrStr(children);
-  }
-
-  function FoundPosts(props) {
-    if (props.foundPostsNumState === 0)
+    if (foundPosts.length === 0)
       return <span className="found-posts">Not found</span>;
-    let ending = '';
-    if (props.foundPostsNumState !== 1) ending = 's';
+    const ending = foundPosts.length !== 1 ? 's' : '';
     return (
-      <span className="found-posts" onClick={searchBtnClickHandler}>
-        Show {ending ? 'all' : ''} {props.foundPostsNumState} post{ending}
+      <span 
+        className="found-posts" 
+        onClick={searchBtnClickHandler}
+      >
+        Show {ending ? 'all' : ''} {foundPosts.length} post{ending}
       </span>
     );
   }
 
-  function returnArrWithTitlesAndArticle() {
-    return foundPostsArrState.map(post => {
-      return { title: post.title, summary: post.title, key: uuid() };
-    });
-  }
-
-  function splitWithDelimiter(str, delimiter, arr = []) {
-    if (!delimiter) return [str];
-    if (str.length === 0) return arr;
-    const index = str.toLowerCase().indexOf(delimiter.toLowerCase());
-    if (index === -1) {
-      arr.push(str);
-      return arr;
-    }
-    const strBeforeDelimiter = str.substring(0, index);
-    if (index !== 0) arr.push(strBeforeDelimiter);
-    const delimiterAsInStr = str.slice(index, index + delimiter.length);
-    arr.push(delimiterAsInStr);
-    str = str.slice(strBeforeDelimiter.length + delimiter.length, str.length);
-    splitWithDelimiter(str, delimiter, arr);
-    return arr;
-  }
-
-  function titleWithHighlight(el, searchStr) {
-    const str = txtFromJSXOrStr(el);
-    const arrWithSplittedText = splitWithDelimiter(str, searchStr);
-    const arrWithJSX = arrWithSplittedText.map(el => {
-      if (el.toLowerCase() === searchStr.toLowerCase())
-        return (
-          <span style={{ background: 'yellow' }} key={uuid()}>
-            {el}
-          </span>
-        );
-      return <span key={uuid()}>{el}</span>;
-    });
-    return arrWithJSX;
-  }
-
-  function articleWithHighlight(articlesArr, searchStr) {
-    let allText = '';
-    articlesArr.forEach(function (el) {
-      allText = allText + txtFromJSXOrStr(el.val);
-    });
-
-    const arrWithSplittedText = splitWithDelimiter(allText, searchStr);
-
-    const arrWithJSX = arrWithSplittedText.map(el => {
-      if (el.toLowerCase() === searchStr.toLowerCase())
-        return (
-          <span style={{ background: 'yellow' }} key={uuid()}>
-            {el}
-          </span>
-        );
-      return <span key={uuid()}>{el}</span>;
-    });
-    return arrWithJSX;
-  }
-
-  console.log(returnArrWithTitlesAndArticle());
-
   function searchBtnClickHandler(e) {
     e.preventDefault();
-    if (props.searchValState === '') {
-      props.setPostsOnScreenState(props.allPosts);
-      setFilterFoundPostsState(false);
+
+    if (document.querySelector('#input').innerText.length === 0) {
+      closeFoundPostsContainer() 
       return;
     }
-    props.setShowFoundContainerState(false);
-    props.setPostsOnScreenState(foundPostsArrState);
-    setFilterFoundPostsState(true);
+
+    setState({
+      ...state,
+      showRemoveFoundPosts: true,
+      openSearchMenu: false,
+      postsOnDisplay: foundPosts,
+    });
+  }
+
+  function closeFoundPostsContainer() {
+    document.querySelector('#input').innerText = '';
+    setState({
+      ...state,
+      ...returnUpdatedState(),
+      // showRemoveFoundPosts: false,
+      postsOnDisplay: posts,
+      openSearchMenu: false,
+    });
+  }
+
+  function debounce(callback, wait) {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        callback.apply(this, args);
+      }, wait);
+    };
   }
 
   return (
     <FormStyled
-      onClick={e => e.stopPropagation()} // do not close dropdown search menu if clicked inside
+      // do not close dropdown search menu if clicked inside
+      onClick={
+        e => e.stopPropagation()
+      }
     >
-      <input
-        type="search"
-        name="search"
-        value={props.searchValState}
+      <div
+        id="input"
+        contentEditable={true}
         placeholder="Search"
-        autoComplete="off"
-        onChange={e => {
-          updateSearchValState(e);
-          const filteredPostsAfterSearchArr =
-            returnFilteredPostsArrAfterSearch(e);
-          setFoundPostsNumState(filteredPostsAfterSearchArr.length);
-          setFoundPostsArrState(filteredPostsAfterSearchArr);
-          props.setShowFoundContainerState(
-            !!filteredPostsAfterSearchArr.length
-          );
-          if (e.target.value === '') {
-            props.setPostsOnScreenState(props.allPosts);
-            setFilterFoundPostsState(false);
+        onFocus={(e) => {
+          const updateState = returnUpdatedState(e);
+          setState({ 
+            ...state, 
+            ...updateState, 
+            openSearchMenu: true 
+          });
+        }}
+        onInput={debounce(e => {
+          const updateState = returnUpdatedState(e);
+          setState({ 
+            ...state, 
+            ...updateState,
+            openSearchMenu: true 
+          });
+          e.target.scrollLeft = 10000;
+        }, 300)}
+        onKeyDown={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            searchBtnClickHandler(e);
+            return;
+          }
+
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeFoundPostsContainer() 
+            return;
           }
         }}
-      />
-      <button onClick={searchBtnClickHandler}>Search</button>
-      {filterFoundPostsState && (
-        <PostsOnScreen
-          foundPostsNumState={foundPostsNumState}
-          setFilterFoundPostsState={setFilterFoundPostsState}
-          setPostsOnScreenState={props.setPostsOnScreenState}
-          allPosts={props.allPosts}
-          setSearchValState={props.setSearchValState}
-        ></PostsOnScreen>
-      )}
-      {props.showFoundContainerState && (
-        <SearchPreviewContainer>
-          {<FoundPosts foundPostsNumState={foundPostsNumState} />}
-          {foundPostsArrState.map(o => {
-            return (
-              <SearchPreviewItem
-                title={titleWithHighlight(o.title, props.searchValState)}
-                summary={articleWithHighlight(
-                  o.articlesArr,
-                  props.searchValState
-                )}
-                key={uuid()}
-              />
-            );
-          })}
+      ></div>
 
-          {/* <Post post={foundPostsArrState[0]} key={'xghdfgh'} /> */}
+      <button
+        className="close"
+        onClick={e => {
+          e.preventDefault();
+          closeFoundPostsContainer();
+        }}
+      />
+
+      <button onClick={searchBtnClickHandler}>Search</button>
+
+      {showRemoveFoundPosts && (
+        <RemoveFoundPosts 
+          foundPostsNum={foundPosts.length} 
+          setState={setState}
+          closeFoundPostsContainer={closeFoundPostsContainer}
+        />
+      )}
+
+      {openSearchMenu && (
+        <SearchPreviewContainer>
+          <FoundPosts />
+          {!!foundTags.length && <TagsContainer state={state} setState={setState} />}
+          {!!foundPosts.length &&
+            inputVal &&
+            foundPosts.map(o => {
+              return (
+                <SearchPreviewItem
+                  title={o.titleTxt}
+                  summary={foundPosts.length < 10 && o.postTxt}
+                  key={o.id + '_preview'}
+                />
+              );
+            })}
         </SearchPreviewContainer>
       )}
     </FormStyled>

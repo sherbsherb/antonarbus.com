@@ -29,4 +29,20 @@ posts.forEach((o, index) => {
   o.sequentialNum = posts.length - index
 })
 
-export const allPosts = posts
+// add properties titleTxt & postTxt with pure text
+function txtFromJSXOrStr(el) {
+  if (!el) return '';
+  if (typeof el === 'string') return el;
+  const children = el.props && el.props.children;
+  if (children instanceof Array)
+    return children.map(txtFromJSXOrStr).join('');
+  return txtFromJSXOrStr(children);
+}
+
+const postsWithoutJSX = posts.map(el => ({
+  ...el,
+  titleTxt: txtFromJSXOrStr(el.title), 
+  postTxt: el.articlesArr.map(el => txtFromJSXOrStr(el.val)).join('')
+}))
+
+export const allPosts = postsWithoutJSX

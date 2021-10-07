@@ -13,6 +13,6 @@ export function Tags(props) {
   );
 }
 
-const DivStyled = styled.time`
+const DivStyled = styled.div`
   margin-top: 20px; ;
 `;

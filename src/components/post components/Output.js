@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export function Output(props) {
-  return <AStyled>{props.children}</AStyled>;
+  return <DivStyled>{props.children}</DivStyled>;
 }
 
-const AStyled = styled.a`
-  cursor: pointer;
-  color: #0098f7;
-  text-decoration: none;
+const DivStyled = styled.a`
+  background: #e9f4fb;
+  padding: 0.5em;
+  margin: 20px 0px;
+  overflow: auto;
+  border-radius: 4px;
 `;

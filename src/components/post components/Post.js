@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
 // import styled, { keyframes, css } from 'styled-components';
 import styled from 'styled-components/macro';
 // import './styles.css';
-import Prism from 'prismjs';
 import './../../../node_modules/prismjs/components/prism-jsx.js';
 import './../../../node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
 import './prism.css';
@@ -26,8 +24,6 @@ export function jsxesFromPostParts(post) {
   });
 }
 
-
-
 export function Post(props) {
   const post = props.post;
   const title = post.title;
@@ -40,14 +36,10 @@ export function Post(props) {
       <Title>{title}</Title>
       <Section>
         {jsxesFromPostParts(post)}
-        <Num num={num} />
+        <Num>{num}</Num>
         <Tags tags={tags}/>
         <Date>{date}</Date>
       </Section>
     </article>
   );
 }
-
-
-
-

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export function Num(props) {
-  return <SpanStyled>Post #{props.num}</SpanStyled>;
+  return <SpanStyled>Post #{props.num}{props.children}</SpanStyled>;
 }
 
 const SpanStyled = styled.span`

@@ -36,7 +36,7 @@ export const forwardRef = {
     {
       type: 'text',
       val: <>
-        To pass DOM element to a custom component via <CodeSpan>React.useRef()</CodeSpan> {' '}
+        To pass a DOM element to a custom component via <CodeSpan>React.useRef()</CodeSpan> {' '}
         we need to wrap a component into <CodeSpan>React.forwardRef()</CodeSpan> {' '}
         <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'function'}/>.
       </>,

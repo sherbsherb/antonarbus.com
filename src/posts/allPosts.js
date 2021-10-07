@@ -12,8 +12,10 @@ import { toDoList } from './toDoList/toDoList'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
 import { uuid } from './uuid/uuid'
+import { useRefExample } from './useRefExample/useRefExample';
 
 const posts = [
+  useRefExample,
   uuid,
   updateValueFromChildComponent,
   forwardRef,

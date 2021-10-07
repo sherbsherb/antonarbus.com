@@ -17,7 +17,7 @@ function UuidExample() {
   )
 }
 
-const toRender1 = <UuidExample />
+const toRender = <UuidExample />
 
 export const uuid = {
   title: <>uuid</>,
@@ -62,11 +62,13 @@ export const uuid = {
             </>
           )
         }
+
+        const toRender = <UuidExample />
       `
     },
     {
       type: 'output',
-      val: toRender1
+      val: toRender
     },
   ],
 };

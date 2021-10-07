@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 function ControlledInput() {
   const [inpVal, setInpVal] = useState('initial text');
@@ -41,9 +41,7 @@ const toRender2 = <UncontrolledInput />
 export const controlledVsUncontrolledComponent = {
   title: 'Controlled vs uncontrolled component',
   date: '2021.09.26',
-  id: '6de34',
   tagsArr: ['react', 'useRef', 'useState', 'input', 'controlled', 'uncontrolled', 'basics', 'hook', 'DOM'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

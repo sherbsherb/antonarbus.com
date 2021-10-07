@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 function Component1(props) {
   return (
@@ -47,9 +47,7 @@ const toRender3 = <Component3 {...userProps}/>
 export const passProps = {
   title: 'How to pass props',
   date: '2021.09.29',
-  id: 'hgjer',
   tagsArr: ['react', 'props', 'component', 'basics'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

@@ -1,8 +1,8 @@
 // import styled, { keyframes, css } from 'styled-components';
 import styled from 'styled-components/macro';
 // import './styles.css';
-import './../../../node_modules/prismjs/components/prism-jsx.js';
-import './../../../node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import './prism.css';
 import uuid from 'react-uuid';
 import { Title } from './Title.js';

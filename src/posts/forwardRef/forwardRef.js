@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 const Input = React.forwardRef((props, ref) => (
   <input ref={ref} {...props} />
@@ -31,9 +31,7 @@ export const forwardRef = {
     </>
   ),
   date: '2021.09.26',
-  id: 'fhfjnxzxr',
   tagsArr: ['react', 'useRef', 'forwardRef', 'input', 'focus', 'basics', 'hook', 'DOM'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

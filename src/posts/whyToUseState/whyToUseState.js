@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 const btnCss = {padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer',}
 
@@ -54,9 +54,7 @@ const toRender2 = <ComponentWithState/>
 export const whyToUseState = {
   title: <>Why to use <CodeSpan>useState()</CodeSpan></>,
   date: '2021.09.25',
-  id: '34sss',
   tagsArr: ['react', 'state', 'useState', 'basics', 'hook'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

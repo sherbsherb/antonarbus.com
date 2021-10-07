@@ -1,13 +1,11 @@
 import React from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 export const jsVsJsx = {
   title: 'JS vs JSX',
   date: '2021.09.23',
-  id: '5sdfg',
   tagsArr: ['react', 'jsx', 'createElement', 'basics'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

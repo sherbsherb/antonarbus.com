@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 function Parent() {
   const [state, setState] = React.useState(0);
@@ -34,9 +34,7 @@ const toRender = <Parent />;
 export const updateValueFromChildComponent = {
   title: 'Update value from a child component',
   date: '2021.09.29',
-  id: 'e56g',
   tagsArr: ['react', 'props', 'state', 'useState', 'component', 'child', 'parent', 'basics'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

@@ -2,7 +2,7 @@ import Mark from 'mark.js';
 import React, { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
 import styled from 'styled-components';
-import { Tag } from '../post components/Tag';
+import { Tag } from '../post/Tag';
 
 const FormStyled = styled.form`
   display: inline-flex;
@@ -203,6 +203,7 @@ function RemoveFoundPosts({
   closeFoundPostsContainer,
   foundPostsNum,
 }) {
+
   return (
     <div
       style={{
@@ -214,8 +215,11 @@ function RemoveFoundPosts({
       }}
     >
       <span style={{ color: 'grey' }}>
-        {foundPostsNum} post
-        {foundPostsNum > 1 ? 's are' : ' is'} found
+        {!!foundPostsNum && foundPostsNum} 
+        {!!foundPostsNum && foundPostsNum && ' post'} 
+        {!!foundPostsNum && (foundPostsNum > 1 ? 's are ' : ' is ') }
+        {!foundPostsNum && 'Not '}
+        found
       </span>
       <span
         style={{

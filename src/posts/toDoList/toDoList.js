@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import shortid from 'shortid';
 
 const StyledContainer = styled.div`
   width: 90%;
@@ -47,15 +48,15 @@ function ToDoApp() {
         JSON.stringify([
           {
             toDoText: 'wipe the dust',
-            id: Math.random(),
+            id: shortid(),
           },
           {
             toDoText: 'walk the dog out',
-            id: Math.random(),
+            id: shortid(),
           },
           {
             toDoText: 'call parents',
-            id: Math.random(),
+            id: shortid(),
           },
         ])
       );
@@ -91,7 +92,7 @@ function AddItemForm({ toDoListState, setToDoListState, getToDoList }) {
     const newList = [
       {
         toDoText: inputState,
-        id: Math.random(),
+        id: shortid(),
       },
       ...toDoListState,
     ];
@@ -159,9 +160,7 @@ const toRender = <ToDoApp />
 export const toDoList = {
   title: 'ToDo app',
   date: '2021.09.26',
-  id: '45uykqcv',
   tagsArr: ['react', 'ToDo', 'basics'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',
@@ -181,15 +180,15 @@ export const toDoList = {
                 JSON.stringify([
                   {
                     toDoText: 'wipe the dust',
-                    id: Math.random(),
+                    id: shortid(),
                   },
                   {
                     toDoText: 'walk the dog out',
-                    id: Math.random(),
+                    id: shortid(),
                   },
                   {
                     toDoText: 'call parents',
-                    id: Math.random(),
+                    id: shortid(),
                   },
                 ])
               );
@@ -225,7 +224,7 @@ export const toDoList = {
             const newList = [
               {
                 toDoText: inputState,
-                id: Math.random(),
+                id: shortid(),
               },
               ...toDoListState,
             ];

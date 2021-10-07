@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 function ParentComponent(props) {
   return (
@@ -24,9 +24,7 @@ const toRender = <ParentComponent prop1='hello' prop2='my' prop3='friend' />
 export const forwardLotsOfProps = {
   title: 'Forward lots of props',
   date: '2021.09.29',
-  id: 'fhjdtrwe',
   tagsArr: ['react', 'props', 'component', 'basics'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

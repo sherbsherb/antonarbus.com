@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 const greenCss = { color: 'green' }
 const redCss = { color: 'red' }
@@ -44,9 +44,7 @@ const toRender = <StateIsImmutable />
 export const immutableState = {
   title: 'React state is immutable',
   date: '2021.09.28',
-  id: '456htj',
   tagsArr: ['react', 'state', 'useState', 'immutable', 'basics', 'hook'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

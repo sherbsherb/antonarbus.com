@@ -9,6 +9,7 @@ import { updateValueFromChildComponent } from './updateValueFromChildComponent/u
 import { toDoList } from './toDoList/toDoList'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
+import shortid from 'shortid';
 
 const posts = [
   updateValueFromChildComponent,
@@ -25,9 +26,10 @@ const posts = [
 ]
 
 // enumerate posts
-posts.forEach((o, index) => {
-  o.sequentialNum = posts.length - index
-})
+posts.forEach((o, index) => o.sequentialNum = posts.length - index)
+
+// add id to posts
+posts.forEach((o, index) => o.id = shortid())
 
 // add properties titleTxt & postTxt with pure text
 function txtFromJSXOrStr(el) {
@@ -39,6 +41,7 @@ function txtFromJSXOrStr(el) {
   return txtFromJSXOrStr(children);
 }
 
+// add pure text in addition to title and post jsxes
 const postsWithoutJSX = posts.map(el => ({
   ...el,
   titleTxt: txtFromJSXOrStr(el.title), 
@@ -46,3 +49,4 @@ const postsWithoutJSX = posts.map(el => ({
 }))
 
 export const allPosts = postsWithoutJSX
+console.log(allPosts)

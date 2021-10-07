@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../../components/post components/CodeSpan';
-import { Link } from '../../components/post components/Link';
+import { CodeSpan } from '../../components/post/CodeSpan';
+import { Link } from '../../components/post/Link';
 
 function InputWithState() {
   const [inpVal, setInpVal] = useState('initial text');
@@ -26,9 +26,7 @@ export const useStateAndInput = {
     </>
   ),
   date: '2021.09.26',
-  id: '76j',
   tagsArr: ['react', 'state', 'useState', 'input', 'basics', 'hook'],
-  abstract: 'abstract from the article',
   postParts: [
     {
       type: 'text',

@@ -2,7 +2,7 @@ import Mark from 'mark.js';
 import React, { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
 import styled from 'styled-components';
-import { Tag } from '../post components/Post';
+import { Tag } from '../post components/Tag';
 
 const FormStyled = styled.form`
   display: inline-flex;
@@ -190,7 +190,7 @@ function TagsContainer({ state, setState }) {
   return (
     <TagsContainerStyled>
       {foundTags.map(tag => (
-        <Tag key={tag} state={state} setState={setState}>
+        <Tag tag = {tag} key={tag} state={state} setState={setState}>
           {tag}
         </Tag>
       ))}

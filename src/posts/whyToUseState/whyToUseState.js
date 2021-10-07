@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 const btnCss = {padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer',}
 
@@ -51,12 +52,12 @@ function ComponentWithState() {
 const toRender2 = <ComponentWithState/>
 
 export const whyToUseState = {
-  title: <>Why to use <CodeInline>useState()</CodeInline></>,
+  title: <>Why to use <CodeSpan>useState()</CodeSpan></>,
   date: '2021.09.25',
   id: '34sss',
   tagsArr: ['react', 'state', 'useState', 'basics', 'hook'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: <>Let's create an incrementor.</>,
@@ -103,7 +104,7 @@ export const whyToUseState = {
     {
       type: 'text',
       val: <>As far as react renders only changes in virtual DOM, we need 
-      to tell him about changes. It can be done with <CodeInline>useState()</CodeInline>  
+      to tell him about changes. It can be done with <CodeSpan>useState()</CodeSpan>  
       {' '} <Link link={'https://reactjs.org/docs/hooks-state.html'}>hook</Link>.</>,
     },
     {
@@ -145,25 +146,25 @@ export const whyToUseState = {
     {
       type: 'text',
       val: (<>
-        We initialize <CodeInline>likes</CodeInline> state by <CodeInline>const [likes, setLikes] = useState(0)</CodeInline>
+        We initialize <CodeSpan>likes</CodeSpan> state by <CodeSpan>const [likes, setLikes] = useState(0)</CodeSpan>
       </>)
     },
     {
       type: 'text',
       val: (<>
-        <CodeInline>setLikes</CodeInline> is a function to change a state value.
+        <CodeSpan>setLikes</CodeSpan> is a function to change a state value.
       </>)
     },
     {
       type: 'text',
       val: (<>
-        We pass a new state value as an argument <CodeInline>setLikes(likes + 1)</CodeInline>
+        We pass a new state value as an argument <CodeSpan>setLikes(likes + 1)</CodeSpan>
       </>)
     },
     {
       type: 'text',
       val: (<>
-        Initial state <CodeInline>0</CodeInline> is passed as an argument in <CodeInline>useState(0)</CodeInline> 
+        Initial state <CodeSpan>0</CodeSpan> is passed as an argument in <CodeSpan>useState(0)</CodeSpan> 
       </>)
     }
 

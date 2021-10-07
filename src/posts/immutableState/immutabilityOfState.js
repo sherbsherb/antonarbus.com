@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 const greenCss = { color: 'green' }
 const redCss = { color: 'red' }
@@ -46,12 +47,12 @@ export const immutableState = {
   id: '456htj',
   tagsArr: ['react', 'state', 'useState', 'immutable', 'basics', 'hook'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: (
         <>
-          If you mutate data like <CodeInline>myData.a.b.push(10)</CodeInline>{' '}
+          If you mutate data like <CodeSpan>myData.a.b.push(10)</CodeSpan>{' '}
           there is no way of determining which data has changed since the
           previous copy has been overwritten
         </>
@@ -62,7 +63,7 @@ export const immutableState = {
       val: (
         <>
           Instead, you need to create a new copy of{' '}
-          <CodeInline>myData</CodeInline>
+          <CodeSpan>myData</CodeSpan>
           and change only the parts of it that need to be changed. For state
           data React can compare the old copy with the new one.
         </>

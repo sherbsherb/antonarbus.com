@@ -1,5 +1,6 @@
 import React from 'react';
-import { CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 function Component1(props) {
   return (
@@ -49,12 +50,12 @@ export const passProps = {
   id: 'hgjer',
   tagsArr: ['react', 'props', 'component', 'basics'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: (
         <>
-          We can pass props into a component and take them from the <CodeInline>props</CodeInline> object.
+          We can pass props into a component and take them from the <CodeSpan>props</CodeSpan> object.
         </>
       ),
     },
@@ -89,7 +90,7 @@ export const passProps = {
       type: 'text',
       val: (
         <>
-          <CodeInline>props</CodeInline> object can be destructured in a component.
+          <CodeSpan>props</CodeSpan> object can be destructured in a component.
         </>
       ),
     },
@@ -124,7 +125,7 @@ export const passProps = {
       val: (
         <>
           We can pass wrapped props at ones using spread operator
-          <CodeInline>{'{...props}'}</CodeInline>
+          <CodeSpan>{'{...props}'}</CodeSpan>
           .
         </>
       ),

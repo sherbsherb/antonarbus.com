@@ -68,7 +68,7 @@ export const classVsFunctionComponent = {
   id: '4eretg',
   tagsArr: ['react', 'class component', 'function component', 'basics'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: <>Class component</>,

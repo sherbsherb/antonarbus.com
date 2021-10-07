@@ -1,5 +1,6 @@
 import React from 'react';
-import { CodeInline, Link } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 const Input = React.forwardRef((props, ref) => (
   <input ref={ref} {...props} />
@@ -26,19 +27,19 @@ const toRender = <InputWithFocus />
 export const forwardRef = {
   title: (
     <>
-      <CodeInline>forwardRef()</CodeInline> & input + focus
+      <CodeSpan>forwardRef()</CodeSpan> & input + focus
     </>
   ),
   date: '2021.09.26',
   id: 'fhfjnxzxr',
   tagsArr: ['react', 'useRef', 'forwardRef', 'input', 'focus', 'basics', 'hook', 'DOM'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: <>
-        To pass DOM element to a custom component via <CodeInline>React.useRef()</CodeInline> {' '}
-        we need to wrap a component into <CodeInline>React.forwardRef()</CodeInline> {' '}
+        To pass DOM element to a custom component via <CodeSpan>React.useRef()</CodeSpan> {' '}
+        we need to wrap a component into <CodeSpan>React.forwardRef()</CodeSpan> {' '}
         <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'function'}/>.
       </>,
     },

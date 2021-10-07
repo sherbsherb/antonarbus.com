@@ -1,5 +1,6 @@
 import React from 'react';
-import { CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 function Parent() {
   const [state, setState] = React.useState(0);
@@ -36,10 +37,10 @@ export const updateValueFromChildComponent = {
   id: 'e56g',
   tagsArr: ['react', 'props', 'state', 'useState', 'component', 'child', 'parent', 'basics'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
-      val: <>To update the state in a Parent component from a Child component we need to pass <CodeInline>setState</CodeInline> function via props to a child component.</>,
+      val: <>To update the state in a Parent component from a Child component we need to pass <CodeSpan>setState</CodeSpan> function via props to a child component.</>,
     },
     {
       type: 'code',

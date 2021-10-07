@@ -42,7 +42,7 @@ function txtFromJSXOrStr(el) {
 const postsWithoutJSX = posts.map(el => ({
   ...el,
   titleTxt: txtFromJSXOrStr(el.title), 
-  postTxt: el.articlesArr.map(el => txtFromJSXOrStr(el.val)).join('')
+  postTxt: el.postParts.map(el => txtFromJSXOrStr(el.val)).join('')
 }))
 
 export const allPosts = postsWithoutJSX

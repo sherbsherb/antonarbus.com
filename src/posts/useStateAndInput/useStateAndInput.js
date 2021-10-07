@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 function InputWithState() {
   const [inpVal, setInpVal] = useState('initial text');
@@ -21,19 +22,19 @@ const toRender = <InputWithState />
 export const useStateAndInput = {
   title: (
     <>
-      <CodeInline>useState()</CodeInline> & input
+      <CodeSpan>useState()</CodeSpan> & input
     </>
   ),
   date: '2021.09.26',
   id: '76j',
   tagsArr: ['react', 'state', 'useState', 'input', 'basics', 'hook'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: (
         <>
-          We have to use <CodeInline>useState()</CodeInline> to be able to see
+          We have to use <CodeSpan>useState()</CodeSpan> to be able to see
           an input changes on the screen.
         </>
       ),

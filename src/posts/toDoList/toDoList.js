@@ -162,7 +162,7 @@ export const toDoList = {
   id: '45uykqcv',
   tagsArr: ['react', 'ToDo', 'basics'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: `Let's make the simplest todo list with local data storage.`,

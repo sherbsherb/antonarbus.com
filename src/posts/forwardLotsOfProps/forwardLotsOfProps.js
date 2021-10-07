@@ -1,5 +1,6 @@
 import React from 'react';
-import { CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 function ParentComponent(props) {
   return (
@@ -26,14 +27,14 @@ export const forwardLotsOfProps = {
   id: 'fhjdtrwe',
   tagsArr: ['react', 'props', 'component', 'basics'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: 
         <>
           Sometimes we need to pass tons of props from a component to a component.
           That can create a mess.<br/><br/>
-          With spread {<CodeInline>...</CodeInline>} operator we can pass any number of props at ones.
+          With spread {<CodeSpan>...</CodeSpan>} operator we can pass any number of props at ones.
         </>
       ,
     },

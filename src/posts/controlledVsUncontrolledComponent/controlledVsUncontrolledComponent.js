@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { Link, CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 function ControlledInput() {
   const [inpVal, setInpVal] = useState('initial text');
@@ -43,13 +44,13 @@ export const controlledVsUncontrolledComponent = {
   id: '6de34',
   tagsArr: ['react', 'useRef', 'useState', 'input', 'controlled', 'uncontrolled', 'basics', 'hook', 'DOM'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: (
         <>
           <strong>Controlled component</strong> data is handled 
-          by a React component via <CodeInline>useState()</CodeInline> {' '}
+          by a React component via <CodeSpan>useState()</CodeSpan> {' '}
           <Link link={'https://reactjs.org/docs/hooks-reference.html#usestate'}>hook</Link>. 
           Event handler takes care of a state update.
         </>
@@ -87,7 +88,7 @@ export const controlledVsUncontrolledComponent = {
       val: (
         <>
           <strong>Uncontrolled component</strong> data is handled by the DOM itself. 
-          We need to use <CodeInline>useRef()</CodeInline> {' '}
+          We need to use <CodeSpan>useRef()</CodeSpan> {' '}
           <Link link={'https://reactjs.org/docs/hooks-reference.html#useref'}>hook</Link> to get form values from the DOM.
         </>
       ),
@@ -121,7 +122,7 @@ export const controlledVsUncontrolledComponent = {
       type: 'text',
       val: (
         <>
-          <CodeInline>inpRef.current</CodeInline> {' '} refers to the DOM element.
+          <CodeSpan>inpRef.current</CodeSpan> {' '} refers to the DOM element.
         </>
       ),
     },

@@ -1,5 +1,6 @@
 import React from 'react';
-import { CodeInline } from '../../components/post components/Post';
+import { CodeSpan } from '../../components/post components/CodeSpan';
+import { Link } from '../../components/post components/Link';
 
 export const jsVsJsx = {
   title: 'JS vs JSX',
@@ -7,12 +8,12 @@ export const jsVsJsx = {
   id: '5sdfg',
   tagsArr: ['react', 'jsx', 'createElement', 'basics'],
   abstract: 'abstract from the article',
-  articlesArr: [
+  postParts: [
     {
       type: 'text',
       val: <>
         In React we generate html by javascript. We can use 
-        <CodeInline>React.createElement()</CodeInline> function from the React 
+        <CodeSpan>React.createElement()</CodeSpan> function from the React 
         library to add an HTML element or we can use JSX syntax.
       </>
     },

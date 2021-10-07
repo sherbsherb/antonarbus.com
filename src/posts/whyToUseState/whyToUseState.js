@@ -62,6 +62,7 @@ export const whyToUseState = {
     }, 
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React from 'react'
         const btnCss = {padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer',}
@@ -107,6 +108,7 @@ export const whyToUseState = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React, { useState } from 'react'
         const btnCss = {padding: '5px 20px', marginRight: '10px', cursor: 'pointer',}

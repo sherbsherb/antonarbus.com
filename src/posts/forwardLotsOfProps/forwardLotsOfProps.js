@@ -38,6 +38,7 @@ export const forwardLotsOfProps = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         function ParentComponent(props) {
           return (

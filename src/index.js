@@ -19,8 +19,11 @@ const StyleReset = createGlobalStyle`
     &::-webkit-scrollbar-thumb {
       background: #f1f1f1;
       border-radius: 5px;
-      -webkit-box-shadow: inset 0 0 6px #19191980;
       box-shadow: inset 0 0 6px #19191980;
+
+      &:hover {
+        background: #dbdbdbb0;
+      }
     }
 
     &::-webkit-scrollbar-track {

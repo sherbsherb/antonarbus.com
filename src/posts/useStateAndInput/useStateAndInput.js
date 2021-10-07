@@ -43,6 +43,7 @@ export const useStateAndInput = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React, { useState } from 'react';
 

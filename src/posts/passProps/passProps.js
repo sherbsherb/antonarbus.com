@@ -59,6 +59,7 @@ export const passProps = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         function Component1(props) {
           return (
@@ -75,6 +76,7 @@ export const passProps = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         <Component1 prop1='hello' prop2='my' prop3='friend' />
       `,
@@ -94,6 +96,7 @@ export const passProps = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         function Component2({ prop1, prop2, prop3 }) {
           return (
@@ -110,6 +113,7 @@ export const passProps = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         <Component2 prop1='hello' prop2='my' prop3='friend'/>
       `,
@@ -130,6 +134,7 @@ export const passProps = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         function Component3({ prop1, prop2, prop3 }) {
           return (

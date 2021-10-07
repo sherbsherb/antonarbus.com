@@ -73,6 +73,7 @@ export const classVsFunctionComponent = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React, { useState } from 'react';
         
@@ -128,6 +129,7 @@ export const classVsFunctionComponent = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val:  `
         import React, { useState } from 'react';
         

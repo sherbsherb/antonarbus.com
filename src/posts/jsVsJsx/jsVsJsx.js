@@ -23,6 +23,7 @@ export const jsVsJsx = {
     },
     { 
       type: 'code', 
+      lang: 'jsx',
       val: `
         import React from 'react';
 
@@ -61,6 +62,7 @@ export const jsVsJsx = {
     },
     { 
       type: 'code', 
+      lang: 'jsx',
       val: `
         import React from 'react';
 

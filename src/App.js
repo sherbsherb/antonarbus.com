@@ -1,5 +1,4 @@
 import Mark from 'mark.js';
-import Prism from 'prismjs';
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import uuid from 'react-uuid';
 //import './App.css';
@@ -109,18 +108,6 @@ function App() {
     return obj;
   }
 
-  Prism.plugins.NormalizeWhitespace.setDefaults({
-    'remove-trailing': true,
-    'remove-indent': true,
-    'left-trim': true,
-    'right-trim': true,
-    'break-lines': 600, //max number of characters in a line
-  });
-
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [state.postsOnDisplay]); // [] - run only on load
-
   useEffect(() => {
     // highlight found words
     var context = document.querySelector('main');
@@ -151,7 +138,6 @@ function App() {
         setState={setState}
         returnUpdatedState={returnUpdatedState}
       />
-
       <StyledMain>{returnPostsMemo}</StyledMain>
     </StyledApp>
   );

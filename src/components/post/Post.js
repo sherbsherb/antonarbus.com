@@ -1,9 +1,8 @@
 // import styled, { keyframes, css } from 'styled-components';
 import styled from 'styled-components/macro';
 // import './styles.css';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
-import './prism.css';
+
+
 import uuid from 'react-uuid';
 import { Title } from './Title.js';
 import { Section } from './Section.js';
@@ -18,7 +17,7 @@ export function jsxesFromPostParts(post) {
   return post.postParts.map((el, index) => {
     const id = post.id+'_part_'+index
     if (el.type === 'text') return <Text key={id}>{el.val}</Text>;
-    if (el.type === 'code') return <Code key={id}>{el.val}</Code>;
+    if (el.type === 'code') return <Code key={id} lang={el.lang}>{el.val}</Code>;
     if (el.type === 'output') return <Output key={id}>{el.val}</Output>;
     return <div key={id}>{el.val}</div>;
   });

@@ -1,3 +1,5 @@
+import shortid from 'shortid';
+
 import { classVsFunctionComponent } from './classVsFunctionComponent/classVsFunctionComponent'
 import { controlledVsUncontrolledComponent } from './controlledVsUncontrolledComponent/controlledVsUncontrolledComponent'
 import { forwardLotsOfProps } from './forwardLotsOfProps/forwardLotsOfProps'
@@ -9,9 +11,10 @@ import { updateValueFromChildComponent } from './updateValueFromChildComponent/u
 import { toDoList } from './toDoList/toDoList'
 import { useStateAndInput } from './useStateAndInput/useStateAndInput'
 import { whyToUseState } from './whyToUseState/whyToUseState'
-import shortid from 'shortid';
+import { uuid } from './uuid/uuid'
 
 const posts = [
+  uuid,
   updateValueFromChildComponent,
   forwardRef,
   controlledVsUncontrolledComponent,
@@ -29,7 +32,7 @@ const posts = [
 posts.forEach((o, index) => o.sequentialNum = posts.length - index)
 
 // add id to posts
-posts.forEach((o, index) => o.id = shortid())
+posts.forEach(o => o.id = shortid())
 
 // add properties titleTxt & postTxt with pure text
 function txtFromJSXOrStr(el) {

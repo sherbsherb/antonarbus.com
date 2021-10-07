@@ -168,6 +168,7 @@ export const toDoList = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React, { useState } from 'react';
         import './styles.css';

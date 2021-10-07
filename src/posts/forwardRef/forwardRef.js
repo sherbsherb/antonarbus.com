@@ -43,6 +43,7 @@ export const forwardRef = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         const Input = React.forwardRef((props, ref) => (
           <input ref={ref} {...props} />

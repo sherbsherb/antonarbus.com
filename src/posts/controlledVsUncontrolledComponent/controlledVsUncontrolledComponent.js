@@ -56,6 +56,7 @@ export const controlledVsUncontrolledComponent = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React, { useRef, useState } from 'react';
 
@@ -93,6 +94,7 @@ export const controlledVsUncontrolledComponent = {
     },
     {
       type: 'code',
+      lang: 'jsx',
       val: `
         import React, { useRef, useState } from 'react';
 

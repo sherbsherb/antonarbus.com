@@ -83,9 +83,8 @@ export const jsxToString = {
     {
       type: 'text',
       val: <>
-        Note that the we get text from the static JSX, but not from the component function result after JSX call.
+        Note that we get text from the static JSX, but not from the component function result after JSX call.
       </>,
     },
-    
   ],
 };

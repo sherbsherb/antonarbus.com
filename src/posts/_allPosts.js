@@ -14,8 +14,10 @@ import { whyToUseState } from './whyToUseState'
 import { uuid } from './uuid'
 import { useRefExample } from './useRefExample';
 import { jsxToString } from './jsxToString/jsxToString';
+import { imgInReact } from './imgInReact/imgInReact';
 
 const posts = [
+  imgInReact,
   jsxToString,
   useRefExample,
   uuid,

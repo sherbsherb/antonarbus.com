@@ -12,10 +12,13 @@ const ImgStyled = styled.img.attrs(props => ({
   width: props.width || "80%",
   height: "auto",
 }))`
-  display: block;
   box-shadow: #898989a3 0px 0px 7px 0px;
   margin: 0 auto;
   border-radius: 4px;
   margin-top: 10px;
   margin-bottom: 10px;
+  
+  @media screen and (max-width: 480px) { 
+    min-width: 100%; 
+  }
 `;

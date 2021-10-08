@@ -23,14 +23,13 @@ export const jsxToString = {
     {
       type: 'text',
       val: <>
-        We can not use <CodeSpan>el.innerText</CodeSpan> for JSX object, 
-        to get text because it is not an HTML element.
+        We can not use <CodeSpan>el.innerText</CodeSpan> to retrieve text from JSX because it is not an HTML element.
       </>,
     },
     {
       type: 'text',
       val: <>
-        Let's put a simple JSX in dev tool's console <CodeSpan>{'console.dir(<>Hello <strong>Mike</strong></>)'}</CodeSpan>
+        Let's put a simple JSX in the dev tool's console <CodeSpan>{'console.dir(<>Hello <strong>Mike</strong></>)'}</CodeSpan>
       </>,
     },
     {
@@ -46,13 +45,13 @@ export const jsxToString = {
     {
       type: 'text',
       val: <>
-        We got nested object with <CodeSpan>children</CodeSpan> in <CodeSpan>props</CodeSpan>.
+        We got the nested object with <CodeSpan>children</CodeSpan> in <CodeSpan>props</CodeSpan>.
       </>,
     },
     {
       type: 'text',
       val: <>
-        Let's recursively go through it and  take all the text out.
+        Let's recursively go through it and take all the text out.
       </>,
     },
     {
@@ -72,8 +71,21 @@ export const jsxToString = {
       `,
     },
     {
+      type: 'text',
+      val: <>
+        With this function we can get text from JSX tags.
+      </>,
+    },
+    {
       type: 'output',
       val: toRender,
     },
+    {
+      type: 'text',
+      val: <>
+        Note that the we get text from the static JSX, but not from the component function result after JSX call.
+      </>,
+    },
+    
   ],
 };

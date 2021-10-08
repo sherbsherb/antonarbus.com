@@ -27,7 +27,7 @@ const toRender = <InputWithFocus />
 export const forwardRef = {
   title: (
     <>
-      <CodeSpan>forwardRef()</CodeSpan> & input + focus
+      <CodeSpan>forwardRef()</CodeSpan> hook & input focus
     </>
   ),
   date: '2021.09.26',

@@ -52,7 +52,7 @@ function ComponentWithState() {
 const toRender2 = <ComponentWithState/>
 
 export const whyToUseState = {
-  title: <>Why to use <CodeSpan>useState()</CodeSpan></>,
+  title: <><CodeSpan>useState()</CodeSpan> hook</>,
   date: '2021.09.25',
   tagsArr: ['react', 'state', 'useState', 'basics', 'hook'],
   postParts: [

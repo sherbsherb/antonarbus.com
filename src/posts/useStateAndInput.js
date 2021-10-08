@@ -22,7 +22,7 @@ const toRender = <InputWithState />
 export const useStateAndInput = {
   title: (
     <>
-      <CodeSpan>useState()</CodeSpan> & input
+      <CodeSpan>useState()</CodeSpan> hook & input
     </>
   ),
   date: '2021.09.26',

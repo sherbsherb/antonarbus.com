@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post/Post.js';
 import Search from './components/search/Search.js';
-import { allPosts } from './posts/allPosts.js';
-// console.log(allPosts);
+import { _allPosts } from './posts/_allPosts.js';
+// console.log(_allPosts);
 
 const StyledApp = styled.div`
   text-align: left;
@@ -38,14 +38,14 @@ function App() {
   console.log('App rendered');
 
   const [state, setState] = useState({
-    posts: allPosts,
-    tags: returnAllTagsFromArr(allPosts),
+    posts: _allPosts,
+    tags: returnAllTagsFromArr(_allPosts),
     inputVal: '',
     inputWords: [],
     inputTags: [],
-    foundPosts: allPosts,
-    postsOnDisplay: allPosts,
-    foundTags: returnAllTagsFromArr(allPosts),
+    foundPosts: _allPosts,
+    postsOnDisplay: _allPosts,
+    foundTags: returnAllTagsFromArr(_allPosts),
     openSearchMenu: false,
     showFoundPosts: false,
     showRemoveFoundPosts: false,
@@ -94,7 +94,7 @@ function App() {
       return smallArrL.every(elem => bigArrL.includes(elem));
     }
 
-    obj.foundPosts = allPosts
+    obj.foundPosts = _allPosts
       .filter(el => areWordsInText(obj.inputWords, el.titleTxt + el.postTxt))
       .filter(el => areTagsInPost(obj.inputTags, el.tagsArr));
 

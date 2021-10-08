@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../../components/post/CodeSpan';
-import { Link } from '../../components/post/Link';
+import { CodeSpan } from '../components/post/CodeSpan';
+import { Link } from '../components/post/Link';
 
 function ControlledInput() {
   const [inpVal, setInpVal] = useState('initial text');

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Code } from '../../components/post/Code';
-import { CodeSpan } from '../../components/post/CodeSpan';
-import { Link } from '../../components/post/Link';
+import { Code } from '../components/post/Code';
+import { CodeSpan } from '../components/post/CodeSpan';
+import { Link } from '../components/post/Link';
 
 import { v1 as uuidv1 } from 'uuid';
 import { v4 as uuidv4 } from 'uuid';

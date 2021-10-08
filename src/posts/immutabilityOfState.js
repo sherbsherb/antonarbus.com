@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../../components/post/CodeSpan';
-import { Link } from '../../components/post/Link';
+import { CodeSpan } from '../components/post/CodeSpan';
+import { Link } from '../components/post/Link';
 
 const greenCss = { color: 'green' }
 const redCss = { color: 'red' }

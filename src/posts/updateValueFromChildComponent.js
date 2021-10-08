@@ -1,7 +1,7 @@
 import React from 'react';
-import { Code } from '../../components/post/Code';
-import { CodeSpan } from '../../components/post/CodeSpan';
-import { Link } from '../../components/post/Link';
+import { Code } from '../components/post/Code';
+import { CodeSpan } from '../components/post/CodeSpan';
+import { Link } from '../components/post/Link';
 
 function Parent() {
   const [state, setState] = React.useState(0);

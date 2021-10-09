@@ -25,6 +25,14 @@ export function InputSearch(props) {
         });
         e.target.scrollLeft = 10000;
       }, 300)}
+      onPaste={e => {
+        e.preventDefault();
+        console.log('pasted')
+        // get text representation of clipboard
+        const text = (e.originalEvent || e).clipboardData.getData('text/plain');
+        // insert text manually
+        document.execCommand("insertHTML", false, text);
+      }}
       onKeyDown={e => {
         if (e.key === 'Enter') {
           e.preventDefault();

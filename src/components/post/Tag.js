@@ -2,44 +2,44 @@ import styled from 'styled-components';
 
 export function Tag(props) {
 
-  function setCaretToEnd(el) {
-    if (!el.childNodes.length) return;
-    let range = document.createRange();
-    let sel = window.getSelection();
-    const lastNode = el.childNodes[el.childNodes.length - 1];
-    range.setStart(lastNode, lastNode.length);
-    range.collapse(true);
-    sel.removeAllRanges();
-    sel.addRange(range);
-    el.focus();
-  }
-
-  function clickHandler(e) {
-    
-    e.stopPropagation();
-    // add tag to search input
-    const inputEl = document.getElementById('input');
-    const tagEl = e.target;
-    // @ts-ignore
-    const clonedTag = tagEl.cloneNode(true);
-    clonedTag.style.margin = '0px 5px';
-    clonedTag.classList.add('tag');
-    inputEl.appendChild(clonedTag);
-    inputEl.append('\u00A0');
-    setCaretToEnd(inputEl);
-    inputEl.scrollLeft = 10000;
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  }
-
   return (
     <DivStyled contentEditable={false} onClick={clickHandler}>
       {props.tag}
     </DivStyled>
   );
+}
+
+function setCaretToEnd(el) {
+  if (!el.childNodes.length) return;
+  let range = document.createRange();
+  let sel = window.getSelection();
+  const lastNode = el.childNodes[el.childNodes.length - 1];
+  range.setStart(lastNode, lastNode.length);
+  range.collapse(true);
+  sel.removeAllRanges();
+  sel.addRange(range);
+  el.focus();
+}
+
+function clickHandler(e) {
+  
+  e.stopPropagation();
+  // add tag to search input
+  const inputEl = document.getElementById('input');
+  const tagEl = e.target;
+  // @ts-ignore
+  const clonedTag = tagEl.cloneNode(true);
+  clonedTag.style.margin = '0px 5px';
+  clonedTag.classList.add('tag');
+  inputEl.appendChild(clonedTag);
+  inputEl.append('\u00A0');
+  setCaretToEnd(inputEl);
+  inputEl.scrollLeft = 10000;
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
 }
 
 const DivStyled = styled.div`

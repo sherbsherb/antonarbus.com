@@ -5,7 +5,7 @@ import uuid from 'react-uuid';
 import styled from 'styled-components';
 import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post/Post.js';
-import Search from './components/search/Search.js';
+import SearchContainer from './components/search/SearchContainer.js';
 import { _allPosts } from './posts/_allPosts.js';
 // console.log(_allPosts);
 
@@ -46,6 +46,8 @@ function App() {
     foundPosts: _allPosts,
     postsOnDisplay: _allPosts,
     foundTags: returnAllTagsFromArr(_allPosts),
+    inputFilterTagsVal: '',
+    filteredTags: returnAllTagsFromArr(_allPosts),
     openSearchMenu: false,
     showFoundPosts: false,
     showRemoveFoundPosts: false,
@@ -101,9 +103,15 @@ function App() {
     // all tags
     obj.foundTags = returnAllTagsFromArr(obj.foundPosts);
 
-    //
+    // filtered tags
+    obj.filteredTags = obj.foundTags.filter(tag =>
+      tag.toUpperCase().includes(obj.inputFilterTagsVal.toUpperCase())
+    );
+
+    // if
     obj.showRemoveFoundPosts = false;
-    if (obj.showFoundPosts) obj.showRemoveFoundPosts = true;
+    if (obj.foundPosts.length !== obj.posts.length)
+      obj.showRemoveFoundPosts = true;
 
     return obj;
   }
@@ -130,10 +138,10 @@ function App() {
   return (
     <StyledApp
       // close search dropdown menu if clicked outside
-      onClick={() => setState({ ...state, openSearchMenu: false })}
+      onClick={() => setState({ ...state, openSearchMenu: false, inputFilterTagsVal: '' })}
     >
       <NavBar />
-      <Search
+      <SearchContainer
         state={state}
         setState={setState}
         returnUpdatedState={returnUpdatedState}

@@ -21,7 +21,7 @@ export const imgInReact = {
       val: (
         <>
           In HTML we add image url into <CodeSpan>scr</CodeSpan> attribute{' '}
-          <CodeSpan>{'<img src="img.jpg">'}</CodeSpan>, but that will not work
+          <CodeSpan>{'<img src="path.jpg">'}</CodeSpan>, but that will not work
           in react.
         </>
       ),
@@ -30,10 +30,10 @@ export const imgInReact = {
       type: 'text',
       val: (
         <>
-          Instead we need to import an image{' '}
-          <CodeSpan>{"import img from './img.jpg'"}</CodeSpan> and use it in{' '}
+          Instead we need to import an image via{' '}
+          <CodeSpan>{"import Name from 'path.jpg'"}</CodeSpan> and use it in{' '}
           <CodeSpan>scr</CodeSpan> attribute as{' '}
-          <CodeSpan>{'<img src=img>'}</CodeSpan>
+          <CodeSpan>{'<img src={Name}>'}</CodeSpan>
         </>
       ),
     },

@@ -15,8 +15,10 @@ import { uuid } from './uuid'
 import { useRefExample } from './useRefExample';
 import { jsxToString } from './jsxToString/jsxToString';
 import { imgInReact } from './imgInReact/imgInReact';
+import { styledComponentsAndProps } from './styledComponentsAndProps';
 
 const posts = [
+  styledComponentsAndProps,
   imgInReact,
   jsxToString,
   useRefExample,

@@ -4,8 +4,9 @@ import { InputTagsSearch } from './InputTagsSearch';
 
 export function TagsContainer({ state, setState }) {
   const { filteredTags } = state;
+  const isMac = navigator.platform.indexOf('Mac') > -1
   return (
-    <TagsContainerStyled>
+    <TagsContainerStyled isMac={isMac}>
       <InputTagsSearch state={state} setState={setState}/>
       {filteredTags.map(tag => (
         <Tag tag={tag} key={tag} state={state} setState={setState}>
@@ -21,7 +22,7 @@ const TagsContainerStyled = styled.div`
   margin: 10px 0px;
   border-radius: 4px;
   overflow-y: auto;
-  max-height: 115px;
+  max-height: ${props => props.isMac ? "140px" : "115px"};
   height: auto;
   padding: 7px;
   padding-bottom: 3px;

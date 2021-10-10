@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export function Tag(props) {
 
+  const isMac = navigator.platform.indexOf('Mac') > -1
+
   return (
-    <DivStyled contentEditable={false} onClick={clickHandler}>
+    <DivStyled contentEditable={false} onClick={clickHandler} isMac={isMac}>
       {props.tag}
     </DivStyled>
   );
@@ -29,7 +31,7 @@ function clickHandler(e) {
   const tagEl = e.target;
   // @ts-ignore
   const clonedTag = tagEl.cloneNode(true);
-  clonedTag.style.margin = '0px 5px';
+  // clonedTag.style.margin = '0px 5px';
   clonedTag.classList.add('tag');
   inputEl.appendChild(clonedTag);
   inputEl.append('\u00A0');
@@ -63,7 +65,7 @@ const DivStyled = styled.div`
   &:before {
     content: '';
     position: absolute;
-    top: 10px;
+    top: ${props => props.isMac ? "8.5px" : "10px"};
     left: 8px;
     width: 5px;
     height: 5px;

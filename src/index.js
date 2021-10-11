@@ -45,6 +45,17 @@ const StyleReset = createGlobalStyle`
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    background: #c9ccd3;
+    background-image: linear-gradient(
+      -180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    background-blend-mode: lighten;
+
+    min-height: 100vh;
+    color: whitesmoke;
   }
 
   code {
@@ -54,9 +65,18 @@ const StyleReset = createGlobalStyle`
 `;
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <StyleReset />
     <App />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
+
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <StyleReset />
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );

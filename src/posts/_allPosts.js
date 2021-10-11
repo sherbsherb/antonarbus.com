@@ -16,8 +16,10 @@ import { useRefExample } from './useRefExample';
 import { jsxToString } from './jsxToString/jsxToString';
 import { imgInReact } from './imgInReact/imgInReact';
 import { styledComponentsAndProps } from './styledComponentsAndProps';
+import { childrenComponentsRender } from './childrenComponentsRender';
 
 const posts = [
+  childrenComponentsRender,
   styledComponentsAndProps,
   imgInReact,
   jsxToString,

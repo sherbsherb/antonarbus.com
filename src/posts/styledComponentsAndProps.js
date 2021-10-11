@@ -105,7 +105,7 @@ export const styledComponentsAndProps = {
       type: 'text',
       val: (
         <>
-          In the first example we just pass static color value to the css via props.
+          01. In the first example we just pass static color value to the css via props.
         </>
       ),
     },
@@ -137,7 +137,7 @@ export const styledComponentsAndProps = {
       type: 'text',
       val: (
         <>
-          Here we extend our previous styled component and pass the color value to our css as a state. <br /><br />
+          02. Here we extend our previous styled component and pass the color value to our css as a state. <br /><br />
           We change the state via click event on the button and it will affect the background color.
         </>
       ),
@@ -180,8 +180,7 @@ export const styledComponentsAndProps = {
       type: 'text',
       val: (
         <>
-          At the following example we pass props to the element's attributes. <br/><br/>
-          Also note that we use SCSS with nested media query. The image changes its width if we squeeze it.
+          03. At the following example we pass props to the element's attributes.
         </>
       ),
     },

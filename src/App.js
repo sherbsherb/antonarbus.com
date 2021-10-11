@@ -7,34 +7,10 @@ import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post/Post.js';
 import SearchContainer from './components/search/SearchContainer.js';
 import { _allPosts } from './posts/_allPosts.js';
-// console.log(_allPosts);
 
-const StyledApp = styled.div`
-  text-align: left;
-  /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
 
-  background: #c9ccd3;
-  background-image: linear-gradient(
-    -180deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-  background-blend-mode: lighten;
 
-  min-height: 100vh;
-  color: whitesmoke;
-`;
-
-const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 30px;
-`;
-
-function App() {
+export default function App() {
   console.log('App rendered');
 
   const [state, setState] = useState({
@@ -136,7 +112,7 @@ function App() {
   }, [state.postsOnDisplay]);
 
   return (
-    <StyledApp
+    <div
       // close search dropdown menu if clicked outside
       onClick={() => setState({ ...state, openSearchMenu: false, inputFilterTagsVal: '' })}
     >
@@ -147,8 +123,15 @@ function App() {
         returnUpdatedState={returnUpdatedState}
       />
       <StyledMain>{returnPostsMemo}</StyledMain>
-    </StyledApp>
+    </div>
   );
+
 }
 
-export default App;
+const StyledMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+`;

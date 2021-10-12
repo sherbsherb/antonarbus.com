@@ -1,6 +1,5 @@
 import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
 
 function Component1(props) {
   return (

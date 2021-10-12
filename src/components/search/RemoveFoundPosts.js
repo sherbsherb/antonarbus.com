@@ -1,5 +1,4 @@
 export function RemoveFoundPosts({
-  setState,
   closeFoundPostsContainer,
   foundPostsNum,
 }) {

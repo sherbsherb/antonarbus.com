@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Code } from '../components/post/Code';
+import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import { Link } from '../components/post/Link';
 

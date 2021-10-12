@@ -7,6 +7,6 @@ export function Num(props) {
 const SpanStyled = styled.span`
   position: absolute;
   color: #b0b0b0;
-  top: -20px;
+  top: -22px;
   right: 5px;
 `;

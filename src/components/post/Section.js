@@ -16,7 +16,7 @@ const SectionStyled = styled.section`
   margin: 0 auto;
   width: 90vw;
   max-width: 800px;
-  font-size: 14px;
+  font-size: 16px;
   padding: 20px;
   background: white;
   color: black;

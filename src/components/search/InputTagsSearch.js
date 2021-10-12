@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 export function InputTagsSearch(props) {
   const { state, setState } = props;
-  const { foundTags, inputFilterTagsVal, filteredTags } = state;
+  const { foundTags, inputFilterTagsVal } = state;
 
   return (
     <InputStyled>

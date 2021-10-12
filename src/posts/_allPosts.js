@@ -17,8 +17,10 @@ import { jsxToString } from './jsxToString/jsxToString';
 import { imgInReact } from './imgInReact/imgInReact';
 import { styledComponentsAndProps } from './styledComponentsAndProps';
 import { childrenComponentsRender } from './childrenComponentsRender';
+import { stateUpdate } from './stateUpdate';
 
 const posts = [
+  stateUpdate,
   childrenComponentsRender,
   styledComponentsAndProps,
   imgInReact,
@@ -62,4 +64,3 @@ const postsWithoutJSX = posts.map(el => ({
 }))
 
 export const _allPosts = postsWithoutJSX
-console.log(_allPosts)

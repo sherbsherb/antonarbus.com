@@ -1,12 +1,11 @@
 import React from 'react';
 import { CodeSpan } from '../../components/post/CodeSpan';
-import { Img } from '../../components/post/Img';
-import { Link } from '../../components/post/Link';
 import imgFile from './img.jpg';
 
 const Component = () => (
   <img
     src={imgFile}
+    alt={'flamingos eating swimmers'}
     style={{ display: 'block', margin: '0 auto', maxWidth: '300px' }}
   />
 );

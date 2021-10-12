@@ -5,8 +5,6 @@ import 'prismjs/components/prism-jsx';
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import './prism.css';
 
-import styled from 'styled-components';
-
 Prism.plugins.NormalizeWhitespace.setDefaults({
   'remove-trailing': true,
   'remove-indent': true,

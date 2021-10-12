@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export function SearchPreviewItem(props) {
   return (
     <SearchPreviewStyled className="post-preview">

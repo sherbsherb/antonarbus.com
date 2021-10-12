@@ -1,7 +1,5 @@
 import Mark from 'mark.js';
-import React, { useEffect, useRef, useState, useMemo } from 'react';
-import uuid from 'react-uuid';
-//import './App.css';
+import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post/Post.js';

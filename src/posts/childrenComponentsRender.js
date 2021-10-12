@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { IoSquareSharp } from 'react-icons/io5';
+import React, { useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import { Link } from '../components/post/Link';
 
@@ -7,86 +6,50 @@ const style = {
   border: '2px solid grey',
   padding: '10px',
   margin: '10px',
-  maxWidth: '300px',
+  maxWidth: '500px',
 };
 
 function ParentComponent(props) {
   const [parentState, setParentState] = useState(0);
+  const ref = useRef()
 
-  const divForText = document.querySelector('#sdfghu234');
-  if (!!divForText)
-    divForText.outerHTML += '<div>ParentComponent triggered</div>';
+  if (!!ref.current)
+    ref.current.innerHTML += '<div>ParentComponent triggered</div>';
 
   return (
     <div style={style}>
-      <button onClick={() => setParentState(parentState + 1)}>
-        Change parentState
-      </button>
+      <h3>{props.text}</h3>
+      <button onClick={() => setParentState(parentState + 1)}>Change state</button>
+      <div ref={ref}></div>
+      <ChildComponent text={'Child component 1 - included in Parent'}/>
+      <ChildComponent text={'Child component 2 - included in Parent'}/>
       {props.children}
     </div>
   );
 }
 
-function ChildComponent1() {
-  const [childState1, setChildState1] = useState(0);
-  const divForText = document.querySelector('#sdfghu234');
-  if (!!divForText)
-    divForText.outerHTML += '<div>ChildComponent1 triggered</div>';
+function ChildComponent(props) {
+  const [childState, setChildState1] = useState(0);
+  const ref = useRef()
+  if (!!ref.current)
+    ref.current.innerHTML += '<div>ChildComponent triggered</div>';
 
   return (
     <div style={style}>
-      <button onClick={() => setChildState1(childState1 + 1)}>
-        Change childState1
-      </button>
+      <h3>{props.text}</h3>
+      <button onClick={() => setChildState1(childState + 1)}>Change state</button>
+      <div ref={ref}></div>
     </div>
   );
 }
 
-function ChildComponent2() {
-  const [childState2, setChildState2] = useState(0);
-  const divForText = document.querySelector('#sdfghu234');
-  if (!!divForText)
-    divForText.outerHTML += '<div>ChildComponent2 triggered</div>';
-
-  return (
-    <div style={style}>
-      <button onClick={() => setChildState2(childState2 + 1)}>
-        Change childState2
-      </button>
-    </div>
-  );
-}
-
-const toRender1 = (
+const toRender = (
   <>
-    <div id={'sdfghu234'}></div>
-    <ParentComponent>
-      <ChildComponent1 />
-      <ChildComponent2 />
+    <ParentComponent text={'Parent component'}>
+      <ChildComponent text={'Child component 3 - passed as props.children'}/>
+      <ChildComponent text={'Child component 4 - passed as props.children'}/>
     </ParentComponent>
   </>
-);
-
-function ParentComponent2() {
-  const [parentState, setParentState] = useState(0);
-
-  const divForText = document.querySelector('#sdfghu234');
-  if (!!divForText)
-    divForText.outerHTML += '<div>ParentComponent triggered</div>';
-
-  return (
-    <div style={style}>
-      <button onClick={() => setParentState(parentState + 1)}>
-        Change parentState
-      </button>
-      <ChildComponent1 />
-      <ChildComponent2 />
-    </div>
-  );
-}
-
-const toRender2 = (
-  <ParentComponent2 />
 );
 
 export const childrenComponentsRender = {
@@ -97,14 +60,14 @@ export const childrenComponentsRender = {
     {
       type: 'text',
       val:<>
-        Have read an <Link path={'https://felixgerschau.com/react-rerender-components/#when-does-react-re-render'}>article</Link> which 
+        Have read the <Link path={'https://felixgerschau.com/react-rerender-components/#when-does-react-re-render'}>article</Link> which 
         says <q>... all its subsequent child components will re-render, regardless of whether their props have changed or not.</q>
       </>,
     },
     {
       type: 'text',
       val: `
-        Tried to prove it, but filed. 
+        Tried to prove it, but it is not 100% true. 
       `,
     },
     
@@ -116,127 +79,76 @@ export const childrenComponentsRender = {
           border: '2px solid grey',
           padding: '10px',
           margin: '10px',
-          maxWidth: '300px',
+          maxWidth: '500px',
         };
         
         function ParentComponent(props) {
           const [parentState, setParentState] = useState(0);
+          const ref = useRef()
         
-          const divForText = document.querySelector('#sdfghu234');
-          if (!!divForText)
-            divForText.outerHTML += '<div>ParentComponent triggered</div>';
+          if (!!ref.current)
+            ref.current.innerHTML += '<div>ParentComponent triggered</div>';
         
           return (
             <div style={style}>
-              <button onClick={() => setParentState(parentState + 1)}>
-                Change parentState
-              </button>
+              <h3>{props.text}</h3>
+              <button onClick={() => setParentState(parentState + 1)}>Change state</button>
+              <div ref={ref}></div>
+              <ChildComponent text={'Child component 1 - included in Parent'}/>
+              <ChildComponent text={'Child component 2 - included in Parent'}/>
               {props.children}
             </div>
           );
         }
         
-        function ChildComponent1() {
-          const [childState1, setChildState1] = useState(0);
-          const divForText = document.querySelector('#sdfghu234');
-          if (!!divForText)
-            divForText.outerHTML += '<div>ChildComponent1 triggered</div>';
+        function ChildComponent(props) {
+          const [childState, setChildState1] = useState(0);
+          const ref = useRef()
+          if (!!ref.current)
+            ref.current.innerHTML += '<div>ChildComponent triggered</div>';
         
           return (
             <div style={style}>
-              <button onClick={() => setChildState1(childState1 + 1)}>
-                Change childState1
-              </button>
-            </div>
-          );
-        }
-        
-        function ChildComponent2() {
-          const [childState2, setChildState2] = useState(0);
-          const divForText = document.querySelector('#sdfghu234');
-          if (!!divForText)
-            divForText.outerHTML += '<div>ChildComponent2 triggered</div>';
-        
-          return (
-            <div style={style}>
-              <button onClick={() => setChildState2(childState2 + 1)}>
-                Change childState2
-              </button>
+              <h3>{props.text}</h3>
+              <button onClick={() => setChildState1(childState + 1)}>Change state</button>
+              <div ref={ref}></div>
             </div>
           );
         }
         
         const toRender = (
           <>
-            <div id={'sdfghu234'}></div>
-            <ParentComponent>
-              <ChildComponent1 />
-              <ChildComponent2 />
+            <ParentComponent text={'Parent component'}>
+              <ChildComponent text={'Child component 3 - as props.children'}/>
+              <ChildComponent text={'Child component 4 - as props.children'}/>
             </ParentComponent>
           </>
         );
       `,
     },
-    
     {
-      type: 'text',
-      val: `
-        Components are rendered when state declared inside is changed. 
-      `,
+      type: 'output',
+      val: toRender,
     },
     {
       type: 'text',
       val: `
-        Parent component's state change does not trigger children components to render. 
+        Parent component's state change triggers render of himself. It concerns states declared 
+        inside a component.
       `,
     },
     {
       type: 'text',
       val: <>
-        Parent component's render does not trigger render of components passed as <CodeSpan>props.children</CodeSpan>. 
+        If children components are included directly into the parent component then
+        parent component render will trigger render of children components too. 
       </>,
     },
     {
       type: 'text',
       val: <>
-        But if we include the children components directly into the parent (not in <CodeSpan>props.children</CodeSpan>) then
-        parent component render will trigger render of children components also. 
+        But parent component's render does not trigger render of components passed as <CodeSpan>props.children</CodeSpan>. 
       </>,
     },
-    {
-      type: 'code',
-      val: `
-        function ParentComponent2() {
-          const [parentState, setParentState] = useState(0);
-        
-          const divForText = document.querySelector('#sdfghu234');
-          if (!!divForText)
-            divForText.outerHTML += '<div>ParentComponent triggered</div>';
-        
-          return (
-            <div style={style}>
-              <button onClick={() => setParentState(parentState + 1)}>
-                Change parentState
-              </button>
-              <ChildComponent1 />
-              <ChildComponent2 />
-            </div>
-          );
-        }
-        
-        const toRender2 = (
-          <ParentComponent2 />
-        );
-      `,
-    },
-    {
-      type: 'output',
-      val: toRender1,
-    },
-    {
-      type: 'output',
-      val: toRender2,
-    },
-    
   ],
 };

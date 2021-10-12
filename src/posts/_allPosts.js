@@ -17,10 +17,14 @@ import { jsxToString } from './jsxToString/jsxToString';
 import { imgInReact } from './imgInReact/imgInReact';
 import { styledComponentsAndProps } from './styledComponentsAndProps';
 import { childrenComponentsRender } from './childrenComponentsRender';
-import { stateUpdate } from './stateUpdate';
+import { stateUpdateWithSameValue } from './stateUpdateWithSameValue.js';
+import { propsUpdate } from './propsUpdate/propsUpdate';
+import { domRenderInDevTools } from './domRenderInDevTools/domRenderInDevTools';
 
 const posts = [
-  stateUpdate,
+  domRenderInDevTools,
+  propsUpdate,
+  stateUpdateWithSameValue,
   childrenComponentsRender,
   styledComponentsAndProps,
   imgInReact,

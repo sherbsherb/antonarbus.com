@@ -21,7 +21,7 @@ export function Post(props) {
       if (el.type === 'text') return <Text key={id}>{el.val}</Text>;
       if (el.type === 'code') return <Code key={id} lang={el.lang}>{el.val}</Code>;
       if (el.type === 'output') return <Output key={id}>{el.val}</Output>;
-      if (el.type === 'img') return <Img key={id} src={el.src} width={el.width} alt={el.alt}/>;
+      if (el.type === 'img') return <Img key={id} src={el.src || el.link || el.path} width={el.width} alt={el.alt}/>;
       return <div key={id}>{el.val}</div>;
     });
   }

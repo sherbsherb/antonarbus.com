@@ -213,11 +213,11 @@ export function NavBar() {
 
   // update state to show menu
   function showMenu(o) {
-    console.log('showMenu() func fired');
+    // // console.log('showMenu() func fired');
     const isMenu = o.menu;
 
     if (!isMenu) {
-      console.log('no menu inside navItem');
+      // // console.log('no menu inside navItem');
       // if menu container is ON, remove it
       if (showMenuContainerState) {
         closeMenu();
@@ -225,7 +225,7 @@ export function NavBar() {
       }
 
       if (!showMenuContainerState) {
-        console.log('no showing menu, do nothing');
+        // // console.log('no showing menu, do nothing');
         return;
       }
     }
@@ -240,22 +240,22 @@ export function NavBar() {
         // just opened first menu, no previous menus exist yet
         prevMenu: [],
       });
-      console.log('showed menu');
+      //// console.log('showed menu');
     }
   }
 
   // update state to change menu
   function changeMenu(o) {
-    console.log('changeMenu() func fired');
+    // console.log('changeMenu() func fired');
 
     const isSubMenu = o.menu;
 
     if (!isSubMenu) {
-      console.log('no sub-menu');
+      // console.log('no sub-menu');
       return;
     }
 
-    console.log('fall one level down in menu');
+    // console.log('fall one level down in menu');
     willOpenTopMenu = false;
     const subMenu = o.menu;
     setOpenedMenuState({
@@ -267,7 +267,7 @@ export function NavBar() {
 
   // update state to close menu
   function closeMenu(e) {
-    console.log('closeMenu() func fired');
+    // console.log('closeMenu() func fired');
 
     e?.stopPropagation();
 
@@ -275,26 +275,26 @@ export function NavBar() {
       willOpenTopMenu = false;
       setShowMenuContainerState(false);
       setOpenedMenuState(null);
-      console.log('closed existing menu');
+      // console.log('closed existing menu');
     }
   }
 
   // assign previous menu obj from array to a state to re-render it
   function prevMenu(e) {
-    console.log('prevMenu() func fired');
+    // console.log('prevMenu() func fired');
 
     e?.stopPropagation();
     willOpenTopMenu = false;
     setOpenedMenuState(openedMenuState.prevMenu.pop());
-    console.log('clicked Back');
+    // console.log('clicked Back');
   }
 
   // add actions for Escape, Backspace, Enter, Arrows
   function navKeyboardHandler(e) {
-    console.log('navKeyboardHandler() func fired');
+    // console.log('navKeyboardHandler() func fired');
 
     const { key } = e;
-    //console.log(keyCode);
+    //// console.log(keyCode);
     if (!openedMenuState) return;
     const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
     isNestedMenu && key === 'Backspace' && prevMenu();
@@ -324,7 +324,7 @@ export function NavBar() {
 
   //#endregion
 
-  console.log('NavBar rendered');
+  // console.log('NavBar rendered');
   return (
     // ? we throw props over & over again, is there more elegant way?
     <NavStyled>
@@ -361,7 +361,7 @@ export function NavItem({
   showMenuContainerState,
   willOpenTopMenu,
 }) {
-  console.log('NavItem rendered');
+  // console.log('NavItem rendered');
   return (
     <NavItemLi>
       <Icon
@@ -406,7 +406,7 @@ export function Menu({
   // ! ... and we should get new MenuContainer, but no!!!
   // ! if we color els in dev tool we can see els are not touched
   // ! how come?
-  console.log('Menu rendered');
+  // console.log('Menu rendered');
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   return (
     <MenuContainer>
@@ -430,7 +430,7 @@ export function Menu({
 
 // item inside menu
 export function MenuItem({ menuItem, changeMenu, willOpenTopMenu }) {
-  console.log('MenuItem rendered');
+  // console.log('MenuItem rendered');
   const subMenuExists = menuItem.menu;
   return (
     <MenuLink
@@ -458,7 +458,7 @@ export function MenuItem({ menuItem, changeMenu, willOpenTopMenu }) {
 }
 
 export function BackItem({ prevMenu }) {
-  console.log('BackItem rendered');
+  // console.log('BackItem rendered');
   return (
     <BackLink href="#1" onClick={prevMenu}>
       <span className="left-part">
@@ -472,7 +472,7 @@ export function BackItem({ prevMenu }) {
 }
 
 export function CloseItem({ closeMenu }) {
-  console.log('CloseItem rendered');
+  // console.log('CloseItem rendered');
   return (
     <CloseLink href="#1" onClick={closeMenu}>
       <span className="left-part">

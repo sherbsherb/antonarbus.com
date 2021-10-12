@@ -9,4 +9,5 @@ const PStyled = styled.p`
   margin-bottom: 10px;
   align-self: flex-start;
   color: #3a3a3a;
+  width: 100%;
 `;

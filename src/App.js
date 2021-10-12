@@ -9,7 +9,7 @@ import { _allPosts } from './posts/_allPosts.js';
 
 
 export default function App() {
-  console.log('App rendered');
+  // console.log('App rendered');
 
   const [state, setState] = useState({
     posts: _allPosts,

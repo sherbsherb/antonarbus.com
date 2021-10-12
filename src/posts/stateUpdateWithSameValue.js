@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { CodeSpan } from '../components/post/CodeSpan';
 import { Link } from '../components/post/Link';
 
 function Component() {
@@ -8,9 +9,13 @@ function Component() {
   return (
     <div>
       <h5>{new Date().toString()}</h5>
-      <button onClick={() => setState(state + 1)}>Update state with new value</button>
+      <button onClick={() => setState(state + 1)}>
+        Update state with new value
+      </button>
       &nbsp;&nbsp;&nbsp;
-      <button onClick={() => setState(state)}>Update state with same value</button>
+      <button onClick={() => setState(state)}>
+        Update state with same value
+      </button>
       <div ref={ref}></div>
     </div>
   );
@@ -18,14 +23,20 @@ function Component() {
 
 const toRender = <Component />;
 
-export const stateUpdate = {
+export const stateUpdateWithSameValue = {
   title: 'State update with same value',
   date: '2021.10.12',
   tagsArr: ['react', 'component', 'useState', 'hook', 'render', 'basics'],
   postParts: [
     {
       type: 'text',
-      val: 'Nothing happens, component function is not even triggered.',
+      val: (
+        <>
+          If state is set to the same value via{' '}
+          <CodeSpan>setState(sameVal)</CodeSpan> nothing happens, component
+          function is not even triggered.
+        </>
+      ),
     },
     {
       type: 'code',
@@ -55,11 +66,18 @@ export const stateUpdate = {
     },
     {
       type: 'text',
-      val: <>
-        Note that the component function is oddly triggered one extra time after assigning the same state value, no clue why. <br /><br />
-        According to the <Link path={'https://github.com/facebook/react/issues/17474'}>React Github</Link> that is the known thing.
-      </>
-    }
+      val: (
+        <>
+          Note that the component function is oddly triggered one extra time
+          after assigning the same state value, no clue why. <br />
+          <br />
+          According to the{' '}
+          <Link path={'https://github.com/facebook/react/issues/17474'}>
+            React Github
+          </Link>{' '}
+          that is the known thing.
+        </>
+      ),
+    },
   ],
 };
-

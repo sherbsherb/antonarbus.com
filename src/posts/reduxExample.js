@@ -97,7 +97,7 @@ export const reduxExample = {
     },
     {
       type: 'text',
-      val: 'The idea is not keeping our states in components, but keep them outside in one object.',
+      val: 'The idea is not to keep our states in components, but keep them outside in one object.',
     },
     {
       type: 'text',
@@ -136,9 +136,7 @@ export const reduxExample = {
           <ol>
             <li>States are kept in STORE.</li>
             <li>ACTION describes what we want to do.</li>
-            <li>
-              REDUCER updates the STORE in accordance to an ACTION we choose.
-            </li>
+            <li>REDUCER updates the STORE in accordance to an ACTION we choose.</li>
             <li>DISPATCH sends an ACTION to a REDUCER.</li>
           </ol>
         </>

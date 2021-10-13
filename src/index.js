@@ -8,6 +8,7 @@ const StyleReset = createGlobalStyle`
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    line-height: 1.6;
 
     &::-webkit-scrollbar {
       /* display: none; */
@@ -61,6 +62,12 @@ const StyleReset = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+  li {
+    list-style-position: inside;
+    margin-left: .5em;
+  }
+
 `;
 
 ReactDOM.render(

@@ -47,9 +47,10 @@ function clickHandler(e) {
 const DivStyled = styled.div`
   display: inline-block;
   position: relative;
-  top: -3px;
+  top: ${props => props.isMac ? "-3px" : "-6px"};
   padding: 3px 8px 3px 20px;
-  margin: 5px;
+  margin-top: 7px;
+  margin-left: 5px;
   background: grey;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);

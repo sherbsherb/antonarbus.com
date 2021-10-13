@@ -52,9 +52,11 @@ export function InputSearch(props) {
 
 const DivStyled = styled.div`
   flex-grow: 1;
-  padding: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
   padding-right: 40px;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 24px;
   border-width: 2px;
   border-color: #c0c0c0;
   border-style: solid;

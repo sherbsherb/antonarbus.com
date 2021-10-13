@@ -20,8 +20,10 @@ import { childrenComponentsRender } from './childrenComponentsRender';
 import { stateUpdateWithSameValue } from './stateUpdateWithSameValue.js';
 import { propsUpdate } from './propsUpdate/propsUpdate';
 import { domRenderInDevTools } from './domRenderInDevTools/domRenderInDevTools';
+import { reduxExample } from './reduxExample';
 
 const posts = [
+  reduxExample,
   domRenderInDevTools,
   propsUpdate,
   stateUpdateWithSameValue,

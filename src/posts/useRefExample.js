@@ -39,8 +39,8 @@ export const useRefExample = {
     {
       type: 'text',
       val: <>
-        To access DOM or React element we may use <CodeSpan>React.useRef()</CodeSpan> {' '}
-        <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'hook'}/>
+        To access a DOM or React element we may use <CodeSpan>React.useRef()</CodeSpan> {' '}
+        <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'hook'}/>.
       </>,
     },
     {

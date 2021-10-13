@@ -2,18 +2,16 @@ import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import { Link } from '../components/post/Link';
 
-const Input = React.forwardRef((props, ref) => (
-  <input ref={ref} {...props} />
-));
+const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />);
 
 function InputWithFocus() {
-  const ref = React.useRef();
-  const focus = () => ref.current.focus();
+  const refContainer = React.useRef();
+  const focus = () => refContainer.current.focus();
 
   return (
     <>
       <Input
-        ref={ref}
+        ref={refContainer}
         placeholder="my input"
         style={{ padding: '5px', margin: '5px' }}
       />
@@ -22,7 +20,7 @@ function InputWithFocus() {
   );
 }
 
-const toRender = <InputWithFocus />
+const toRender = <InputWithFocus />;
 
 export const forwardRef = {
   title: (
@@ -31,46 +29,62 @@ export const forwardRef = {
     </>
   ),
   date: '2021.09.26',
-  tagsArr: ['react', 'useRef', 'forwardRef', 'input', 'focus', 'basics', 'hook', 'DOM'],
+  tagsArr: [
+    'react',
+    'useRef',
+    'forwardRef',
+    'input',
+    'focus',
+    'basics',
+    'hook',
+    'DOM',
+  ],
   postParts: [
     {
       type: 'text',
-      val: <>
-        To pass a DOM element to a custom component via <CodeSpan>React.useRef()</CodeSpan> {' '}
-        we need to wrap a component into <CodeSpan>React.forwardRef()</CodeSpan> {' '}
-        <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'function'}/>.
-      </>,
+      val: (
+        <>
+          To pass a reference to a DOM element into a custom component via{' '}
+          <CodeSpan>React.useRef()</CodeSpan> we need to wrap a custom component
+          into <CodeSpan>React.forwardRef()</CodeSpan>{' '}
+          <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'}
+            text={'function'}
+          />.
+        </>
+      ),
     },
     {
       type: 'code',
       lang: 'jsx',
-      val: `
-        const Input = React.forwardRef((props, ref) => (
-          <input ref={ref} {...props} />
-        ));
-        
-        function InputWithFocus() {
-          const ref = React.useRef();
-          const focus = () => ref.current.focus();
-        
-          return (
-            <>
-              <Input
-                ref={ref}
-                placeholder="my input"
-                style={{ padding: '5px', margin: '5px' }}
-              />
-              <button onClick={focus}>Focus</button>
-            </>
-          );
-        }
+        val: `
+          const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />);
 
-        const toRender = <InputWithFocus />
-      `,
+          function InputWithFocus() {
+            const refContainer = React.useRef();
+            const focus = () => refContainer.current.focus();
+          
+            return (
+              <>
+                <Input
+                  ref={refContainer}
+                  placeholder="my input"
+                  style={{ padding: '5px', margin: '5px' }}
+                />
+                <button onClick={focus}>Focus</button>
+              </>
+            );
+          }
+          
+          const toRender = <InputWithFocus />;
+        `,
     },
     {
       type: 'output',
       val: toRender,
     },
+    {
+      type: 'text',
+      val:''
+    }
   ],
 };

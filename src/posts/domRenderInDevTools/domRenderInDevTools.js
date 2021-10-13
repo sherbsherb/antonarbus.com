@@ -38,7 +38,7 @@ export const domRenderInDevTools = {
     {
       type: 'img',
       path: menuPic,
-      width: '80%'
+      width: '80%',
     },
     {
       type: 'code',
@@ -72,12 +72,13 @@ export const domRenderInDevTools = {
     },
     {
       type: 'text',
-      val: 'If we click until new line is added the whole window is splashed. It seems the browser has to render the complete page to add a new line.',
+      val: `If we click until a new line is added the whole window is splashed. 
+      Browser has to render the complete page and recalculate height and position of elements to add a new line.`,
     },
     {
       type: 'img',
       path: pageSplash,
-      width: '80%'
+      width: '80%',
     },
   ],
 };

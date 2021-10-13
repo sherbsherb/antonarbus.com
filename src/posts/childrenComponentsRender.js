@@ -140,14 +140,14 @@ export const childrenComponentsRender = {
     {
       type: 'text',
       val: <>
-        If children components are included directly into the parent component then
-        parent component render will trigger render of children components too. 
+        If children components are included directly into the Parent then
+        they will be rendered too as component function executed. 
       </>,
     },
     {
       type: 'text',
       val: <>
-        But parent component's render does not trigger render of components passed as <CodeSpan>props.children</CodeSpan>. 
+        But Parent's render does not trigger a render of components inside its tags passed as <CodeSpan>props.children</CodeSpan>. 
       </>,
     },
   ],

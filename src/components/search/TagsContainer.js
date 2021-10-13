@@ -22,7 +22,7 @@ const TagsContainerStyled = styled.div`
   margin: 10px 0px;
   border-radius: 4px;
   overflow-y: auto;
-  max-height: ${props => props.isMac ? "140px" : "150px"};
+  max-height: ${props => props.isMac ? "140px" : "149px"};
   height: auto;
   padding: 7px;
   padding-bottom: 3px;

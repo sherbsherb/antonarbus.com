@@ -166,7 +166,7 @@ export const propsUpdate = {
       type: 'text',
       val: (
         <>
-          If we try to update the passed prop by the button in the child component we get an error.
+          If we try to update the passed prop by the button in the child component we get an error in development mode.
           <Img path={errorPic} />
         </>
       ),

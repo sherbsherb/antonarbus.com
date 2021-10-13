@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export function SearchPreviewItem(props) {
+  const isMac = navigator.platform.indexOf('Mac') > -1
+
   return (
-    <SearchPreviewStyled className="post-preview">
+    <SearchPreviewStyled className="post-preview" isMac={isMac}>
       <h4>{props.title}</h4>
       <summary>{props.summary}</summary>
     </SearchPreviewStyled>
@@ -16,7 +18,7 @@ const SearchPreviewStyled = styled.div`
   cursor: pointer;
   color: black;
   padding: 5px;
-  max-height: 92px;
+  max-height: ${props => props.isMac ? "92px" : "106px"};
   overflow-y: auto;
 
   &:hover {

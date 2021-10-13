@@ -6,7 +6,7 @@ import { Provider, useSelector, useDispatch } from 'react-redux';
 
 // ACTION
 const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
-const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num  });
+const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
 const signIn = () => ({ type: 'SIGN_IN' });
 
 // REDUCERS
@@ -73,8 +73,8 @@ const toRender = (
   </Provider>
 );
 
-export const reduxExample = {
-  title: <>Redux example</>,
+export const reduxExampleByDevEd = {
+  title: <>Redux example by <Link path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Link></>,
   date: '2021.10.13',
   tagsArr: [
     'react',

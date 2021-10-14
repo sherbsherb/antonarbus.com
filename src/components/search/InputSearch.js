@@ -4,9 +4,6 @@ import { store } from '../..';
 
 export function InputSearch(props) {
   const {
-    returnUpdatedState,
-    setState,
-    state,
     searchBtnClickHandler,
     closeFoundPostsContainer,
   } = props;
@@ -20,12 +17,6 @@ export function InputSearch(props) {
       contentEditable={true}
       placeholder="Search"
       onFocus={e => {
-        const updateState = returnUpdatedState(e);
-        setState({
-          ...state,
-          ...updateState,
-          //openSearchMenu: true,
-        });
 
         dispatch({
           type: 'show search menu'
@@ -33,12 +24,6 @@ export function InputSearch(props) {
 
       }}
       onInput={debounce(e => {
-        const updateState = returnUpdatedState(e);
-        setState({
-          ...state,
-          ...updateState,
-          //openSearchMenu: true,
-        });
 
         dispatch({
           type: 'show search menu'
@@ -57,25 +42,22 @@ export function InputSearch(props) {
           type: 'store tags from input',
         });
 
-        const typedWords = store.getState().typedWords;
-        const typedTags = store.getState().typedTags;
-
         dispatch({
           type: 'find posts',
-          typedWords: typedWords,
-          typedTags: typedTags,
+          typedWords: store.getState().typedWords,
+          typedTags: store.getState().typedTags,
         });
-
-        const foundPosts = store.getState().foundPosts;
 
         dispatch({
           type: 'get tags from found posts',
-          typedWords: typedWords,
-          foundPosts: foundPosts,
+          typedWords: store.getState().typedWords,
+          foundPosts: store.getState().foundPosts,
         });
 
         e.target.scrollLeft = 10000;
+
       }, 300)}
+      
       onPaste={e => {
         e.preventDefault();
         console.log('pasted');

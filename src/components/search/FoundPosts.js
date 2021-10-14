@@ -1,15 +1,18 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 export function FoundPosts(props) {
   const {foundPosts, searchBtnClickHandler} = props
-  if (foundPosts.length === 0)
+  const foundPostsState = useSelector(state => state.foundPosts);
+
+  if (foundPostsState.length === 0)
     return (
       <FoundPostsStyled>Not found</FoundPostsStyled>
     );
-  const ending = foundPosts.length !== 1 ? 's' : '';
+  const ending = foundPostsState.length !== 1 ? 's' : '';
   return (
     <FoundPostsStyled onClick={searchBtnClickHandler}>
-      Show {ending ? 'all' : ''} {foundPosts.length} post{ending}
+      Show {ending ? 'all' : ''} {foundPostsState.length} post{ending}
     </FoundPostsStyled>
   );
 }

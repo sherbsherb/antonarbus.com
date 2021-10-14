@@ -1,14 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Post } from "./Post";
 
 export function PostsContainer(props) {
-  const {state, setState} = props
+  const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
+
   return (
     <MainStyled>
     { 
-      state.postsOnDisplay.map(o => (
-        <Post post={o} key={o.id} state={state} setState={setState} />
+      postsOnDisplayState.map(o => (
+        <Post post={o} key={o.id} />
       ))
     }
     </MainStyled>

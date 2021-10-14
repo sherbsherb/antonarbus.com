@@ -4,15 +4,15 @@ import { Tag } from '../post/Tag';
 import { InputTagsSearch } from './InputTagsSearch';
 
 
-export function TagsContainer({ state, setState }) {
+export function TagsContainer() {
   const filteredTagsState = useSelector(state => state.filteredTags);
 
   const isMac = navigator.platform.indexOf('Mac') > -1
   return (
     <TagsContainerStyled isMac={isMac}>
-      <InputTagsSearch state={state} setState={setState}/>
+      <InputTagsSearch />
       {filteredTagsState.map(tag => (
-        <Tag tag={tag} key={tag} state={state} setState={setState}>
+        <Tag tag={tag} key={tag} >
           {tag}
         </Tag>
       ))}

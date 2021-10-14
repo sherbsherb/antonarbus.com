@@ -13,22 +13,13 @@ import { SearchPreviewItem } from './SearchPreviewItem';
 import { TagsContainer } from './TagsContainer';
 
 export default function SearchContainer(props) {
-  const { state, setState, returnUpdatedState } = props;
   const showSearchMenuState = useSelector(state => state.showSearchMenu);
   const showRemoveFoundPostsMsgState = useSelector(state => state.showRemoveFoundPostsMsg);
-  console.log(showSearchMenuState)
+  const searchInputValState = useSelector(state => state.searchInputVal);
+  const foundPostsState = useSelector(state => state.foundPosts);
+  const filteredTagsState = useSelector(state => state.filteredTags);
 
   const dispatch = useDispatch()
-
-  const {
-    posts,
-    inputVal,
-    inputWords,
-    foundPosts,
-    foundTags,
-    //openSearchMenu,
-    //showRemoveFoundPosts,
-  } = state;
 
   function highlightTextInPreview(words) {
     const context = document.querySelectorAll('.post-preview');
@@ -38,7 +29,7 @@ export default function SearchContainer(props) {
   }
 
   useEffect(() => {
-    highlightTextInPreview(inputWords);
+    highlightTextInPreview(store.getState().typedWords);
   });
 
   function searchBtnClickHandler(e) {
@@ -48,13 +39,6 @@ export default function SearchContainer(props) {
       closeFoundPostsContainer();
       return;
     }
-
-    setState({
-      ...state,
-      // showRemoveFoundPosts: true,
-      //openSearchMenu: false,
-      postsOnDisplay: foundPosts,
-    });
 
     dispatch({
       type: 'close search menu'
@@ -68,19 +52,20 @@ export default function SearchContainer(props) {
       type: 'show remove found posts msg'
     })
 
+    dispatch({
+      type: 'display found posts',
+      foundPosts: store.getState().foundPosts
+    })
+
   }
 
   function closeFoundPostsContainer() {
     document.querySelector('#input').innerText = '';
-    setState({
-      ...state,
-      ...returnUpdatedState(),
-      postsOnDisplay: posts,
-      //openSearchMenu: false,
-      inputFilterTagsVal: '',
-    });
-    
 
+    dispatch({
+      type: 'display all posts',
+    })
+    
     dispatch({
       type: 'close search menu'
     })
@@ -88,6 +73,11 @@ export default function SearchContainer(props) {
     dispatch({
       type: 'remove remove found posts msg'
     })
+
+    dispatch({
+      type: 'remove tags input val'
+    })
+
   }
 
   return (
@@ -96,9 +86,6 @@ export default function SearchContainer(props) {
       onClick={e => e.stopPropagation()}
     >
       <InputSearch
-        returnUpdatedState={returnUpdatedState}
-        setState={setState}
-        state={state}
         searchBtnClickHandler={searchBtnClickHandler}
         closeFoundPostsContainer={closeFoundPostsContainer}
       />
@@ -107,8 +94,7 @@ export default function SearchContainer(props) {
 
       {showRemoveFoundPostsMsgState && (
         <RemoveFoundPosts
-          foundPostsNum={foundPosts.length}
-          setState={setState}
+          foundPostsNum={store.getState().foundPosts.length}
           closeFoundPostsContainer={closeFoundPostsContainer}
         />
       )}
@@ -117,18 +103,18 @@ export default function SearchContainer(props) {
         <SearchPreviewContainer>
           <FoundPosts
             searchBtnClickHandler={searchBtnClickHandler}
-            foundPosts={foundPosts}
+            // foundPosts={foundPosts}
           />
-          {!!foundTags.length && (
-            <TagsContainer state={state} setState={setState} />
+          {!!filteredTagsState.length && (
+            <TagsContainer/>
           )}
-          {!!foundPosts.length &&
-            inputVal &&
-            foundPosts.map(o => {
+          {!!foundPostsState.length &&
+            searchInputValState &&
+            foundPostsState.map(o => {
               return (
                 <SearchPreviewItem
                   title={o.titleTxt}
-                  summary={foundPosts.length < 10 && o.postTxt}
+                  summary={foundPostsState.length < 10 && o.postTxt}
                   key={o.id + '_preview'}
                 />
               );

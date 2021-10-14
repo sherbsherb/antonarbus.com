@@ -2,6 +2,7 @@ import Mark from 'mark.js';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { store } from '../..';
 import { BtnCancel } from './BtnCancel';
 import { BtnSearch } from './BtnSearch';
 import { FoundPosts } from './FoundPosts';
@@ -16,19 +17,13 @@ export default function SearchContainer(props) {
 
   const showSearchMenuState = useSelector(state => state.showSearchMenu);
   const showRemoveFoundPostsMsgState = useSelector(state => state.showRemoveFoundPostsMsg);
+  const searchInputValState = useSelector(state => state.searchInputVal);
+  const foundPostsState = useSelector(state => state.foundPosts);
+  const filteredTagsState = useSelector(state => state.filteredTags);
+
   console.log(showSearchMenuState)
 
   const dispatch = useDispatch()
-
-  const {
-    posts,
-    inputVal,
-    inputWords,
-    foundPosts,
-    foundTags,
-    //openSearchMenu,
-    // showRemoveFoundPosts,
-  } = state;
 
   function highlightTextInPreview(words) {
     const context = document.querySelectorAll('.post-preview');
@@ -38,7 +33,7 @@ export default function SearchContainer(props) {
   }
 
   useEffect(() => {
-    highlightTextInPreview(inputWords);
+    highlightTextInPreview(store.getState().typedWords);
   });
 
   function searchBtnClickHandler(e) {
@@ -53,7 +48,7 @@ export default function SearchContainer(props) {
       ...state,
       // showRemoveFoundPosts: true,
       //openSearchMenu: false,
-      postsOnDisplay: foundPosts,
+      // postsOnDisplay: foundPosts,
     });
 
     dispatch({
@@ -63,17 +58,15 @@ export default function SearchContainer(props) {
     dispatch({
       type: 'show remove found posts msg'
     })
+
+    dispatch({
+      type: 'display found posts',
+      foundPosts: store.getState().foundPosts
+    })
   }
 
   function closeFoundPostsContainer() {
     document.querySelector('#input').innerText = '';
-    setState({
-      ...state,
-      ...returnUpdatedState(),
-      postsOnDisplay: posts,
-      //openSearchMenu: false,
-      inputFilterTagsVal: '',
-    });
 
     dispatch({
       type: 'close search menu'
@@ -81,6 +74,15 @@ export default function SearchContainer(props) {
 
     dispatch({
       type: 'remove remove found posts msg'
+    })
+
+    dispatch({
+      type: 'remove tags input val'
+    })
+
+    dispatch({
+      type: 'display found posts',
+      foundPosts: store.getState().foundPosts
     })
 
     
@@ -92,9 +94,6 @@ export default function SearchContainer(props) {
       onClick={e => e.stopPropagation()}
     >
       <InputSearch
-        returnUpdatedState={returnUpdatedState}
-        setState={setState}
-        state={state}
         searchBtnClickHandler={searchBtnClickHandler}
         closeFoundPostsContainer={closeFoundPostsContainer}
       />
@@ -103,8 +102,6 @@ export default function SearchContainer(props) {
 
       {showRemoveFoundPostsMsgState && (
         <RemoveFoundPosts
-          foundPostsNum={foundPosts.length}
-          setState={setState}
           closeFoundPostsContainer={closeFoundPostsContainer}
         />
       )}
@@ -113,18 +110,18 @@ export default function SearchContainer(props) {
         <SearchPreviewContainer>
           <FoundPosts
             searchBtnClickHandler={searchBtnClickHandler}
-            foundPosts={foundPosts}
+            // foundPosts={foundPosts}
           />
-          {!!foundTags.length && (
+          {!!filteredTagsState.length && (
             <TagsContainer state={state} setState={setState} />
           )}
-          {!!foundPosts.length &&
-            inputVal &&
-            foundPosts.map(o => {
+          {!!foundPostsState.length &&
+            searchInputValState &&
+            foundPostsState.map(o => {
               return (
                 <SearchPreviewItem
                   title={o.titleTxt}
-                  summary={foundPosts.length < 10 && o.postTxt}
+                  summary={foundPostsState.length < 10 && o.postTxt}
                   key={o.id + '_preview'}
                 />
               );

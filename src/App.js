@@ -36,6 +36,7 @@ export default function App() {
       // close search dropdown menu if clicked outside
       onClick={() => { 
         dispatch({ type: 'close search menu' })
+        dispatch({ type: 'remove tags input val' })
       }}
     >
       <NavBar />

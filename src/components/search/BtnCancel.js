@@ -12,12 +12,12 @@ export function BtnCancel() {
         dispatch({ type: 'remove search input val' });
         dispatch({ type: 'display all posts' });
         dispatch({ type: 'close search menu' });
+        dispatch({ type: 'remove tags input val' })
         dispatch({ type: 'remove remove found posts msg' });
-        dispatch({ type: 'remove tags input val' });
         dispatch({ type: 'remove search input val' });
         dispatch({ type: 'forget tags from input' });
         dispatch({ type: 'forget words from input' });
-        dispatch({ type: 'reset posts' });
+        dispatch({ type: 'reset posts' });   
         dispatch({ type: 'get tags from all posts' });
         document.querySelector('#input').innerHTML = ''
       }}

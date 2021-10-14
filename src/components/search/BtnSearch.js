@@ -20,6 +20,7 @@ export function BtnSearch() {
           return;
         }
         dispatch({ type: 'close search menu' });
+        dispatch({ type: 'remove tags input val' })
         dispatch({ type: 'show found posts msg' });
         dispatch({ type: 'show remove found posts msg' });
         dispatch({

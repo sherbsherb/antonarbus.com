@@ -12,7 +12,6 @@ export function InputSearch() {
       placeholder="Search"
       onFocus={e => {
         dispatch({ type: 'show search menu' });
-        dispatch({ type: 'show search menu' });
         dispatch({
           type: 'store search input val',
           searchInputVal: e.target.innerText,
@@ -27,6 +26,11 @@ export function InputSearch() {
         dispatch({
           type: 'get tags from found posts',
           foundPosts: store.getState().foundPosts,
+        });
+        dispatch({
+          type: 'filter tags',
+          tagsInputVal: store.getState().tagsInputVal,
+          tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
         });
       }}
       onInput={debounce(e => {
@@ -46,13 +50,11 @@ export function InputSearch() {
           type: 'get tags from found posts',
           foundPosts: store.getState().foundPosts,
         });
-
         dispatch({
           type: 'filter tags',
           tagsInputVal: store.getState().tagsInputVal,
-          foundPosts: store.getState().foundPosts,
+          tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
         });
-
         e.target.scrollLeft = 10000;
       }, 300)}
       onPaste={e => {
@@ -83,6 +85,7 @@ export function InputSearch() {
             type: 'display found posts',
             foundPosts: store.getState().foundPosts,
           });
+          dispatch({ type: 'remove tags input val' });
         }
 
         if (e.key === 'Escape') {

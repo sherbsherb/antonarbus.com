@@ -23,8 +23,8 @@ export function InputTagsSearch() {
 
           dispatch({ 
             type: 'filter tags', 
-            tagsInputVal: inputVal,
-            foundPosts: store.getState().foundPosts,
+            tagsInputVal: store.getState().tagsInputVal,
+            tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
           });
 
         }}

@@ -2,16 +2,26 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../..';
 
-export function BtnSearch(props) {
-  const { searchBtnClickHandler } = props;
-
+export function BtnSearch() {
   const dispatch = useDispatch();
 
   return (
     <ButtonStyled
       onClick={e => {
-        searchBtnClickHandler(e);
-
+        e.preventDefault();
+        if (store.getState().searchInputVal === '') {
+          dispatch({ type: 'remove search input val' });
+          dispatch({ type: 'display all posts' });
+          dispatch({ type: 'close search menu' });
+          dispatch({ type: 'remove remove found posts msg' });
+          dispatch({ type: 'remove tags input val' });
+          dispatch({ type: 'reset posts' });
+          dispatch({ type: 'get tags from all posts' });
+          return;
+        }
+        dispatch({ type: 'close search menu' });
+        dispatch({ type: 'show found posts msg' });
+        dispatch({ type: 'show remove found posts msg' });
         dispatch({
           type: 'display found posts',
           foundPosts: store.getState().foundPosts,

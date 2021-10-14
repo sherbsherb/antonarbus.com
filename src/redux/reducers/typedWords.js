@@ -9,6 +9,7 @@ export default function typedWords(state = [], action) {
   });
   wordsArr = [...new Set(wordsArr)].filter(el => el !== '');
 
-  if (action.type === 'store words from input') return wordsArr;
+  if (action.type === 'get words from input') return wordsArr;
+  if (action.type === 'forget words from input') return [];
   return state;
 }

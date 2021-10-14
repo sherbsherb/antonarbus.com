@@ -2,21 +2,24 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../..';
 
-export function BtnCancel(props) {
-  const { closeFoundPostsContainer } = props;
-
-  const dispatch = useDispatch()
+export function BtnCancel() {
+  const dispatch = useDispatch();
 
   return (
     <ButtonStyled
       onClick={e => {
         e.preventDefault();
-        closeFoundPostsContainer();
-
-        dispatch({
-          type: 'display all posts'
-        });
-
+        dispatch({ type: 'remove search input val' });
+        dispatch({ type: 'display all posts' });
+        dispatch({ type: 'close search menu' });
+        dispatch({ type: 'remove remove found posts msg' });
+        dispatch({ type: 'remove tags input val' });
+        dispatch({ type: 'remove search input val' });
+        dispatch({ type: 'forget tags from input' });
+        dispatch({ type: 'forget words from input' });
+        dispatch({ type: 'reset posts' });
+        dispatch({ type: 'get tags from all posts' });
+        document.querySelector('#input').innerHTML = ''
       }}
     />
   );

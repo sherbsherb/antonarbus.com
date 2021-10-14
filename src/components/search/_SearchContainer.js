@@ -12,14 +12,16 @@ import { SearchPreviewContainer } from './SearchPreviewContainer';
 import { SearchPreviewItem } from './SearchPreviewItem';
 import { TagsContainer } from './TagsContainer';
 
-export default function SearchContainer(props) {
+export default function SearchContainer() {
   const showSearchMenuState = useSelector(state => state.showSearchMenu);
-  const showRemoveFoundPostsMsgState = useSelector(state => state.showRemoveFoundPostsMsg);
+  const showRemoveFoundPostsMsgState = useSelector(
+    state => state.showRemoveFoundPostsMsg
+  );
   const searchInputValState = useSelector(state => state.searchInputVal);
   const foundPostsState = useSelector(state => state.foundPosts);
   const filteredTagsState = useSelector(state => state.filteredTags);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   function highlightTextInPreview(words) {
     const context = document.querySelectorAll('.post-preview');
@@ -32,82 +34,19 @@ export default function SearchContainer(props) {
     highlightTextInPreview(store.getState().typedWords);
   });
 
-  function searchBtnClickHandler(e) {
-    e.preventDefault();
-
-    if (document.querySelector('#input').innerText.length === 0) {
-      closeFoundPostsContainer();
-      return;
-    }
-
-    dispatch({
-      type: 'close search menu'
-    })
-
-    dispatch({
-      type: 'show found posts msg'
-    })
-
-    dispatch({
-      type: 'show remove found posts msg'
-    })
-
-    dispatch({
-      type: 'display found posts',
-      foundPosts: store.getState().foundPosts
-    })
-
-  }
-
-  function closeFoundPostsContainer() {
-    document.querySelector('#input').innerText = '';
-
-    dispatch({
-      type: 'display all posts',
-    })
-    
-    dispatch({
-      type: 'close search menu'
-    })
-
-    dispatch({
-      type: 'remove remove found posts msg'
-    })
-
-    dispatch({
-      type: 'remove tags input val'
-    })
-
-  }
-
   return (
     <DivStyled
       // do not close dropdown search menu if clicked inside
       onClick={e => e.stopPropagation()}
     >
-      <InputSearch
-        searchBtnClickHandler={searchBtnClickHandler}
-        closeFoundPostsContainer={closeFoundPostsContainer}
-      />
-      <BtnCancel closeFoundPostsContainer={closeFoundPostsContainer} />
-      <BtnSearch searchBtnClickHandler={searchBtnClickHandler} />
-
-      {showRemoveFoundPostsMsgState && (
-        <RemoveFoundPosts
-          foundPostsNum={store.getState().foundPosts.length}
-          closeFoundPostsContainer={closeFoundPostsContainer}
-        />
-      )}
-
+      <InputSearch />
+      <BtnCancel />
+      <BtnSearch />
+      {showRemoveFoundPostsMsgState && <RemoveFoundPosts />}
       {showSearchMenuState && (
         <SearchPreviewContainer>
-          <FoundPosts
-            searchBtnClickHandler={searchBtnClickHandler}
-            // foundPosts={foundPosts}
-          />
-          {!!filteredTagsState.length && (
-            <TagsContainer/>
-          )}
+          <FoundPosts />
+          <TagsContainer />
           {!!foundPostsState.length &&
             searchInputValState &&
             foundPostsState.map(o => {

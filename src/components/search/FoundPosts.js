@@ -1,17 +1,27 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { store } from '../..';
 
-export function FoundPosts(props) {
-  const {foundPosts, searchBtnClickHandler} = props
+export function FoundPosts() {
   const foundPostsState = useSelector(state => state.foundPosts);
+  const dispatch = useDispatch();
 
   if (foundPostsState.length === 0)
-    return (
-      <FoundPostsStyled>Not found</FoundPostsStyled>
-    );
+    return <FoundPostsStyled>Not found</FoundPostsStyled>;
   const ending = foundPostsState.length !== 1 ? 's' : '';
   return (
-    <FoundPostsStyled onClick={searchBtnClickHandler}>
+    <FoundPostsStyled
+      onClick={e => {
+        e.preventDefault();
+        dispatch({ type: 'close search menu' });
+        dispatch({ type: 'show found posts msg' });
+        dispatch({ type: 'show remove found posts msg' });
+        dispatch({
+          type: 'display found posts',
+          foundPosts: store.getState().foundPosts,
+        });
+      }}
+    >
       Show {ending ? 'all' : ''} {foundPostsState.length} post{ending}
     </FoundPostsStyled>
   );

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import setCaretToEnd from '../../helpers/functions/setCaretToEnd';
 
 export function Tag(props) {
-
-  const isMac = navigator.platform.indexOf('Mac') > -1
+  const isMac = navigator.platform.indexOf('Mac') > -1;
 
   return (
     <DivStyled contentEditable={false} onClick={clickHandler} isMac={isMac}>
@@ -11,27 +11,12 @@ export function Tag(props) {
   );
 }
 
-function setCaretToEnd(el) {
-  if (!el.childNodes.length) return;
-  let range = document.createRange();
-  let sel = window.getSelection();
-  const lastNode = el.childNodes[el.childNodes.length - 1];
-  range.setStart(lastNode, lastNode.length);
-  range.collapse(true);
-  sel.removeAllRanges();
-  sel.addRange(range);
-  el.focus();
-}
-
 function clickHandler(e) {
-  
   e.stopPropagation();
   // add tag to search input
   const inputEl = document.getElementById('input');
   const tagEl = e.target;
-  // @ts-ignore
   const clonedTag = tagEl.cloneNode(true);
-  // clonedTag.style.margin = '0px 5px';
   clonedTag.classList.add('tag');
   inputEl.appendChild(clonedTag);
   inputEl.append('\u00A0');
@@ -47,7 +32,7 @@ function clickHandler(e) {
 const DivStyled = styled.div`
   display: inline-block;
   position: relative;
-  top: ${props => props.isMac ? "-3px" : "-6px"};
+  top: ${props => (props.isMac ? '-3px' : '-6px')};
   padding: 3px 8px 3px 20px;
   margin-top: 7px;
   margin-left: 5px;
@@ -66,7 +51,7 @@ const DivStyled = styled.div`
   &:before {
     content: '';
     position: absolute;
-    top: ${props => props.isMac ? "8.5px" : "10px"};
+    top: ${props => (props.isMac ? '8.5px' : '10px')};
     left: 8px;
     width: 5px;
     height: 5px;

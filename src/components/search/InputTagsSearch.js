@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { store } from '../..';
 
-export function InputTagsSearch(props) {
+export function InputTagsSearch() {
 
   const tagsInputState = useSelector(state => state.tagsInputReducer);
   const dispatch = useDispatch();
@@ -11,7 +12,6 @@ export function InputTagsSearch(props) {
       <input
         type="search"
         placeholder={'Filter tags'}
-
         value={tagsInputState}
         onChange={e => {
           const inputVal = e.target.value;
@@ -23,7 +23,8 @@ export function InputTagsSearch(props) {
 
           dispatch({ 
             type: 'filter tags', 
-            tagsInputVal: inputVal 
+            tagsInputVal: inputVal,
+            foundPosts: store.getState().foundPosts,
           });
 
         }}

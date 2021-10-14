@@ -2,13 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../..';
 
-export function InputSearch(props) {
-  const {
-    searchBtnClickHandler,
-    closeFoundPostsContainer,
-  } = props;
-
-  const searchInputValState = useSelector(state => state.searchInputVal);
+export function InputSearch() {
   const dispatch = useDispatch();
 
   return (
@@ -17,47 +11,50 @@ export function InputSearch(props) {
       contentEditable={true}
       placeholder="Search"
       onFocus={e => {
-
-        dispatch({
-          type: 'show search menu'
-        })
-
-      }}
-      onInput={debounce(e => {
-
-        dispatch({
-          type: 'show search menu'
-        })
-
+        dispatch({ type: 'show search menu' });
+        dispatch({ type: 'show search menu' });
         dispatch({
           type: 'store search input val',
           searchInputVal: e.target.innerText,
         });
-
-        dispatch({
-          type: 'store words from input',
-        });
-
-        dispatch({
-          type: 'store tags from input',
-        });
-
+        dispatch({ type: 'get words from input' });
+        dispatch({ type: 'get tags from input' });
         dispatch({
           type: 'find posts',
           typedWords: store.getState().typedWords,
           typedTags: store.getState().typedTags,
         });
-
         dispatch({
           type: 'get tags from found posts',
+          foundPosts: store.getState().foundPosts,
+        });
+      }}
+      onInput={debounce(e => {
+        dispatch({ type: 'show search menu' });
+        dispatch({
+          type: 'store search input val',
+          searchInputVal: e.target.innerText,
+        });
+        dispatch({ type: 'get words from input' });
+        dispatch({ type: 'get tags from input' });
+        dispatch({
+          type: 'find posts',
           typedWords: store.getState().typedWords,
+          typedTags: store.getState().typedTags,
+        });
+        dispatch({
+          type: 'get tags from found posts',
+          foundPosts: store.getState().foundPosts,
+        });
+
+        dispatch({
+          type: 'filter tags',
+          tagsInputVal: store.getState().tagsInputVal,
           foundPosts: store.getState().foundPosts,
         });
 
         e.target.scrollLeft = 10000;
-
       }, 300)}
-      
       onPaste={e => {
         e.preventDefault();
         console.log('pasted');
@@ -66,29 +63,41 @@ export function InputSearch(props) {
         // insert text manually
         document.execCommand('insertHTML', false, text);
       }}
-
       onKeyDown={e => {
         if (e.key === 'Enter') {
           e.preventDefault();
-          searchBtnClickHandler(e);
-
+          if (store.getState().searchInputVal === '') {
+            dispatch({ type: 'remove search input val' });
+            dispatch({ type: 'display all posts' });
+            dispatch({ type: 'close search menu' });
+            dispatch({ type: 'remove remove found posts msg' });
+            dispatch({ type: 'remove tags input val' });
+            dispatch({ type: 'reset posts' });
+            dispatch({ type: 'get tags from all posts' });
+            return;
+          }
+          dispatch({ type: 'close search menu' });
+          dispatch({ type: 'show found posts msg' });
+          dispatch({ type: 'show remove found posts msg' });
           dispatch({
             type: 'display found posts',
             foundPosts: store.getState().foundPosts,
           });
-
-          return;
         }
 
         if (e.key === 'Escape') {
           e.preventDefault();
-          closeFoundPostsContainer();
-
-          dispatch({
-            type: 'display all posts'
-          });
-
-          return;
+          dispatch({ type: 'remove search input val' });
+          dispatch({ type: 'display all posts' });
+          dispatch({ type: 'close search menu' });
+          dispatch({ type: 'remove remove found posts msg' });
+          dispatch({ type: 'remove tags input val' });
+          dispatch({ type: 'remove search input val' });
+          dispatch({ type: 'forget tags from input' });
+          dispatch({ type: 'forget words from input' });
+          dispatch({ type: 'reset posts' });
+          dispatch({ type: 'get tags from all posts' });
+          document.querySelector('#input').innerHTML = '';
         }
       }}
     />

@@ -1,28 +1,27 @@
 import Mark from 'mark.js';
-import React, { useEffect, useState, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post/Post.js';
-import SearchContainer from './components/search/SearchContainer.js';
+import SearchContainer from './components/search/_SearchContainer.js';
 import { store } from './index.js';
 import { _allPosts } from './posts/_allPosts.js';
 
 export default function App() {
-  // console.log('App rendered');
-
+  const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
   const dispatch = useDispatch()
 
   useEffect(() => {
     // highlight found words
-    var context = document.querySelector('main');
-    var instance = new Mark(context);
+    const context = document.querySelector('main');
+    const instance = new Mark(context);
     instance.unmark();
     instance.mark(store.getState().typedWords);
-  }, [store.getState().postsOnDisplay]);
+  }, [postsOnDisplayState]);
 
   function returnPosts() {
-    return store.getState().postsOnDisplay.map(o => (
+    return postsOnDisplayState.map(o => (
       <Post post={o} key={o.id} />
     ));
   }
@@ -30,24 +29,13 @@ export default function App() {
   // do not re-render posts on screen when search dropdown menu toggles
   const returnPostsMemo = useMemo(() => {
     return returnPosts();
-  }, [store.getState().postsOnDisplay]);
+  }, [postsOnDisplayState]);
 
   return (
     <div
       // close search dropdown menu if clicked outside
-      onClick={() => {
-        dispatch({
-          type: 'close search menu'
-        })
-
-        dispatch({
-          type: 'remove tags input val'
-        })
-
-        dispatch({
-          type: 'remove tags input val'
-        })
-        
+      onClick={() => { 
+        dispatch({ type: 'close search menu' })
       }}
     >
       <NavBar />
@@ -65,4 +53,3 @@ const StyledMain = styled.main`
   justify-content: center;
   padding-bottom: 30px;
 `;
-

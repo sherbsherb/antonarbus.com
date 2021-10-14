@@ -10,6 +10,7 @@ export default function typedTags(state = [], action) {
   });
   tagsArr = [...new Set(tagsArr)]
 
-  if (action.type === 'store tags from input') return tagsArr;
+  if (action.type === 'get tags from input') return tagsArr;
+  if (action.type === 'forget tags from input') return [];
   return state;
 }

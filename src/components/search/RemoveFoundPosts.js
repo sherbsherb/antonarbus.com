@@ -2,9 +2,9 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../..';
 
-export function RemoveFoundPosts({ closeFoundPostsContainer, foundPostsNum }) {
-  
-  const dispatch = useDispatch()
+export function RemoveFoundPosts() {
+  const dispatch = useDispatch();
+  const foundPostsNum = store.getState().foundPosts.length;
 
   return (
     <DivStyled>
@@ -15,16 +15,23 @@ export function RemoveFoundPosts({ closeFoundPostsContainer, foundPostsNum }) {
         {!foundPostsNum && 'Not '}
         found
       </span>
-      <span onClick={
-        (e) => {
-          closeFoundPostsContainer(e)
-
-          dispatch({
-            type: 'display all posts',
-          });
-        }
-        
-        }>⨉</span>
+      <span
+        onClick={e => {
+          e.preventDefault();
+          dispatch({ type: 'remove search input val' });
+          dispatch({ type: 'display all posts' });
+          dispatch({ type: 'close search menu' });
+          dispatch({ type: 'remove remove found posts msg' });
+          dispatch({ type: 'remove tags input val' });
+          dispatch({ type: 'forget tags from input' });
+          dispatch({ type: 'forget words from input' });
+          dispatch({ type: 'reset posts' });
+          dispatch({ type: 'get tags from all posts' });
+          document.querySelector('#input').innerHTML = '';
+        }}
+      >
+        ⨉
+      </span>
     </DivStyled>
   );
 }

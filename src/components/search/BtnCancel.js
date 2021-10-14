@@ -1,13 +1,22 @@
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { store } from '../..';
 
 export function BtnCancel(props) {
   const { closeFoundPostsContainer } = props;
+
+  const dispatch = useDispatch()
 
   return (
     <ButtonStyled
       onClick={e => {
         e.preventDefault();
         closeFoundPostsContainer();
+
+        dispatch({
+          type: 'display all posts'
+        });
+
       }}
     />
   );

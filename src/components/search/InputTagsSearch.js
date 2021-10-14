@@ -1,20 +1,31 @@
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 export function InputTagsSearch(props) {
-  const { state, setState } = props;
-  const { foundTags, inputFilterTagsVal } = state;
 
+  const tagsInputState = useSelector(state => state.tagsInputReducer);
+  const dispatch = useDispatch();
+  
   return (
     <InputStyled>
       <input
         type="search"
         placeholder={'Filter tags'}
-        value={inputFilterTagsVal}
+
+        value={tagsInputState}
         onChange={e => {
           const inputVal = e.target.value;
-          const reducedTags = foundTags.filter(tag => tag.toUpperCase().includes(inputVal.toUpperCase()));
 
-          setState({ ...state, inputFilterTagsVal: inputVal, filteredTags: reducedTags });
+          dispatch({ 
+            type: 'store tags input val', 
+            tagsInputVal: inputVal 
+          });
+
+          dispatch({ 
+            type: 'filter tags', 
+            tagsInputVal: inputVal 
+          });
+
         }}
       />
     </InputStyled>
@@ -34,6 +45,7 @@ const InputStyled = styled.div`
     border-radius: 4px;
     outline-style: none;
     min-width: 0;
+    cursor: text;
 
     &:hover {
       border-color: grey;

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { createGlobalStyle } from 'styled-components';
+import { Provider, useDispatch } from 'react-redux';
+import { createStore } from 'redux';
+import allReducers from './redux/reducers/_allReducers';
 
 const StyleReset = createGlobalStyle`
   * {
@@ -69,19 +72,16 @@ const StyleReset = createGlobalStyle`
 
 `;
 
+export const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 ReactDOM.render(
-  <>
+  <Provider store={store}>
     <StyleReset />
     <App />
-  </>,
+  </Provider>,
   document.getElementById('root')
 );
 
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <StyleReset />
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );

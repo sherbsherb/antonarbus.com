@@ -30,7 +30,6 @@ function Component() {
 
   return (
     <div style={style}>
-      <h3>Parent</h3>
       <div>
         Counter: <strong>{counter}</strong>
       </div>
@@ -102,7 +101,7 @@ export const reduxExampleByDevEdFoldered = {
       val: (
         <>
           We have <CodeSpan>counter</CodeSpan> & <CodeSpan>isLogged</CodeSpan>{' '}
-          reducers, which are combined in <CodeSpan>index.js</CodeSpan> file.
+          reducers, which are combined in the <CodeSpan>index.js</CodeSpan> file.
         </>
       ),
     },
@@ -111,8 +110,8 @@ export const reduxExampleByDevEdFoldered = {
       val: (
         <>
           <i>Reducer</i> is a function where we set an initial state and put
-          logic how we want to modify a state depending on <i>action.type</i> we
-          provide as an object in the argument of{' '}
+          logic how we want to modify a state depending on an <i>action.type</i> which we
+          provide as an object in the argument of{' '} the
           <CodeSpan>{`dispatch({ type: 'SIGN_IN' })`}</CodeSpan> function.
         </>
       ),
@@ -121,7 +120,7 @@ export const reduxExampleByDevEdFoldered = {
       type: 'code',
       lang: 'jsx',
       val: `
-        // \reducers\counter.js
+        // \\reducers\counter.js
         const counterReducer = (state = 0, action) => {
           if (action.type === 'INCREMENT') return state + action.payload;
           if (action.type === 'DECREMENT') return state - action.payload;
@@ -134,7 +133,7 @@ export const reduxExampleByDevEdFoldered = {
       type: 'code',
       lang: 'jsx',
       val: `
-        // \reducers\isLogged.js 
+        // \\reducers\isLogged.js 
         const isLoggedReducer = (state = false, action) => {
           if (action.type === 'SIGN_IN') return !state;
           return state;
@@ -146,8 +145,8 @@ export const reduxExampleByDevEdFoldered = {
       type: 'text',
       val: (
         <>
-          In file <CodeSpan>index.js</CodeSpan> we combine reducers together in
-          one object with a special <CodeSpan>combineReducers()</CodeSpan>{' '}
+          In the file <CodeSpan>index.js</CodeSpan> we combine reducers together in
+          one object by the special <CodeSpan>combineReducers()</CodeSpan>{' '}
           function from the <i>redux</i> library.
         </>
       ),
@@ -156,7 +155,7 @@ export const reduxExampleByDevEdFoldered = {
       type: 'code',
       lang: 'jsx',
       val: `
-        // \reducers\index.js
+        // \\reducers\index.js
         import counterReducer from './counter';
         import isLoggedReducer from './isLogged';
         import { combineReducers } from 'redux';
@@ -173,7 +172,7 @@ export const reduxExampleByDevEdFoldered = {
       val: (
         <>
           To update a state we launch the{' '}
-          <CodeSpan>{`dispatch(actionObj)`}</CodeSpan> function with an
+          <CodeSpan>{`dispatch(actionObj)`}</CodeSpan> function with the
           following object parameter{' '}
           <CodeSpan>{`{ type: 'SIGN_IN' }`}</CodeSpan>, which corresponds to the{' '}
           <CodeSpan>action.type</CodeSpan> of a reducer.
@@ -192,7 +191,7 @@ export const reduxExampleByDevEdFoldered = {
       type: 'code',
       lang: 'jsx',
       val: `
-        // \actions\index.js
+        // \\actions\index.js
         export const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
         export const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
         export const signIn = () => ({ type: 'SIGN_IN' });
@@ -234,7 +233,7 @@ export const reduxExampleByDevEdFoldered = {
       type: 'code',
       lang: 'jsx',
       val: `
-        // \main.js
+        // \\main.js
         import React from 'react';
         import { createStore } from 'redux';
         import { Provider, useSelector, useDispatch } from 'react-redux';
@@ -251,7 +250,6 @@ export const reduxExampleByDevEdFoldered = {
         
           return (
             <div style={style}>
-              <h3>Parent</h3>
               <div>
                 Counter: <strong>{counter}</strong>
               </div>

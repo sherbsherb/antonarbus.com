@@ -1,6 +1,11 @@
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { store } from '../..';
 
 export function RemoveFoundPosts({ closeFoundPostsContainer, foundPostsNum }) {
+  
+  const dispatch = useDispatch()
+
   return (
     <DivStyled>
       <span>
@@ -10,7 +15,16 @@ export function RemoveFoundPosts({ closeFoundPostsContainer, foundPostsNum }) {
         {!foundPostsNum && 'Not '}
         found
       </span>
-      <span onClick={closeFoundPostsContainer}>⨉</span>
+      <span onClick={
+        (e) => {
+          closeFoundPostsContainer(e)
+
+          dispatch({
+            type: 'display all posts',
+          });
+        }
+        
+        }>⨉</span>
     </DivStyled>
   );
 }

@@ -53,7 +53,6 @@ function Component() {
 
   return (
     <div style={style}>
-      <h3>Parent</h3>
       <div>
         Counter: <strong>{counter}</strong>
       </div>
@@ -194,7 +193,6 @@ export const reduxExampleByDevEd = {
         
           return (
             <div style={style}>
-              <h3>Parent</h3>
               <div>
                 Counter: <strong>{counter}</strong>
               </div>

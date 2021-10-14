@@ -1,14 +1,17 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Tag } from '../post/Tag';
 import { InputTagsSearch } from './InputTagsSearch';
 
+
 export function TagsContainer({ state, setState }) {
-  const { filteredTags } = state;
+  const filteredTagsState = useSelector(state => state.filteredTags);
+
   const isMac = navigator.platform.indexOf('Mac') > -1
   return (
     <TagsContainerStyled isMac={isMac}>
       <InputTagsSearch state={state} setState={setState}/>
-      {filteredTags.map(tag => (
+      {filteredTagsState.map(tag => (
         <Tag tag={tag} key={tag} state={state} setState={setState}>
           {tag}
         </Tag>

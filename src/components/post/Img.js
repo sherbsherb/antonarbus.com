@@ -28,6 +28,6 @@ const ImgStyled = styled.img.attrs(props => ({
   max-width: 100%;
 
   @media screen and (max-width: 480px) {
-    min-width: 100%;
+    /* min-width: 100%; */
   }
 `;

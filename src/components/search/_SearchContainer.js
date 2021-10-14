@@ -1,6 +1,8 @@
 import Mark from 'mark.js';
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { store } from '../..';
 import { BtnCancel } from './BtnCancel';
 import { BtnSearch } from './BtnSearch';
 import { FoundPosts } from './FoundPosts';
@@ -12,6 +14,11 @@ import { TagsContainer } from './TagsContainer';
 
 export default function SearchContainer(props) {
   const { state, setState, returnUpdatedState } = props;
+  const showSearchMenuState = useSelector(state => state.showSearchMenu);
+  const showRemoveFoundPostsMsgState = useSelector(state => state.showRemoveFoundPostsMsg);
+  console.log(showSearchMenuState)
+
+  const dispatch = useDispatch()
 
   const {
     posts,
@@ -19,8 +26,8 @@ export default function SearchContainer(props) {
     inputWords,
     foundPosts,
     foundTags,
-    openSearchMenu,
-    showRemoveFoundPosts,
+    //openSearchMenu,
+    //showRemoveFoundPosts,
   } = state;
 
   function highlightTextInPreview(words) {
@@ -44,10 +51,23 @@ export default function SearchContainer(props) {
 
     setState({
       ...state,
-      showRemoveFoundPosts: true,
-      openSearchMenu: false,
+      // showRemoveFoundPosts: true,
+      //openSearchMenu: false,
       postsOnDisplay: foundPosts,
     });
+
+    dispatch({
+      type: 'close search menu'
+    })
+
+    dispatch({
+      type: 'show found posts msg'
+    })
+
+    dispatch({
+      type: 'show remove found posts msg'
+    })
+
   }
 
   function closeFoundPostsContainer() {
@@ -56,9 +76,18 @@ export default function SearchContainer(props) {
       ...state,
       ...returnUpdatedState(),
       postsOnDisplay: posts,
-      openSearchMenu: false,
+      //openSearchMenu: false,
       inputFilterTagsVal: '',
     });
+    
+
+    dispatch({
+      type: 'close search menu'
+    })
+
+    dispatch({
+      type: 'remove remove found posts msg'
+    })
   }
 
   return (
@@ -76,7 +105,7 @@ export default function SearchContainer(props) {
       <BtnCancel closeFoundPostsContainer={closeFoundPostsContainer} />
       <BtnSearch searchBtnClickHandler={searchBtnClickHandler} />
 
-      {showRemoveFoundPosts && (
+      {showRemoveFoundPostsMsgState && (
         <RemoveFoundPosts
           foundPostsNum={foundPosts.length}
           setState={setState}
@@ -84,7 +113,7 @@ export default function SearchContainer(props) {
         />
       )}
 
-      {openSearchMenu && (
+      {showSearchMenuState && (
         <SearchPreviewContainer>
           <FoundPosts
             searchBtnClickHandler={searchBtnClickHandler}

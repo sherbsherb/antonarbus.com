@@ -22,8 +22,10 @@ import { propsUpdate } from './propsUpdate/propsUpdate';
 import { domRenderInDevTools } from './domRenderInDevTools/domRenderInDevTools';
 import { reduxExampleByDevEd } from './reduxExampleByDevEd';
 import { useStatePrevious } from './useStatePrevious';
+import { useEffectPost } from './useEffectPost';
 
 const posts = [
+  useEffectPost,
   useStatePrevious,
   reduxExampleByDevEd,
   domRenderInDevTools,

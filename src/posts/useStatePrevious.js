@@ -43,7 +43,7 @@ const toRender2 = <Component2 />;
 export const useStatePrevious = {
   title: (
     <>
-      <CodeSpan>useState()</CodeSpan> & previous state
+      <CodeSpan>useState()</CodeSpan> & previous value
     </>
   ),
   date: '2021.10.15',

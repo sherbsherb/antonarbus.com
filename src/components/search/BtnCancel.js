@@ -14,7 +14,6 @@ export function BtnCancel() {
         dispatch({ type: 'close search menu' });
         dispatch({ type: 'remove tags input val' })
         dispatch({ type: 'remove remove found posts msg' });
-        dispatch({ type: 'remove search input val' });
         dispatch({ type: 'forget tags from input' });
         dispatch({ type: 'forget words from input' });
         dispatch({ type: 'reset posts' });   

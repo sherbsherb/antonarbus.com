@@ -4,15 +4,10 @@ import React from 'react';
 import { createStore, combineReducers } from 'redux';
 import { Provider, useSelector, useDispatch } from 'react-redux';
 
-// ACTION
-const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
-const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
-const signIn = () => ({ type: 'SIGN_IN' });
-
 // REDUCERS
 const counterReducer = (state = 0, action) => {
-  if (action.type === 'INCREMENT') return state + action.payload;
-  if (action.type === 'DECREMENT') return state - action.payload;
+  if (action.type === 'INCREMENT') return state + (action.num || 1);
+  if (action.type === 'DECREMENT') return state - action.num;
   return state;
 };
 
@@ -33,12 +28,6 @@ let store = createStore(
 );
 store.subscribe(() => console.log(store.getState())); // display in the console
 
-// DISPATCH
-store.dispatch(increment()); // 1
-store.dispatch(increment(5)); // 6
-store.dispatch(increment()); // 7
-store.dispatch(decrement()); // 6
-
 const style = {
   border: '2px solid grey',
   padding: '10px',
@@ -56,12 +45,23 @@ function Component() {
       <div>
         Counter: <strong>{counter}</strong>
       </div>
-      <button onClick={() => dispatch(increment(5))}>Increment</button>&#8194;
-      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT' })}>Increment</button>
+      &#8194;
+      <button
+        onClick={() => {
+          // with store.getState() we read data directly from the store object
+          console.log(store.getState().counterReducer);
+          dispatch({ type: 'DECREMENT', num: 5 });
+          // we can see that dispatch() works synchronously & we get immediate update
+          console.log(store.getState().counterReducer);
+        }}
+      >
+        Decrement
+      </button>
       <div>
         isLogged: <strong>{isLogged.toString()}</strong>
       </div>
-      <button onClick={() => dispatch(signIn())}>Sign in/out</button>
+      <button onClick={() => dispatch({ type: 'SIGN_IN' })}>Sign in/out</button>
     </div>
   );
 }
@@ -73,7 +73,12 @@ const toRender = (
 );
 
 export const reduxExampleByDevEd = {
-  title: <>Redux example by <Link path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Link></>,
+  title: (
+    <>
+      Redux example by{' '}
+      <Link path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Link>
+    </>
+  ),
   date: '2021.10.13',
   tagsArr: [
     'react',
@@ -96,13 +101,15 @@ export const reduxExampleByDevEd = {
     },
     {
       type: 'text',
-      val: 'The idea is not to keep our states in components, but keep them outside in one object.',
+      val: `The idea behind the Redux is to keep our states outside of components in one object. 
+      Every component has an access to Redux and we do not have to pass states & set state functions via
+      props throughout the whole app, which can make the code very messy.`,
     },
     {
       type: 'text',
       val: (
         <>
-          Install redux with npm{' '}
+          First of all install <i>Redux</i> with {' '}
           <Link path={'https://www.npmjs.com/package/redux'}>
             <CodeSpan>{'npm i redux'}</CodeSpan>
           </Link>{' '}
@@ -110,6 +117,7 @@ export const reduxExampleByDevEd = {
           <Link path={'https://www.npmjs.com/package/react-redux'}>
             <CodeSpan>{'npm i react-redux'}</CodeSpan>
           </Link>{' '}
+          <br />
           <br />
           Also good to install{' '}
           <Link path={'https://github.com/zalmoxisus/redux-devtools-extension'}>
@@ -123,9 +131,25 @@ export const reduxExampleByDevEd = {
           >
             Chrome
           </Link>
-          .
+          to observe state in real time in dev tools.
         </>
       ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        const counterReducer = (state = 0, action) => {
+          if (action.type === 'INCREMENT') return state + (action.num || 1);
+          if (action.type === 'DECREMENT') return state - action.num;
+          return state;
+        };
+        
+        const isLoggedReducer = (state = false, action) => {
+          if (action.type === 'SIGN_IN') return !state;
+          return state;
+        };
+      `,
     },
     {
       type: '',
@@ -133,9 +157,11 @@ export const reduxExampleByDevEd = {
         <>
           In redux we deal with STORE, ACTION, REDUCER, DISPATCH
           <ol>
-            <li>States are kept in STORE.</li>
-            <li>ACTION describes what we want to do.</li>
-            <li>REDUCER updates the STORE in accordance to an ACTION we choose.</li>
+            <li>STORE keeps all states.</li>
+            <li>ACTION is an object which describes what we want to do.</li>
+            <li>
+              REDUCER updates the STORE in accordance to an ACTION we choose.
+            </li>
             <li>DISPATCH sends an ACTION to a REDUCER.</li>
           </ol>
         </>
@@ -144,73 +170,204 @@ export const reduxExampleByDevEd = {
     {
       type: 'code',
       lang: 'jsx',
-      val: `
-        import React from 'react';
-        import { createStore, combineReducers } from 'redux';
-        import { Provider, useSelector, useDispatch } from 'react-redux';
-        
-        // ACTION
-        const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
-        const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
-        const signIn = () => ({ type: 'SIGN_IN' });
-        
-        // REDUCERS
-        const counterReducer = (state = 0, action) => {
-          if (action.type === 'INCREMENT') return state + action.payload;
-          if (action.type === 'DECREMENT') return state - action.payload;
-          return state;
-        };
-        
-        const isLoggedReducer = (state = false, action) => {
-          if (action.type === 'SIGN_IN') return !state;
-          return state;
-        };
-        
+      val: `        
         const allReducers = combineReducers({
           counterReducer: counterReducer,
           isLoggedReducer: isLoggedReducer,
         });
-        
+      `,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          <i>Reducer</i> is a function where we set an initial state and put
+          logic how we want to modify a state depending on an <i>action.type</i>{' '}
+          which we provide as an object in the argument of the
+          <CodeSpan>{`dispatch({ type: 'SIGN_IN' })`}</CodeSpan> function.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        store.dispatch(increment());
+        store.dispatch(increment(5));
+        store.dispatch(decrement());
+      `,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Reducers can be combined into one object with{' '}
+          <CodeSpan>combineReducers()</CodeSpan> function from the <i>redux</i>{' '}
+          library.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          To update a state we launch the{' '}
+          <CodeSpan>{`dispatch(actionObj)`}</CodeSpan> function with the
+          following object parameter{' '}
+          <CodeSpan>{`{ type: 'SIGN_IN' }`}</CodeSpan>, which corresponds to the{' '}
+          <CodeSpan>action.type</CodeSpan> of a reducer.
+          <CodeSpan>{`dispatch()`}</CodeSpan> works synchronously.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          With <CodeSpan>{`store.getState()`}</CodeSpan> we may read data
+          directly from the store object.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          To avoid typing <i>ACTION</i> objects by hand inside <i>dispatch()</i>{' '}
+          functions, we may keep actions in a separate file as functions, which
+          return such object. <br />
+          <br />I personally do not patriciate such approach and did do not use
+          on this webpage.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        export const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
+        export const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
+        export const signIn = () => ({ type: 'SIGN_IN' });
+      `,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          In the main app component we initiate the state store with{' '}
+          <CodeSpan>createStore(allReducers)</CodeSpan> with built-in function.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          To extract a state from the Redux store we use{' '}
+          <CodeSpan>
+            {'const counter = useSelector(state => state.counterReducer)'}
+          </CodeSpan>{' '}
+          built-in function. <br />
+          <i>useSelector()</i> only accesses store, it also rerenders your
+          component when the result of your selector function changes.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          <CodeSpan>{'useDispatch()'}</CodeSpan> hook returns a reference to the{' '}
+          <i>dispatch</i> function from the Redux store.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          The whole application should be wrapped in a{' '}
+          <CodeSpan>{'<Provider>'}</CodeSpan> component to make the store
+          available throughout the component tree.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: `Whole app's code.`
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        import React from 'react';
+        import { createStore, combineReducers } from 'redux';
+        import { Provider, useSelector, useDispatch } from 'react-redux';
+
+        // REDUCERS
+        const counterReducer = (state = 0, action) => {
+          if (action.type === 'INCREMENT') return state + (action.num || 1);
+          if (action.type === 'DECREMENT') return state - action.num;
+          return state;
+        };
+
+        const isLoggedReducer = (state = false, action) => {
+          if (action.type === 'SIGN_IN') return !state;
+          return state;
+        };
+
+        const allReducers = combineReducers({
+          counterReducer: counterReducer,
+          isLoggedReducer: isLoggedReducer,
+        });
+
         // STORE (holds all states)
         let store = createStore(
           allReducers,
           window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // opt param for dev tools
         );
-        store.subscribe(() => console.log(store.getState())); // display in the console
-        
-        // DISPATCH
-        store.dispatch(increment()); // 1
-        store.dispatch(increment(5)); // 6
-        store.dispatch(increment()); // 7
-        store.dispatch(decrement()); // 6
-        
-        const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' };
-        
+        // display in the console
+        store.subscribe(() => console.log(store.getState())); 
+
+        const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px', };
+
         function Component() {
           const counter = useSelector(state => state.counterReducer);
           const isLogged = useSelector(state => state.isLoggedReducer);
           const dispatch = useDispatch();
-        
+
           return (
             <div style={style}>
               <div>
                 Counter: <strong>{counter}</strong>
               </div>
-              <button onClick={() => dispatch(increment(5))}>Increment</button>&#8194;
-              <button onClick={() => dispatch(decrement())}>Decrement</button>
+              <button onClick={() => dispatch({ type: 'INCREMENT' })}>Increment</button>
+              &#8194;
+              <button
+                onClick={() => {
+                  // with store.getState() we read data directly from the store object
+                  console.log(store.getState().counterReducer);
+                  dispatch({ type: 'DECREMENT', num: 5 });
+                  // we can see that dispatch() works synchronously & we get immediate update
+                  console.log(store.getState().counterReducer);
+                }}
+              >
+                Decrement
+              </button>
               <div>
                 isLogged: <strong>{isLogged.toString()}</strong>
               </div>
-              <button onClick={() => dispatch(signIn())}>Sign in/out</button>
+              <button onClick={() => dispatch({ type: 'SIGN_IN' })}>Sign in/out</button>
             </div>
           );
         }
-        
+
         const toRender = (
           <Provider store={store}>
             <Component />
           </Provider>
         );
+
       `,
     },
     {

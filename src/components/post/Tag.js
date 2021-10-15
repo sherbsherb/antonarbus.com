@@ -32,7 +32,7 @@ function clickHandler(e) {
 const DivStyled = styled.div`
   display: inline-block;
   position: relative;
-  top: ${props => (props.isMac ? '-3px' : '-6px')};
+  top: ${props => (props.isMac ? '-6px' : '-6px')};
   padding: 3px 8px 3px 20px;
   margin-top: 7px;
   margin-left: 5px;
@@ -47,11 +47,12 @@ const DivStyled = styled.div`
   font-weight: bold;
   cursor: pointer;
   vertical-align: middle;
+  user-select: none;
 
   &:before {
     content: '';
     position: absolute;
-    top: ${props => (props.isMac ? '8.5px' : '10px')};
+    top: ${props => (props.isMac ? '10px' : '10px')};
     left: 8px;
     width: 5px;
     height: 5px;

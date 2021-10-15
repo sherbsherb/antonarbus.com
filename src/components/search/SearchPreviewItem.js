@@ -18,7 +18,7 @@ const SearchPreviewStyled = styled.div`
   cursor: pointer;
   color: black;
   padding: 5px;
-  max-height: ${props => props.isMac ? "92px" : "106px"};
+  max-height: ${props => props.isMac ? "106px" : "106px"};
   overflow-y: auto;
 
   &:hover {

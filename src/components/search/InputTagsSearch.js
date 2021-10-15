@@ -38,7 +38,7 @@ const InputStyled = styled.div`
 
   input {
     max-width: 300px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 5px;
     border-width: 2px;
     border-color: #c0c0c0;
@@ -47,6 +47,9 @@ const InputStyled = styled.div`
     outline-style: none;
     min-width: 0;
     cursor: text;
+    height: 35px;
+    /* against Safari */
+    -webkit-appearance: none; 
 
     &:hover {
       border-color: grey;

@@ -79,7 +79,7 @@ export const reduxExampleByDevEd = {
       <Link path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Link>
     </>
   ),
-  date: '2021.10.13',
+  date: '2021.10.14',
   tagsArr: [
     'react',
     'redux',

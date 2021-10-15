@@ -21,8 +21,10 @@ import { stateUpdateWithSameValue } from './stateUpdateWithSameValue.js';
 import { propsUpdate } from './propsUpdate/propsUpdate';
 import { domRenderInDevTools } from './domRenderInDevTools/domRenderInDevTools';
 import { reduxExampleByDevEd } from './reduxExampleByDevEd';
+import { useStatePrevious } from './useStatePrevious';
 
 const posts = [
+  useStatePrevious,
   reduxExampleByDevEd,
   domRenderInDevTools,
   propsUpdate,

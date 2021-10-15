@@ -136,6 +136,35 @@ export const reduxExampleByDevEd = {
       ),
     },
     {
+      type: '',
+      val: (
+        <>
+          In redux we deal with STORE, ACTION, REDUCER, DISPATCH
+          <ol>
+            <li>STORE keeps all states.</li>
+            <li>ACTION is an object which describes what we want to do with a state.</li>
+            <li>
+              REDUCER updates the STORE in accordance to an ACTION we choose.
+            </li>
+            <li>DISPATCH sends an ACTION to a REDUCER.</li>
+          </ol>
+        </>
+      ),
+    },
+
+    {
+      type: 'text',
+      val: (
+        <>
+          <i>Reducer</i> is a function where we set an initial state and put
+          logic how we want to modify a state depending on an <i>action.type</i>{' '}
+          which we provide as an object in the argument of the
+          <CodeSpan>{`dispatch({ type: 'SIGN_IN' })`}</CodeSpan> function.
+        </>
+      ),
+    },
+
+    {
       type: 'code',
       lang: 'jsx',
       val: `
@@ -151,52 +180,7 @@ export const reduxExampleByDevEd = {
         };
       `,
     },
-    {
-      type: '',
-      val: (
-        <>
-          In redux we deal with STORE, ACTION, REDUCER, DISPATCH
-          <ol>
-            <li>STORE keeps all states.</li>
-            <li>ACTION is an object which describes what we want to do.</li>
-            <li>
-              REDUCER updates the STORE in accordance to an ACTION we choose.
-            </li>
-            <li>DISPATCH sends an ACTION to a REDUCER.</li>
-          </ol>
-        </>
-      ),
-    },
-    {
-      type: 'code',
-      lang: 'jsx',
-      val: `        
-        const allReducers = combineReducers({
-          counterReducer: counterReducer,
-          isLoggedReducer: isLoggedReducer,
-        });
-      `,
-    },
-    {
-      type: 'text',
-      val: (
-        <>
-          <i>Reducer</i> is a function where we set an initial state and put
-          logic how we want to modify a state depending on an <i>action.type</i>{' '}
-          which we provide as an object in the argument of the
-          <CodeSpan>{`dispatch({ type: 'SIGN_IN' })`}</CodeSpan> function.
-        </>
-      ),
-    },
-    {
-      type: 'code',
-      lang: 'jsx',
-      val: `
-        store.dispatch(increment());
-        store.dispatch(increment(5));
-        store.dispatch(decrement());
-      `,
-    },
+   
     {
       type: 'text',
       val: (
@@ -207,6 +191,19 @@ export const reduxExampleByDevEd = {
         </>
       ),
     },
+
+
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `        
+        const allReducers = combineReducers({
+          counterReducer: counterReducer,
+          isLoggedReducer: isLoggedReducer,
+        });
+      `,
+    },
+   
     {
       type: 'text',
       val: (
@@ -221,13 +218,13 @@ export const reduxExampleByDevEd = {
       ),
     },
     {
-      type: 'text',
-      val: (
-        <>
-          With <CodeSpan>{`store.getState()`}</CodeSpan> we may read data
-          directly from the store object.
-        </>
-      ),
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        store.dispatch({ type: 'INCREMENT' }); // 1
+        store.dispatch({ type: 'INCREMENT',  num: 5 }); // 6
+        store.dispatch({ type: 'DECREMENT' }); // 5
+      `,
     },
     {
       type: 'text',
@@ -236,7 +233,7 @@ export const reduxExampleByDevEd = {
           To avoid typing <i>ACTION</i> objects by hand inside <i>dispatch()</i>{' '}
           functions, we may keep actions in a separate file as functions, which
           return such object. <br />
-          <br />I personally do not patriciate such approach and did do not use
+          <br />I personally do not appreciate such approach and did do not use
           on this webpage.
         </>
       ),
@@ -245,9 +242,11 @@ export const reduxExampleByDevEd = {
       type: 'code',
       lang: 'jsx',
       val: `
-        export const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
-        export const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
-        export const signIn = () => ({ type: 'SIGN_IN' });
+        const increment = (num = 1) => ({ type: 'INCREMENT', payload: num });
+        const decrement = (num = 1) => ({ type: 'DECREMENT', payload: num });
+        const signIn = () => ({ type: 'SIGN_IN' });
+
+        store.dispatch(decrement()); 
       `,
     },
     {
@@ -256,6 +255,15 @@ export const reduxExampleByDevEd = {
         <>
           In the main app component we initiate the state store with{' '}
           <CodeSpan>createStore(allReducers)</CodeSpan> with built-in function.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          With <CodeSpan>{`store.getState()`}</CodeSpan> we may read data
+          directly from the store object.
         </>
       ),
     },

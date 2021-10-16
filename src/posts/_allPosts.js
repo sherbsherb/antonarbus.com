@@ -26,8 +26,10 @@ import { useEffectPost } from './useEffectPost';
 import { addEventListenerInReact } from './addEventListenerInReact';
 import { useEffectCleanUp } from './useEffectCleanUp';
 import { useEffectFetchData } from './useEffectFetchData';
+import { axiosVsFetch } from './axiosVsFetch';
 
 const posts = [
+  axiosVsFetch,
   useEffectFetchData,
   useEffectCleanUp,
   addEventListenerInReact,

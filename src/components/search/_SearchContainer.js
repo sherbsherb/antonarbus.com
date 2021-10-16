@@ -1,6 +1,6 @@
 import Mark from 'mark.js';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../..';
 import { BtnCancel } from './BtnCancel';
@@ -19,9 +19,6 @@ export default function SearchContainer() {
   );
   const searchInputValState = useSelector(state => state.searchInputVal);
   const foundPostsState = useSelector(state => state.foundPosts);
-  const filteredTagsState = useSelector(state => state.filteredTags);
-
-  const dispatch = useDispatch();
 
   function highlightTextInPreview(words) {
     const context = document.querySelectorAll('.post-preview');

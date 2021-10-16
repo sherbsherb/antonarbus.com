@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
 
 export function BtnCancel() {
   const dispatch = useDispatch();

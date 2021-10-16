@@ -6,7 +6,6 @@ import { NavBar } from './components/nav/Nav.js';
 import { Post } from './components/post/Post.js';
 import SearchContainer from './components/search/_SearchContainer.js';
 import { store } from './index.js';
-import { _allPosts } from './posts/_allPosts.js';
 
 export default function App() {
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay);

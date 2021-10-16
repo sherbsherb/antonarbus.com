@@ -23,8 +23,12 @@ import { domRenderInDevTools } from './domRenderInDevTools/domRenderInDevTools';
 import { reduxExampleByDevEd } from './reduxExampleByDevEd';
 import { useStatePrevious } from './useStatePrevious';
 import { useEffectPost } from './useEffectPost';
+import { addEventListenerInReact } from './addEventListenerInReact';
+import { useEffectClenaup } from './useEffectClenaup';
 
 const posts = [
+  useEffectClenaup,
+  addEventListenerInReact,
   useEffectPost,
   useStatePrevious,
   reduxExampleByDevEd,

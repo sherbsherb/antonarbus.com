@@ -24,10 +24,12 @@ import { reduxExampleByDevEd } from './reduxExampleByDevEd';
 import { useStatePrevious } from './useStatePrevious';
 import { useEffectPost } from './useEffectPost';
 import { addEventListenerInReact } from './addEventListenerInReact';
-import { useEffectClenaup } from './useEffectClenaup';
+import { useEffectCleanUp } from './useEffectCleanUp';
+import { useEffectFetchData } from './useEffectFetchData';
 
 const posts = [
-  useEffectClenaup,
+  useEffectFetchData,
+  useEffectCleanUp,
   addEventListenerInReact,
   useEffectPost,
   useStatePrevious,

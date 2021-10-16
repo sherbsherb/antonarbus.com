@@ -92,7 +92,7 @@ function Child2() {
 
 const toRender2 = <Parent2 />;
 
-export const useEffectClenaup = {
+export const useEffectCleanUp = {
   title: (
     <>
       <CodeSpan>useEffect()</CodeSpan> cleanup

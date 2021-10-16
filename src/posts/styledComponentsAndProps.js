@@ -117,7 +117,7 @@ export const styledComponentsAndProps = {
           display: inline-block;
           padding: 10px;
           margin: 10px;
-          color: ${props => props.color || 'white'};
+          color: \${props => props.color || 'white'};
           background: grey;
         \`;
         
@@ -150,7 +150,7 @@ export const styledComponentsAndProps = {
           display: inline-block;
           padding: 10px;
           margin: 10px;
-          background: ${props => props.bgColor};
+          background: \${props => props.bgColor};
         \`;
         
         function Component2() {

@@ -43,7 +43,7 @@ function Component() {
       <div>useEffect(..., []) <b>{useEffectEmptyArrDep}</b></div>
       <div>useEffect(..., [state1]) <b>{useEffectStateDep}</b></div>
       <div>useEffect(..., [state1, state2]) <b>{useEffectStatesDep}</b></div>
-      <hr />
+      <br /><hr /><br />
       <h3>state1: {state1}</h3>
       <button onClick={() => setState1(state1 + 1)}>+ 1</button>
       <h3>state2: {state2}</h3>
@@ -67,12 +67,28 @@ export const useEffectPost = {
       type: 'text',
       val: (
         <>
-          <CodeSpan>useEffect()</CodeSpan> hook runs after:
+          <CodeSpan>useEffect()</CodeSpan> excludes its function from the component and runs it after the render.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          <CodeSpan>useEffect(func, [prop || state])</CodeSpan> hook may run a function after:
           <ul>
             <li>every component's render</li>
             <li>initial render</li>
-            <li>every render if variables are changed</li>
+            <li>every render if specific props and/or states are changed between renders</li>
           </ul>
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          <CodeSpan>useEffect()</CodeSpan> is placed inside a component and have to states and variables.
         </>
       ),
     },

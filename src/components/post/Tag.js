@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import setCaretToEnd from '../../helpers/functions/setCaretToEnd';
 
 export function Tag(props) {
-  const isMac = navigator.platform.indexOf('Mac') > -1;
 
   return (
-    <DivStyled contentEditable={false} onClick={clickHandler} isMac={isMac}>
+    <DivStyled contentEditable={false} onClick={clickHandler}>
       {props.tag}
     </DivStyled>
   );
@@ -32,7 +31,7 @@ function clickHandler(e) {
 const DivStyled = styled.div`
   display: inline-block;
   position: relative;
-  top: ${props => (props.isMac ? '-6px' : '-6px')};
+  top: -6px;
   padding: 3px 8px 3px 20px;
   margin-top: 7px;
   margin-left: 5px;
@@ -52,7 +51,7 @@ const DivStyled = styled.div`
   &:before {
     content: '';
     position: absolute;
-    top: ${props => (props.isMac ? '10px' : '10px')};
+    top: 10px;
     left: 8px;
     width: 5px;
     height: 5px;

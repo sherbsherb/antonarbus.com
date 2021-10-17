@@ -1,6 +1,9 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../..';
+import searchIco from './../../imgs/searchIco.png'
+
 
 export function InputSearch() {
   const dispatch = useDispatch();
@@ -140,8 +143,24 @@ const DivStyled = styled.div`
 
   &[contenteditable]:empty:before {
     content: attr(placeholder);
+    content: "Search";
     color: #bfbfbf;
+    font-weight: 200;
   }
+/* 
+  &[contenteditable]:empty:after {
+    background-image: url(${searchIco});
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px; 
+    height: 20px;
+    content:"";
+    position: absolute;
+    left: 80px;
+    top: 10px;
+
+  } */
+
 
   &::-webkit-scrollbar {
     display: none;

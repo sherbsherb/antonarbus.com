@@ -27,8 +27,12 @@ import { addEventListenerInReact } from './addEventListenerInReact';
 import { useEffectCleanUp } from './useEffectCleanUp';
 import { useEffectFetchData } from './useEffectFetchData';
 import { axiosVsFetch } from './axiosVsFetch';
+import { useContextPost } from './useContextPost';
+import { modalWindow } from './modalWindow';
 
 const posts = [
+  // useContextPost,
+  modalWindow,
   axiosVsFetch,
   useEffectFetchData,
   useEffectCleanUp,

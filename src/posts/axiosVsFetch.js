@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import { Link } from '../components/post/Link';
 import axios from 'axios';
+const style = { width: '20px', margin: '0px 10px' };
 
 function Component() {
   const [inputVal1, setInputVal1] = useState('1');
   const [inputVal2, setInputVal2] = useState('2');
   const [title1, setTitle1] = useState('title1');
   const [title2, setTitle2] = useState('title2');
-  const style = { width: '20px', margin: '0px 10px' };
 
   return (
     <div>
@@ -66,7 +66,7 @@ export const axiosVsFetch = {
     </>
   ),
   date: '2021.10.16',
-  tagsArr: ['react', 'fetch', 'axios'],
+  tagsArr: ['ajax', 'fetch', 'axios'],
   postParts: [
     {
       type: 'text',

@@ -21,18 +21,17 @@ function Parent() {
 }
 
 function Modal(props) {
-  useEffect(() => {
-    // save body width to avoid jumping when scroll bar get hidden
-    const bodyWidth = window.getComputedStyle(document.body).width;
-    document.body.style.overflowY = 'hidden';
-    document.body.style.width = bodyWidth;
+  // prevent body scroll & jumping when scrollbar gets hidden
+  document.body.style.width = window.getComputedStyle(document.body).width;
+  document.body.style.overflowY = 'hidden';
 
+  useEffect(() => {
     // close modal window on Escape key
     function closeModalWindowOnEscape(e) {
       if (e.key === 'Escape') props.setShowModalWindowState(false);
     }
     document.addEventListener('keydown', closeModalWindowOnEscape);
-
+    // clean code on component unmount
     return () => {
       document.body.style.overflowY = 'auto';
       document.body.style.width = 'auto';
@@ -59,7 +58,9 @@ const ModalBkg = styled.div`
   background-color: #000000b5;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-start;
+  padding-top: 20vh;
   z-index: 1000;
 `;
 
@@ -68,6 +69,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   border-radius: 10px;
@@ -116,7 +118,7 @@ export const modalWindow = {
       val: (
         <>
           In styled components let's make a gray transparent layer with fixed
-          position covering whole screen.
+          position covering whole screen. Content will be positioned 20hv from the top.
         </>
       ),
     },
@@ -133,7 +135,8 @@ export const modalWindow = {
           background-color: #000000b5;
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
+          padding-top: 20vh;
           z-index: 1000;
         \`;
       `,
@@ -230,7 +233,7 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          In modal window component we can close it with onClick event on grey background layer  & on close button.
+          In modal window component we can close it with onClick event on the grey background layer & on the close button.
         </>
       ),
     },
@@ -238,7 +241,7 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          On initial render with <CodeSpan>useEffect()</CodeSpan> we prevent scroll on body with its width fix to prevent jump due to srollbar disappear.
+          Before modal component render we prevent body scroll and fix its width to prevent a jump due to srollbar disappear.
         </>
       ),
     },
@@ -246,7 +249,7 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          We also listen for a <kbd>Escape</kbd> keypress to close the modal window.
+          After initial render with <CodeSpan>useEffect()</CodeSpan> we launch listener for a <kbd>Escape</kbd> keypress to close the modal window.
         </>
       ),
     },
@@ -254,7 +257,7 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          On component unmount we clean our code brought by <i>useEffect</i>.
+          On component unmount we clean our code brought by <i>useEffect</i> and return auto body width.
         </>
       ),
     },
@@ -263,18 +266,17 @@ export const modalWindow = {
       lang: 'jsx',
       val: `
         function Modal(props) {
-          useEffect(() => {
-            // save body width to avoid jumping when scroll bar get hidden
-            const bodyWidth = window.getComputedStyle(document.body).width;
-            document.body.style.overflowY = 'hidden';
-            document.body.style.width = bodyWidth;
+          // prevent body scroll & jumping when scrollbar gets hidden
+          document.body.style.width = window.getComputedStyle(document.body).width;
+          document.body.style.overflowY = 'hidden';
         
+          useEffect(() => {
             // close modal window on Escape key
             function closeModalWindowOnEscape(e) {
               if (e.key === 'Escape') props.setShowModalWindowState(false);
             }
             document.addEventListener('keydown', closeModalWindowOnEscape);
-        
+            // clean code on component unmount
             return () => {
               document.body.style.overflowY = 'auto';
               document.body.style.width = 'auto';
@@ -323,18 +325,17 @@ export const modalWindow = {
         }
         
         function Modal(props) {
-          useEffect(() => {
-            // save body width to avoid jumping when scroll bar get hidden
-            const bodyWidth = window.getComputedStyle(document.body).width;
-            document.body.style.overflowY = 'hidden';
-            document.body.style.width = bodyWidth;
+          // prevent body scroll & jumping when scrollbar gets hidden
+          document.body.style.width = window.getComputedStyle(document.body).width;
+          document.body.style.overflowY = 'hidden';
         
+          useEffect(() => {
             // close modal window on Escape key
             function closeModalWindowOnEscape(e) {
               if (e.key === 'Escape') props.setShowModalWindowState(false);
             }
             document.addEventListener('keydown', closeModalWindowOnEscape);
-        
+            // clean code on component unmount
             return () => {
               document.body.style.overflowY = 'auto';
               document.body.style.width = 'auto';
@@ -361,7 +362,9 @@ export const modalWindow = {
           background-color: #000000b5;
           display: flex;
           justify-content: center;
-          align-items: center;
+          /* align-items: center; */
+          align-items: flex-start;
+          padding-top: 20vh;
           z-index: 1000;
         \`;
         
@@ -370,6 +373,7 @@ export const modalWindow = {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           padding: 20px;
           border-radius: 10px;

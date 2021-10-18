@@ -32,8 +32,10 @@ import { useContextPost } from './useContextPost';
 import jsxToStr from '../helpers/functions/jsxToStr';
 import { useReducerPost } from './useReducerPost';
 import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndReducer';
+import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
 
 const posts = [
+  oneReducerForMultipleComponents,
   useReducerWithObjStateAndReducer,
   useReducerPost,
   useContextPost,

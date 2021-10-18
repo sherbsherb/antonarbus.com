@@ -33,8 +33,10 @@ import jsxToStr from '../helpers/functions/jsxToStr';
 import { useReducerPost } from './useReducerPost';
 import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndReducer';
 import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
+import { useContextWithUseReducer } from './useContextWithUseReducer';
 
 const posts = [
+  useContextWithUseReducer,
   oneReducerForMultipleComponents,
   useReducerWithObjStateAndReducer,
   useReducerPost,

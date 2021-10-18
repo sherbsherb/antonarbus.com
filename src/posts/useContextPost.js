@@ -29,8 +29,7 @@ function ChildA() {
     <div style={style}>
       <div>ChildA</div>
       <div> Data from the Parent's context:</div>
-      <h3>{varA}</h3>
-      <h3>{varB}</h3>
+      <b>{varA + ' + ' + varB }</b>
       <ChildB />
     </div>
   );
@@ -43,8 +42,7 @@ function ChildB() {
     <div style={style}>
       <div>ChildB</div>
       <div> Data from the Parent's context:</div>
-      <h3>{varA}</h3>
-      <h3>{varB}</h3>
+      <b>{varA + ' + ' + varB }</b>
       <ChildC />
     </div>
   );
@@ -57,8 +55,7 @@ function ChildC() {
     <div style={style}>
       <div>ChildC</div>
       <div> Data from the Parent's context:</div>
-      <h3>{varA}</h3>
-      <h3>{varB}</h3>
+      <b>{varA + ' + ' + varB }</b>
     </div>
   );
 }
@@ -134,8 +131,7 @@ export const useContextPost = {
             <div style={style}>
               <div>ChildA</div>
               <div> Data from the Parent's context:</div>
-              <h3>{varA}</h3>
-              <h3>{varB}</h3>
+              <b>{varA + ' + ' + varB }</b>
               <ChildB />
             </div>
           );
@@ -148,8 +144,7 @@ export const useContextPost = {
             <div style={style}>
               <div>ChildB</div>
               <div> Data from the Parent's context:</div>
-              <h3>{varA}</h3>
-              <h3>{varB}</h3>
+              <b>{varA + ' + ' + varB }</b>
               <ChildC />
             </div>
           );
@@ -162,8 +157,7 @@ export const useContextPost = {
             <div style={style}>
               <div>ChildC</div>
               <div> Data from the Parent's context:</div>
-              <h3>{varA}</h3>
-              <h3>{varB}</h3>
+              <b>{varA + ' + ' + varB }</b>
             </div>
           );
         }

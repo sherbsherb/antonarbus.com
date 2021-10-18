@@ -30,8 +30,10 @@ import { axiosVsFetch } from './axiosVsFetch';
 import { modalWindow } from './modalWindow';
 import { useContextPost } from './useContextPost';
 import jsxToStr from '../helpers/functions/jsxToStr';
+import { useReducerPost } from './useReducerPost';
 
 const posts = [
+  useReducerPost,
   useContextPost,
   modalWindow,
   axiosVsFetch,

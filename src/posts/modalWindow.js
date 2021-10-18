@@ -21,7 +21,7 @@ function Parent() {
 }
 
 function Modal(props) {
-  // prevent body scroll & jumping when scrollbar gets hidden
+  // prevent body scroll & prevent jumping when scrollbar gets hidden
   document.body.style.width = window.getComputedStyle(document.body).width;
   document.body.style.overflowY = 'hidden';
 
@@ -37,7 +37,7 @@ function Modal(props) {
       document.body.style.width = 'auto';
       document.removeEventListener('keydown', closeModalWindowOnEscape);
     };
-  }, []);
+  }, [props]);
 
   return (
     <ModalBkg onClick={() => props.setShowModalWindowState(false)}>

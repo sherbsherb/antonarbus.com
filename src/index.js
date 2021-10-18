@@ -70,6 +70,10 @@ const StyleReset = createGlobalStyle`
     margin-left: .5em;
   }
 
+  mark {
+    border-radius: 2px !important;
+  }
+
 `;
 
 export const store = createStore(

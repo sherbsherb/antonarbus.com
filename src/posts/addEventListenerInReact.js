@@ -2,23 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 
 function Component() {
-  const [x, setX] = useState(0)
-  const [y, setY] = useState(0)
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
 
   function logMouseCords(e) {
-    setX(e.clientX)
-    setY(e.clientY)
+    setX(e.clientX);
+    setY(e.clientY);
   }
 
   useEffect(() => {
     document.addEventListener('mousemove', logMouseCords);
-    console.log('event listener has been added only ones')
+    console.log('event listener has been added only ones');
+    // clean code on component unmount
+    return () => document.removeEventListener('mousemove', logMouseCords);
   }, []);
 
   return (
     <>
-      <div>xCord: <b>{x}</b></div>
-      <div>yCord: <b>{y}</b></div>
+      <div>
+        xCord: <b>{x}</b>
+      </div>
+      <div>
+        yCord: <b>{y}</b>
+      </div>
     </>
   );
 }
@@ -46,8 +52,9 @@ export const addEventListenerInReact = {
       type: 'text',
       val: (
         <>
-          We can attache <CodeSpan>addEventListener()</CodeSpan> in a{' '}
-          <CodeSpan>useEffect(func, [])</CodeSpan> function on initial component render.
+          We can attach <CodeSpan>addEventListener()</CodeSpan> in a{' '}
+          <CodeSpan>useEffect(func, [])</CodeSpan> function on initial component
+          render.
         </>
       ),
     },

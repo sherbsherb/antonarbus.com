@@ -1,19 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import { Link } from '../components/post/Link';
-import axios from 'axios';
-const style = { width: '20px', margin: '0px 10px' };
+const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px',};
 
-function Component() {
-  const [inputVal1, setInputVal1] = useState('1');
-  const [inputVal2, setInputVal2] = useState('2');
-  const [title1, setTitle1] = useState('title1');
-  const [title2, setTitle2] = useState('title2');
+const ContextA = createContext('');
+const ContextB = createContext('');
 
-  return <div></div>;
+function Parent() {
+  return (
+    <ContextA.Provider value={'I am Context A'}>
+      <ContextB.Provider value={'I am Context B'}>
+        <div style={style}>
+          <div>Parent</div>
+          <div>
+            <code>Context.Provider</code> is used to pass data to children
+          </div>
+          <ChildA />
+        </div>
+      </ContextB.Provider>
+    </ContextA.Provider>
+  );
 }
 
-const toRender = <Component />;
+function ChildA() {
+  const varA = useContext(ContextA);
+  const varB = useContext(ContextB);
+  return (
+    <div style={style}>
+      <div>ChildA</div>
+      <div> Data from the Parent's context:</div>
+      <h3>{varA}</h3>
+      <h3>{varB}</h3>
+      <ChildB />
+    </div>
+  );
+}
+
+function ChildB() {
+  const varA = useContext(ContextA);
+  const varB = useContext(ContextB);
+  return (
+    <div style={style}>
+      <div>ChildB</div>
+      <div> Data from the Parent's context:</div>
+      <h3>{varA}</h3>
+      <h3>{varB}</h3>
+      <ChildC />
+    </div>
+  );
+}
+
+function ChildC() {
+  const varA = useContext(ContextA);
+  const varB = useContext(ContextB);
+  return (
+    <div style={style}>
+      <div>ChildC</div>
+      <div> Data from the Parent's context:</div>
+      <h3>{varA}</h3>
+      <h3>{varB}</h3>
+    </div>
+  );
+}
+
+const toRender = <Parent />;
 
 export const useContextPost = {
   title: (
@@ -21,7 +71,7 @@ export const useContextPost = {
       <CodeSpan>useContext()</CodeSpan> hook
     </>
   ),
-  date: '2021.10.17',
+  date: '2021.10.18',
   tagsArr: ['react', 'useContext', 'hook', 'basics'],
   postParts: [
     {
@@ -34,7 +84,7 @@ export const useContextPost = {
             useContext
           </Link>{' '}
           provides a way to pass data through the component tree without having
-          to pass props & states manually.
+          to pass it via props manually.
         </>
       ),
     },
@@ -42,11 +92,13 @@ export const useContextPost = {
       type: 'text',
       val: (
         <>
-          With <i>Fetch</i> GET request we get response and then with built-in
-          method convert it into text or json. <br />
-          <br />
-          <i>Axios</i> does not have intermediate step and we immediately have
-          an access to data.
+          We create a special object{' '}
+          <CodeSpan>
+            const MyContext = React.createContext(defaultValue)
+          </CodeSpan>{' '}
+          and wrap our component into a special <i>Provider</i> component where
+          we pass a value we want to share with descendants{' '}
+          <CodeSpan>{'<MyContext.Provider value={/* value */}>'}</CodeSpan>
         </>
       ),
     },
@@ -55,7 +107,68 @@ export const useContextPost = {
       type: 'code',
       lang: 'jsx',
       val: `
-      
+        import React, { createContext, useContext, useEffect, useState } from 'react';
+        const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px',};
+        
+        const ContextA = createContext('');
+        const ContextB = createContext('');
+        
+        function Parent() {
+          return (
+            <ContextA.Provider value={'I am Context A'}>
+              <ContextB.Provider value={'I am Context B'}>
+                <div style={style}>
+                  <div>Parent</div>
+                  <div><code>Context.Provider</code> is used to pass data to children</div>
+                  <ChildA />
+                </div>
+              </ContextB.Provider>
+            </ContextA.Provider>
+          );
+        }
+        
+        function ChildA() {
+          const varA = useContext(ContextA);
+          const varB = useContext(ContextB);
+          return (
+            <div style={style}>
+              <div>ChildA</div>
+              <div> Data from the Parent's context:</div>
+              <h3>{varA}</h3>
+              <h3>{varB}</h3>
+              <ChildB />
+            </div>
+          );
+        }
+        
+        function ChildB() {
+          const varA = useContext(ContextA);
+          const varB = useContext(ContextB);
+          return (
+            <div style={style}>
+              <div>ChildB</div>
+              <div> Data from the Parent's context:</div>
+              <h3>{varA}</h3>
+              <h3>{varB}</h3>
+              <ChildC />
+            </div>
+          );
+        }
+        
+        function ChildC() {
+          const varA = useContext(ContextA);
+          const varB = useContext(ContextB);
+          return (
+            <div style={style}>
+              <div>ChildC</div>
+              <div> Data from the Parent's context:</div>
+              <h3>{varA}</h3>
+              <h3>{varB}</h3>
+            </div>
+          );
+        }
+        
+        const toRender = <Parent />;
       `,
     },
     {

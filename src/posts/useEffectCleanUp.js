@@ -124,7 +124,7 @@ export const useEffectCleanUp = {
       val: (
         <>
           We will have a parent component with a toggle button to show / hide
-          the the child component with coordinates. Apart from showing
+          the child component with coordinates. Apart from showing
           coordinates we will display coordinates also in <i>document.title</i>
         </>
       ),

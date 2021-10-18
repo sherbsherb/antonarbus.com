@@ -27,11 +27,12 @@ import { addEventListenerInReact } from './addEventListenerInReact';
 import { useEffectCleanUp } from './useEffectCleanUp';
 import { useEffectFetchData } from './useEffectFetchData';
 import { axiosVsFetch } from './axiosVsFetch';
-import { useContextPost } from './useContextPost';
 import { modalWindow } from './modalWindow';
+import { useContextPost } from './useContextPost';
+import jsxToStr from '../helpers/functions/jsxToStr';
 
 const posts = [
-  // useContextPost,
+  useContextPost,
   modalWindow,
   axiosVsFetch,
   useEffectFetchData,
@@ -67,16 +68,6 @@ posts.forEach((o, index) => o.sequentialNum = posts.length - index)
 
 // add id to posts
 posts.forEach(o => o.id = shortid())
-
-// add properties titleTxt & postTxt with pure text
-function jsxToStr(el) {
-  if (!el) return '';
-  if (typeof el === 'string') return el;
-  const children = el.props && el.props.children;
-  if (children instanceof Array)
-    return children.map(jsxToStr).join('');
-  return jsxToStr(children);
-}
 
 // add pure text in addition to title and post jsxes
 const postsWithoutJSX = posts.map(el => ({

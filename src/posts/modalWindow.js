@@ -41,7 +41,7 @@ function Modal(props) {
 
   return (
     <ModalBkg onClick={() => props.setShowModalWindowState(false)}>
-      <Container>
+      <Container onClick={e => e.stopPropagation()}>
         Modal child component
         <CloseBtn onClick={() => props.setShowModalWindowState(false)} />
       </Container>
@@ -118,7 +118,8 @@ export const modalWindow = {
       val: (
         <>
           In styled components let's make a gray transparent layer with fixed
-          position covering whole screen. Content will be positioned 20hv from the top.
+          position covering whole screen. Content will be positioned 20hv from
+          the top.
         </>
       ),
     },
@@ -233,7 +234,11 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          In modal window component we can close it with onClick event on the grey background layer & on the close button.
+          In modal window component we can close it with <i>onClick</i> event on
+          the grey background layer & on the close button. <br />
+          <br />
+          To prevent <i>onClick</i> event trigger on grey layer from modal child
+          click bubbling we disable event propagation on modal window.
         </>
       ),
     },
@@ -241,7 +246,8 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          Before modal component render we prevent body scroll and fix its width to prevent a jump due to srollbar disappear.
+          Before modal component render we prevent body scroll and fix its width
+          to prevent a jump due to scrollbar disappear.
         </>
       ),
     },
@@ -249,7 +255,8 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          After initial render with <CodeSpan>useEffect()</CodeSpan> we launch listener for a <kbd>Escape</kbd> keypress to close the modal window.
+          After initial render with <CodeSpan>useEffect()</CodeSpan> we launch
+          listener for a <kbd>Escape</kbd> keypress to close the modal window.
         </>
       ),
     },
@@ -257,7 +264,8 @@ export const modalWindow = {
       type: 'text',
       val: (
         <>
-          On component unmount we clean our code brought by <i>useEffect</i> and return auto body width.
+          On component unmount we clean our code brought by <i>useEffect</i> and
+          return auto body width.
         </>
       ),
     },
@@ -286,7 +294,7 @@ export const modalWindow = {
         
           return (
             <ModalBkg onClick={() => props.setShowModalWindowState(false)}>
-              <Container>
+              <Container onClick={e => e.stopPropagation()>
                 Modal child component
                 <CloseBtn onClick={() => props.setShowModalWindowState(false)} />
               </Container>
@@ -297,7 +305,7 @@ export const modalWindow = {
     },
     {
       type: 'text',
-      val: 'Complete code.'
+      val: 'Complete code.',
     },
     {
       type: 'code',
@@ -345,7 +353,7 @@ export const modalWindow = {
         
           return (
             <ModalBkg onClick={() => props.setShowModalWindowState(false)}>
-              <Container>
+              <Container onClick={e => e.stopPropagation()>
                 Modal child component
                 <CloseBtn onClick={() => props.setShowModalWindowState(false)} />
               </Container>
@@ -401,7 +409,7 @@ export const modalWindow = {
         \`;
         
         const toRender = <Parent />;
-      `
+      `,
     },
     {
       type: 'output',

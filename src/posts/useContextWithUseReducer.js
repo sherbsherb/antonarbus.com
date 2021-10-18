@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
 const style = {
   border: '2px solid grey',
   padding: '10px',

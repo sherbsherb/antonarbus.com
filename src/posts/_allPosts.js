@@ -34,8 +34,10 @@ import { useReducerPost } from './useReducerPost';
 import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndReducer';
 import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
 import { useContextWithUseReducer } from './useContextWithUseReducer';
+import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
 
 const posts = [
+  fetchWithLoadingIndicator,
   useContextWithUseReducer,
   oneReducerForMultipleComponents,
   useReducerWithObjStateAndReducer,

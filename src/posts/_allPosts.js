@@ -35,8 +35,10 @@ import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndRed
 import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
 import { useContextWithUseReducer } from './useContextWithUseReducer';
 import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
+import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 
 const posts = [
+  randomIntegerNumberFunction,
   fetchWithLoadingIndicator,
   useContextWithUseReducer,
   oneReducerForMultipleComponents,

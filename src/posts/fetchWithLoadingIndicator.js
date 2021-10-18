@@ -30,7 +30,7 @@ const toRender = <Component />;
 export const fetchWithLoadingIndicator = {
   title: <>Fetch with loading indicator</>,
   date: '2021.10.18',
-  tagsArr: ['react', 'useEffect', 'hook', 'fetch', 'ajax', 'axios', 'json'],
+  tagsArr: ['react', 'fetch', 'ajax', 'axios'],
   postParts: [
     {
       type: 'text',

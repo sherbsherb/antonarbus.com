@@ -31,8 +31,10 @@ import { modalWindow } from './modalWindow';
 import { useContextPost } from './useContextPost';
 import jsxToStr from '../helpers/functions/jsxToStr';
 import { useReducerPost } from './useReducerPost';
+import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndReducer';
 
 const posts = [
+  useReducerWithObjStateAndReducer,
   useReducerPost,
   useContextPost,
   modalWindow,

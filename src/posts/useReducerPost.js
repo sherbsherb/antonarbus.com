@@ -63,7 +63,7 @@ export const useReducerPost = {
       val: (
         <>
           With <CodeSpan>useReducer()</CodeSpan> instead of having multiple
-          setState in different functions, you can have them all on one place.
+          setState in different functions, you can have them all in one place.
         </>
       ),
     },

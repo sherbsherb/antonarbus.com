@@ -39,8 +39,10 @@ import { delayPromise } from './delayPromise';
 import { animationTriggerByClass } from './animationTriggerByClass';
 import { animationTriggerByProp } from './animationTriggerByProp';
 import { useRefAsGlobalVar } from './useRefAsGlobalVar';
+import { useStateSkipInitialRender } from './useStateSkipInitialRender';
 
 const posts = [
+  useStateSkipInitialRender,
   useRefAsGlobalVar,
   animationTriggerByProp,
   animationTriggerByClass,

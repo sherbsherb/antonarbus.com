@@ -9,7 +9,7 @@ function Component() {
   const ref = useRef(0);
 
   renderCount++;
-  useRef(ref.current++);
+  ref.current++;
 
   return (
     <div>
@@ -55,7 +55,7 @@ export const useRefAsGlobalVar = {
           const ref = useRef(0);
         
           renderCount++;
-          ref.current = ref.current++;
+          ref.current++;
         
           return (
             <div>

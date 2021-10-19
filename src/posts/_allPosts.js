@@ -1,5 +1,4 @@
 import shortid from 'shortid';
-
 import { classVsFunctionComponent } from './classVsFunctionComponent'
 import { controlledVsUncontrolledComponent } from './controlledVsUncontrolledComponent'
 import { forwardLotsOfProps } from './forwardLotsOfProps'
@@ -37,8 +36,12 @@ import { useContextWithUseReducer } from './useContextWithUseReducer';
 import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
 import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 import { delayPromise } from './delayPromise';
+import { animationTriggerByClass } from './animationTriggerByClass';
+import { animationTriggerByProp } from './animationTriggerByProp';
 
 const posts = [
+  animationTriggerByProp,
+  animationTriggerByClass,
   delayPromise,
   randomIntegerNumberFunction,
   fetchWithLoadingIndicator,

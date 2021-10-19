@@ -24,7 +24,7 @@ function Component() {
       <br/>
       <button
         onClick={() => {
-          alert('start request')
+          alert('start request with 3s delay')
           axios('https://jsonplaceholder.typicode.com/posts/1')
           .then(sleeper(3000))
           .then(res => alert('Title: ' + res.data.title))
@@ -102,7 +102,7 @@ export const delayPromise = {
               <br/>
               <button
                 onClick={() => {
-                  alert('start request')
+                  alert('start request 3s delay')
                   axios('https://jsonplaceholder.typicode.com/posts/1')
                   .then(sleeper(3000))
                   .then(res => alert('Title: ' + res.data.title))

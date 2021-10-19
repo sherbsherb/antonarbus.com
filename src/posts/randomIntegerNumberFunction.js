@@ -64,7 +64,7 @@ const toRender = <Component />;
 export const randomIntegerNumberFunction = {
   title: <>Random integer number function</>,
   date: '2021.10.19',
-  tagsArr: ['function', 'vanilla', 'js', 'JavaScript'],
+  tagsArr: ['function', 'vanilla', 'js', 'JavaScript', 'animation'],
   postParts: [
     {
       type: 'text',
@@ -92,10 +92,27 @@ export const randomIntegerNumberFunction = {
       type: 'code',
       lang: 'jsx',
       val: `
+        import React, { useRef, useState } from 'react';
+        import styled, { keyframes } from 'styled-components';
+        const style = { width: '50px', marginRight: '10px' };
+        
+        const pulse = keyframes\`
+          from { transform: scaleY(0); }
+          to { transform: scaleY(1); }
+        \`
+        
+        const Num = styled.span\`
+          display: inline-block;
+          font-weight: 600;
+          animation: \${props => !!props.animateNow ? pulse : '' } 0.2s ease-in-out;
+        \`
+        
         function Component() {
           const [valState, setValState] = useState('?');
           const [fromState, setFromState] = useState('');
           const [toState, setToState] = useState('');
+          const [animateState, setAnimateState] = useState(0);
+          const ref = useRef()
         
           function randomNumFromTo(from, to) {
             if (from === to && from === 0) [from, to] = [1, 100]
@@ -119,12 +136,18 @@ export const randomIntegerNumberFunction = {
                 onChange={e => setToState(e.target.value)}
               />
               <button
-                onClick={() => setValState(randomNumFromTo(+fromState, +toState).toString())}
+                onClick={() => {
+                  setValState(randomNumFromTo(+fromState, +toState).toString())
+                  setAnimateState(1)
+                }}
+                
               >
                 Get random integer
               </button>
               <div>
-                Random number: <b>{valState}</b>
+                Random number: <Num ref={ref} animateNow={animateState} onAnimationEnd={() => {
+                  setAnimateState(0)
+                }}>{valState}</Num>
               </div>
             </>
           );

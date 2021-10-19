@@ -38,8 +38,10 @@ import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 import { delayPromise } from './delayPromise';
 import { animationTriggerByClass } from './animationTriggerByClass';
 import { animationTriggerByProp } from './animationTriggerByProp';
+import { useRefAsGlobalVar } from './useRefAsGlobalVar';
 
 const posts = [
+  useRefAsGlobalVar,
   animationTriggerByProp,
   animationTriggerByClass,
   delayPromise,

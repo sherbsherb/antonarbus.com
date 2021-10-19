@@ -3,13 +3,12 @@ const style = { width: '50px', marginRight: '10px' };
 
 function Component() {
   const [valState, setValState] = useState('?');
-  const [fromState, setFromState] = useState();
-  const [toState, setToState] = useState();
+  const [fromState, setFromState] = useState('');
+  const [toState, setToState] = useState('');
 
   function randomNumFromTo(from, to) {
-    if (from === to && from === 0) { from = 1; to = 100}
-    if (isNaN(from)) from = 1
-    if (isNaN(to)) to = 100
+    if (from === to && from === 0) [from, to] = [1, 100]
+    if (isNaN(from) || isNaN(to)) [from, to] = [1, 100]
     if (from > to) [from, to] = [to, from]
     return Math.floor(Math.random() * (to - from + 1) + from);
   }
@@ -75,13 +74,12 @@ export const randomIntegerNumberFunction = {
       val: `
         function Component() {
           const [valState, setValState] = useState('?');
-          const [fromState, setFromState] = useState();
-          const [toState, setToState] = useState();
+          const [fromState, setFromState] = useState('');
+          const [toState, setToState] = useState('');
         
           function randomNumFromTo(from, to) {
-            if (from === to && from === 0) { from = 1; to = 100}
-            if (isNaN(from)) from = 1
-            if (isNaN(to)) to = 100
+            if (from === to && from === 0) [from, to] = [1, 100]
+            if (isNaN(from) || isNaN(to)) [from, to] = [1, 100]
             if (from > to) [from, to] = [to, from]
             return Math.floor(Math.random() * (to - from + 1) + from);
           }

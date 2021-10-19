@@ -36,8 +36,10 @@ import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponen
 import { useContextWithUseReducer } from './useContextWithUseReducer';
 import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
 import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
+import { delayPromise } from './delayPromise';
 
 const posts = [
+  delayPromise,
   randomIntegerNumberFunction,
   fetchWithLoadingIndicator,
   useContextWithUseReducer,

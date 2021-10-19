@@ -10,6 +10,7 @@ function Component() {
     if (from === to && from === 0) { from = 1; to = 100}
     if (isNaN(from)) from = 1
     if (isNaN(to)) to = 100
+    if (from > to) [from, to] = [to, from]
     return Math.floor(Math.random() * (to - from + 1) + from);
   }
 

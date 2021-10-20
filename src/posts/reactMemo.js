@@ -14,8 +14,8 @@ function Parent() {
       <div>State: <b>{state.toString()}</b></div>
       <button onClick={() => setState(!state)}>Update state</button>
       <Child name={'Child'} />
-      <MemoedChild name={'Memoed child with var pass'} variable={someVar} />
-      <MemoedChild name={'Memoed child with func pass'} func={someFunc} />
+      <MemoizedChild name={'Memoized child with var pass'} variable={someVar} />
+      <MemoizedChild name={'Memoized child with func pass'} func={someFunc} />
     </div>
   );
 }
@@ -28,7 +28,7 @@ function Child(props) {
   );
 }
 
-const MemoedChild = React.memo(Child);
+const MemoizedChild = React.memo(Child);
 
 const toRender = <Parent />;
 
@@ -88,8 +88,8 @@ export const reactMemo = {
               <div>State: <b>{state.toString()}</b></div>
               <button onClick={() => setState(!state)}>Update state</button>
               <Child name={'Child'} />
-              <MemoedChild name={'Memoed child with var pass'} variable={someVar} />
-              <MemoedChild name={'Memoed child with func pass'} func={someFunc} />
+              <MemoizedChild name={'Memoized child with var pass'} variable={someVar} />
+              <MemoizedChild name={'Memoized child with func pass'} func={someFunc} />
             </div>
           );
         }
@@ -102,7 +102,7 @@ export const reactMemo = {
           );
         }
         
-        const MemoedChild = React.memo(Child);
+        const MemoizedChild = React.memo(Child);
         
         const toRender = <Parent />;
       `,
@@ -115,7 +115,7 @@ export const reactMemo = {
       type: 'text',
       val: (
         <>
-          Note that <i>Memoed child with func pass</i> is not memoed and
+          Note that <i>Memoized child with func pass</i> is not memoized and
           re-renders every time the state is updated.
         </>
       ),
@@ -136,9 +136,11 @@ export const reactMemo = {
       type: 'code',
       lang: 'js',
       val: `
-        const returnObj = () => { return {} }
+        const returnVar = () => { return 100; } 
+        const returnObj = () => { return {} } 
         const returnFunc = () =>  { return function() {} }
         
+        returnVar() === returnVar() // true
         returnObj() === returnObj() // false
         returnFunc() === returnFunc() // false
       `,

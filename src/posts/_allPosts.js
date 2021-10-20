@@ -41,8 +41,10 @@ import { animationTriggerByProp } from './animationTriggerByProp';
 import { useRefAsGlobalVar } from './useRefAsGlobalVar';
 import { useStateSkipInitialRender } from './useStateSkipInitialRender';
 import { reactMemo } from './reactMemo';
+import { useCallbackHook } from './useCallbackHook';
 
 const posts = [
+  useCallbackHook,
   reactMemo,
   useStateSkipInitialRender,
   useRefAsGlobalVar,

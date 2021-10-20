@@ -5,8 +5,8 @@ export function Text(props) {
 }
 
 const PStyled = styled.p`
-  margin-top: 20px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   align-self: flex-start;
   color: #3a3a3a;
   width: 100%;

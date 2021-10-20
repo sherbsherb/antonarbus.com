@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
 const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px',};
 
 function reducer(state, action) {

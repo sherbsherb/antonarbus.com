@@ -40,8 +40,10 @@ import { animationTriggerByClass } from './animationTriggerByClass';
 import { animationTriggerByProp } from './animationTriggerByProp';
 import { useRefAsGlobalVar } from './useRefAsGlobalVar';
 import { useStateSkipInitialRender } from './useStateSkipInitialRender';
+import { reactMemo } from './reactMemo';
 
 const posts = [
+  reactMemo,
   useStateSkipInitialRender,
   useRefAsGlobalVar,
   animationTriggerByProp,

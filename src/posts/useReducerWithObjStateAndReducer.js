@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
 
 const initState = { counter: 0, sex: 'male' };
 
@@ -44,7 +43,7 @@ const toRender = <Component />;
 export const useReducerWithObjStateAndReducer = {
   title: (
     <>
-      <CodeSpan>useReducer()</CodeSpan> with state & reducer as object
+      <CodeSpan>useReducer()</CodeSpan> with state & reducer as objects
     </>
   ),
   date: '2021.10.18',

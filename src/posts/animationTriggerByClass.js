@@ -37,7 +37,7 @@ function Component() {
 const toRender = <Component />;
 
 export const animationTriggerByClass = {
-  title: <>Start animation by class change</>,
+  title: <>Start animation by class name change</>,
   date: '2021.10.19',
   tagsArr: ['react', 'animation', 'state', 'css', 'styled'],
   postParts: [

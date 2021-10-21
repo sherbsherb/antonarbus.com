@@ -42,10 +42,14 @@ import { useRefAsGlobalVar } from './useRefAsGlobalVar';
 import { useStateSkipInitialRender } from './useStateSkipInitialRender';
 import { reactMemo } from './reactMemo';
 import { useCallbackHook } from './useCallbackHook';
+import { useMemoHook } from './useMemoHook';
+import { objectsAreNotEqual } from './objectsAreNotEqual';
 
 const posts = [
+  useMemoHook,
   useCallbackHook,
   reactMemo,
+  objectsAreNotEqual,
   useStateSkipInitialRender,
   useRefAsGlobalVar,
   animationTriggerByProp,

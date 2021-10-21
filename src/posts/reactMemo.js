@@ -115,7 +115,7 @@ export const reactMemo = {
       type: 'text',
       val: (
         <>
-          Note that <i>Memoized child with func pass</i> is not memoized and
+          Note that <i>Memoized child with func pass</i> is not cached and
           re-renders every time the state is updated.
         </>
       ),
@@ -125,31 +125,16 @@ export const reactMemo = {
       val: (
         <>
           It happens because passed function is created every time the Parent
-          component renders. Function is passed via props and these functions are different.
-          <br />
-          <br />
-          Even functions look and behave same way they are different, because they are objects.
+          component renders. Functions does not equal to each other because they are objects, 
+          even they look and behave the  same way.
         </>
       ),
-    },
-    {
-      type: 'code',
-      lang: 'js',
-      val: `
-        const returnVar = () => { return 100; } 
-        const returnObj = () => { return {} } 
-        const returnFunc = () =>  { return function() {} }
-        
-        returnVar() === returnVar() // true
-        returnObj() === returnObj() // false
-        returnFunc() === returnFunc() // false
-      `,
     },
     {
       type: 'text',
       val: (
         <>
-          We can fix it & memorize function with <CodeSpan>useCallback()</CodeSpan> hook.
+          Component considers our function as a new value. We can fix it & memorize function with <CodeSpan>useCallback()</CodeSpan> hook.
         </>
       ),
     },

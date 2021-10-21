@@ -40,7 +40,7 @@ export const useRefAsGlobalVar = {
           </Link>{' '}
           returns a mutable ref object whose <i>.current</i> property is
           initialized to the passed argument <i>(initialValue)</i>. The returned
-          object will persist for the full lifetime of the component.
+          object will persist for the full lifetime of the component through re-renders.
         </>
       ),
     },

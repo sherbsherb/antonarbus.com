@@ -66,7 +66,15 @@ const StyleReset = createGlobalStyle`
   }
 
   ol, ul {
-    padding-left: 20px;
+    padding-left: 15px;
+    li {
+      padding-left: 10px;
+    }
+  }
+
+  ul li::marker {
+    content: '-';
+    margin-right: 3px;
   }
 
   mark {

@@ -86,20 +86,25 @@ export const useEffectPost = {
       ),
     },
     {
-      type: '',
+      type: 'text',
       val: (
         <>
           <CodeSpan>useEffect(func, [prop || state])</CodeSpan> hook may run a
           function after:
-          <ul>
-            <li>every component's render</li>
-            <li>initial render</li>
-            <li>
-              every render if specific props and/or states are changed between
-              renders
-            </li>
-          </ul>
         </>
+      ),
+    },
+    {
+      type: '',
+      val: (
+        <ul>
+          <li>every component's render</li>
+          <li>initial render</li>
+          <li>
+            every render if specific props and/or states are changed between
+            renders
+          </li>
+        </ul>
       ),
     },
     {

@@ -291,7 +291,7 @@ export function NavBar() {
 
   // add actions for Escape, Backspace, Enter, Arrows
   function navKeyboardHandler(e) {
-    // console.log('navKeyboardHandler() func fired');
+    console.log('navKeyboardHandler() func fired');
 
     const { key } = e;
     //// console.log(keyCode);
@@ -306,23 +306,6 @@ export function NavBar() {
 
   //#region EVENT LISTENERS FOR WINDOW
 
-  // use events to navigate over menu with keys
-  // ! we listen for keys on Window, how to do it properly no clue
-  // ! how to disable an event listener on menu close && activate on menu pop-up
-  useEffect(() => {
-    window.addEventListener('keydown', navKeyboardHandler);
-    // ! do not understand why func is returned
-    return () => window.removeEventListener('keydown', navKeyboardHandler);
-  }, [openedMenuState]);
-
-  // close menu if click outside
-  // ! nice to listen for it on menu popup and stop listening when menu is off
-  useEffect(() => {
-    window.addEventListener('click', closeMenu);
-    return () => window.removeEventListener('click', closeMenu);
-  }, [openedMenuState]);
-
-  //#endregion
 
   // console.log('NavBar rendered');
   return (
@@ -341,6 +324,7 @@ export function NavBar() {
                 changeMenu={changeMenu}
                 showMenuContainerState={showMenuContainerState}
                 willOpenTopMenu={willOpenTopMenu}
+                navKeyboardHandler={navKeyboardHandler}
                 key={navObj.id}
               />
             )
@@ -360,6 +344,7 @@ export function NavItem({
   changeMenu,
   showMenuContainerState,
   willOpenTopMenu,
+  navKeyboardHandler,
 }) {
   // console.log('NavItem rendered');
   return (
@@ -386,6 +371,7 @@ export function NavItem({
             closeMenu={closeMenu}
             changeMenu={changeMenu}
             willOpenTopMenu={willOpenTopMenu}
+            navKeyboardHandler={navKeyboardHandler}
           />
         )}
     </NavItemLi>
@@ -399,6 +385,7 @@ export function Menu({
   closeMenu,
   changeMenu,
   willOpenTopMenu,
+  navKeyboardHandler
 }) {
   // ! every time we press item inside MenuContainer
   // ! we update the openedMenuState with changeMenu() func
@@ -408,6 +395,18 @@ export function Menu({
   // ! how come?
   // console.log('Menu rendered');
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
+
+  useEffect(() => {
+    window.addEventListener('keydown', navKeyboardHandler);
+    window.addEventListener('click', closeMenu);
+    // clean the code
+    return () =>{ 
+      window.removeEventListener('keydown', navKeyboardHandler);
+      window.removeEventListener('click', closeMenu);
+    };
+  }, [openedMenuState]);
+
+
   return (
     <MenuContainer>
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}

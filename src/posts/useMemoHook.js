@@ -28,6 +28,7 @@ function Parent() {
       <div>Rendered x<b>{ref.current}</b></div>
       <div>State: <b>{state.toString()}</b></div>
       <div>One or two: <b>{oneOrTwoState}</b></div>
+      <div><i>'Hi'</i> message will pop only when number above changes</div>
       <button
         onClick={() => {
           setOneOrTwoState(randomNumFromTo(1, 2));
@@ -146,18 +147,15 @@ export const useMemoHook = {
       val: toRender,
     },
     {
-      type: 'text',
       val: (
-        <>
-          <ul>
-            <li>We trigger the component render by the button click updating the <i>state</i></li>
-            <li>On the same button we update another <i>state</i> which can randomly be 1 or 2</li>
-            <li>In the component's function body we have the <CodeSpan>funcWithInterruption()</CodeSpan> which just alerts 'hi'</li>
-            <li>We memoize it with <CodeSpan>useMemo(funcWithInterruption, [oneOrTwoState])</CodeSpan></li>
-            <li>Memoized function will run only if <i>oneOrTwoState</i> state variable changes</li>
-            <li>Click multiple times on the button and in about 50% times 'hi' message does not show up</li>
-          </ul> 
-        </>
+        <ul>
+          <li>We trigger the component render by the button click updating the <i>state</i></li>
+          <li>On the same button we update another <i>state</i> which can randomly be 1 or 2</li>
+          <li>In the component's function body we have the <CodeSpan>funcWithInterruption()</CodeSpan> which just alerts 'hi'</li>
+          <li>We memoize it with <CodeSpan>useMemo(funcWithInterruption, [oneOrTwoState])</CodeSpan></li>
+          <li>Memoized function will run only if <i>oneOrTwoState</i> state variable changes</li>
+          <li>Click multiple times on the button and in about 50% times 'hi' message does not show up</li>
+        </ul> 
       ),
     },
   ],

@@ -13,13 +13,11 @@ function Component() {
   }, []);
 
   return (
-    <div>
-      <ul>
-        {posts.map(post => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {posts.map(post => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
   );
 }
 
@@ -63,13 +61,11 @@ export const useEffectFetchData = {
           }, []);
         
           return (
-            <div>
-              <ul>
-                {posts.map(post => (
-                  <li key={post.id}>{post.title}</li>
-                ))}
-              </ul>
-            </div>
+            <ul>
+              {posts.map(post => (
+                <li key={post.id}>{post.title}</li>
+              ))}
+            </ul>
           );
         }
         

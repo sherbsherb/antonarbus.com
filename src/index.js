@@ -65,9 +65,9 @@ const StyleReset = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
 
-  ol, ul {
+  ${'' /* ol, ul {
     padding-left: 20px;
-  }
+  } */}
 
   mark {
     border-radius: 2px !important;

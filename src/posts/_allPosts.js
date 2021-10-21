@@ -44,8 +44,10 @@ import { reactMemo } from './reactMemo';
 import { useCallbackHook } from './useCallbackHook';
 import { useMemoHook } from './useMemoHook';
 import { objectsAreNotEqual } from './objectsAreNotEqual';
+import { synchronousDelayFunc } from './synchronousDelayFunc';
 
 const posts = [
+  synchronousDelayFunc,
   useMemoHook,
   useCallbackHook,
   reactMemo,

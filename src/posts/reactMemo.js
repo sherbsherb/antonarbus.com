@@ -125,8 +125,8 @@ export const reactMemo = {
       val: (
         <>
           It happens because passed function is created every time the Parent
-          component renders. Functions does not equal to each other because they are objects, 
-          even they look and behave the  same way.
+          component renders. Functions passed are not equal to each other because they are objects, 
+          even they look and behave the same way.
         </>
       ),
     },
@@ -134,7 +134,8 @@ export const reactMemo = {
       type: 'text',
       val: (
         <>
-          Component considers our function as a new value. We can fix it & memorize function with <CodeSpan>useCallback()</CodeSpan> hook.
+          <i>React.memo</i> considers passed function as a new value. 
+          We can fix it & memorize function with <CodeSpan>useCallback()</CodeSpan> hook.
         </>
       ),
     },

@@ -50,8 +50,9 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          As mentioned in the previous article we can not cache a function created within a component,
-          because same objects are not equal.
+          As mentioned in the previous article we can not cache a component 
+          with <CodeSpan>React.memo()</CodeSpan> if we pass a function created 
+          within a component as props, because same objects are not equal.
         </>
       ),
     },
@@ -59,8 +60,8 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          But fortunately <CodeSpan>useCallback()</CodeSpan> hook returns memoized version of
-          the function.
+          But fortunately <CodeSpan>useCallback()</CodeSpan> hook returns 
+          memoized version of the function.
         </>
       ),
     },
@@ -68,7 +69,7 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          Let's convert passed function from previous example into memoised
+          Let's convert passed function from the previous example into a memoised
           cached function wrapping it into <CodeSpan>useCallback()</CodeSpan>.
         </>
       ),
@@ -77,9 +78,8 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          <CodeSpan>useCallback(func, [dep])</CodeSpan> accepts a callback
-          function as the first argument and array of dependencies as a second
-          one.
+          <CodeSpan>useCallback(func, [dep])</CodeSpan> accepts a callback function 
+          and array of dependencies.
         </>
       ),
     },
@@ -87,7 +87,8 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          <i>useCallback</i> will return a memoized version of the callback that only changes if one of the dependencies has changed. 
+          <i>useCallback</i> will return a memoized version of the callback that only 
+          changes if one of the dependencies has changed. 
         </>
       ),
     },
@@ -95,7 +96,8 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          <CodeSpan>useCallback(func, deps)</CodeSpan> is equivalent to <CodeSpan>useMemo(() => func, deps)</CodeSpan>  
+          <CodeSpan>useCallback(func, [deps])</CodeSpan> is 
+          equivalent to <CodeSpan>useMemo(() => func, [deps])</CodeSpan>  
         </>
       ),
     },
@@ -142,6 +144,15 @@ export const useCallbackHook = {
     {
       type: 'output',
       val: toRender,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Now <i>React.memo</i> thinks that all passed props are the same as they were and does not 
+          render the component last child component.   
+        </>
+      ),
     },
   ],
 };

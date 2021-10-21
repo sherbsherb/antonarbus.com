@@ -36,7 +36,7 @@ function Component() {
 const toRender = <Component />;
 
 export const timerInReact = {
-  title: 'Timer',
+  title: 'Timer in React',
   date: '2021.10.21',
   tagsArr: ['useState', 'useRef', 'useEffect', 'timer', 'hook', 'react'],
   postParts: [

@@ -48,8 +48,10 @@ import { synchronousDelayFunc } from './synchronousDelayFunc';
 import { timerInReact } from './timerInReact';
 import { secToHHMMSSfunc } from './secToHHMMSSfunc';
 import { useLayoutEffectHook } from './useLayoutEffectHook';
+import { customHooks } from './customHooks';
 
 const posts = [
+  customHooks,
   useLayoutEffectHook,
   timerInReact,
   secToHHMMSSfunc,

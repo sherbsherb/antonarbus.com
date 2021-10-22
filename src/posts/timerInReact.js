@@ -51,7 +51,7 @@ export const timerInReact = {
           <li>Btw we skip <i>useEffect</i> on first render with <i>firstRenderRef</i> flag</li>
           <li>On timer pause we destroy timer</li>
           <li>Note that timer is kept in <i>useRef</i> global variable, because we need to access it from different places</li>
-          <li>On reset button we rest {':)'} and fool <i>useEffect</i> telling it is the first render, which he will skip</li>
+          <li>On reset button we reset all variables & fool <i>useEffect</i> telling it is the first render, which he will skip</li>
         </ul>
       ),
     },

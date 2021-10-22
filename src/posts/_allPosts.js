@@ -46,9 +46,13 @@ import { useMemoHook } from './useMemoHook';
 import { objectsAreNotEqual } from './objectsAreNotEqual';
 import { synchronousDelayFunc } from './synchronousDelayFunc';
 import { timerInReact } from './timerInReact';
+import { secToHHMMSSfunc } from './secToHHMMSSfunc';
+import { useLayoutEffectHook } from './useLayoutEffectHook';
 
 const posts = [
+  useLayoutEffectHook,
   timerInReact,
+  secToHHMMSSfunc,
   synchronousDelayFunc,
   useMemoHook,
   useCallbackHook,

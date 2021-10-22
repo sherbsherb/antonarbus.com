@@ -2,11 +2,6 @@ import React, { useMemo, useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import randomNumFromTo from '../helpers/functions/randomNumFromTo';
 
-const syncWait = ms => {
-  const end = Date.now() + ms
-  while (Date.now() < end) continue
-}
-
 function Parent() {
   const [state, setState] = useState(false);
   const [oneOrTwoState, setOneOrTwoState] = useState(randomNumFromTo(1, 2));

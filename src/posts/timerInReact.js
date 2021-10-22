@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import secToHHMMSS from '../helpers/functions/secToHHMMSS';
 
 function Component() {
   const [timerState, setTimerState] = useState(0)
@@ -21,7 +22,7 @@ function Component() {
 
   return (
     <>
-      <div>Timer <b>{timerState}</b></div>
+      <div>Timer <b>{secToHHMMSS(timerState)}</b></div>
       <button onClick={() => setTimerState(timerState + 1)}>Start</button>
       <button onClick={() => clearInterval(intervalRef.current)}>Pause</button>
       <button onClick={() => {
@@ -59,6 +60,7 @@ export const timerInReact = {
       lang: 'jsx',
       val: `
         import React, { useEffect, useRef, useState } from 'react';
+        import secToHHMMSS from '../helpers/functions/secToHHMMSS';
 
         function Component() {
           const [timerState, setTimerState] = useState(0)
@@ -81,7 +83,7 @@ export const timerInReact = {
         
           return (
             <>
-              <div>Timer <b>{timerState}</b></div>
+              <div>Timer <b>{secToHHMMSS(timerState)}</b></div>
               <button onClick={() => setTimerState(timerState + 1)}>Start</button>
               <button onClick={() => clearInterval(intervalRef.current)}>Pause</button>
               <button onClick={() => {

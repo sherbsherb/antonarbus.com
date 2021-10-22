@@ -46,7 +46,7 @@ function Component2() {
 const toRender2 = <Component2 />;
 
 export const customHooks = {
-  title: 'Counter custom hook',
+  title: 'Custom hooks',
   date: '2021.10.22',
   tagsArr: ['react', 'hook'],
   postParts: [
@@ -72,14 +72,6 @@ export const customHooks = {
       type: 'code',
       lang: 'jsx',
       val: `
-        function useCounter(initVal = 0, step = 1) {
-          const [count, setCount] = useState(initVal)
-          const increment = () => setCount(prevVal => prevVal + step);
-          const decrement = () => setCount(prevVal => prevVal - step);
-          const reset = () => setCount(initVal);
-          return [count, increment, decrement, reset]
-        }
-
         function Component1() {
           const [count, setCount] = useState(0)
           const increment = () => setCount(prevVal => prevVal + 1);
@@ -115,6 +107,14 @@ export const customHooks = {
       type: 'code',
       lang: 'jsx',
       val: `
+        function useCounter(initVal = 0, step = 1) {
+          const [count, setCount] = useState(initVal)
+          const increment = () => setCount(prevVal => prevVal + step);
+          const decrement = () => setCount(prevVal => prevVal - step);
+          const reset = () => setCount(initVal);
+          return [count, increment, decrement, reset]
+        }
+
         function Component2() {
           const step = 5
           const startFrom = 10
@@ -136,6 +136,14 @@ export const customHooks = {
     {
       type: 'output',
       val: toRender2,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Now the logic is not encapsulated inside the component, but can live in a separate file and be utilized by multiple components.
+        </>
+      ),
     },
     {
       type: 'text',

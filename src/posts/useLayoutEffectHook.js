@@ -1,5 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
+import { Img } from '../components/post/Img';
+import { Link } from '../components/post/Link';
 import syncWait from '../helpers/functions/syncWait';
 
 function Component1() {
@@ -172,6 +174,13 @@ export const useLayoutEffectHook = {
     {
       type: 'output',
       val: toRender2,
+    },
+    {
+      type: 'text',
+      val: <>
+        We can see the hooks flow from <Link path={'https://github.com/donavon/hook-flow'}>Donavon West</Link>
+        <Img path={'https://raw.githubusercontent.com/donavon/hook-flow/master/hook-flow.png'} width='500px'/>
+      </>
     },
   ],
 };

@@ -6,15 +6,15 @@ export default function typedWords(state = [], action) {
   let data;
 
   nodes.forEach(function (el) {
-    if (el.nodeType === Node.TEXT_NODE)
-      data = el.data
-      // get text between quotation marks
-      strBetweenQuotationMarks = data.match(/(?<=")(?:\\.|[^"\\])*(?=")/g)
-      if (strBetweenQuotationMarks && strBetweenQuotationMarks.length) wordsArr.push(...strBetweenQuotationMarks);
-      data = data.replaceAll(`"`, ``)
-      
-      // get all words separately
-      wordsArr.push(...data.trim().toLowerCase().split(/\s+/));
+    if (el.nodeType !== Node.TEXT_NODE) return
+    data = el.data
+    // get text between quotation marks
+    strBetweenQuotationMarks = data.match(/(?<=")(?:\\.|[^"\\])*(?=")/g)
+    if (strBetweenQuotationMarks && strBetweenQuotationMarks.length) wordsArr.push(...strBetweenQuotationMarks);
+    data = data.replaceAll(`"`, ``)
+    
+    // get all words separately
+    wordsArr.push(...data.trim().toLowerCase().split(/\s+/));
   });
   wordsArr = [...new Set(wordsArr)].filter(el => el !== '');
 

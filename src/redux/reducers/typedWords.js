@@ -2,10 +2,19 @@ export default function typedWords(state = [], action) {
   const nodes = document.querySelector('#input')?.childNodes;
   if (!nodes) return []
   let wordsArr = [];
+  let strBetweenQuotationMarks;
+  let data;
 
   nodes.forEach(function (el) {
     if (el.nodeType === Node.TEXT_NODE)
-      wordsArr.push(...el.data.trim().toLowerCase().split(/\s+/));
+      data = el.data
+      // get text between quotation marks
+      strBetweenQuotationMarks = data.match(/(?<=")(?:\\.|[^"\\])*(?=")/g)
+      if (strBetweenQuotationMarks && strBetweenQuotationMarks.length) wordsArr.push(...strBetweenQuotationMarks);
+      data = data.replaceAll(`"`, ``)
+      
+      // get all words separately
+      wordsArr.push(...data.trim().toLowerCase().split(/\s+/));
   });
   wordsArr = [...new Set(wordsArr)].filter(el => el !== '');
 

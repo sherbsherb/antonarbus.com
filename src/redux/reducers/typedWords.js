@@ -6,8 +6,10 @@ export default function typedWords(state = [], action) {
   let data;
 
   nodes.forEach(function (el) {
+    if(!el) return
     if (el.nodeType !== Node.TEXT_NODE) return
-    data = el.data
+    data = el?.data
+    if(!data) return
     // get text between quotation marks
     strBetweenQuotationMarks = data.match(/(?<=")(?:\\.|[^"\\])*(?=")/g)
     if (strBetweenQuotationMarks && strBetweenQuotationMarks.length) wordsArr.push(...strBetweenQuotationMarks);

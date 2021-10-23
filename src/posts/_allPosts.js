@@ -49,8 +49,10 @@ import { timerInReact } from './timerInReact';
 import { secToHHMMSSfunc } from './secToHHMMSSfunc';
 import { useLayoutEffectHook } from './useLayoutEffectHook';
 import { customHooks } from './customHooks';
+import { useInputCustomHook } from './useInputCustomHook';
 
 const posts = [
+  useInputCustomHook,
   customHooks,
   useLayoutEffectHook,
   timerInReact,

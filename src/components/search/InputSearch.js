@@ -125,7 +125,6 @@ const DivStyled = styled.div`
   width: auto;
   min-width: 0; /* for shrinking */
   background-color: white;
-  color: black;
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;

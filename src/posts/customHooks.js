@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
 
 function Component1() {
   const [count, setCount] = useState(0)
@@ -48,14 +47,13 @@ const toRender2 = <Component2 />;
 export const customHooks = {
   title: 'Custom hooks',
   date: '2021.10.22',
-  tagsArr: ['react', 'hook'],
+  tagsArr: ['react', 'custom', 'hook'],
   postParts: [
     {
-      type: 'text',
       val: (
         <ul>
-          <li>Custom hook is a function which should be called from the React code & not from the Regular JS functions</li>
-          <li>Custom hook function name starts from <i>"use"</i></li>
+          <li>Custom hook is a function which should be called from the React code & not from the regular JS functions</li>
+          <li>Custom hook function name should start from <i>"use"</i></li>
           <li>Custom hook can call other hooks, but normal functions can not</li>
         </ul>
       ),
@@ -99,7 +97,7 @@ export const customHooks = {
       type: 'text',
       val: (
         <>
-          Let's extract functions into a custom hook & use it in the component.
+          Let's extract logic into a custom hook and use it inside a component.
         </>
       ),
     },
@@ -149,7 +147,7 @@ export const customHooks = {
       type: 'text',
       val: (
         <>
-          We enhanced the hook a bit by bringing <i>initVal</i> & <i>step</i> arguments.
+          Note, we enhanced the hook by bringing <i>initVal</i> & <i>step</i> arguments.
         </>
       ),
     },

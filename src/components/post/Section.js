@@ -19,7 +19,6 @@ const SectionStyled = styled.section`
   font-size: 16px;
   padding: 20px;
   background: white;
-  color: black;
   position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */

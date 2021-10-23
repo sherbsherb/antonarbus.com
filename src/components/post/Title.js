@@ -9,7 +9,6 @@ const H3Styled = styled.h3`
   margin-top: 40px;
   margin-bottom: 25px;
   font-size: 24px;
-  color: black;
   text-align: center;
   line-height: 1.1;
 `;

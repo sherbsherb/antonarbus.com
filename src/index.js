@@ -58,7 +58,7 @@ const StyleReset = createGlobalStyle`
     background-blend-mode: lighten;
 
     min-height: 100vh;
-    color: whitesmoke;
+    color: #3a3a3a;
   }
 
   code {

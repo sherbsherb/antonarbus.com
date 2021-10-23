@@ -1,7 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import React from 'react';
 import { Link } from '../components/post/Link';
-
 
 export const objectsAreNotEqual = {
   title: <>Same objects are not equal</>,

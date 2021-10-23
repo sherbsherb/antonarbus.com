@@ -15,7 +15,6 @@ const SearchPreviewStyled = styled.div`
   margin: 10px 0px;
   border-radius: 4px;
   cursor: pointer;
-  color: black;
   padding: 5px;
   max-height: 106px;
   overflow-y: auto;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
 
 function Component() {
 

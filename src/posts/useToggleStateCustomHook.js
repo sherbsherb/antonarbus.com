@@ -79,7 +79,7 @@ export const useToggleBooleanStateCustomHook = {
     {
       val: (
         <>
-          Similar hook can be found in the{' '}
+          Similar function can be found in the{' '}
           <Link path={'https://www.npmjs.com/package/react-use'}>
             react-use
           </Link>{' '}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
+import { Link } from '../components/post/Link';
 import useToggleBooleanState from '../helpers/functions/useToggleBooleanState';
 
 function Component() {
-  const [state, toggleState] = useToggleBooleanState(true)
+  const [state, toggleState] = useToggleBooleanState(true);
   return (
     <>
       <div>{state.toString()}</div>
@@ -26,8 +27,14 @@ export const useToggleBooleanStateCustomHook = {
       val: (
         <>
           <ul>
-            <li>We often need to have a boolean <i>state</i> and switch between <i>true</i> & <i>false</i> to show/hide something on a screen</li>
-            <li>We can put this simple logic into a separate custom hook and make components a bit cleaner</li>
+            <li>
+              We often need to have a boolean <i>state</i> and switch between{' '}
+              <i>true</i> & <i>false</i> to show/hide something on a screen
+            </li>
+            <li>
+              We can put this simple logic into a separate custom hook and make
+              components a bit cleaner
+            </li>
           </ul>
         </>
       ),
@@ -68,6 +75,21 @@ export const useToggleBooleanStateCustomHook = {
     {
       type: 'output',
       val: toRender,
+    },
+    {
+      val: (
+        <>
+          Similar hook can be found in the{' '}
+          <Link path={'https://www.npmjs.com/package/react-use'}>
+            react-use
+          </Link>{' '}
+          package under the{' '}
+          <Link path="https://github.com/streamich/react-use/blob/HEAD/docs/useToggle.md">
+            useToggle
+          </Link>{' '}
+          hook.
+        </>
+      ),
     },
   ],
 };

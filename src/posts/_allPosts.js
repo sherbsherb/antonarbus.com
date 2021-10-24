@@ -50,8 +50,10 @@ import { secToHHMMSSfunc } from './secToHHMMSSfunc';
 import { useLayoutEffectHook } from './useLayoutEffectHook';
 import { customHooks } from './customHooks';
 import { useInputCustomHook } from './useInputCustomHook';
+import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
 
 const posts = [
+  useToggleBooleanStateCustomHook,
   useInputCustomHook,
   customHooks,
   useLayoutEffectHook,

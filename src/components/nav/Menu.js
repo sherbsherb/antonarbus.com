@@ -19,21 +19,23 @@ export function Menu({
     const elCopy = el.cloneNode(true)
     document.body.before(elCopy)
     elCopy.style.height = 'auto'
+    elCopy.style.padding = '1rem'
     console.log(elCopy)
     const height = elCopy.offsetHeight;
-    console.log(height)
     elCopy.remove()
     return height
   }
 
   const ref = useRef()
-  const [menuHeight, setMenuHeight] = useState(null)
+  const [menuHeight, setMenuHeight] = useState(0)
+  const [menuPadding, setMenuPadding] = useState(0)
   
 
   useEffect(() => {
     window.addEventListener('keydown', navKeyboardHandler);
     window.addEventListener('click', closeMenu);
     setMenuHeight(calcHeight(ref.current))
+    setMenuPadding('1rem')
 
     return () => { 
       window.removeEventListener('keydown', navKeyboardHandler);
@@ -47,7 +49,7 @@ export function Menu({
   return (
     <MenuContainer 
     ref={ref}
-    style={{height: menuHeight}}
+    style={{ height: menuHeight, padding: menuPadding }}
     >
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
@@ -64,14 +66,11 @@ export function Menu({
 }
 
 const slideDownAnimation = keyframes`
-  from { transform: translateX(-45%); opacity: .85; }
-  to { transform: translateX(-45%); opacity: 1; }
+  from { opacity: .85; }
+  to { opacity: 1; }
 `;
 
-const slideDownAnimationPhone = keyframes`
-  from { opacity: .85 }
-  to { opacity: 1 }
-`;
+
 
 export const MenuContainer = styled.div`
   position: absolute;
@@ -84,6 +83,7 @@ export const MenuContainer = styled.div`
   padding: 1rem;
   overflow: hidden;
   z-index: 666;
+  transform: translateX(-45%);
 
   animation-name: ${slideDownAnimation};
   animation-duration: .5s;
@@ -94,13 +94,13 @@ export const MenuContainer = styled.div`
   animation-fill-mode: forwards;
   transform-origin: top;
 
-  transition: height .35s;
+  transition-property: height, padding;
+  transition-duration: .35s;
 
   @media screen and (max-width: 480px) {
     transform: translateX(0px) !important;
     left: 10px;
     right: 10px;
     width: auto;
-    animation-name: ${slideDownAnimationPhone};
   }
 `;

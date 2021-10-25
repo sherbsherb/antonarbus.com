@@ -2,7 +2,7 @@ import Mark from 'mark.js';
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { NavBar } from './components/nav/_Nav.js';
+import { Nav } from './components/nav/_Nav.js';
 import { Post } from './components/post/Post.js';
 import SearchContainer from './components/search/_SearchContainer.js';
 import { store } from './index.js';
@@ -38,7 +38,7 @@ export default function App() {
         dispatch({ type: 'remove tags input val' })
       }}
     >
-      <NavBar />
+      <Nav />
       <SearchContainer/>
       <StyledMain>{returnPostsMemo}</StyledMain>
     </div>

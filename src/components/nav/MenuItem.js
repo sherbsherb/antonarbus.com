@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import { MenuIconRight } from './NavStyledComponents';
 import { FaChevronRight as ForwardIcon } from 'react-icons/fa';
 import React from 'react';
 import { MenuText } from './MenuText';
@@ -54,7 +53,7 @@ export const MenuLink = styled.a`
     props.willOpenTopMenu
       ? css`none`
       : css`
-          ${appearAnimation} 200ms cubic-bezier(0, 1, 0.5, 1)
+          ${appearAnimation} 500ms cubic-bezier(0, 1, 0.5, 1)
         `};
 
   &:hover {
@@ -74,4 +73,10 @@ export const LeftPart = styled.span`
 
 export const RightPart = styled.span`
   margin-left: 40px;
+`;
+
+
+export const MenuIconRight = styled(Icon)`
+  background-color: transparent;
+  margin-right: -5px;
 `;

@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Menu } from "./Menu";
 import { Icon } from "./Icon";
-import { Menu } from "./_Nav";
 
-
-// component inside the NavBar = icons
+// component inside the Nav = icons
 export function NavItem({
-  navObj,
+  navO,
   openedMenuState,
   prevMenu,
   closeMenu,
@@ -23,18 +22,18 @@ export function NavItem({
         href="#"
         onClick={e => {
           e.stopPropagation();
-          showMenu(navObj);
+          showMenu(navO);
         }}
         // onMouseEnter={() => showMenu(navItem)}
         // onMouseLeave={() => closeMenu()}
       >
-        {navObj.icon}
-        {navObj.text}
+        {navO.icon}
+        {navO.text}
       </Icon>
 
       {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
       {showMenuContainerState &&
-        openedMenuState?.underNavItemId === navObj.id && (
+        openedMenuState?.underNavItemId === navO.id && (
           <Menu
             openedMenuState={openedMenuState}
             prevMenu={prevMenu}

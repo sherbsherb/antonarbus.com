@@ -1,26 +1,19 @@
-// ! make hamburger, which dynamically pop up when there is no space
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
-  NavStyled,
   NavItemStyled,
-  MenuContainer,
 } from './NavStyledComponents';
 
-// import & set icons
 
 // can use alias with 'as'
 import navStructure from './navStructure';
-import { MenuItem } from './MenuItem';
-import { CloseItem } from './CloseItem';
-import { BackItem } from './BackItem';
 import { NavItem } from './NavItem';
+import styled from 'styled-components';
 
 // var
 let willOpenTopMenu = true;
 
 // navbar
-export function NavBar() {
+export function Nav() {
   // states
   const [openedMenuState, setOpenedMenuState] = useState(null);
   const [showMenuContainerState, setShowMenuContainerState] = useState(false);
@@ -116,15 +109,15 @@ export function NavBar() {
     key === 'Escape' && closeMenu();
   }
 
-  // console.log('NavBar rendered');
+  // console.log('Nav rendered');
   return (
     <NavStyled>
       <NavItemStyled>
         {navStructure.map(
-          navObj =>
-            navObj.visible && (
+          navO =>
+            navO.visible && (
               <NavItem
-                navObj={navObj}
+                navO={navO}
                 openedMenuState={openedMenuState}
                 prevMenu={prevMenu}
                 closeMenu={closeMenu}
@@ -133,7 +126,7 @@ export function NavBar() {
                 showMenuContainerState={showMenuContainerState}
                 willOpenTopMenu={willOpenTopMenu}
                 navKeyboardHandler={navKeyboardHandler}
-                key={navObj.id}
+                key={navO.id}
               />
             )
         )}
@@ -142,43 +135,13 @@ export function NavBar() {
   );
 }
 
+const navSize = '60px';
+const border = '1px solid #474a4d';
 
-
-// menu with 'back' & 'close' buttons on top & MenuItems
-export function Menu({
-  openedMenuState,
-  prevMenu,
-  closeMenu,
-  changeMenu,
-  willOpenTopMenu,
-  navKeyboardHandler
-}) {
-
-  // console.log('Menu rendered');
-  const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
-
-  useEffect(() => {
-    window.addEventListener('keydown', navKeyboardHandler);
-    window.addEventListener('click', closeMenu);
-    // clean the code on component unmount
-    return () =>{ 
-      window.removeEventListener('keydown', navKeyboardHandler);
-      window.removeEventListener('click', closeMenu);
-    };
-  }, [openedMenuState]);
-
-  return (
-    <MenuContainer>
-      {isNestedMenu && <BackItem prevMenu={prevMenu} />}
-      {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
-      {openedMenuState.menuItems.map(menuItem => (
-        <MenuItem
-          menuItem={menuItem}
-          changeMenu={changeMenu}
-          key={menuItem.id}
-          willOpenTopMenu={willOpenTopMenu}
-        />
-      ))}
-    </MenuContainer>
-  );
-}
+const NavStyled = styled.nav`
+  height: ${navSize};
+  padding: 0 1rem;
+  border-bottom: ${border};
+  position: relative;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+`;

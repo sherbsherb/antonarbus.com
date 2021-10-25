@@ -61,8 +61,6 @@ export const MenuLink = styled.a`
   animation-fill-mode: forwards;
   transform-origin: top;
 
-
-
   &:hover {
     background-color: #525357;
   }

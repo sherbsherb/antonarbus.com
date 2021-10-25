@@ -4,12 +4,12 @@ import React from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 
-export function MenuItem({ menuItem, changeMenu, willOpenTopMenu }) {
+export function MenuItem({ menuItem, changeMenu, isTopMenuItem }) {
   // console.log('MenuItem rendered');
   return (
     <MenuLink
       href="#"
-      willOpenTopMenu={willOpenTopMenu}
+      isTopMenuItem={isTopMenuItem}
       onClick={e => {
         e?.stopPropagation();
         changeMenu(menuItem);
@@ -35,7 +35,7 @@ export function MenuItem({ menuItem, changeMenu, willOpenTopMenu }) {
 }
 
 const appearAnimation = keyframes`
-  from { transform: translateX(-50%); }
+  from { transform: translateX(-110%); }
   to { transform: translateX(0); }
 `;
 
@@ -48,12 +48,11 @@ export const MenuLink = styled.a`
   padding: 0.5rem;
   color: #dadce1;
   white-space: nowrap;
-  color: ${props => props.color};
   animation: ${props =>
-    props.willOpenTopMenu
+    props.isTopMenuItem
       ? css`none`
       : css`
-          ${appearAnimation} .5s cubic-bezier(0, 1, 0.5, 1)
+          ${appearAnimation} 0.5s cubic-bezier(0, 1, 0.5, 1)
         `};
   
   /* animation: ${appearAnimation} 500ms cubic-bezier(0, 1, 0.5, 1); */

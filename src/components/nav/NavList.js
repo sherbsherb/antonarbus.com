@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { NavItem } from "./NavItem";
 import navStructure from "./navStructure";
 
-let willOpenTopMenu = true;
+let isTopMenuItem = true;
 
 export default function NavList() {
     // states
@@ -30,7 +30,7 @@ export default function NavList() {
   
       if (isMenu) {
         const menu = o.menu;
-        willOpenTopMenu = true;
+        isTopMenuItem = true;
         setShowMenuContainerState(true);
         setOpenedMenuState({
           ...menu,
@@ -54,7 +54,7 @@ export default function NavList() {
       }
   
       // console.log('fall one level down in menu');
-      willOpenTopMenu = false;
+      isTopMenuItem = false;
       const subMenu = o.menu;
       setOpenedMenuState({
         ...subMenu,
@@ -70,7 +70,7 @@ export default function NavList() {
       e?.stopPropagation();
   
       if (showMenuContainerState) {
-        willOpenTopMenu = false;
+        isTopMenuItem = false;
         setShowMenuContainerState(false);
         setOpenedMenuState(null);
         // console.log('closed existing menu');
@@ -82,7 +82,7 @@ export default function NavList() {
       // console.log('prevMenu() func fired');
   
       e?.stopPropagation();
-      willOpenTopMenu = false;
+      isTopMenuItem = false;
       setOpenedMenuState(openedMenuState.prevMenu.pop());
       // console.log('clicked Back');
     }
@@ -113,7 +113,7 @@ export default function NavList() {
                 showMenu={showMenu}
                 changeMenu={changeMenu}
                 showMenuContainerState={showMenuContainerState}
-                willOpenTopMenu={willOpenTopMenu}
+                isTopMenuItem={isTopMenuItem}
                 navKeyboardHandler={navKeyboardHandler}
                 key={navO.id}
               />

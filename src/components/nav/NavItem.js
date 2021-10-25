@@ -12,7 +12,7 @@ export function NavItem({
   showMenu,
   changeMenu,
   showMenuContainerState,
-  willOpenTopMenu,
+  isTopMenuItem,
   navKeyboardHandler,
 }) {
   // console.log('NavItem rendered');
@@ -24,8 +24,6 @@ export function NavItem({
           e.stopPropagation();
           showMenu(navO);
         }}
-        // onMouseEnter={() => showMenu(navItem)}
-        // onMouseLeave={() => closeMenu()}
       >
         {navO.icon}
         {navO.text}
@@ -39,7 +37,7 @@ export function NavItem({
             prevMenu={prevMenu}
             closeMenu={closeMenu}
             changeMenu={changeMenu}
-            willOpenTopMenu={willOpenTopMenu}
+            isTopMenuItem={isTopMenuItem}
             navKeyboardHandler={navKeyboardHandler}
           />
         )}

@@ -11,16 +11,15 @@ export function Menu({
   prevMenu,
   closeMenu,
   changeMenu,
-  willOpenTopMenu,
+  isTopMenuItem,
   navKeyboardHandler
 }) {
 
   function calcHeight(el) {
     const elCopy = el.cloneNode(true)
-    document.body.before(elCopy)
     elCopy.style.height = 'auto'
     elCopy.style.padding = '1rem'
-    console.log(elCopy)
+    document.body.before(elCopy)
     const height = elCopy.offsetHeight;
     elCopy.remove()
     return height
@@ -29,7 +28,6 @@ export function Menu({
   const ref = useRef()
   const [menuHeight, setMenuHeight] = useState(0)
   const [menuPadding, setMenuPadding] = useState(0)
-  
 
   useEffect(() => {
     window.addEventListener('keydown', navKeyboardHandler);
@@ -48,8 +46,8 @@ export function Menu({
 
   return (
     <MenuContainer 
-    ref={ref}
-    style={{ height: menuHeight, padding: menuPadding }}
+      ref={ref}
+      style={{ height: menuHeight, padding: menuPadding }}
     >
       {isNestedMenu && <BackItem prevMenu={prevMenu} />}
       {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
@@ -58,7 +56,7 @@ export function Menu({
           menuItem={menuItem}
           changeMenu={changeMenu}
           key={menuItem.id}
-          willOpenTopMenu={willOpenTopMenu}
+          isTopMenuItem={isTopMenuItem}
         />
       ))}
     </MenuContainer>
@@ -69,8 +67,6 @@ const slideDownAnimation = keyframes`
   from { opacity: .85; }
   to { opacity: 1; }
 `;
-
-
 
 export const MenuContainer = styled.div`
   position: absolute;

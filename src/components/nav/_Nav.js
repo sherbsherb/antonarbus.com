@@ -112,6 +112,7 @@ export function Nav() {
   // console.log('Nav rendered');
   return (
     <NavStyled>
+      {/* <Logo /> */}
       <NavItemStyled>
         {navStructure.map(
           navO =>
@@ -131,6 +132,7 @@ export function Nav() {
             )
         )}
       </NavItemStyled>
+      {/* <Hamburger /> */}
     </NavStyled>
   );
 }

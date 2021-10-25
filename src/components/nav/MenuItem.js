@@ -53,8 +53,10 @@ export const MenuLink = styled.a`
     props.willOpenTopMenu
       ? css`none`
       : css`
-          ${appearAnimation} 500ms cubic-bezier(0, 1, 0.5, 1)
+          ${appearAnimation} .5s cubic-bezier(0, 1, 0.5, 1)
         `};
+  
+  /* animation: ${appearAnimation} 500ms cubic-bezier(0, 1, 0.5, 1); */
 
   &:hover {
     background-color: #525357;

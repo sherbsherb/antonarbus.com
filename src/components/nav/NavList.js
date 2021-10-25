@@ -12,19 +12,18 @@ export default function NavList() {
   
     // update state to show menu
     function showMenu(o) {
-      // // console.log('showMenu() func fired');
+      // console.log('showMenu() func fired');
       const isMenu = o.menu;
   
       if (!isMenu) {
-        // // console.log('no menu inside navItem');
-        // if menu container is ON, remove it
+        // console.log('no menu inside navItem');
         if (showMenuContainerState) {
           closeMenu();
           return;
         }
   
         if (!showMenuContainerState) {
-          // // console.log('no showing menu, do nothing');
+          // console.log('no showing menu, do nothing');
           return;
         }
       }
@@ -39,7 +38,7 @@ export default function NavList() {
           // just opened first menu, no previous menus exist yet
           prevMenu: [],
         });
-        //// console.log('showed menu');
+        // console.log('showed menu');
       }
     }
   
@@ -93,7 +92,7 @@ export default function NavList() {
       console.log('navKeyboardHandler() func fired');
   
       const { key } = e;
-      //// console.log(keyCode);
+      // console.log(keyCode);
       if (!openedMenuState) return;
       const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
       isNestedMenu && key === 'Backspace' && prevMenu();
@@ -129,7 +128,6 @@ const Ul = styled.ul`
   height: 100%;
   display: flex;
   justify-content: flex-end;
-
   list-style: none;
   margin: 0;
   padding: 0;

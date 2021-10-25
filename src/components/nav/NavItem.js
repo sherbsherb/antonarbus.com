@@ -47,10 +47,8 @@ export function NavItem({
   );
 }
 
-const navSize = '60px';
-
 export const NavItemLi = styled.li`
-  width: ${parseInt(navSize) * 0.8}px;
+  width: ${60 * 0.8}px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
-const navSize = '60px';
-
 export const Icon = styled.a`
-  width: ${parseInt(navSize) * 0.5}px;
-  height: ${parseInt(navSize) * 0.5}px;
+  width: ${60 * 0.5}px;
+  height: ${60 * 0.5}px;
   background-color: #484a4d;
   border-radius: 50%;
   padding: 5px;

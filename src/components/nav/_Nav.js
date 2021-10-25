@@ -4,7 +4,6 @@ import NavList from './NavList';
 
 export function Nav() {
   // console.log('Nav rendered');
-  
   return (
     <NavStyled>
       {/* <Logo /> */}
@@ -14,10 +13,8 @@ export function Nav() {
   );
 }
 
-const navSize = '60px';
-
 const NavStyled = styled.nav`
-  height: ${navSize};
+  height: 60px;
   padding: 0 1rem;
   border-bottom: 1px solid #474a4d;
   position: relative;

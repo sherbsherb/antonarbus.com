@@ -1,20 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { Menu } from "./Menu";
-import { Icon } from "./Icon";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import { Menu } from './Menu';
+import { Icon } from './Icon';
+import { Context } from './_Nav';
 
 // component inside the Nav = icons
-export function NavItem({
-  navO,
-  openedMenuState,
-  prevMenu,
-  closeMenu,
-  showMenu,
-  changeMenu,
-  showMenuContainerState,
-  isTopMenuItem,
-  navKeyboardHandler,
-}) {
+export function NavItem(props) {
+  const context = useContext(Context);
+  const { openedMenuState, showMenu, showMenuContainerState } = context;
+  const { navO } = props;
+
   // console.log('NavItem rendered');
   return (
     <NavItemLi>
@@ -31,16 +26,7 @@ export function NavItem({
 
       {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
       {showMenuContainerState &&
-        openedMenuState?.underNavItemId === navO.id && (
-          <Menu
-            openedMenuState={openedMenuState}
-            prevMenu={prevMenu}
-            closeMenu={closeMenu}
-            changeMenu={changeMenu}
-            isTopMenuItem={isTopMenuItem}
-            navKeyboardHandler={navKeyboardHandler}
-          />
-        )}
+        openedMenuState?.underNavItemId === navO.id && <Menu />}
     </NavItemLi>
   );
 }

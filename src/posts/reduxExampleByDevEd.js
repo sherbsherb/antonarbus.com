@@ -129,7 +129,7 @@ export const reduxExampleByDevEd = {
               'https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd'
             }
           >
-            Chrome
+            Chrome{' '}
           </Link>
           to observe state in real time in dev tools.
         </>

@@ -1,63 +1,53 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
-import { BackItem } from "./BackItem";
-import { CloseItem } from "./CloseItem";
-import { MenuItem } from "./MenuItem";
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { BackItem } from './BackItem';
+import { CloseItem } from './CloseItem';
+import { MenuItem } from './MenuItem';
+import { Context } from './_Nav';
 
 // menu with 'back' & 'close' buttons on top & MenuItems
 
-export function Menu({
-  openedMenuState,
-  prevMenu,
-  closeMenu,
-  changeMenu,
-  isTopMenuItem,
-  navKeyboardHandler
-}) {
+export function Menu() {
+  const context = useContext(Context);
+  const { openedMenuState, closeMenu, navKeyboardHandler } = context;
 
   function calcHeight(el) {
-    const elCopy = el.cloneNode(true)
-    elCopy.style.height = 'auto'
-    elCopy.style.padding = '1rem'
-    document.body.before(elCopy)
+    const elCopy = el.cloneNode(true);
+    elCopy.style.height = 'auto';
+    elCopy.style.padding = '1rem';
+    document.body.before(elCopy);
     const height = elCopy.offsetHeight;
-    elCopy.remove()
-    return height
+    elCopy.remove();
+    return height;
   }
 
-  const ref = useRef()
-  const [menuHeight, setMenuHeight] = useState(0)
-  const [menuPadding, setMenuPadding] = useState(0)
+  const ref = useRef();
+  const [menuHeight, setMenuHeight] = useState(0);
+  const [menuPadding, setMenuPadding] = useState(0);
 
   useEffect(() => {
     window.addEventListener('keydown', navKeyboardHandler);
     window.addEventListener('click', closeMenu);
-    setMenuHeight(calcHeight(ref.current))
-    setMenuPadding('1rem')
+    setMenuHeight(calcHeight(ref.current));
+    setMenuPadding('1rem');
 
-    return () => { 
+    return () => {
       window.removeEventListener('keydown', navKeyboardHandler);
       window.removeEventListener('click', closeMenu);
     };
-
   }, [openedMenuState]);
 
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
 
   return (
-    <MenuContainer 
+    <MenuContainer
       ref={ref}
       style={{ height: menuHeight, padding: menuPadding }}
     >
-      {isNestedMenu && <BackItem prevMenu={prevMenu} />}
-      {!isNestedMenu && <CloseItem closeMenu={closeMenu} />}
+      {isNestedMenu && <BackItem />}
+      {!isNestedMenu && <CloseItem />}
       {openedMenuState.menuItems.map(menuItem => (
-        <MenuItem
-          menuItem={menuItem}
-          changeMenu={changeMenu}
-          key={menuItem.id}
-          isTopMenuItem={isTopMenuItem}
-        />
+        <MenuItem menuItem={menuItem} key={menuItem.id} />
       ))}
     </MenuContainer>
   );
@@ -73,7 +63,7 @@ export const MenuContainer = styled.div`
   top: 110%;
   width: 300px;
   background-color: #242526;
-  
+
   border: 1px solid #474a4d;
   border-radius: 8px;
   padding: 1rem;
@@ -82,7 +72,7 @@ export const MenuContainer = styled.div`
   transform: translateX(-45%);
 
   animation-name: ${slideDownAnimation};
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-delay: 0ms;
   animation-iteration-count: 1;
   animation-direction: normal;
@@ -91,7 +81,7 @@ export const MenuContainer = styled.div`
   transform-origin: top;
 
   transition-property: height, padding;
-  transition-duration: .35s;
+  transition-duration: 0.35s;
 
   @media screen and (max-width: 480px) {
     transform: translateX(0px) !important;

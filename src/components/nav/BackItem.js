@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useContext } from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 import { LeftPart, MenuLink } from './MenuItem';
 import { FaChevronLeft as LeftArrowIcon } from 'react-icons/fa';
+import { Context } from './_Nav';
 
-export function BackItem({ prevMenu }) {
+export function BackItem() {
+  const context = useContext(Context);
+  const { prevMenu } = context;
+
   return (
     <BackLink href="#" onClick={prevMenu}>
       <LeftPart>

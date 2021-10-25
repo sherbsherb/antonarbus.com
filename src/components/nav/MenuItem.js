@@ -1,15 +1,19 @@
 import styled, { css, keyframes } from 'styled-components';
 import { FaChevronRight as ForwardIcon } from 'react-icons/fa';
-import React from 'react';
+import React, { useContext } from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
+import { Context } from './_Nav';
 
-export function MenuItem({ menuItem, changeMenu, isTopMenuItem }) {
+export function MenuItem(props) {
+  const context = useContext(Context);
+  const { changeMenu, isTopMenuState } = context;
+  const { menuItem } = props
   // console.log('MenuItem rendered');
   return (
     <MenuLink
       href="#"
-      isTopMenuItem={isTopMenuItem}
+      isTopMenuState={isTopMenuState}
 
       onClick={e => {
         e?.stopPropagation();
@@ -51,7 +55,7 @@ export const MenuLink = styled.a`
   white-space: nowrap;
 
 
-  animation-name: ${props => props.isTopMenuItem ? `none` : appearAnimation };
+  animation-name: ${props => props.isTopMenuState ? `none` : appearAnimation };
   animation-duration: .5s;
   animation-delay: 0ms;
   animation-iteration-count: 1;

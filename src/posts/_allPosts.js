@@ -51,8 +51,10 @@ import { useLayoutEffectHook } from './useLayoutEffectHook';
 import { customHooks } from './customHooks';
 import { useInputCustomHook } from './useInputCustomHook';
 import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
+import { useContexWithUseStateWithoutUseReducer } from './useContexWithUseStateWithoutUseReducer';
 
 const posts = [
+  useContexWithUseStateWithoutUseReducer,
   useToggleBooleanStateCustomHook,
   useInputCustomHook,
   customHooks,

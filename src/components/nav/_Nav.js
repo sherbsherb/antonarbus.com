@@ -9,7 +9,7 @@ export function Nav() {
 
   const [openedMenuState, setOpenedMenuState] = useState(null);
   const [showMenuContainerState, setShowMenuContainerState] = useState(false);
-  const [isTopMenuState, setIsTopMenuState] = useState(false)
+  const [isTopMenuState, setIsTopMenuState] = useState(false);
 
   function showMenu(o) {
     // console.log('showMenu() func fired');
@@ -45,7 +45,7 @@ export function Nav() {
   function changeMenu(o) {
     // console.log('changeMenu() func fired');
     const isSubMenu = o.menu;
-    if (!isSubMenu)return;  
+    if (!isSubMenu) return;
 
     // console.log('fall one level down in menu');
     setIsTopMenuState(false);
@@ -101,7 +101,7 @@ export function Nav() {
     closeMenu,
     prevMenu,
     navKeyboardHandler,
-    isTopMenuState, 
+    isTopMenuState,
     setIsTopMenuState,
   };
 

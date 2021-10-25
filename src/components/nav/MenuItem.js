@@ -10,7 +10,7 @@ export function MenuItem({ menuItem, changeMenu, isTopMenuItem }) {
     <MenuLink
       href="#"
       isTopMenuItem={isTopMenuItem}
-      
+
       onClick={e => {
         e?.stopPropagation();
         changeMenu(menuItem);
@@ -49,14 +49,19 @@ export const MenuLink = styled.a`
   padding: 0.5rem;
   color: #dadce1;
   white-space: nowrap;
-  animation: ${props =>
-    props.isTopMenuItem
-      ? css`none`
-      : css`
-          ${appearAnimation} 0.5s cubic-bezier(0, 1, 0.5, 1)
-        `};
-  
-  /* animation: ${appearAnimation} 500ms cubic-bezier(0, 1, 0.5, 1); */
+
+
+  animation-name: ${props => props.isTopMenuItem ? `none` : appearAnimation };
+  animation-duration: .5s;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  /* animation-direction: reverse; */
+  animation-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  animation-fill-mode: forwards;
+  transform-origin: top;
+
+
 
   &:hover {
     background-color: #525357;

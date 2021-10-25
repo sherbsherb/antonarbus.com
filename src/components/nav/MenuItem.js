@@ -10,6 +10,7 @@ export function MenuItem({ menuItem, changeMenu, isTopMenuItem }) {
     <MenuLink
       href="#"
       isTopMenuItem={isTopMenuItem}
+      
       onClick={e => {
         e?.stopPropagation();
         changeMenu(menuItem);

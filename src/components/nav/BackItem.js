@@ -8,10 +8,17 @@ import { Context } from './_Nav';
 
 export function BackItem() {
   const context = useContext(Context);
-  const { prevMenu } = context;
+  const { goBack } = context;
 
   return (
-    <BackLink href="#" onClick={prevMenu}>
+    <BackLink 
+      href="" 
+      onClick={e => {
+        e.preventDefault()
+        e.nativeEvent.stopImmediatePropagation();
+        goBack()
+      }}
+    >
       <LeftPart>
         <Icon><LeftArrowIcon /></Icon>
         <MenuText>Back</MenuText>

@@ -12,7 +12,14 @@ export function CloseItem() {
   const { closeMenu } = context;
 
   return (
-    <CloseLink href="#" onClick={closeMenu}>
+    <CloseLink 
+      href="" 
+      onClick={e => {
+        e.preventDefault()
+        e.nativeEvent.stopImmediatePropagation();
+        closeMenu()
+      }}
+    >
       <LeftPart>
         <Icon>{closeIcon}</Icon>
         <MenuText>Close</MenuText>

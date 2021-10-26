@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Icon = styled.a`
+export const Icon = styled.span`
   width: ${60 * 0.5}px;
   height: ${60 * 0.5}px;
   background-color: #484a4d;
@@ -21,6 +21,6 @@ export const Icon = styled.a`
   }
 
   &:hover {
-    filter: brightness(1.2);
+    /* filter: brightness(1.2); */
   }
 `;

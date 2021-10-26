@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { NavItem } from './NavItem';
 import navStructure from './navStructure';
-import { Context } from './_Nav';
 
 export default function NavList() {
-
+  // show items on navbar where .visible = true
   return (
     <Ul>
       {navStructure.map(
-        navO => navO.visible && <NavItem navO={navO} key={navO.id} />
+        menuO => menuO.visible && <NavItem menuO={menuO} key={menuO.id} />
       )}
     </Ul>
   );

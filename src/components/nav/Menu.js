@@ -5,31 +5,30 @@ import { CloseItem } from './CloseItem';
 import { MenuItem } from './MenuItem';
 import { Context } from './_Nav';
 
-// menu with 'back' & 'close' buttons on top & MenuItems
+// for height animation
+function calcHeight(el) {
+  const elCopy = el.cloneNode(true);
+  elCopy.style.height = 'auto';
+  elCopy.style.padding = '1rem';
+  document.body.before(elCopy);
+  const height = elCopy.offsetHeight;
+  elCopy.remove();
+  return height;
+}
 
 export function Menu() {
   const context = useContext(Context);
   const { openedMenuState, closeMenu, navKeyboardHandler } = context;
 
-  function calcHeight(el) {
-    const elCopy = el.cloneNode(true);
-    elCopy.style.height = 'auto';
-    elCopy.style.padding = '1rem';
-    document.body.before(elCopy);
-    const height = elCopy.offsetHeight;
-    elCopy.remove();
-    return height;
-  }
-
   const ref = useRef();
-  const [menuHeight, setMenuHeight] = useState(0);
-  const [menuPadding, setMenuPadding] = useState(0);
+  const [menuHeightState, setMenuHeightState] = useState(0);
+  const [menuPaddingState, setMenuPaddingState] = useState(0);
 
   useEffect(() => {
     window.addEventListener('keydown', navKeyboardHandler);
     window.addEventListener('click', closeMenu);
-    setMenuHeight(calcHeight(ref.current));
-    setMenuPadding('1rem');
+    setMenuHeightState(calcHeight(ref.current));
+    setMenuPaddingState('1rem');
 
     return () => {
       window.removeEventListener('keydown', navKeyboardHandler);
@@ -42,10 +41,9 @@ export function Menu() {
   return (
     <MenuContainer
       ref={ref}
-      style={{ height: menuHeight, padding: menuPadding }}
+      style={{ height: menuHeightState, padding: menuPaddingState }}
     >
-      {isNestedMenu && <BackItem />}
-      {!isNestedMenu && <CloseItem />}
+      {isNestedMenu ? <BackItem /> : <CloseItem />}
       {openedMenuState.menuItems.map(menuItem => (
         <MenuItem menuItem={menuItem} key={menuItem.id} />
       ))}

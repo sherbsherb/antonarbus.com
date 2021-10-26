@@ -9,13 +9,13 @@ export function MenuItem(props) {
   const context = useContext(Context);
   const { changeMenu, isTopMenuState } = context;
   const { menuItem } = props
-  // console.log('MenuItem rendered');
   return (
     <MenuLink
-      href="#"
+      href=""
       isTopMenuState={isTopMenuState}
       onClick={e => {
-        e?.stopPropagation();
+        e.preventDefault()
+        e.nativeEvent.stopImmediatePropagation()
         changeMenu(menuItem);
       }}
     >

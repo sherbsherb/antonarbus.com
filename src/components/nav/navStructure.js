@@ -4,16 +4,12 @@ import { FaReact } from 'react-icons/fa';
 import { FaRedhat } from 'react-icons/fa';
 import { AiOutlinePlus } from 'react-icons/ai';
 // can use alias with 'as'
-import { IoClose } from 'react-icons/io5';
 import React from 'react';
 import shortid from 'shortid';
 
-const appleIcon = React.createElement(FaApple, {});
 const reactIcon = React.createElement(FaReact, {});
 const redHatIcon = React.createElement(FaRedhat, {});
 const plusIcon = React.createElement(AiOutlinePlus, {});
-// can insert component as a JS variable instead of JSX tag
-const closeIcon = React.createElement(IoClose, {});
 
 // menu structure
 const navStructure = [
@@ -21,7 +17,7 @@ const navStructure = [
     navItem: true,
     visible: true,
     icon: <FaApple/>,
-    text: '',
+    text: 'apple',
     menu: null,
     id: shortid(),
   },

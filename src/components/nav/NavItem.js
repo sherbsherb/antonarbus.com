@@ -4,36 +4,51 @@ import { Menu } from './Menu';
 import { Icon } from './Icon';
 import { Context } from './_Nav';
 
-// component inside the Nav = icons
+// icons w/o text on the navbar
 export function NavItem(props) {
   const context = useContext(Context);
-  const { openedMenuState, showMenu, showMenuContainerState } = context;
-  const { navO } = props;
+  const { openedMenuState, showMenu, showMenuState } = context;
+  const { menuO } = props;
 
-  // console.log('NavItem rendered');
+  // every li get its menuO from navStructure via props and we can open it on click event
   return (
-    <NavItemLi>
-      <Icon
-        href="#"
+    <Li>
+      <Link
+        href=""
         onClick={e => {
-          e.stopPropagation();
-          showMenu(navO);
+          e.preventDefault()
+          e.nativeEvent.stopImmediatePropagation();
+          showMenu(menuO);
         }}
       >
-        {navO.icon}
-        {navO.text}
-      </Icon>
+        {menuO.icon && <Icon>{menuO.icon}</Icon>}
+        {menuO.text && <Text>{menuO.text}</Text>}
+      </Link>
 
-      {/* show only specific menu for NavItem id, otherwise all existing menus are shown */}
-      {showMenuContainerState &&
-        openedMenuState?.underNavItemId === navO.id && <Menu />}
-    </NavItemLi>
+      {/* show only specific menu for navItemId, otherwise all existing menus are shown */}
+      {showMenuState && openedMenuState?.navItemId === menuO.id && <Menu />}
+    </Li>
   );
 }
 
-export const NavItemLi = styled.li`
-  width: ${60 * 0.8}px;
+const Li = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0px 5px;
+`;
+
+const Link = styled.a`
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+`;
+
+const Text = styled.span`
+  margin-left: 5px;
+  margin-right: 5px;
+  color: grey;
 `;

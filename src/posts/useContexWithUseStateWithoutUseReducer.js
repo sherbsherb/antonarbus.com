@@ -51,12 +51,6 @@ export const useContexWithUseStateWithoutUseReducer = {
   tagsArr: ['react', 'useReducer', 'hook', 'basics'],
   postParts: [
     {
-      type: 'text',
-      val: <>
-        With <i>Context</i> we pass static data & state. Maybe it is simpler that using <i>reducer</i> 
-      </>,
-    },
-    {
       type: 'code',
       lang: 'jsx',
       val: `

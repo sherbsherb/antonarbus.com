@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 const initState = 0;
 function reducer(state, action) {
@@ -39,11 +39,11 @@ export const useReducerPost = {
       type: 'text',
       val: (
         <>
-          <Link
+          <Lnk
             path={'https://reactjs.org/docs/hooks-reference.html#usereducer'}
           >
             useReducer
-          </Link>{' '}
+          </Lnk>{' '}
           hook is the alternative to <i>useState</i> and meant to manage state.
         </>
       ),

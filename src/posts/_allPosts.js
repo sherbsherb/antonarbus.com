@@ -52,8 +52,10 @@ import { customHooks } from './customHooks';
 import { useInputCustomHook } from './useInputCustomHook';
 import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
 import { useContexWithUseStateWithoutUseReducer } from './useContexWithUseStateWithoutUseReducer';
+import { reactRouting } from './reactRouting/reactRouting';
 
 const posts = [
+  reactRouting,
   useContexWithUseStateWithoutUseReducer,
   useToggleBooleanStateCustomHook,
   useInputCustomHook,

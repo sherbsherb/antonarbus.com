@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />);
 
@@ -47,7 +47,7 @@ export const forwardRef = {
           To pass a reference to a DOM element into a custom component via{' '}
           <CodeSpan>React.useRef()</CodeSpan> we need to wrap a custom component
           into <CodeSpan>React.forwardRef()</CodeSpan>{' '}
-          <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'}
+          <Lnk link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'}
             text={'function'}
           />.
         </>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 const btnCss = {padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer',}
 
@@ -104,7 +104,7 @@ export const whyToUseState = {
       type: 'text',
       val: <>As far as react renders only changes in virtual DOM, we need 
       to tell him about changes. It can be done with <CodeSpan>useState()</CodeSpan>  
-      {' '} <Link link={'https://reactjs.org/docs/hooks-state.html'}>hook</Link>.</>,
+      {' '} <Lnk link={'https://reactjs.org/docs/hooks-state.html'}>hook</Lnk>.</>,
     },
     {
       type: 'code',

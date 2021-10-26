@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export function Link(props) {
+export function Lnk(props) {
   return (
     <AStyled href={props.link || props.path || props.url || props.src} target="_blank">
       {props.text}

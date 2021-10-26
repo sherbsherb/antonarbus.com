@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 function Component() {
   const [posts, setPosts] = useState([]);
@@ -37,9 +37,9 @@ export const useEffectFetchData = {
       val: (
         <>
           Let's get data from{' '}
-          <Link path={'https://jsonplaceholder.typicode.com/guide/'}>
+          <Lnk path={'https://jsonplaceholder.typicode.com/guide/'}>
             jsonplaceholder
-          </Link>{' '}
+          </Lnk>{' '}
           by <i>fetching</i> and setting the <i>state</i> inside{' '}
           <CodeSpan>useEffect()</CodeSpan>.
         </>

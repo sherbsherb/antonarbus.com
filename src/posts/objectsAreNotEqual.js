@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 export const objectsAreNotEqual = {
   title: <>Same objects are not equal</>,
@@ -11,13 +11,13 @@ export const objectsAreNotEqual = {
       val: (
         <>
           From{' '}
-          <Link
+          <Lnk
             path={
               'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#comparing_objects'
             }
           >
             MDN
-          </Link>{' '}
+          </Lnk>{' '}
           <i>
             <q>
               In JavaScript, objects are a reference type. Two distinct objects

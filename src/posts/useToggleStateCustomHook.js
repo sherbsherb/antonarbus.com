@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 import useToggleBooleanState from '../helpers/functions/useToggleBooleanState';
 
 function Component() {
@@ -80,13 +80,13 @@ export const useToggleBooleanStateCustomHook = {
       val: (
         <>
           Similar function can be found in the{' '}
-          <Link path={'https://www.npmjs.com/package/react-use'}>
+          <Lnk path={'https://www.npmjs.com/package/react-use'}>
             react-use
-          </Link>{' '}
+          </Lnk>{' '}
           package under the{' '}
-          <Link path="https://github.com/streamich/react-use/blob/HEAD/docs/useToggle.md">
+          <Lnk path="https://github.com/streamich/react-use/blob/HEAD/docs/useToggle.md">
             useToggle
-          </Link>{' '}
+          </Lnk>{' '}
           hook.
         </>
       ),

@@ -13,7 +13,7 @@ export function NavItem(props) {
   // every li get its menuO from navStructure via props and we can open it on click event
   return (
     <Li>
-      <Link
+      <Lnk
         href=""
         onClick={e => {
           e.preventDefault()
@@ -23,7 +23,7 @@ export function NavItem(props) {
       >
         {menuO.icon && <Icon>{menuO.icon}</Icon>}
         {menuO.text && <Text>{menuO.text}</Text>}
-      </Link>
+      </Lnk>
 
       {/* show only specific menu for navItemId, otherwise all existing menus are shown */}
       {showMenuState && openedMenuState?.navItemId === menuO.id && <Menu />}
@@ -38,7 +38,7 @@ const Li = styled.li`
   padding: 0px 5px;
 `;
 
-const Link = styled.a`
+const Lnk = styled.a`
   display: flex;
   align-items: center;
 

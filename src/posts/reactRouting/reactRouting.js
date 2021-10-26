@@ -10,10 +10,10 @@ function Component() {
     <Router>
       <Nav />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
+        <Route path="/about" exact component={About} />
         <Route path="/shop" exact component={Shop} />
         <Route path="/shop/:id" component={ItemInShop} />
+        <Route path="/" component={Home} />
       </Switch>
       <Footer />
     </Router>
@@ -121,10 +121,10 @@ export const reactRouting = {
             <Router>
               <Nav />
               <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/about" component={About} />
+                <Route path="/about" exact component={About} />
                 <Route path="/shop" exact component={Shop} />
                 <Route path="/shop/:id" component={ItemInShop} />
+                <Route path="/" component={Home} />
               </Switch>
               <Footer />
             </Router>
@@ -189,10 +189,10 @@ export const reactRouting = {
             <Router>
               <Nav />
               <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/about" component={About} />
+                <Route path="/about" exact component={About} />
                 <Route path="/shop" exact component={Shop} />
                 <Route path="/shop/:id" component={ItemInShop} />
+                <Route path="/" component={Home} />
               </Switch>
               <Footer />
             </Router>

@@ -89,7 +89,7 @@ export const reactRouting = {
           <Lnk path="https://www.npmjs.com/package/react-router-dom">
             <CodeSpan>npm i react-router-dom</CodeSpan>{' '}
           </Lnk>{' '}
-          package from npm in your terminal.
+          package in your terminal.
         </>
       ),
     },
@@ -105,7 +105,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Components which are connected to an <i>url</i> to be passed into <CodeSpan>{'<Route>'}</CodeSpan> component.
+          A component which is connected to an <i>url</i> to be passed into the <CodeSpan>{'<Route>'}</CodeSpan>.
         </>
       ),
     },
@@ -172,7 +172,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          The component receives <i>id</i> in props and can use it for dynamic data presentation, for example to fetch data from api <CodeSpan>{'axios(`https://apiUrl/get?id=${props.match.params.id}`)'}</CodeSpan>. 
+          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{'axios(`https://apiUrl/get?id=${props.match.params.id}`)'}</CodeSpan>. 
         </>
       ),
     },

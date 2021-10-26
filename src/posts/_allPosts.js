@@ -53,8 +53,10 @@ import { useInputCustomHook } from './useInputCustomHook';
 import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
 import { useContexWithUseStateWithoutUseReducer } from './useContexWithUseStateWithoutUseReducer';
 import { reactRouting } from './reactRouting/reactRouting';
+import { expressServerForReact } from './expressServerForReact';
 
 const posts = [
+  expressServerForReact,
   reactRouting,
   useContexWithUseStateWithoutUseReducer,
   useToggleBooleanStateCustomHook,

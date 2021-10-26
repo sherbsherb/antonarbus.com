@@ -34,6 +34,7 @@ export function Menu() {
       window.removeEventListener('keydown', navKeyboardHandler);
       window.removeEventListener('click', closeMenu);
     };
+    
   }, [openedMenuState]);
 
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;

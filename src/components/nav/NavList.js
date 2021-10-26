@@ -1,12 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { NavItem } from './NavItem';
 import navStructure from './navStructure';
 import { Context } from './_Nav';
 
 export default function NavList() {
-  const context = useContext(Context);
-  console.log(context);
 
   return (
     <Ul>

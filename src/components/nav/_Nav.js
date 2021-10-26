@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import styled from 'styled-components';
 import NavList from './NavList';
 

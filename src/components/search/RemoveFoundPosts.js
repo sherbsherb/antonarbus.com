@@ -4,16 +4,16 @@ import { store } from '../..';
 
 export function RemoveFoundPosts() {
   const dispatch = useDispatch();
-  const foundPostsNum = store.getState().foundPosts.length;
+  const postsOnDisplayNum = store.getState().postsOnDisplay.length;
 
   return (
     <DivStyled>
       <span>
-        {!!foundPostsNum && foundPostsNum}
-        {!!foundPostsNum && foundPostsNum && ' post'}
-        {!!foundPostsNum && (foundPostsNum > 1 ? 's are ' : ' is ')}
-        {!foundPostsNum && 'Not '}
-        found
+        {!!postsOnDisplayNum && postsOnDisplayNum}
+        {!!postsOnDisplayNum && postsOnDisplayNum && ' post'}
+        {!!postsOnDisplayNum && (postsOnDisplayNum > 1 ? 's are ' : ' is ')}
+        {!postsOnDisplayNum && 'Not '}
+        shown
       </span>
       <span
         onClick={e => {

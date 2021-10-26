@@ -36,9 +36,7 @@ export default function SearchContainer() {
       // do not close dropdown search menu if clicked inside
       onClick={e => e.stopPropagation()}
     >
-      <InputSearch />
-      <BtnCancel />
-      <BtnSearch />
+      <InputSearch /><BtnCancel /><BtnSearch />
       {showRemoveFoundPostsMsgState && <RemoveFoundPosts />}
       {showSearchMenuState && (
         <SearchPreviewContainer>

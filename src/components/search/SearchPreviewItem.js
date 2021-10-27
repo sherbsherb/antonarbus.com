@@ -1,12 +1,23 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { _allPosts } from '../../posts/_allPosts';
 
 export function SearchPreviewItem(props) {
+  const dispatch = useDispatch();
 
   return (
-    <SearchPreviewStyled className="post-preview">
-      <h4>{props.title}</h4>
-      <summary>{props.summary}</summary>
-    </SearchPreviewStyled>
+    <Link
+      to={'/post/' + props.uriPostName}
+      onClick={() => {
+        dispatch({ type: 'close search menu' });
+      }}
+    >
+      <SearchPreviewStyled className="post-preview">
+        <h4>{props.title}</h4>
+        <summary>{props.summary}</summary>
+      </SearchPreviewStyled>
+    </Link>
   );
 }
 
@@ -18,6 +29,7 @@ const SearchPreviewStyled = styled.div`
   padding: 5px;
   max-height: 106px;
   overflow-y: auto;
+  
 
   &:hover {
     background-color: lightgrey;
@@ -25,6 +37,7 @@ const SearchPreviewStyled = styled.div`
 
   h4 {
     margin-bottom: 5px;
+    color: #0083bf;
   }
 
   summary {

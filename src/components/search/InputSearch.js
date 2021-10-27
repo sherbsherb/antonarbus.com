@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../../App';
+import { _allPosts } from '../../posts/_allPosts';
 import searchIco from './../../imgs/searchIco.png'
 
 
@@ -73,7 +74,7 @@ export function InputSearch() {
           e.preventDefault();
           if (store.getState().searchInputVal === '') {
             dispatch({ type: 'remove search input val' });
-            dispatch({ type: 'display all posts' });
+            dispatch({ type: 'display following posts', postsToShow: _allPosts });
             dispatch({ type: 'close search menu' });
             dispatch({ type: 'remove remove found posts msg' });
             dispatch({ type: 'remove tags input val' });
@@ -85,8 +86,8 @@ export function InputSearch() {
           dispatch({ type: 'show found posts msg' });
           dispatch({ type: 'show remove found posts msg' });
           dispatch({
-            type: 'display found posts',
-            foundPosts: store.getState().foundPosts,
+            type: 'display following posts',
+            postsToShow: store.getState().foundPosts,
           });
           dispatch({ type: 'remove tags input val' });
         }
@@ -94,7 +95,7 @@ export function InputSearch() {
         if (e.key === 'Escape') {
           e.preventDefault();
           dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display all posts' });
+          dispatch({ type: 'display following posts', postsToShow: _allPosts });
           dispatch({ type: 'close search menu' });
           dispatch({ type: 'remove remove found posts msg' });
           dispatch({ type: 'remove tags input val' });

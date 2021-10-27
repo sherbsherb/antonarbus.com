@@ -75,8 +75,7 @@ const toRender = (
 export const reduxExampleByDevEd = {
   title: (
     <>
-      Redux example by{' '}
-      <Lnk path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Lnk>
+      Redux example
     </>
   ),
   date: '2021.10.14',
@@ -381,6 +380,15 @@ export const reduxExampleByDevEd = {
     {
       type: 'output',
       val: toRender,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+        Inspired by{' '}
+        <Lnk path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Lnk>
+      </>
+      ),
     },
   ],
 };

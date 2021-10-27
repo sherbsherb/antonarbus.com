@@ -59,10 +59,7 @@ const toRender = <Component />;
 export const axiosVsFetch = {
   title: (
     <>
-      <Lnk path={'https://axios-http.com/docs/intro'}>Axios</Lnk> vs{' '}
-      <Lnk path={'https://developer.mozilla.org/en-US/docs/Web/API/fetch'}>
-        Fetch
-      </Lnk>
+      Axios vs Fetch
     </>
   ),
   date: '2021.10.16',
@@ -72,7 +69,9 @@ export const axiosVsFetch = {
       type: 'text',
       val: (
         <>
-          <i>Fetch</i> api is built into a browser, but axios can be installed
+          <Lnk path={'https://developer.mozilla.org/en-US/docs/Web/API/fetch'}>
+        Fetch
+      </Lnk> api is built into a browser, but <Lnk path={'https://axios-http.com/docs/intro'}>Axios</Lnk> can be installed
           with <CodeSpan>npm i axios</CodeSpan>
         </>
       ),

@@ -7,7 +7,7 @@ export  function SearchPreviewContainer(props) {
 
   const dispatch = useDispatch()
   
-  function closeSearchPreview(params) {
+  function closeSearchPreview() {
     dispatch({ type: 'close search menu' })
     dispatch({ type: 'remove tags input val' })
   }
@@ -15,6 +15,7 @@ export  function SearchPreviewContainer(props) {
   useEffect(() => {
     document.addEventListener('click', closeSearchPreview);
     return () => document.removeEventListener('click', closeSearchPreview)
+    
   }, []);
 
   return (

@@ -14,6 +14,7 @@ export function Post(props) {
   const num = post.postNum;
   const tags = post.tagsArr;
   const date = post.date;
+  const uriPostName = post.uriPostName
 
   function jsxesFromPostParts(post) {
     return post.postParts.map((el, index) => {
@@ -28,7 +29,7 @@ export function Post(props) {
 
   return (
     <article className="post">
-      <Title>{title}</Title>
+      <Title uriPostName={uriPostName}>{title}</Title>
       <Section>
         {jsxesFromPostParts(post)}
         <Num>{num}</Num>

@@ -49,6 +49,7 @@ export default function SearchContainer() {
                 <SearchPreviewItem
                   title={o.titleTxt}
                   summary={foundPostsState.length < 10 && o.postTxt}
+                  uriPostName={o.uriPostName}
                   key={o.id + '_preview'}
                 />
               );

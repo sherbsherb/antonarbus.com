@@ -18,8 +18,8 @@ export function FoundPosts() {
         dispatch({ type: 'show found posts msg' });
         dispatch({ type: 'show remove found posts msg' });
         dispatch({
-          type: 'display found posts',
-          foundPosts: store.getState().foundPosts,
+          type: 'display following posts',
+          postsToShow: store.getState().foundPosts,
         });
       }}
     >

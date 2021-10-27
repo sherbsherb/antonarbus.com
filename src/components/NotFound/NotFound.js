@@ -4,16 +4,19 @@ import styled from 'styled-components';
 
 export function NotFound(props) {
   console.log(props);
+  
   return (
     <Div>
+      <div style={{ color: '#f7695f' }}>not found!</div>
       <div>
-        <span style={{ color: '#03a9f4' }}>
-          www.antonarbus.com{props.location.pathname}
-        </span>{' '}
-        <span style={{ color: '#f7695f' }}>not found!</span>
-      </div>
-      <div>
-        <Link to="/" style={{ textDecoration: 'underline', color: '#5e5e5e' }}>
+        <Link
+          to="/"
+          style={{ textDecoration: 'underline', color: '#5e5e5e' }}
+          onClick={e => {
+            e.preventDefault();
+            props.history.goBack();
+          }}
+        >
           Go back
         </Link>
       </div>

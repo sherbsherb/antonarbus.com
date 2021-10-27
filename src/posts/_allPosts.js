@@ -115,7 +115,7 @@ const posts = [
 export const _allPosts = posts.map((o, index) => ({
   ...o,
   titleTxt: jsxToStr(o.title), 
-  uri: encodeURI(jsxToStr(o.title).replace(/\s/g,'-').toLowerCase()),
+  uriPostName: encodeURI(jsxToStr(o.title).replace(/\s/g,'-').toLowerCase()),
   postTxt: o.postParts.map(el => jsxToStr(el.val)).join(''),
   id: shortid(),
   postNum: posts.length - index,

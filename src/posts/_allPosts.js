@@ -121,4 +121,4 @@ export const _allPosts = posts.map((o, index) => ({
   postNum: posts.length - index,
 }))
 
-console.log(_allPosts)
+// console.log(_allPosts)

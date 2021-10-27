@@ -13,15 +13,45 @@ export const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+// pass multiple components into Router
+// https://stackoverflow.com/questions/37342997/render-multiple-components-in-react-router/37343236
+
 export default function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Nav />
-        <SearchContainer />
+        {/* <Nav /> */}
+        {/* <SearchContainer /> */}
         <Switch>
-          <Route path="/post/:uriPostName" exact component={PostsFeed} />
-          <Route path="/" exact component={PostsFeed} />
+          <Route
+            path="/post/:uriPostName"
+            exact
+            render={props => (
+              <>
+                <Nav />
+                <SearchContainer />
+                <PostsFeed {...props} />
+              </>
+            )}
+          />
+
+          <Route
+            path="/"
+            exact
+            render={props => (
+              <>
+                <Nav />
+                <SearchContainer />
+                <PostsFeed {...props} />
+              </>
+            )}
+          />
+
+          {/* 
+            <Route path="/post/:uriPostName" exact component={PostsFeed} /> 
+            <Route path="/" exact component={PostsFeed} />
+          */}
+
           <Route component={NotFound} />
         </Switch>
       </Router>

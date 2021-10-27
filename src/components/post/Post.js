@@ -11,7 +11,7 @@ import { Img } from './Img.js';
 export function Post(props) {
   const post = props.post;
   const title = post.title;
-  const num = post.sequentialNum;
+  const num = post.postNum;
   const tags = post.tagsArr;
   const date = post.date;
 

@@ -112,17 +112,13 @@ const posts = [
   jsVsJsx,
 ]
 
-// enumerate posts
-posts.forEach((o, index) => o.sequentialNum = posts.length - index)
-
-// add id to posts
-posts.forEach(o => o.id = shortid())
-
-// add pure text in addition to title and post jsxes
-const postsWithoutJSX = posts.map(el => ({
-  ...el,
-  titleTxt: jsxToStr(el.title), 
-  postTxt: el.postParts.map(el => jsxToStr(el.val)).join('')
+export const _allPosts = posts.map((o, index) => ({
+  ...o,
+  titleTxt: jsxToStr(o.title), 
+  uri: encodeURI(jsxToStr(o.title).replace(/\s/g,'-').toLowerCase()),
+  postTxt: o.postParts.map(el => jsxToStr(el.val)).join(''),
+  id: shortid(),
+  postNum: posts.length - index,
 }))
 
-export const _allPosts = postsWithoutJSX
+console.log(_allPosts)

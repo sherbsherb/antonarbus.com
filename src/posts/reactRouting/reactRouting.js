@@ -54,7 +54,7 @@ const Shop = () => {
 
 const ItemInShop = (props) => {
   console.log(props)
-  const [state, setState] = useState({ images: {}, ratings: {}, });
+  const [state, setState] = useState({});
   
   useEffect(() => {
     axios(`https://fortnite-api.theapinetwork.com/item/get?id=${props.match.params.id}`)
@@ -66,8 +66,8 @@ const ItemInShop = (props) => {
       <div><b>name</b>: {state.name}</div>
       <div><b>description</b>: {state.description}</div>
       <div><b>cost</b>: {state.cost}</div>
-      <div><b>ratings</b>: {state.ratings.avgStars}</div>
-      <img src={state.images.icon} alt={state.description} /> 
+      <div><b>ratings</b>: {state.ratings?.avgStars}</div>
+      <img src={state.images?.icon} alt={state.description} /> 
     </>
   );
 };
@@ -178,6 +178,14 @@ export const reactRouting = {
     },
     {
       type: 'text',
+      val: (
+        <>
+          For dynamic components presentation we retrieve data from <Lnk path='https://docs.fortniteapi.com/'>fortniteapi</Lnk>. 
+        </>
+      ),
+    },
+    {
+      type: 'text',
       val: 'Full code',
     },
     {
@@ -233,7 +241,7 @@ export const reactRouting = {
         
         const ItemInShop = (props) => {
           console.log(props)
-          const [state, setState] = useState({ images: {}, ratings: {}, });
+          const [state, setState] = useState({});
           
           useEffect(() => {
             axios(\`https://fortnite-api.theapinetwork.com/item/get?id=\${props.match.params.id}\`)
@@ -245,8 +253,8 @@ export const reactRouting = {
               <div><b>name</b>: {state.name}</div>
               <div><b>description</b>: {state.description}</div>
               <div><b>cost</b>: {state.cost}</div>
-              <div><b>ratings</b>: {state.ratings.avgStars}</div>
-              <img src={state.images.icon} alt={state.description} /> 
+              <div><b>ratings</b>: {state.ratings?.avgStars}</div>
+              <img src={state.images?.icon} alt={state.description} /> 
             </>
           );
         };

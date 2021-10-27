@@ -6,7 +6,10 @@ import Mark from "mark.js";
 import { store } from "../../App";
 import { Post } from "../post/Post";
 
-export function ManyPosts() {
+export function ManyPosts(props) {
+
+  console.log(props)
+
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
   
   useEffect(() => {
@@ -29,7 +32,7 @@ export function ManyPosts() {
   }, [postsOnDisplayState]);
   
   return (
-      <StyledMain>{returnPostsMemo}</StyledMain>
+    <StyledMain>{returnPostsMemo}</StyledMain>
   )
 }
 

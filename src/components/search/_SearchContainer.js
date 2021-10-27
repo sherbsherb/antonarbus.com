@@ -2,7 +2,7 @@ import Mark from 'mark.js';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
+import { store } from '../../App';
 import { BtnCancel } from './BtnCancel';
 import { BtnSearch } from './BtnSearch';
 import { FoundPosts } from './FoundPosts';

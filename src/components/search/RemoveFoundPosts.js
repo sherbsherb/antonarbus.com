@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
+import { store } from '../../App';
 
 export function RemoveFoundPosts() {
   const dispatch = useDispatch();

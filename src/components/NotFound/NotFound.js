@@ -19,6 +19,4 @@ const Div = styled.div `
   text-align: center;
   margin-top: 30px;
   font-weight: 600;
-
-
 `

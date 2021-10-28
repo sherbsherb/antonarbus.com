@@ -34,12 +34,6 @@ export function PostsFeed(props) {
     }
   }, [location]);
 
-
-
-  
-
-
-
   
   useEffect(() => {
     // highlight found words

@@ -85,7 +85,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Install{' '}
+          To use <Lnk path="https://reactrouter.com/web/guides/quick-start">React Router</Lnk> we need to install{' '}
           <Lnk path="https://www.npmjs.com/package/react-router-dom">
             <CodeSpan>npm i react-router-dom</CodeSpan>{' '}
           </Lnk>{' '}

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Menu } from './Menu';
 import { Icon } from './Icon';
 import { Context } from './_Nav';
+import { Link } from 'react-router-dom';
 
 // icons w/o text on the navbar
 export function NavItem(props) {
@@ -13,9 +14,13 @@ export function NavItem(props) {
   // every li get its menuO from navStructure via props and we can open it on click event
   return (
     <Li>
-      <Lnk
-        href=""
+      <Link
+        to={menuO.link}
         onClick={e => {
+          const isLink = menuO.link
+          // if it is a link, just let react route
+          if (isLink) return
+          // if it is not a link, open menu
           e.preventDefault()
           e.nativeEvent.stopImmediatePropagation();
           showMenu(menuO);
@@ -23,7 +28,7 @@ export function NavItem(props) {
       >
         {menuO.icon && <Icon>{menuO.icon}</Icon>}
         {menuO.text && <Text>{menuO.text}</Text>}
-      </Lnk>
+      </Link>
 
       {/* show only specific menu for navItemId, otherwise all existing menus are shown */}
       {showMenuState && openedMenuState?.navItemId === menuO.id && <Menu />}
@@ -36,14 +41,14 @@ const Li = styled.li`
   align-items: center;
   justify-content: center;
   padding: 0px 5px;
-`;
 
-const Lnk = styled.a`
-  display: flex;
-  align-items: center;
+  a {
+    display: flex;
+    align-items: center;
 
-  &:hover {
+    &:hover {
     filter: brightness(1.2);
+  }
   }
 `;
 

@@ -54,8 +54,14 @@ import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
 import { useContexWithUseStateWithoutUseReducer } from './useContexWithUseStateWithoutUseReducer';
 import { reactRouting } from './reactRouting/reactRouting';
 import { expressServerForReact } from './expressServerForReact';
+import { reactIcons } from './reactIcons';
+import { tableOfContent } from './tableOfContent';
+import { RoutesCombination } from './RoutesCombination';
 
 const posts = [
+  RoutesCombination,
+  tableOfContent,
+  reactIcons,
   expressServerForReact,
   reactRouting,
   useContexWithUseStateWithoutUseReducer,

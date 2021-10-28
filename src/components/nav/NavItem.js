@@ -10,15 +10,14 @@ export function NavItem(props) {
   const context = useContext(Context);
   const { openedMenuState, showMenu, showMenuState } = context;
   const { menuO } = props;
+  const isLink = menuO.link
 
   // every li get its menuO from navStructure via props and we can open it on click event
   return (
     <Li>
       <Link
-        to={menuO.link}
+        to={menuO.link || "/"}
         onClick={e => {
-          const isLink = menuO.link
-          // if it is a link, just let react route
           if (isLink) return
           // if it is not a link, open menu
           e.preventDefault()
@@ -47,8 +46,8 @@ const Li = styled.li`
     align-items: center;
 
     &:hover {
-    filter: brightness(1.2);
-  }
+      filter: brightness(1.2);
+    }
   }
 `;
 

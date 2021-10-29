@@ -58,8 +58,10 @@ import { tableOfContent } from './tableOfContent';
 import { RoutesCombination } from './RoutesCombination';
 import { modalWindowWithBackgroundLayer } from './modalWindowWithBackgroundLayer';
 import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroundLayer';
+import { kbdStyle } from './kbdStyle';
 
 const posts = [
+  kbdStyle,
   modalWindowWithoutBackgroundLayer,
   modalWindowWithBackgroundLayer,
   RoutesCombination,

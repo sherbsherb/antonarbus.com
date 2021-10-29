@@ -211,7 +211,7 @@ export const modalWindowWithBackgroundLayer = {
       val: (
         <>
           After initial render with <CodeSpan>useEffect()</CodeSpan> we launch
-          listener for a <kbd>Escape</kbd> keypress to close the modal window.
+          listener for a <kbd>Esc</kbd> keypress to close the modal window.
         </>
       ),
     },

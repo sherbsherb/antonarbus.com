@@ -15,10 +15,9 @@ function Parent() {
     document.addEventListener('click', e => {
       const clickedEl = e.target;
       const cBox = ref.current;
-      const bkgColor = clickedEl.style.background;
       const clickedInside = isClickedElInsideThisEl(clickedEl, cBox)
-      clickedEl.style.background = clickedInside ? '#0bb9104d' : '#ff000047'
-      setTimeout(() => clickedEl.style.background = bkgColor, 1000);
+      clickedEl.style.background = clickedInside ? 'lightgreen' : 'lightpink'
+      setTimeout(() => clickedEl.style.background = '', 1000);
     });
   }
 
@@ -69,10 +68,9 @@ export const clickedInsideOutside = {
             document.addEventListener('click', e => {
               const clickedEl = e.target;
               const cBox = ref.current;
-              const bkgColor = clickedEl.style.background;
               const clickedInside = isClickedElInsideThisEl(clickedEl, cBox)
-              clickedEl.style.background = clickedInside ? '#0bb9104d' : '#ff000047'
-              setTimeout(() => clickedEl.style.background = bkgColor, 1000);
+              clickedEl.style.background = clickedInside ? 'lightgreen' : 'lightpink'
+              setTimeout(() => clickedEl.style.background = '', 1000);
             });
           }
         

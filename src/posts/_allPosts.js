@@ -60,8 +60,10 @@ import { modalWindowWithBackgroundLayer } from './modalWindowWithBackgroundLayer
 import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroundLayer';
 import { kbdStyle } from './kbdStyle';
 import { clickedInsideOutside } from './clickedInsideOutside';
+import { useAnimatedWrapperCustomHook } from './useAnimatedWrapperCustomHook';
 
 const posts = [
+  useAnimatedWrapperCustomHook,
   clickedInsideOutside,
   kbdStyle,
   modalWindowWithoutBackgroundLayer,

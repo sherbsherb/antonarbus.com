@@ -1,6 +1,6 @@
 import React from 'react';
 import { _allPosts } from './_allPosts';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export function TblOfContent() {

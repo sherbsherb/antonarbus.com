@@ -172,7 +172,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{'axios(`https://apiUrl/get?id=${props.match.params.id}`)'}</CodeSpan>. 
+          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{"axios(`https://apiUrl/get?id=${props.match.params.id}`)"}</CodeSpan>. 
         </>
       ),
     },

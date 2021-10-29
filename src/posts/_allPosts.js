@@ -26,7 +26,6 @@ import { addEventListenerInReact } from './addEventListenerInReact';
 import { useEffectCleanUp } from './useEffectCleanUp';
 import { useEffectFetchData } from './useEffectFetchData';
 import { axiosVsFetch } from './axiosVsFetch';
-import { modalWindow } from './modalWindow';
 import { useContextPost } from './useContextPost';
 import jsxToStr from '../helpers/functions/jsxToStr';
 import { useReducerPost } from './useReducerPost';
@@ -57,8 +56,12 @@ import { expressServerForReact } from './expressServerForReact';
 import { reactIcons } from './reactIcons';
 import { tableOfContent } from './tableOfContent';
 import { RoutesCombination } from './RoutesCombination';
+import { modalWindowWithBackgroundLayer } from './modalWindowWithBackgroundLayer';
+import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroundLayer';
 
 const posts = [
+  modalWindowWithoutBackgroundLayer,
+  modalWindowWithBackgroundLayer,
   RoutesCombination,
   tableOfContent,
   reactIcons,
@@ -88,7 +91,6 @@ const posts = [
   useReducerWithObjStateAndReducer,
   useReducerPost,
   useContextPost,
-  modalWindow,
   axiosVsFetch,
   useEffectFetchData,
   useEffectCleanUp,

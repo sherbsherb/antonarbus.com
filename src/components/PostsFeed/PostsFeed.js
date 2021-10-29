@@ -15,8 +15,6 @@ export function PostsFeed(props) {
   const location = useLocation();
 
   useEffect(() => {
-    const currentPath = location.pathname;
-    console.log(currentPath)
     const postNameFromUri = props?.match?.params?.uriPostName
     const doesPostFromUriExist = _allPosts.some(o => o.uriPostName === postNameFromUri)
 
@@ -39,6 +37,11 @@ export function PostsFeed(props) {
     // highlight found words
     const context = document.querySelector('main');
     const instance = new Mark(context);
+    if (window.location.pathname !== '/') {
+      instance.unmark();
+      return
+    }
+    
     instance.unmark();
     instance.mark(store.getState().typedWords);
   }, [postsOnDisplayState]);

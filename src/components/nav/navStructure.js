@@ -1,7 +1,5 @@
 // import & set icons
-import { AiOutlineGoogle as GoogleIco } from "react-icons/ai";
 import { FaReact } from 'react-icons/fa';
-import { FaRedhat } from 'react-icons/fa';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdOutlineMenuBook as BookIcon } from 'react-icons/md';
 
@@ -10,7 +8,6 @@ import React from 'react';
 import shortid from 'shortid';
 
 const reactIcon = React.createElement(FaReact, {});
-const googleIcon = React.createElement(GoogleIco, {});
 const plusIcon = React.createElement(AiOutlinePlus, {});
 
 // menu structure

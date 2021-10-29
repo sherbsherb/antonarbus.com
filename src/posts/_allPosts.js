@@ -59,8 +59,10 @@ import { RoutesCombination } from './RoutesCombination';
 import { modalWindowWithBackgroundLayer } from './modalWindowWithBackgroundLayer';
 import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroundLayer';
 import { kbdStyle } from './kbdStyle';
+import { clickedInsideOutside } from './clickedInsideOutside';
 
 const posts = [
+  clickedInsideOutside,
   kbdStyle,
   modalWindowWithoutBackgroundLayer,
   modalWindowWithBackgroundLayer,

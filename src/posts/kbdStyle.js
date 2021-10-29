@@ -23,6 +23,7 @@ const Div = styled.div `
     box-shadow: 0px 1px 0px rgba(0,0,0,0.2), inset 0px 0px 0px 2px #ffffff;
     background-color: rgb(247, 247, 247);
     text-shadow: 0 1px 0 #fff;
+    font-size: 12px;
   }
 `
 
@@ -66,6 +67,7 @@ export const kbdStyle = {
             box-shadow: 0px 1px 0px rgba(0,0,0,0.2), inset 0px 0px 0px 2px #ffffff;
             background-color: rgb(247, 247, 247);
             text-shadow: 0 1px 0 #fff;
+            font-size: 12px;
           }
         \`
       `

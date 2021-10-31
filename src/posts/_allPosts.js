@@ -61,10 +61,10 @@ import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroun
 import { kbdStyle } from './kbdStyle';
 import { clickedInsideOutside } from './clickedInsideOutside';
 import { passArgsIntoFunc } from './passArgsIntoFunc';
-import { xxx } from './xxx';
+import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
 
 const posts = [
-  xxx,
+  useAnimatedWrapperPost,
   passArgsIntoFunc,
   clickedInsideOutside,
   kbdStyle,

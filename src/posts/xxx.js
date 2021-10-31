@@ -1,58 +1,65 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const animationName = (arg) => keyframes`${arg}`;
+function useAnimatedWrapper() {
+  const [animationState, setAnimationState] = useState(false);
+  const turnAnimationOn = () => setAnimationState(true);
 
-const Div = styled.div`
-  display: inline-block;
+  function AnimationWrapper(props) {
+    const animationName = keyframeRules => keyframes`${keyframeRules}`;
 
-  animation-name: ${props => (props.isAnimationOn ? animationName(props.css.keyframes) : '')};
-  animation-duration: ${props => props.css.animationDuration};
-  animation-timing-function: ${props => props.css.animationTimingFunction};
-  animation-delay: ${props => props.css.animationDelay};
-  animation-iteration-count: ${props => props.css.animationIterationCount};
-  animation-direction: ${props => props.css.animationDirection};
-  animation-fill-mode: ${props => props.css.animationFillMode};
-`;
+    const Div = styled.div`
+      display: inline-block;
 
-function AnimationWrapper(props) {
+      animation-name: ${props =>props.isAnimationOn ? animationName(props.css.keyframes) : ''};
+      animation-duration: ${props => props.css.animationDuration};
+      animation-timing-function: ${props => props.css.animationTimingFunction};
+      animation-delay: ${props => props.css.animationDelay};
+      animation-iteration-count: ${props => props.css.animationIterationCount};
+      animation-direction: ${props => props.css.animationDirection};
+      animation-fill-mode: ${props => props.css.animationFillMode};
+    `;
 
-  const defaultAnimationCss = {
-    keyframes: `
-      from { transform: scaleY(0); }
-      to { transform: scaleY(1); }
-    `,
-    animationDuration: '0.3s',
-    animationTimingFunction: 'ease-in-out',
-    animationDelay: '0s',
-    animationIterationCount: 1,
-    animationDirection: 'normal',
-    animationFillMode: 'forwards',
+    const defaultAnimationCss = {
+      keyframes: `
+        from { transform: scaleY(0); }
+        to { transform: scaleY(1); }
+      `,
+      animationDuration: '0.3s',
+      animationTimingFunction: 'ease-in-out',
+      animationDelay: '0s',
+      animationIterationCount: 1,
+      animationDirection: 'normal',
+      animationFillMode: 'forwards',
+    };
+
+    const animationCss = { ...defaultAnimationCss, ...props.animationCss };
+
+    return (
+      <Div
+        onAnimationEnd={() => setAnimationState(false)}
+        isAnimationOn={animationState}
+        css={animationCss}
+      >
+        {props.children}
+      </Div>
+    );
   }
 
-  const animationCss = {...defaultAnimationCss, ...props.animationCss}
-
-  const [animationState, setAnimationState] = useState(false);
-
-  return (
-    <Div
-      onClick={() => setAnimationState(true)}
-      onAnimationEnd={() => setAnimationState(false)}
-      isAnimationOn={animationState}
-      css={animationCss}
-    >
-      {props.children}
-    </Div>
-  );
+  return [AnimationWrapper, turnAnimationOn];
 }
 
 function Component() {
-
-  const divCss = {background: '#e6c0c0',margin: '5px',padding: '5px',cursor: 'pointer'}
+  const divCss = {
+    background: '#e6c0c0',
+    margin: '5px',
+    padding: '5px',
+    cursor: 'pointer',
+  };
 
   const animationCss = {
     animationDuration: '.25s',
-    keyframes:`
+    keyframes: `
       0% { transform: translateX(0) }
       10% { transform: translateX(5px) }
       30% { transform: translateX(0) }
@@ -60,20 +67,29 @@ function Component() {
       70% { transform: translateX(0) }
       90% { transform: translateX(5px) }
       100% { transform: translateX(0) }
-    `
-  }
-  
+    `,
+  };
+
+  const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
+  const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper();
+
   return (
     <>
-      <AnimationWrapper>
-        <div style={divCss}>Default animation</div>
-      </AnimationWrapper>
-      
-      <AnimationWrapper animationCss={animationCss}>
-        <div style={divCss}>Custom animation</div>
-      </AnimationWrapper>
+      <div>
+        <AnimationWrapper>
+          <div style={divCss}>Default animation</div>
+        </AnimationWrapper>
+        <button onClick={turnAnimationOn}>Force animation</button>
+      </div>
+
+      <div>
+        <AnimationWrapper2 animationCss={animationCss}>
+          <div style={divCss}>Custom animation</div>
+        </AnimationWrapper2>
+        <button onClick={turnAnimationOn2}>Force animation</button>
+      </div>
     </>
-);
+  );
 }
 
 const toRender = <Component />;

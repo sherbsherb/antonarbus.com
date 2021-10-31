@@ -62,8 +62,10 @@ import { kbdStyle } from './kbdStyle';
 import { clickedInsideOutside } from './clickedInsideOutside';
 import { passArgsIntoFunc } from './passArgsIntoFunc';
 import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
+import { ReactTransitionGroup } from './ReactTransitionGroup';
 
 const posts = [
+  ReactTransitionGroup,
   randomIntegerNumberFunction,
   useAnimatedWrapperPost,
   passArgsIntoFunc,

@@ -5,6 +5,7 @@ import { forwardLotsOfProps } from './forwardLotsOfProps'
 import { forwardRef } from './forwardRef'
 import { immutableState } from './immutabilityOfState'
 import { jsVsJsx } from './jsVsJsx'
+import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 import { passProps } from './passProps'
 import { updateValueFromChildComponent } from './updateValueFromChildComponent'
 import { toDoList } from './toDoList'
@@ -33,7 +34,6 @@ import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndRed
 import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
 import { useContextWithUseReducer } from './useContextWithUseReducer';
 import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
-import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 import { delayPromise } from './delayPromise';
 import { animationTriggerByClass } from './animationTriggerByClass';
 import { animationTriggerByProp } from './animationTriggerByProp';
@@ -64,6 +64,7 @@ import { passArgsIntoFunc } from './passArgsIntoFunc';
 import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
 
 const posts = [
+  randomIntegerNumberFunction,
   useAnimatedWrapperPost,
   passArgsIntoFunc,
   clickedInsideOutside,
@@ -92,7 +93,6 @@ const posts = [
   animationTriggerByProp,
   animationTriggerByClass,
   delayPromise,
-  randomIntegerNumberFunction,
   fetchWithLoadingIndicator,
   useContextWithUseReducer,
   oneReducerForMultipleComponents,

@@ -53,7 +53,7 @@ export const passArgsIntoFunc = {
     },
     {
       type: 'text',
-      val: 'We can pass arguments by spreading array values',
+      val: 'We can pass arguments by spreading array values.',
     },
     {
       type: 'code',
@@ -65,7 +65,7 @@ export const passArgsIntoFunc = {
     },
     {
       type: 'text',
-      val: 'More parameters than needed can be passed. Function will take only first ones.',
+      val: 'More parameters than supposed can be passed. Function will take only first ones.',
     },
     {
       type: 'code',
@@ -80,7 +80,7 @@ export const passArgsIntoFunc = {
         <>
           All arguments are accessed within function inside a special iterable {' '}
           <CodeSpan>arguments</CodeSpan> variable.
-          In arrow function <CodeSpan>arguments</CodeSpan> doesn't exist.
+          In arrow function <CodeSpan>arguments</CodeSpan> variable doesn't exist.
         </>
       ),
     },

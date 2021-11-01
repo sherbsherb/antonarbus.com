@@ -1,6 +1,31 @@
 import styled from "styled-components";
 
-export const SearchPreviewContainer = styled.div`
+import React, { useEffect } from 'react'
+import { useDispatch } from "react-redux";
+
+export  function SearchPreviewContainer(props) {
+
+  const dispatch = useDispatch()
+  
+  function closeSearchPreview() {
+    dispatch({ type: 'close search menu' })
+    dispatch({ type: 'remove tags input val' })
+  }
+  
+  useEffect(() => {
+    document.addEventListener('click', closeSearchPreview);
+    return () => document.removeEventListener('click', closeSearchPreview)
+    
+  }, []);
+
+  return (
+    <Div>
+      {props.children}
+    </Div>
+  )
+}
+
+export const Div = styled.div`
   position: absolute;
   top: 50px;
   left: 0px;

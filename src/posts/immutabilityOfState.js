@@ -60,9 +60,8 @@ export const immutableState = {
       val: (
         <>
           Instead, you need to create a new copy of{' '}
-          <CodeSpan>myData</CodeSpan>
-          and change only the parts of it that need to be changed. For state
-          data React can compare the old copy with the new one.
+          <CodeSpan>myData</CodeSpan> and change only the parts of it that need to be changed. 
+          For state data React can compare the old copy with the new one.
         </>
       ),
     },

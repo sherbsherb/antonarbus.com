@@ -1,59 +1,29 @@
-import React, { useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { useState } from 'react';
+import randomNumFromTo from '../helpers/functions/randomNumFromTo';
+import useAnimatedWrapper from '../helpers/functions/useAnimatedWrapper';
+import useInput from '../helpers/functions/useInput';
 const style = { width: '50px', marginRight: '10px' };
 
-const pulse = keyframes`
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
-`
-
-const Num = styled.span`
-  display: inline-block;
-  font-weight: 600;
-  animation: ${props => !!props.animateNow ? pulse : '' } 0.2s ease-in-out;
-`
-
 function Component() {
-  const [valState, setValState] = useState('?');
-  const [fromState, setFromState] = useState('');
-  const [toState, setToState] = useState('');
-  const [animateState, setAnimateState] = useState(0);
-  const ref = useRef()
-
-  function randomNumFromTo(from, to) {
-    if (from === to && from === 0) [from, to] = [1, 100]
-    if (isNaN(from) || isNaN(to)) [from, to] = [1, 100]
-    if (from > to) [from, to] = [to, from]
-    return Math.floor(Math.random() * (to - from + 1) + from);
-  }
+  const [valState, setValState] = useState(0);
+  const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
+  const [inputFromState, bindInputFrom] = useInput()
+  const [inputToState, bindInputTo] = useInput()
 
   return (
     <>
-      <input
-        placeholder={'from'}
-        style={style}
-        value={fromState}
-        onChange={e => setFromState(e.target.value)}
-      />
-      <input
-        placeholder={'to'}
-        style={style}
-        value={toState}
-        onChange={e => setToState(e.target.value)}
-      />
+      <input placeholder='from' style={style} {...bindInputFrom} />
+      <input placeholder={'to'} style={style} {...bindInputTo} />
       <button
         onClick={() => {
-          setValState(randomNumFromTo(+fromState, +toState).toString())
-          setAnimateState(1)
+          setValState(randomNumFromTo(inputFromState, inputToState));
+          turnAnimationOn();
         }}
-        
       >
         Get random integer
       </button>
       <div>
-        Random number: <Num ref={ref} animateNow={animateState} onAnimationEnd={() => {
-          setAnimateState(0)
-        }}>{valState}</Num>
+        Random number: <AnimationWrapper>{valState}</AnimationWrapper>
       </div>
     </>
   );
@@ -62,8 +32,8 @@ function Component() {
 const toRender = <Component />;
 
 export const randomIntegerNumberFunction = {
-  title: <>Random integer number function</>,
-  date: '2021.10.19',
+  title: <>Random integer number</>,
+  date: '2021.10.31',
   tagsArr: ['function', 'vanilla', 'js', 'JavaScript', 'animation'],
   postParts: [
     {
@@ -80,6 +50,11 @@ export const randomIntegerNumberFunction = {
       lang: 'jsx',
       val: `
         function randomNumFromTo(from, to) {
+          from = parseInt(from)
+          to = parseInt(to)
+          if (from === to && from === 0) [from, to] = [1, 100]
+          if (isNaN(from) || isNaN(to)) [from, to] = [1, 100]
+          if (from > to) [from, to] = [to, from]
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
       `,
@@ -92,62 +67,32 @@ export const randomIntegerNumberFunction = {
       type: 'code',
       lang: 'jsx',
       val: `
-        import React, { useRef, useState } from 'react';
-        import styled, { keyframes } from 'styled-components';
+        import React, { useState } from 'react';
+        import randomNumFromTo from '../helpers/functions/randomNumFromTo';
+        import useAnimatedWrapper from '../helpers/functions/useAnimatedWrapper';
+        import useInput from '../helpers/functions/useInput';
         const style = { width: '50px', marginRight: '10px' };
         
-        const pulse = keyframes\`
-          from { transform: scaleY(0); }
-          to { transform: scaleY(1); }
-        \`
-        
-        const Num = styled.span\`
-          display: inline-block;
-          font-weight: 600;
-          animation: \${props => !!props.animateNow ? pulse : '' } 0.2s ease-in-out;
-        \`
-        
         function Component() {
-          const [valState, setValState] = useState('?');
-          const [fromState, setFromState] = useState('');
-          const [toState, setToState] = useState('');
-          const [animateState, setAnimateState] = useState(0);
-          const ref = useRef()
-        
-          function randomNumFromTo(from, to) {
-            if (from === to && from === 0) [from, to] = [1, 100]
-            if (isNaN(from) || isNaN(to)) [from, to] = [1, 100]
-            if (from > to) [from, to] = [to, from]
-            return Math.floor(Math.random() * (to - from + 1) + from);
-          }
+          const [valState, setValState] = useState(0);
+          const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
+          const [inputFromState, bindInputFrom] = useInput()
+          const [inputToState, bindInputTo] = useInput()
         
           return (
             <>
-              <input
-                placeholder={'from'}
-                style={style}
-                value={fromState}
-                onChange={e => setFromState(e.target.value)}
-              />
-              <input
-                placeholder={'to'}
-                style={style}
-                value={toState}
-                onChange={e => setToState(e.target.value)}
-              />
+              <input placeholder='from' style={style} {...bindInputFrom} />
+              <input placeholder={'to'} style={style} {...bindInputTo} />
               <button
                 onClick={() => {
-                  setValState(randomNumFromTo(+fromState, +toState).toString())
-                  setAnimateState(1)
+                  setValState(randomNumFromTo(inputFromState, inputToState));
+                  turnAnimationOn();
                 }}
-                
               >
                 Get random integer
               </button>
               <div>
-                Random number: <Num ref={ref} animateNow={animateState} onAnimationEnd={() => {
-                  setAnimateState(0)
-                }}>{valState}</Num>
+                Random number: <AnimationWrapper>{valState}</AnimationWrapper>
               </div>
             </>
           );

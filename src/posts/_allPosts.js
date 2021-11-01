@@ -5,6 +5,7 @@ import { forwardLotsOfProps } from './forwardLotsOfProps'
 import { forwardRef } from './forwardRef'
 import { immutableState } from './immutabilityOfState'
 import { jsVsJsx } from './jsVsJsx'
+import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 import { passProps } from './passProps'
 import { updateValueFromChildComponent } from './updateValueFromChildComponent'
 import { toDoList } from './toDoList'
@@ -26,7 +27,6 @@ import { addEventListenerInReact } from './addEventListenerInReact';
 import { useEffectCleanUp } from './useEffectCleanUp';
 import { useEffectFetchData } from './useEffectFetchData';
 import { axiosVsFetch } from './axiosVsFetch';
-import { modalWindow } from './modalWindow';
 import { useContextPost } from './useContextPost';
 import jsxToStr from '../helpers/functions/jsxToStr';
 import { useReducerPost } from './useReducerPost';
@@ -34,7 +34,6 @@ import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndRed
 import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
 import { useContextWithUseReducer } from './useContextWithUseReducer';
 import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
-import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
 import { delayPromise } from './delayPromise';
 import { animationTriggerByClass } from './animationTriggerByClass';
 import { animationTriggerByProp } from './animationTriggerByProp';
@@ -50,8 +49,39 @@ import { secToHHMMSSfunc } from './secToHHMMSSfunc';
 import { useLayoutEffectHook } from './useLayoutEffectHook';
 import { customHooks } from './customHooks';
 import { useInputCustomHook } from './useInputCustomHook';
+import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
+import { useContexWithUseStateWithoutUseReducer } from './useContexWithUseStateWithoutUseReducer';
+import { reactRouting } from './reactRouting/reactRouting';
+import { expressServerForReact } from './expressServerForReact';
+import { reactIcons } from './reactIcons';
+import { tableOfContent } from './tableOfContent';
+import { RoutesCombination } from './RoutesCombination';
+import { modalWindowWithBackgroundLayer } from './modalWindowWithBackgroundLayer';
+import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroundLayer';
+import { kbdStyle } from './kbdStyle';
+import { clickedInsideOutside } from './clickedInsideOutside';
+import { passArgsIntoFunc } from './passArgsIntoFunc';
+import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
+import { ReactTransitionGroupTransition } from './ReactTransitionGroupTransition';
+import { ReactTransitionGroupCssTransition } from './ReactTransitionGroupCssTransition';
 
 const posts = [
+  ReactTransitionGroupCssTransition,
+  ReactTransitionGroupTransition,
+  randomIntegerNumberFunction,
+  useAnimatedWrapperPost,
+  passArgsIntoFunc,
+  clickedInsideOutside,
+  kbdStyle,
+  modalWindowWithoutBackgroundLayer,
+  modalWindowWithBackgroundLayer,
+  RoutesCombination,
+  tableOfContent,
+  reactIcons,
+  expressServerForReact,
+  reactRouting,
+  useContexWithUseStateWithoutUseReducer,
+  useToggleBooleanStateCustomHook,
   useInputCustomHook,
   customHooks,
   useLayoutEffectHook,
@@ -67,14 +97,12 @@ const posts = [
   animationTriggerByProp,
   animationTriggerByClass,
   delayPromise,
-  randomIntegerNumberFunction,
   fetchWithLoadingIndicator,
   useContextWithUseReducer,
   oneReducerForMultipleComponents,
   useReducerWithObjStateAndReducer,
   useReducerPost,
   useContextPost,
-  modalWindow,
   axiosVsFetch,
   useEffectFetchData,
   useEffectCleanUp,
@@ -104,17 +132,13 @@ const posts = [
   jsVsJsx,
 ]
 
-// enumerate posts
-posts.forEach((o, index) => o.sequentialNum = posts.length - index)
-
-// add id to posts
-posts.forEach(o => o.id = shortid())
-
-// add pure text in addition to title and post jsxes
-const postsWithoutJSX = posts.map(el => ({
-  ...el,
-  titleTxt: jsxToStr(el.title), 
-  postTxt: el.postParts.map(el => jsxToStr(el.val)).join('')
+export const _allPosts = posts.map((o, index) => ({
+  ...o,
+  titleTxt: jsxToStr(o.title), 
+  uriPostName: encodeURI(jsxToStr(o.title).replace(/\s/g,'-').toLowerCase()),
+  postTxt: o.postParts.map(el => jsxToStr(el.val)).join(''),
+  id: shortid(),
+  postNum: posts.length - index,
 }))
 
-export const _allPosts = postsWithoutJSX
+// console.log(_allPosts)

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 const DivStyled = styled.div`
   display: inline-block;
@@ -78,7 +78,7 @@ export const styledComponentsAndProps = {
       val: (
         <>
           With{' '}
-          <Link url={'https://styled-components.com/'}>Styled components</Link>{' '}
+          <Lnk url={'https://styled-components.com/'}>Styled components</Lnk>{' '}
           we can create a react component and attach css/sass via JS.
         </>
       ),

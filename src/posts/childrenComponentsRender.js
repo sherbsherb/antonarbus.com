@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 const style = {
   border: '2px solid grey',
@@ -60,7 +60,7 @@ export const childrenComponentsRender = {
     {
       type: 'text',
       val:<>
-        Have read the <Link path={'https://felixgerschau.com/react-rerender-components/#when-does-react-re-render'}>article</Link> which 
+        Have read the <Lnk path={'https://felixgerschau.com/react-rerender-components/#when-does-react-re-render'}>article</Lnk> which 
         says <q>... all its subsequent child components will re-render, regardless of whether their props have changed or not.</q>
       </>,
     },

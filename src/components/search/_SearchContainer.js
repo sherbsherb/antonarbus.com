@@ -2,7 +2,7 @@ import Mark from 'mark.js';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
+import { store } from '../../App';
 import { BtnCancel } from './BtnCancel';
 import { BtnSearch } from './BtnSearch';
 import { FoundPosts } from './FoundPosts';
@@ -36,9 +36,7 @@ export default function SearchContainer() {
       // do not close dropdown search menu if clicked inside
       onClick={e => e.stopPropagation()}
     >
-      <InputSearch />
-      <BtnCancel />
-      <BtnSearch />
+      <InputSearch /><BtnCancel /><BtnSearch />
       {showRemoveFoundPostsMsgState && <RemoveFoundPosts />}
       {showSearchMenuState && (
         <SearchPreviewContainer>
@@ -51,6 +49,7 @@ export default function SearchContainer() {
                 <SearchPreviewItem
                   title={o.titleTxt}
                   summary={foundPostsState.length < 10 && o.postTxt}
+                  uriPostName={o.uriPostName}
                   key={o.id + '_preview'}
                 />
               );

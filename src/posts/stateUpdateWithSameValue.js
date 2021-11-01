@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 function Component() {
   const [state, setState] = useState(0);
@@ -72,9 +72,9 @@ export const stateUpdateWithSameValue = {
           after assigning the same state value, no clue why. <br />
           <br />
           According to the{' '}
-          <Link path={'https://github.com/facebook/react/issues/17474'}>
+          <Lnk path={'https://github.com/facebook/react/issues/17474'}>
             React Github
-          </Link>{' '}
+          </Lnk>{' '}
           that is the known thing.
         </>
       ),

@@ -15,9 +15,9 @@ function Parent() {
       <div>State: <b>{state.toString()}</b></div>
       <button onClick={() => setState(!state)}>Update state</button>
       <Child name={'Child'} />
-      <MemoizedChild name={'Memoised child with var pass'} variable={someVar} />
-      <MemoizedChild name={'Memoised child with func pass'} func={someFunc} />
-      <MemoizedChild name={'Memoised child with memoized func pass'} func={memoizedFunc} />
+      <MemoizedChild name={'Momoized child with var pass'} variable={someVar} />
+      <MemoizedChild name={'Momoized child with func pass'} func={someFunc} />
+      <MemoizedChild name={'Momoized child with memoized func pass'} func={memoizedFunc} />
     </div>
   );
 }
@@ -69,7 +69,7 @@ export const useCallbackHook = {
       type: 'text',
       val: (
         <>
-          Let's convert passed function from the previous example into a memoised
+          Let's convert passed function from the previous example into a Momoized
           cached function wrapping it into <CodeSpan>useCallback()</CodeSpan>.
         </>
       ),
@@ -121,9 +121,9 @@ export const useCallbackHook = {
               <div>State: <b>{state.toString()}</b></div>
               <button onClick={() => setState(!state)}>Update state</button>
               <Child name={'Child'} />
-              <MemoizedChild name={'Memoised child with var pass'} variable={someVar} />
-              <MemoizedChild name={'Memoised child with func pass'} func={someFunc} />
-              <MemoizedChild name={'Memoised child with memoized func pass'} func={memoizedFunc} />
+              <MemoizedChild name={'Momoized child with var pass'} variable={someVar} />
+              <MemoizedChild name={'Momoized child with func pass'} func={someFunc} />
+              <MemoizedChild name={'Momoized child with memoized func pass'} func={memoizedFunc} />
             </div>
           );
         }

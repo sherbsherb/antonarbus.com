@@ -12,7 +12,7 @@ function Component() {
 
   useEffect(() => {
     document.addEventListener('mousemove', logMouseCords);
-    console.log('event listener has been added only ones');
+    // console.log('event listener has been added only ones');
     // clean code on component unmount
     return () => document.removeEventListener('mousemove', logMouseCords);
   }, []);

@@ -10,7 +10,7 @@ function jsxToStr(el) {
   return jsxToStr(children);
 }
 
-console.dir(<>Hello <strong>Mike</strong></>)
+// console.dir(<>Hello <strong>Mike</strong></>)
 const toRender = jsxToStr(<>Hello <strong>Mike</strong></>);
 
 export const jsxToString = {

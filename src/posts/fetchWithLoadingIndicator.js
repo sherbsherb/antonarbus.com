@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useReducer, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 import randomNumFromTo from '../helpers/functions/randomNumFromTo';
 import sleeper from '../helpers/functions/sleeper';
 
@@ -72,9 +72,9 @@ export const fetchWithLoadingIndicator = {
       val: (
         <>
           Let's fetch data from{' '}
-          <Link path={'https://jsonplaceholder.typicode.com/guide/'}>
+          <Lnk path={'https://jsonplaceholder.typicode.com/guide/'}>
             jsonplaceholder
-          </Link>{' '}
+          </Lnk>{' '}
           and set a state with <CodeSpan>useState()</CodeSpan> hook upon success or error, which will lead to a render,{' '}
           <i>It's that simple!</i>
         </>

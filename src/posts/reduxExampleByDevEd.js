@@ -1,5 +1,5 @@
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 import React from 'react';
 import { createStore, combineReducers } from 'redux';
 import { Provider, useSelector, useDispatch } from 'react-redux';
@@ -75,8 +75,7 @@ const toRender = (
 export const reduxExampleByDevEd = {
   title: (
     <>
-      Redux example by{' '}
-      <Link path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Link>
+      Redux example
     </>
   ),
   date: '2021.10.14',
@@ -94,7 +93,7 @@ export const reduxExampleByDevEd = {
       type: 'text',
       val: (
         <>
-          <Link path={'https://redux.js.org/'}>Redux</Link> is a state manager
+          <Lnk path={'https://redux.js.org/'}>Redux</Lnk> is a state manager
           for JS applications.
         </>
       ),
@@ -110,27 +109,27 @@ export const reduxExampleByDevEd = {
       val: (
         <>
           First of all install <i>Redux</i> with {' '}
-          <Link path={'https://www.npmjs.com/package/redux'}>
+          <Lnk path={'https://www.npmjs.com/package/redux'}>
             <CodeSpan>{'npm i redux'}</CodeSpan>
-          </Link>{' '}
+          </Lnk>{' '}
           & connect it to the React with{' '}
-          <Link path={'https://www.npmjs.com/package/react-redux'}>
+          <Lnk path={'https://www.npmjs.com/package/react-redux'}>
             <CodeSpan>{'npm i react-redux'}</CodeSpan>
-          </Link>{' '}
+          </Lnk>{' '}
           <br />
           <br />
           Also good to install{' '}
-          <Link path={'https://github.com/zalmoxisus/redux-devtools-extension'}>
+          <Lnk path={'https://github.com/zalmoxisus/redux-devtools-extension'}>
             Redux DevTools Extension
-          </Link>{' '}
+          </Lnk>{' '}
           for{' '}
-          <Link
+          <Lnk
             path={
               'https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd'
             }
           >
-            Chrome
-          </Link>
+            Chrome{' '}
+          </Lnk>
           to observe state in real time in dev tools.
         </>
       ),
@@ -381,6 +380,15 @@ export const reduxExampleByDevEd = {
     {
       type: 'output',
       val: toRender,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+        Inspired by{' '}
+        <Lnk path={'https://www.youtube.com/watch?v=CVpUuw9XSjY'}>Dev Ed</Lnk>
+      </>
+      ),
     },
   ],
 };

@@ -1,25 +1,27 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
+import { store } from '../../App';
+import { _allPosts } from '../../posts/_allPosts';
 
 export function RemoveFoundPosts() {
   const dispatch = useDispatch();
-  const foundPostsNum = store.getState().foundPosts.length;
+  const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
+  const postsNum = postsOnDisplayState.length;
 
   return (
     <DivStyled>
       <span>
-        {!!foundPostsNum && foundPostsNum}
-        {!!foundPostsNum && foundPostsNum && ' post'}
-        {!!foundPostsNum && (foundPostsNum > 1 ? 's are ' : ' is ')}
-        {!foundPostsNum && 'Not '}
-        found
+        {!!postsNum && postsNum}
+        {!!postsNum && postsNum && ' post'}
+        {!!postsNum && (postsNum > 1 ? 's are ' : ' is ')}
+        {!postsNum && 'Not '}
+        shown
       </span>
       <span
         onClick={e => {
           e.preventDefault();
           dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display all posts' });
+          dispatch({ type: 'display following posts', postsToShow: _allPosts });
           dispatch({ type: 'close search menu' });
           dispatch({ type: 'remove remove found posts msg' });
           dispatch({ type: 'remove tags input val' });
@@ -28,6 +30,7 @@ export function RemoveFoundPosts() {
           dispatch({ type: 'reset posts' });
           dispatch({ type: 'get tags from all posts' });
           document.querySelector('#input').innerHTML = '';
+          window.history.pushState({}, null, "/");
         }}
       >
         ⨉

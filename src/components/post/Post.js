@@ -11,9 +11,10 @@ import { Img } from './Img.js';
 export function Post(props) {
   const post = props.post;
   const title = post.title;
-  const num = post.sequentialNum;
+  const num = post.postNum;
   const tags = post.tagsArr;
   const date = post.date;
+  const uriPostName = post.uriPostName
 
   function jsxesFromPostParts(post) {
     return post.postParts.map((el, index) => {
@@ -28,7 +29,7 @@ export function Post(props) {
 
   return (
     <article className="post">
-      <Title>{title}</Title>
+      <Title uriPostName={uriPostName}>{title}</Title>
       <Section>
         {jsxesFromPostParts(post)}
         <Num>{num}</Num>

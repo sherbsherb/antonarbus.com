@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
+import { store } from '../../App';
 
 export function InputTagsSearch() {
 

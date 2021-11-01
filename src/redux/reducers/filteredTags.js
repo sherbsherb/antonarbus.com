@@ -13,8 +13,4 @@ export default function filteredTags(state = allTags, action) {
     );
   
   return state;
-
-  // if (action.type === 'reset filter tags')
-  //   return returnAllTagsFromArr(foundPosts);
-  // return allTags;
 }

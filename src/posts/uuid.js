@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 import { v1 as uuidv1 } from 'uuid';
 import { v4 as uuidv4 } from 'uuid';
@@ -34,8 +34,8 @@ export const uuid = {
     {
       type: 'text',
       val: <>
-        But a better way to use libraries, such as <Link link={'https://www.npmjs.com/package/shortid'}>shortid</Link> {' '}
-        or <Link link={'https://www.npmjs.com/package/uuid'}>uuid</Link> packages from npm.
+        But a better way to use libraries, such as <Lnk link={'https://www.npmjs.com/package/shortid'}>shortid</Lnk> {' '}
+        or <Lnk link={'https://www.npmjs.com/package/uuid'}>uuid</Lnk> packages from npm.
       </>,
     },
     {

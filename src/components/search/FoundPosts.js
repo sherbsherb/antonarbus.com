@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../..';
+import { store } from '../../App';
 
 export function FoundPosts() {
   const foundPostsState = useSelector(state => state.foundPosts);
@@ -18,8 +18,8 @@ export function FoundPosts() {
         dispatch({ type: 'show found posts msg' });
         dispatch({ type: 'show remove found posts msg' });
         dispatch({
-          type: 'display found posts',
-          foundPosts: store.getState().foundPosts,
+          type: 'display following posts',
+          postsToShow: store.getState().foundPosts,
         });
       }}
     >

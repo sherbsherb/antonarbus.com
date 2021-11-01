@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 let renderCount = 0;
 
@@ -35,9 +35,9 @@ export const useRefAsGlobalVar = {
       type: 'text',
       val: (
         <>
-          <Link path={'https://reactjs.org/docs/hooks-reference.html#useref'}>
+          <Lnk path={'https://reactjs.org/docs/hooks-reference.html#useref'}>
             useRef
-          </Link>{' '}
+          </Lnk>{' '}
           returns a mutable ref object whose <i>.current</i> property is
           initialized to the passed argument <i>(initialValue)</i>. The returned
           object will persist for the full lifetime of the component through re-renders.

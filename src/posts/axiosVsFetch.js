@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 import axios from 'axios';
 const style = { width: '20px', margin: '0px 10px' };
 
@@ -59,10 +59,7 @@ const toRender = <Component />;
 export const axiosVsFetch = {
   title: (
     <>
-      <Link path={'https://axios-http.com/docs/intro'}>Axios</Link> vs{' '}
-      <Link path={'https://developer.mozilla.org/en-US/docs/Web/API/fetch'}>
-        Fetch
-      </Link>
+      Axios vs Fetch
     </>
   ),
   date: '2021.10.16',
@@ -72,7 +69,9 @@ export const axiosVsFetch = {
       type: 'text',
       val: (
         <>
-          <i>Fetch</i> api is built into a browser, but axios can be installed
+          <Lnk path={'https://developer.mozilla.org/en-US/docs/Web/API/fetch'}>
+        Fetch
+      </Lnk> api is built into a browser, but <Lnk path={'https://axios-http.com/docs/intro'}>Axios</Lnk> can be installed
           with <CodeSpan>npm i axios</CodeSpan>
         </>
       ),

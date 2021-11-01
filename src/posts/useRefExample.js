@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
-import { Link } from '../components/post/Link';
+import { Lnk } from '../components/post/Lnk';
 
 
 function UseRefExample() {
@@ -40,7 +40,7 @@ export const useRefExample = {
       type: 'text',
       val: <>
         To access a DOM or React element we may use <CodeSpan>React.useRef()</CodeSpan> {' '}
-        <Link link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'hook'}/>.
+        <Lnk link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'} text={'hook'}/>.
       </>,
     },
     {

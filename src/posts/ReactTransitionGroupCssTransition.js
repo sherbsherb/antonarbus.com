@@ -1,0 +1,170 @@
+import React, { useState } from 'react';
+import { CodeSpan } from '../components/post/CodeSpan';
+import { Lnk } from '../components/post/Lnk';
+import { CSSTransition } from 'react-transition-group';
+import styled from 'styled-components';
+
+function Component() {
+  const [showMessage, setShowMessage] = useState(true);
+  const toggle = () => setShowMessage(!showMessage)
+  return (
+    <Div>
+      <button onClick={toggle}>Toggle</button>
+      <CSSTransition
+        in={showMessage}
+        // timeout={300}
+        timeout={{
+        enter: 300,
+        exit: 1000,
+        }}
+        classNames="xxx"
+        appear
+        unmountOnExit
+      >
+        <p>Hello</p>
+      </CSSTransition>
+    </Div>
+  );
+}
+
+const Div = styled.div `
+  .xxx-enter {
+    opacity: 0;
+    transform: scale(0);
+  }
+  .xxx-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 300ms;
+  }
+  /* -done class is not needed here */
+  .xxx-enter-done {
+    background: red;
+    transition: background 3000ms;
+  }
+  .xxx-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .xxx-exit-active {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1000ms;
+  }
+  p {
+    border: 1px grey solid;
+    margin: 5px;
+    padding: 5px;
+  }
+`
+
+const toRender = <Component />;
+
+export const ReactTransitionGroupCssTransition = {
+  title: 'React transition group - CSSTransition',
+  date: '2021.11.01',
+  tagsArr: ['react', 'animation'],
+  postParts: [
+    {
+      type: 'text',
+      val: (
+        <>
+          Install{' '}
+          <Lnk path="https://reactcommunity.org/react-transition-group/">
+            library
+          </Lnk>{' '}
+          from{' '}
+          <Lnk path="https://www.npmjs.com/package/react-transition-group">
+            npm
+          </Lnk>{' '}
+          via terminal <CodeSpan>npm i react-transition-group</CodeSpan>
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: 'CSSTransition applies a pair of class names during the appear, enter, and exit states of the transition.',
+    },
+    {
+      type: 'text',
+      val: <>
+        Classes are applied in following sequence:
+        <ol>
+          <li>*-appear, *-appear-active, *-appear-done</li>
+          <li>*-enter, *-enter-active, *-enter-done</li>
+          <li>*-exit, *-exit-active, *-exit-done</li>
+        </ol>
+      </>
+      ,
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        import React, { useState } from 'react';
+        import { CSSTransition } from 'react-transition-group';
+        import styled from 'styled-components';
+
+        function Component() {
+          const [showMessage, setShowMessage] = useState(false);
+          const toggle = () => setShowMessage(!showMessage)
+          return (
+            <Div>
+              <button onClick={toggle}>Toggle</button>
+              <CSSTransition
+                in={showMessage}
+                // timeout={300}
+                timeout={{
+                enter: 300,
+                exit: 1000,
+                }}
+                classNames="xxx"
+                appear
+                unmountOnExit
+              >
+                <p>Hello</p>
+              </CSSTransition>
+            </Div>
+          );
+        }
+
+        const Div = styled.div \`
+          .xxx-enter {
+            opacity: 0;
+            transform: scale(0);
+          }
+          .xxx-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 300ms;
+          }
+          /* -done class is not needed here */
+          .xxx-enter-done {
+            background: red;
+            transition: background 3000ms;
+          }
+          .xxx-exit {
+            opacity: 1;
+            transform: scale(1);
+          }
+          .xxx-exit-active {
+            opacity: 0;
+            transform: scale(0);
+            transition: all 1000ms;
+          }
+          p {
+            border: 1px grey solid;
+            margin: 5px;
+            padding: 5px;
+          }
+        \`
+
+        const toRender = <Component />;
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender,
+    },
+  ],
+};

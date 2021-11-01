@@ -63,8 +63,10 @@ import { clickedInsideOutside } from './clickedInsideOutside';
 import { passArgsIntoFunc } from './passArgsIntoFunc';
 import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
 import { ReactTransitionGroupTransition } from './ReactTransitionGroupTransition';
+import { ReactTransitionGroupCssTransition } from './ReactTransitionGroupCssTransition';
 
 const posts = [
+  ReactTransitionGroupCssTransition,
   ReactTransitionGroupTransition,
   randomIntegerNumberFunction,
   useAnimatedWrapperPost,

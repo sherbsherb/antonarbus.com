@@ -12,14 +12,15 @@ function Component() {
       <button onClick={toggle}>Toggle</button>
       <CSSTransition
         in={showMessage}
+        classNames="xxx"
         // timeout={300}
         timeout={{
-        enter: 300,
-        exit: 1000,
+          appear: 2000,
+          enter: 300,
+          exit: 1000,
         }}
-        classNames="xxx"
-        appear
-        unmountOnExit
+        appear = {true}
+        unmountOnExit = {true}
       >
         <p>Hello</p>
       </CSSTransition>
@@ -28,6 +29,16 @@ function Component() {
 }
 
 const Div = styled.div `
+  .xxx-appear {
+    background: yellow;
+  }
+  .xxx-appear-active {
+    background: green;
+    transition: background 2000ms;
+  }
+  .xxx-appear-done {
+    background: blue;
+  }
   .xxx-enter {
     opacity: 0;
     transform: scale(0);
@@ -37,10 +48,9 @@ const Div = styled.div `
     transform: scale(1);
     transition: all 300ms;
   }
-  /* -done class is not needed here */
   .xxx-enter-done {
     background: red;
-    transition: background 3000ms;
+    transition: all 5000ms;
   }
   .xxx-exit {
     opacity: 1;
@@ -98,37 +108,96 @@ export const ReactTransitionGroupCssTransition = {
       ,
     },
     {
+      type: 'text',
+      val: <>
+        Following props exist:
+      </>
+      ,
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        <CSSTransition
+          in={showMessage}
+          timeout={{
+            appear: 2000,
+            enter: 300,
+            exit: 1000,
+          }}
+          classNames="xxx"
+          appear={true}
+          enter={true}
+          exit={true}
+          mountOnEnter={true}
+          unmountOnExit={true}
+          onEnter={func}
+          onEntering={func}
+          onEntered={func}
+          onExit={func}
+          onExiting={func}
+          onExited={func}
+          addEndListener={(node, done) => {
+            node.addEventListener('transitionend', done, false);
+          }}
+        >
+          <p>Hello</p>
+        </CSSTransition>
+ 
+      `,
+    },
+    {
+      type: 'text',
+      val: <>
+        Full code
+      </>
+      ,
+    },
+    {
       type: 'code',
       lang: 'jsx',
       val: `
         import React, { useState } from 'react';
+        import { CodeSpan } from '../components/post/CodeSpan';
+        import { Lnk } from '../components/post/Lnk';
         import { CSSTransition } from 'react-transition-group';
         import styled from 'styled-components';
-
+        
         function Component() {
-          const [showMessage, setShowMessage] = useState(false);
+          const [showMessage, setShowMessage] = useState(true);
           const toggle = () => setShowMessage(!showMessage)
           return (
             <Div>
               <button onClick={toggle}>Toggle</button>
               <CSSTransition
                 in={showMessage}
+                classNames="xxx"
                 // timeout={300}
                 timeout={{
-                enter: 300,
-                exit: 1000,
+                  appear: 2000,
+                  enter: 300,
+                  exit: 1000,
                 }}
-                classNames="xxx"
-                appear
-                unmountOnExit
+                appear = {true}
+                unmountOnExit = {true}
               >
                 <p>Hello</p>
               </CSSTransition>
             </Div>
           );
         }
-
+        
         const Div = styled.div \`
+          .xxx-appear {
+            background: yellow;
+          }
+          .xxx-appear-active {
+            background: green;
+            transition: background 2000ms;
+          }
+          .xxx-appear-done {
+            background: blue;
+          }
           .xxx-enter {
             opacity: 0;
             transform: scale(0);
@@ -138,10 +207,9 @@ export const ReactTransitionGroupCssTransition = {
             transform: scale(1);
             transition: all 300ms;
           }
-          /* -done class is not needed here */
           .xxx-enter-done {
             background: red;
-            transition: background 3000ms;
+            transition: all 5000ms;
           }
           .xxx-exit {
             opacity: 1;
@@ -158,13 +226,20 @@ export const ReactTransitionGroupCssTransition = {
             padding: 5px;
           }
         \`
-
+        
         const toRender = <Component />;
       `,
     },
     {
       type: 'output',
       val: toRender,
+    },
+    {
+      type: 'text',
+      val: <>
+        If <i>appear</i> prop is on on <i>*-appear-done</i> & <i>*-enter-done</i> classes will both be applied.
+      </>
+      ,
     },
   ],
 };

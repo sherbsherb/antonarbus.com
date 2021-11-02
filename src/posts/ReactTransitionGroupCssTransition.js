@@ -158,8 +158,6 @@ export const ReactTransitionGroupCssTransition = {
       lang: 'jsx',
       val: `
         import React, { useState } from 'react';
-        import { CodeSpan } from '../components/post/CodeSpan';
-        import { Lnk } from '../components/post/Lnk';
         import { CSSTransition } from 'react-transition-group';
         import styled from 'styled-components';
         
@@ -237,7 +235,7 @@ export const ReactTransitionGroupCssTransition = {
     {
       type: 'text',
       val: <>
-        If <i>appear</i> prop is on on <i>*-appear-done</i> & <i>*-enter-done</i> classes will both be applied.
+        If <i>appear</i> prop is on then <i>*-appear-done</i> & <i>*-enter-done</i> classes will be both applied.
       </>
       ,
     },

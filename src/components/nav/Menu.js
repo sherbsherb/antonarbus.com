@@ -8,6 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 
 // for height animation
 function calcHeight(el) {
+  if (!el) return
   const elCopy = el.cloneNode(true);
   elCopy.style.height = 'auto';
   elCopy.style.padding = '1rem';
@@ -48,14 +49,9 @@ export function Menu() {
       <CSSTransition
         in={menuTransitionState}
         classNames={whereToSlidState}
-        timeout={{
-          appear: 350,
-          enter: 350,
-          exit: 350,
-        }}
-        appear={true}
-        unmountOnExit={true}
-        mountOnEnter={false}
+        timeout={350}
+        appear
+        unmountOnExit
       >
         <div className={whereToSlidState} style={{position: 'absolute', width:'90%'}} ref={ref} >
 
@@ -73,14 +69,9 @@ export function Menu() {
       <CSSTransition
         in={!menuTransitionState}
         classNames={whereToSlidState}
-        timeout={{
-          appear: 350,
-          enter: 350,
-          exit: 350,
-        }}
-        appear={true}
-        unmountOnExit={true}
-        mountOnEnter={false}
+        timeout={350}
+        appear
+        unmountOnExit
       >
         <div className={whereToSlidState} style={{position: 'absolute', width:'90%'}} ref={ref} >
 

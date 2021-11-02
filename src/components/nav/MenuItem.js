@@ -17,6 +17,8 @@ export function MenuItem(props) {
       onClick={e => {
         e.preventDefault()
         e.nativeEvent.stopImmediatePropagation()
+        const isSubMenu = !!menuItem.menu
+        if(!isSubMenu) return
         setWhereToSlidState('forward')
         swapMenu()
         changeMenu(menuItem);

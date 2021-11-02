@@ -64,8 +64,10 @@ import { passArgsIntoFunc } from './passArgsIntoFunc';
 import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
 import { ReactTransitionGroupTransition } from './ReactTransitionGroupTransition';
 import { ReactTransitionGroupCssTransition } from './ReactTransitionGroupCssTransition';
+import { SlideSidewaysWithCSSTransition } from './SlideSidewaysWithCSSTransition';
 
 const posts = [
+  SlideSidewaysWithCSSTransition,
   ReactTransitionGroupCssTransition,
   ReactTransitionGroupTransition,
   randomIntegerNumberFunction,

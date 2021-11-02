@@ -10,4 +10,5 @@ const DivStyled = styled.div`
   margin: 10px 0px;
   overflow: auto;
   border-radius: 4px;
+  position: relative;
 `;

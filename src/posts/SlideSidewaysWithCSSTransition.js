@@ -157,7 +157,7 @@ export const SlideSidewaysWithCSSTransition = {
   postParts: [
     {
       type: 'text',
-      val: <>Did it for menu changing animation.</>,
+      val: <>Following approach is used in folded navigation menu slide animation on top of this page.</>,
     },
     {
       type: 'code',

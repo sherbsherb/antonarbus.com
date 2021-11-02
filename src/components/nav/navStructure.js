@@ -117,7 +117,7 @@ const navStructure = [
         },
         {
           text: 'text',
-          iconLeft: '😇',
+          iconLeft: '',
           menu: null,
           id: shortid(),
         },

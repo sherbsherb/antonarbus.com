@@ -10,7 +10,7 @@ export function Nav() {
   const [showMenuState, setShowMenuState] = useState(false);
   const [isTopMenuState, setIsTopMenuState] = useState(false);
 
-  const [whereToSlidState, setWhereToSlidState] = useState('forward')
+  const [whereToSlidState, setWhereToSlidState] = useState('backward')
   const [menuTransitionState, setMenuTransitionState] = useState(true)
   const swapMenu = () => setMenuTransitionState(!menuTransitionState)
 
@@ -70,6 +70,8 @@ export function Nav() {
     e?.stopPropagation();
     setPrevMenuState(openedMenuState)
     setOpenedMenuState(openedMenuState.prevMenu.pop());
+    setWhereToSlidState('forward')
+    swapMenu()
   }
 
   function navKeyboardHandler(e) {

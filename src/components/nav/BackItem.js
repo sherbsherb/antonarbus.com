@@ -16,9 +16,7 @@ export function BackItem() {
       onClick={e => {
         e.preventDefault()
         e.nativeEvent.stopImmediatePropagation();
-        setWhereToSlidState('backward')
         goBack()
-        swapMenu()
       }}
     >
       <LeftPart>

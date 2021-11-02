@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { BackItem } from './BackItem';
 import { CloseItem } from './CloseItem';
 import { MenuItem } from './MenuItem';
@@ -11,7 +11,7 @@ function calcHeight(el) {
   if (!el) return
   const elCopy = el.cloneNode(true);
   elCopy.style.height = 'auto';
-  elCopy.style.padding = '1rem';
+  elCopy.style.padding = '16px';
   document.body.before(elCopy);
   const height = elCopy.offsetHeight;
   elCopy.remove();
@@ -20,24 +20,31 @@ function calcHeight(el) {
 
 export function Menu() {
   const context = useContext(Context);
-  const { openedMenuState, closeMenu, navKeyboardHandler, menuTransitionState, prevMenuState, whereToSlidState} = context;
+  const {
+    openedMenuState,
+    closeMenu,
+    navKeyboardHandler,
+    menuTransitionState,
+    prevMenuState,
+    whereToSlidState,
+  } = context;
 
   const ref = useRef();
   const [menuHeightState, setMenuHeightState] = useState(0);
   const [menuPaddingState, setMenuPaddingState] = useState(0);
 
   useEffect(() => {
+    setMenuHeightState(calcHeight(ref.current) + 55);
+    setMenuPaddingState('16px');
+
     window.addEventListener('keydown', navKeyboardHandler);
     window.addEventListener('click', closeMenu);
-    setMenuHeightState(calcHeight(ref.current) + 55);
-    setMenuPaddingState('1rem');
-
     return () => {
       window.removeEventListener('keydown', navKeyboardHandler);
       window.removeEventListener('click', closeMenu);
     };
     
-  }, [openedMenuState]);
+  }, [openedMenuState, navKeyboardHandler, closeMenu]);
 
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
 
@@ -45,24 +52,28 @@ export function Menu() {
     <MenuContainer
       style={{ height: menuHeightState, padding: menuPaddingState }}
     >
+
       {isNestedMenu ? <BackItem /> : <CloseItem />}
+
+      {/* we have 2 divs with transition where we keep previous and current menu items
+      transitions is triggered via 'in' prop
+      one div is mounted & another is unmounted after transition 
+      one div enters, another exists */}
       <CSSTransition
         in={menuTransitionState}
         classNames={whereToSlidState}
         timeout={350}
-        appear
         unmountOnExit
       >
-        <div className={whereToSlidState} style={{position: 'absolute', width:'90%'}} ref={ref} >
-
+        <div className={whereToSlidState} style={{position: 'absolute', right: '16px', left: '16px'}}  >
+          {/* if transition enters, current menu renders
+          if transition exists, pervious menu renders */}
           {menuTransitionState && openedMenuState.menuItems.map(menuItem => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}
-
           {!menuTransitionState && prevMenuState?.menuItems.map(menuItem => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}
-
         </div>
       </CSSTransition>
 
@@ -70,21 +81,24 @@ export function Menu() {
         in={!menuTransitionState}
         classNames={whereToSlidState}
         timeout={350}
-        appear
         unmountOnExit
       >
-        <div className={whereToSlidState} style={{position: 'absolute', width:'90%'}} ref={ref} >
-
+        <div className={whereToSlidState} style={{position: 'absolute', right: '16px', left: '16px'}}  >
           {!menuTransitionState && openedMenuState.menuItems.map(menuItem => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}
-
           {menuTransitionState && prevMenuState?.menuItems.map(menuItem => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}
-
         </div>
       </CSSTransition>
+
+      {/* it is fake div to measure the height for animation */}
+      <div style={{position: 'absolute', width:'90%', right: '1000px'}} ref={ref} >
+        {openedMenuState.menuItems.map(menuItem => (
+          <MenuItem menuItem={menuItem} key={menuItem.id} />
+        ))}
+      </div>
       
     </MenuContainer>
   );
@@ -98,7 +112,7 @@ export const MenuContainer = styled.div`
 
   border: 1px solid #474a4d;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 16px;
   overflow: hidden;
   z-index: 666;
   transform: translateX(-45%);

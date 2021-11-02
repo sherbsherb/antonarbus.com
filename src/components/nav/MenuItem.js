@@ -19,7 +19,7 @@ export function MenuItem(props) {
         e.nativeEvent.stopImmediatePropagation()
         const isSubMenu = !!menuItem.menu
         if(!isSubMenu) return
-        setWhereToSlidState('forward')
+        setWhereToSlidState('backward')
         swapMenu()
         changeMenu(menuItem);
       }}

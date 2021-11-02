@@ -6,8 +6,13 @@ export const Context = createContext({});
 
 export function Nav() {
   const [openedMenuState, setOpenedMenuState] = useState(null);
+  const [prevMenuState, setPrevMenuState] = useState(null);
   const [showMenuState, setShowMenuState] = useState(false);
   const [isTopMenuState, setIsTopMenuState] = useState(false);
+
+  const [whereToSlidState, setWhereToSlidState] = useState('forward')
+  const [menuTransitionState, setMenuTransitionState] = useState(true)
+  const swapMenu = () => setMenuTransitionState(!menuTransitionState)
 
   function showMenu(o) {
     const isMenu = o.menu;
@@ -27,6 +32,12 @@ export function Nav() {
         navItemId: o.id,
         prevMenu: [],
       });
+      setPrevMenuState({
+        ...menu,
+        navItemId: o.id,
+        prevMenu: [],
+      });
+
     }
   }
 
@@ -36,11 +47,14 @@ export function Nav() {
 
     setIsTopMenuState(false);
     const subMenu = o.menu;
+
+    setPrevMenuState(openedMenuState)
     setOpenedMenuState({
       ...subMenu,
       navItemId: openedMenuState.navItemId,
       prevMenu: [...openedMenuState.prevMenu, openedMenuState],
     });
+    
   }
 
   function closeMenu(e) {
@@ -48,11 +62,13 @@ export function Nav() {
     if (showMenuState) {
       setShowMenuState(false);
       setOpenedMenuState(null);
+      setPrevMenuState(null)
     }
   }
 
   function goBack(e) {
     e?.stopPropagation();
+    setPrevMenuState(openedMenuState)
     setOpenedMenuState(openedMenuState.prevMenu.pop());
   }
 
@@ -78,8 +94,14 @@ export function Nav() {
     navKeyboardHandler,
     isTopMenuState,
     setIsTopMenuState,
+    menuTransitionState,
+    swapMenu,
+    prevMenuState,
+    setPrevMenuState,
+    whereToSlidState,
+    setWhereToSlidState
   };
-
+  
   return (
     <Context.Provider value={contextValue}>
       <NavStyled>

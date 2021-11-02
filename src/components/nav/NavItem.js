@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 // icons w/o text on the navbar
 export function NavItem(props) {
   const context = useContext(Context);
-  const { openedMenuState, showMenu, showMenuState } = context;
+  const { openedMenuState, showMenu, showMenuState, setWhereToSlidState } = context;
   const { menuO } = props;
   const isLink = menuO.link
 
@@ -22,7 +22,9 @@ export function NavItem(props) {
           // if it is not a link, open menu
           e.preventDefault()
           e.nativeEvent.stopImmediatePropagation();
+          setWhereToSlidState('nowhere')
           showMenu(menuO);
+  
         }}
       >
         {menuO.icon && <Icon>{menuO.icon}</Icon>}

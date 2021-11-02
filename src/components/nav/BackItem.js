@@ -8,7 +8,7 @@ import { Context } from './_Nav';
 
 export function BackItem() {
   const context = useContext(Context);
-  const { goBack } = context;
+  const { goBack, swapMenu, setWhereToSlidState } = context;
 
   return (
     <BackLink 
@@ -16,7 +16,9 @@ export function BackItem() {
       onClick={e => {
         e.preventDefault()
         e.nativeEvent.stopImmediatePropagation();
+        setWhereToSlidState('backward')
         goBack()
+        swapMenu()
       }}
     >
       <LeftPart>

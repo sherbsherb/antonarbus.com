@@ -7,7 +7,8 @@ import { Context } from './_Nav';
 
 export function MenuItem(props) {
   const context = useContext(Context);
-  const { changeMenu, isTopMenuState } = context;
+  const { changeMenu, isTopMenuState, swapMenu, setWhereToSlidState } = context;
+
   const { menuItem } = props
   return (
     <MenuLink
@@ -16,6 +17,8 @@ export function MenuItem(props) {
       onClick={e => {
         e.preventDefault()
         e.nativeEvent.stopImmediatePropagation()
+        setWhereToSlidState('forward')
+        swapMenu()
         changeMenu(menuItem);
       }}
     >
@@ -28,9 +31,7 @@ export function MenuItem(props) {
         // show right arrow only if sub-menu exists
         menuItem.menu && (
           <RightPart>
-            <MenuIconRight>
-              <ForwardIcon />
-            </MenuIconRight>
+            <MenuIconRight><ForwardIcon /></MenuIconRight>
           </RightPart>
         )
       }
@@ -52,16 +53,6 @@ export const MenuLink = styled.a`
   padding: 0.5rem;
   color: #dadce1;
   white-space: nowrap;
-
-  animation-name: ${props => props.isTopMenuState ? `none` : appearAnimation };
-  animation-duration: .5s;
-  animation-delay: 0ms;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  /* animation-direction: reverse; */
-  animation-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  animation-fill-mode: forwards;
-  transform-origin: top;
 
   &:hover {
     background-color: #525357;

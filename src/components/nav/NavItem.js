@@ -46,6 +46,7 @@ const Li = styled.li`
   a {
     display: flex;
     align-items: center;
+    text-decoration: none;
 
     &:hover {
       filter: brightness(1.2);

@@ -24,8 +24,5 @@ const H3Styled = styled.h3`
   font-size: 24px;
   text-align: center;
   line-height: 1.1;
-
-  a {
-    color: #0083bf;
-  }
+  font-weight: 400;
 `;

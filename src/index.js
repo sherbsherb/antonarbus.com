@@ -32,8 +32,15 @@ const StyleReset = createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
+    color: #0083bf;
+    text-decoration: underline 0.09em transparent;
+    transition: text-decoration-color 300ms;
+
+    &:hover {
+    text-decoration-color: #0083bf;
   }
+  }
+
 
   body {
     height: 100%;

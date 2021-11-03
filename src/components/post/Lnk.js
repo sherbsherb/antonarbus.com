@@ -10,8 +10,6 @@ export function Lnk(props) {
 }
 
 const AStyled = styled.a`
-  cursor: pointer;
   color: #0098f7;
-  text-decoration: none;
 `;
 

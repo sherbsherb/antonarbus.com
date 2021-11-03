@@ -118,7 +118,7 @@ const DivStyled = styled.div`
   padding-right: 40px;
   font-size: 24px;
   line-height: 24px;
-  border-width: 2px;
+  border-width: 1px;
   border-color: #c0c0c0;
   border-style: solid;
   border-radius: 4px;

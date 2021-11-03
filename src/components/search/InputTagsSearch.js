@@ -40,7 +40,7 @@ const InputStyled = styled.div`
     max-width: 300px;
     margin-bottom: 5px;
     padding: 5px;
-    border-width: 2px;
+    border-width: 1px;
     border-color: #c0c0c0;
     border-style: solid;
     border-radius: 4px;

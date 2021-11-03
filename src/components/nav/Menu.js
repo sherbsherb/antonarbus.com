@@ -6,16 +6,13 @@ import { MenuItem } from './MenuItem';
 import { Context } from './_Nav';
 import { CSSTransition } from 'react-transition-group';
 
-// for height animation
+// calculate height of fake to manually set height to MenuContainer
+// we need to manually control height for animation purpose
+// unfortunately height: auto is not animated
 function calcHeight(el) {
   if (!el) return
-  const elCopy = el.cloneNode(true);
-  elCopy.style.height = 'auto';
-  elCopy.style.padding = '16px';
-  document.body.before(elCopy);
-  const height = elCopy.offsetHeight;
-  elCopy.remove();
-  return height;
+  const height = el.offsetHeight;
+  return height + 85;
 }
 
 export function Menu() {
@@ -31,11 +28,9 @@ export function Menu() {
 
   const ref = useRef();
   const [menuHeightState, setMenuHeightState] = useState(0);
-  const [menuPaddingState, setMenuPaddingState] = useState(0);
-
+  
   useEffect(() => {
-    setMenuHeightState(calcHeight(ref.current) + 55);
-    setMenuPaddingState('16px');
+    setMenuHeightState(calcHeight(ref.current));
 
     window.addEventListener('keydown', navKeyboardHandler);
     window.addEventListener('click', closeMenu);
@@ -47,25 +42,32 @@ export function Menu() {
   }, [openedMenuState, navKeyboardHandler, closeMenu]);
 
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
+  const menuItemsDivStyle = { position: 'absolute', right: '0px', left: '0px', height: 'auto' }
 
   return (
     <MenuContainer
-      style={{ height: menuHeightState, padding: menuPaddingState }}
+      style={{ height: menuHeightState }}
     >
-
       {isNestedMenu ? <BackItem /> : <CloseItem />}
 
-      {/* we have 2 divs with transition where we keep previous and current menu items
-      transitions is triggered via 'in' prop
-      one div is mounted & another is unmounted after transition 
-      one div enters, another exists */}
+      {/* 
+      same principle as here 
+      https://antonarbus.com/post/slide-sideways-with-csstransition
+
+      we have 2 divs with transition 
+      one div keeps previous menu items, another keeps current menu items
+      one div enters, another exists with transition
+      div is unmounted after transition (not necessary actually)
+      transitions is triggered via 'in' prop 
+      */}
+      
       <CSSTransition
         in={menuTransitionState}
         classNames={whereToSlidState}
         timeout={350}
         unmountOnExit
       >
-        <div className={whereToSlidState} style={{position: 'absolute', right: '16px', left: '16px'}}  >
+        <div className={whereToSlidState} style={menuItemsDivStyle} >
           {/* if transition enters, current menu renders
           if transition exists, pervious menu renders */}
           {menuTransitionState && openedMenuState.menuItems.map(menuItem => (
@@ -83,7 +85,7 @@ export function Menu() {
         timeout={350}
         unmountOnExit
       >
-        <div className={whereToSlidState} style={{position: 'absolute', right: '16px', left: '16px'}}  >
+        <div className={whereToSlidState} style={menuItemsDivStyle}  >
           {!menuTransitionState && openedMenuState.menuItems.map(menuItem => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}
@@ -94,7 +96,7 @@ export function Menu() {
       </CSSTransition>
 
       {/* it is fake div to measure the height for animation */}
-      <div style={{position: 'absolute', width:'90%', right: '1000px'}} ref={ref} >
+      <div style={{ position: 'absolute', right: '1000px'}} ref={ref} >
         {openedMenuState.menuItems.map(menuItem => (
           <MenuItem menuItem={menuItem} key={menuItem.id} />
         ))}
@@ -112,13 +114,12 @@ export const MenuContainer = styled.div`
 
   border: 1px solid #474a4d;
   border-radius: 8px;
-  padding: 16px;
   overflow: hidden;
   z-index: 666;
   transform: translateX(-45%);
 
-  transition-property: height, padding-top;
-  transition-duration: 0.35s;
+  transition-property: height;
+  transition-duration: .35s;
 
   @media screen and (max-width: 480px) {
     transform: translateX(0px) !important;

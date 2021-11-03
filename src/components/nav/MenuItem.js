@@ -53,6 +53,7 @@ export const MenuLink = styled.a`
   align-items: center;
   border-radius: 8px;
   padding: 0.5rem;
+  margin: 0px 16px;
   color: #dadce1;
   white-space: nowrap;
 

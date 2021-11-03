@@ -30,4 +30,6 @@ export function BackItem() {
 export const BackLink = styled(MenuLink)`
   color: #858383;
   animation: none;
+  margin: 0px 16px;
+  margin-top: 16px;
 `;

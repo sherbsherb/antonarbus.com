@@ -121,4 +121,7 @@ const NavStyled = styled.nav`
   border-bottom: 1px solid #474a4d;
   position: relative;
   background-image: linear-gradient(to right, #434343 0%, black 100%);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 `;

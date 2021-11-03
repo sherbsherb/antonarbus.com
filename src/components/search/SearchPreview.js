@@ -26,7 +26,6 @@ export function SearchPreview(props) {
   )
 }
 
-
 export const Div = styled.div`
   position: absolute;
   top: 50px;

@@ -7,7 +7,7 @@ export function SearchPreviewItem(props) {
   const dispatch = useDispatch();
 
   return (
-    <Link
+    <Link style={{textDecoration: 'none'}}
       to={'/post/' + props.uriPostName}
       onClick={() => {
         dispatch({ type: 'close search menu' });
@@ -29,7 +29,6 @@ const SearchPreviewStyled = styled.div`
   padding: 5px;
   max-height: 106px;
   overflow-y: auto;
-  
 
   &:hover {
     background-color: lightgrey;

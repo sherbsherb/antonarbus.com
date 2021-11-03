@@ -36,6 +36,7 @@ const StyleReset = createGlobalStyle`
   }
 
   body {
+    height: 100vh;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -46,8 +47,8 @@ const StyleReset = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+    background-image: linear-gradient(120deg, #fff 0%, #ebedee 100%);
 
 
   code {

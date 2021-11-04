@@ -27,7 +27,7 @@ function Component() {
         }
       </CodeSpan>{' '}
       <br />
-      <a href="https://google.com" target="_blank" style={{ color: 'red', fontSize: '30px' }}>
+      <a href="https://google.com" target="_blank" rel="noreferrer" style={{ color: 'red', fontSize: '30px' }}>
         Google
       </a>
       <hr style={{ margin: '20px 0px' }} />
@@ -35,8 +35,8 @@ function Component() {
       property to the user agent stylesheet. <br />
       {/* eslint-disable-next-line */}
       <a
-        href="https://google.com" target="_blank"
-        style={{ color: 'green', fontSize: '30px', color: 'revert' }}
+        href="https://google.com" target="_blank" rel="noreferrer"
+        style={{ color: 'green', fontSize: '30px', color: 'revert' }} // eslint-disable-line
       >
         Google
       </a>
@@ -45,7 +45,7 @@ function Component() {
       to the user agent stylesheet.
       <br />
       <a
-        href="https://google.com" target="_blank"
+        href="https://google.com" target="_blank" rel="noreferrer"
         style={{ color: 'green', fontSize: '30px', all: 'revert' }}
       >
         Google
@@ -55,7 +55,7 @@ function Component() {
       the spec default.
       <br />
       <a
-        href="https://google.com" target="_blank"
+        href="https://google.com" target="_blank" rel="noreferrer"
         style={{ color: 'green', fontSize: '30px', all: 'initial' }}
       >
         Google
@@ -65,7 +65,7 @@ function Component() {
       possible or sets property back to the spec default.
       <br />
       <a
-        href="https://google.com" target="_blank"
+        href="https://google.com" target="_blank" rel="noreferrer"
         style={{ color: 'green', fontSize: '30px', all: 'unset' }}
       >
         Google

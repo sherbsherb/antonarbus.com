@@ -2,24 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { CodeSpan } from '../components/post/CodeSpan';
 
-const Component0 = () => <Div0><a href="https://google.com" target="_blank">google.com</a></Div0>
+const Cmpt0 = () => <Div0><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div0>
 const Div0 = styled.div`
   a, a:hover, a:active, a:visited { 
     all: revert;
   }
 `;
-const toRender0 = <Component0 />;
+const toRender0 = <Cmpt0 />;
 
-const Component1 = () => <Div1><a href="https://google.com" target="_blank">google.com</a></Div1>
+const Cmpt1 = () => <Div1><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div1>
 const Div1 = styled.div`
   a, a:hover, a:active, a:visited { 
     all: revert;
     text-decoration: none;
   }
 `;
-const toRender1 = <Component1 />;
+const toRender1 = <Cmpt1 />;
 
-const Component2 = () => <Div2><a href="https://google.com" target="_blank">google.com</a></Div2>
+const Cmpt2 = () => <Div2><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div2>
 const Div2 = styled.div`
   a, a:active, a:visited {
     color: #0083bf;
@@ -33,9 +33,9 @@ const Div2 = styled.div`
     }
   }
 `;
-const toRender2 = <Component2 />;
+const toRender2 = <Cmpt2 />;
 
-const Component3 = () => <Div3><a href="https://google.com" target="_blank">google.com</a></Div3>
+const Cmpt3 = () => <Div3><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div3>
 const Div3 = styled.div`
   a {
     color: #0083bf;
@@ -62,9 +62,9 @@ const Div3 = styled.div`
     transform: translateY(0.15em);
   }
 `;
-const toRender3 = <Component3 />;
+const toRender3 = <Cmpt3 />;
 
-const Component4 = () => <Div4><a href="https://google.com" target="_blank">google.com</a></Div4>
+const Cmpt4 = () => <Div4><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div4>
 const Div4 = styled.div`
   a {
     color: #0083bf;
@@ -93,9 +93,9 @@ const Div4 = styled.div`
     transition: transform 300ms;
   }
 `;
-const toRender4 = <Component4 />;
+const toRender4 = <Cmpt4 />;
 
-const Component5 = () => <Div5><a href="https://google.com" target="_blank">google.com</a></Div5>
+const Cmpt5 = () => <Div5><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div5>
 const Div5 = styled.div`
   a {
     color: #0083bf;
@@ -125,7 +125,7 @@ const Div5 = styled.div`
     transition:  transform 300ms;
   }
 `;
-const toRender5 = <Component5 />;
+const toRender5 = <Cmpt5 />;
 
 
 
@@ -147,7 +147,7 @@ export const linkDecoration = {
       type: 'code',
       lang: 'jsx',
       val: `
-        const Component1 = () => <Div1><a href="https://google.com" target="_blank">google.com</a></Div1>
+        const Cmpt1 = () => <Div1><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div1>
         const Div1 = styled.div\`
           a, a:hover, a:active, a:visited { 
             all: revert;
@@ -170,7 +170,7 @@ export const linkDecoration = {
       type: 'code',
       lang: 'jsx',
       val: `
-        const Component1 = () => <Div1><a href="https://google.com" target="_blank">google.com</a></Div1>
+        const Cmpt1 = () => <Div1><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div1>
         const Div1 = styled.div\`
           a, a:hover, a:active, a:visited { 
             all: revert;
@@ -191,7 +191,7 @@ export const linkDecoration = {
       type: 'code',
       lang: 'jsx',
       val: `
-        const Component2 = () => <Div2><a href="https://google.com" target="_blank">google.com</a></Div2>
+        const Cmpt2 = () => <Div2><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div2>
         const Div2 = styled.div\`
           a, a:active, a:visited {
             color: #0083bf;
@@ -219,7 +219,7 @@ export const linkDecoration = {
       type: 'code',
       lang: 'jsx',
       val: `
-        const Component3 = () => <Div3><a href="https://google.com" target="_blank">google.com</a></Div3>
+        const Cmpt3 = () => <Div3><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div3>
         const Div3 = styled.div\`
           a {
             color: #0083bf;
@@ -256,7 +256,7 @@ export const linkDecoration = {
       type: 'code',
       lang: 'jsx',
       val: `
-        const Component4 = () => <Div4><a href="https://google.com" target="_blank">google.com</a></Div4>
+        const Cmpt4 = () => <Div4><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div4>
         const Div4 = styled.div\`
           a {
             color: #0083bf;
@@ -295,7 +295,7 @@ export const linkDecoration = {
       type: 'code',
       lang: 'jsx',
       val: `
-        const Component5 = () => <Div5><a href="https://google.com" target="_blank">google.com</a></Div5>
+        const Cmpt5 = () => <Div5><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div5>
         const Div5 = styled.div\`
           a {
             color: #0083bf;

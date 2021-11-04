@@ -1,6 +1,4 @@
 import React, { useRef } from 'react';
-import styled from 'styled-components';
-import { CodeSpan } from '../components/post/CodeSpan';
 const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px' };
 
 function Parent() {

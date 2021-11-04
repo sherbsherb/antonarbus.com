@@ -35,7 +35,7 @@ export function useModalWithoutBackground() {
         document.removeEventListener('keydown', closeModalOnEscape);
       };
 
-    }, [showModalState]);
+    }, []);
 
     return (
       <Box ref={modalRef}>

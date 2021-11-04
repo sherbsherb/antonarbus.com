@@ -27,7 +27,7 @@ export function useModalWithBackground() {
         document.removeEventListener('keydown', closeModalOnEscape);
       };
   
-    }, [showModalState]);
+    }, []);
   
     return (
       <Bkg onClick={closeModal}>

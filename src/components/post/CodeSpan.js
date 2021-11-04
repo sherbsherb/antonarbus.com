@@ -6,12 +6,16 @@ import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import './prism.css';
 
 export function CodeSpan(props) {
+  let lang = 'jsx'
+  if (props.code) lang = props.code
+  if (props.lang) lang = props.lang
+
   const ref = useRef();
   useEffect(() => {
     Prism.highlightElement(ref.current);
   })
 
   return (
-    <code className={'lang-jsx'} ref={ref}>{props.children}</code>
+    <code  className={`lang-${lang}`} ref={ref}>{props.children}</code>
   );
 }

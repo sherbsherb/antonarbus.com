@@ -1,22 +1,20 @@
 import styled from "styled-components";
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch } from "react-redux";
 
 export  function SearchPreviewContainer(props) {
-
   const dispatch = useDispatch()
-  
+
   function closeSearchPreview() {
     dispatch({ type: 'close search menu' })
     dispatch({ type: 'remove tags input val' })
   }
-  
-  useEffect(() => {
-    document.addEventListener('click', closeSearchPreview);
-    return () => document.removeEventListener('click', closeSearchPreview)
-    
-  }, []);
+  const closeSearchPreviewMemo = React.useCallback(closeSearchPreview, [dispatch]);
+
+  React.useEffect(() => {
+    document.addEventListener('click', closeSearchPreviewMemo);
+    return () => document.removeEventListener('click', closeSearchPreviewMemo)
+  }, [closeSearchPreviewMemo]);
 
   return (
     <Div>
@@ -33,9 +31,8 @@ export const Div = styled.div`
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  border-color: #c0c0c0;
+  border-color: #adadad;
   padding: 35px 10px 10px 10px;
-  background-color: #f6f6f6;
-
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 2px #0000003d
 `;

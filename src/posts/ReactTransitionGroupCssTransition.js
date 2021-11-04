@@ -96,7 +96,7 @@ export const ReactTransitionGroupCssTransition = {
       val: 'CSSTransition applies a pair of class names during the appear, enter, and exit states of the transition.',
     },
     {
-      type: 'text',
+      type: '',
       val: <>
         Classes are applied in following sequence:
         <ol>

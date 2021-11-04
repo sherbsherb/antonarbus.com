@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { FaChevronRight as ForwardIcon } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import { MenuText } from './MenuText';
@@ -41,11 +41,6 @@ export function MenuItem(props) {
   );
 }
 
-const appearAnimation = keyframes`
-  from { transform: translateX(-110%); }
-  to { transform: translateX(0); }
-`;
-
 export const MenuLink = styled.a`
   height: 50px;
   display: flex;
@@ -56,6 +51,7 @@ export const MenuLink = styled.a`
   margin: 0px 16px;
   color: #dadce1;
   white-space: nowrap;
+  text-decoration: none;
 
   &:hover {
     background-color: #525357;

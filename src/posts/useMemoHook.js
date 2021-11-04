@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useMemo, useRef, useState } from 'react';
 import { CodeSpan } from '../components/post/CodeSpan';
 import randomNumFromTo from '../helpers/functions/randomNumFromTo';
@@ -15,7 +17,6 @@ function Parent() {
 
   // returns memorized value only of val in dep array is changed 
   useMemo(funcWithInterruption, [oneOrTwoState]);
-
   ref.current++;
 
   return (
@@ -149,7 +150,7 @@ export const useMemoHook = {
           <li>In the component's function body we have the <CodeSpan>funcWithInterruption()</CodeSpan> which just alerts 'hi'</li>
           <li>We memoize it with <CodeSpan>useMemo(funcWithInterruption, [oneOrTwoState])</CodeSpan></li>
           <li>Memoized function will run only if <i>oneOrTwoState</i> state variable changes</li>
-          <li>Click multiple times on the button and in about 50% times 'hi' message does not show up</li>
+          <li>Click multiple times on the button and 'hi' shows up only in 50% of clicks</li>
         </ul> 
       ),
     },

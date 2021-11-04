@@ -11,17 +11,16 @@ export function PostsFeed(props) {
 
   const dispatch = useDispatch();
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
-  
   const location = useLocation();
+  const postNameFromUri = props?.match?.params?.uriPostName
 
   useEffect(() => {
-    const postNameFromUri = props?.match?.params?.uriPostName
     const doesPostFromUriExist = _allPosts.some(o => o.uriPostName === postNameFromUri)
 
     if (doesPostFromUriExist) {
       dispatch({
         type: 'display following posts',
-        postsToShow: _allPosts.filter(o => o.uriPostName === props?.match?.params?.uriPostName),
+        postsToShow: _allPosts.filter(o => o.uriPostName === postNameFromUri),
       });
       dispatch({ type: 'show remove found posts msg' });
     } else {
@@ -30,7 +29,7 @@ export function PostsFeed(props) {
         postsToShow: _allPosts,
       });
     }
-  }, [location]);
+  }, [location, dispatch, postNameFromUri]);
 
   
   useEffect(() => {
@@ -46,14 +45,14 @@ export function PostsFeed(props) {
     instance.mark(store.getState().typedWords);
   }, [postsOnDisplayState]);
 
-  function returnPosts() {
-    return postsOnDisplayState.map(o => (
-      <Post post={o} key={o.id} />
-    ));
-  }
 
   // do not re-render posts on screen when search dropdown menu toggles
   const returnPostsMemo = useMemo(() => {
+    function returnPosts() {
+      return postsOnDisplayState.map(o => (
+        <Post post={o} key={o.id} />
+      ));
+    }
     return returnPosts();
   }, [postsOnDisplayState]);
   

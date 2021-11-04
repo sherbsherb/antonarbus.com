@@ -65,8 +65,12 @@ import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
 import { ReactTransitionGroupTransition } from './ReactTransitionGroupTransition';
 import { ReactTransitionGroupCssTransition } from './ReactTransitionGroupCssTransition';
 import { SlideSidewaysWithCSSTransition } from './SlideSidewaysWithCSSTransition';
+import { linkDecoration } from './linkDecoration';
+import { resetCSSProperty } from './resetCSSProperty';
 
 const posts = [
+  linkDecoration,
+  resetCSSProperty,
   SlideSidewaysWithCSSTransition,
   ReactTransitionGroupCssTransition,
   ReactTransitionGroupTransition,

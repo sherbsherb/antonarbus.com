@@ -8,7 +8,7 @@ import { Context } from './_Nav';
 
 export function BackItem() {
   const context = useContext(Context);
-  const { goBack, swapMenu, setWhereToSlidState } = context;
+  const { goBack } = context;
 
   return (
     <BackLink 

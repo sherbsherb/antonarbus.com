@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../../App';
 import { _allPosts } from '../../posts/_allPosts';
 
 export function RemoveFoundPosts() {

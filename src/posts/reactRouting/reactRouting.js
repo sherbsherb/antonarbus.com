@@ -55,11 +55,14 @@ const Shop = () => {
 const ItemInShop = (props) => {
   console.log(props)
   const [state, setState] = useState({});
+  const hasFetchedData = React.useRef(false);
   
   useEffect(() => {
+    if (hasFetchedData.current) return
     axios(`https://fortnite-api.theapinetwork.com/item/get?id=${props.match.params.id}`)
       .then(res => setState({ ...state, ...res.data.data.item }))
-  }, []);
+    hasFetchedData.current = true;
+  }, [props.match.params.id, state]); 
 
   return (
     <>
@@ -136,7 +139,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Anchor tag to a component should be wrapped into <CodeSpan>{'<Link to="/about">About</Link>'}</CodeSpan>
+          Anchor tag to a component should be wrapped into <CodeSpan>{`<Link to='/about'>About</Link>`}</CodeSpan>
         </>
       ),
     },
@@ -156,7 +159,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Component can have a dynamic routing with a placeholder <CodeSpan>{'<Route path="/shop/:id" component={ItemInShop} />'}</CodeSpan>. 
+          Component can have a dynamic routing with a placeholder <CodeSpan>{`<Route path="/shop/:id" component={ItemInShop} />`}</CodeSpan>. 
         </>
       ),
     },
@@ -164,7 +167,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Such component can be accessed with following <CodeSpan>{'<Link to={`/shop/${o.itemId}`}>item</Link>'}</CodeSpan>. 
+          Such component can be accessed with following <CodeSpan>{`<Link to={'/shop/\${o.itemId}'}>item</Link>`}</CodeSpan>. 
         </>
       ),
     },
@@ -172,7 +175,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{"axios(`https://apiUrl/get?id=${props.match.params.id}`)"}</CodeSpan>. 
+          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{`axios('https://apiUrl/get?id=\${props.match.params.id}')`}</CodeSpan>. 
         </>
       ),
     },

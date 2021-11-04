@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
@@ -318,6 +316,5 @@ export const SlideSidewaysWithCSSTransition = {
       type: 'output',
       val: toRender,
     },
-    ,
   ],
 };

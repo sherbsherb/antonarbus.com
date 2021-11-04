@@ -299,7 +299,7 @@ export const ReactTransitionGroupTransition = {
       `,
     },
     {
-      type: 'text',
+      type: '',
       val: (
         <>
           Basically happens following:

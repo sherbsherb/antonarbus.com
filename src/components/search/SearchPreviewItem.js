@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { _allPosts } from '../../posts/_allPosts';
 
 export function SearchPreviewItem(props) {
   const dispatch = useDispatch();

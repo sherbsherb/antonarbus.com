@@ -1,6 +1,4 @@
 import React from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
 
 export const expressServerForReact = {
   title: 'Express with React app',

@@ -67,9 +67,11 @@ import { ReactTransitionGroupCssTransition } from './ReactTransitionGroupCssTran
 import { SlideSidewaysWithCSSTransition } from './SlideSidewaysWithCSSTransition';
 import { linkDecoration } from './linkDecoration';
 import { resetCSSProperty } from './resetCSSProperty';
+import { disableEslintWarning } from './disableEslintWarning';
 
 const posts = [
   linkDecoration,
+  disableEslintWarning,
   resetCSSProperty,
   SlideSidewaysWithCSSTransition,
   ReactTransitionGroupCssTransition,

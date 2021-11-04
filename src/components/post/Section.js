@@ -20,5 +20,6 @@ const SectionStyled = styled.section`
   padding: 20px;
   background: white;
   position: relative;
-  box-shadow: 0 0px 2px #0000003d
+  box-shadow: 0 0px 2px #0000003d;
+  line-height: 1.8;
 `;

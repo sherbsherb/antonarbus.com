@@ -7,6 +7,7 @@ import { Text } from './Text.js';
 import { Output } from './Output.js';
 import { Code } from './Code.js';
 import { Img } from './Img.js';
+import { Div } from './Div.js';
 
 export function Post(props) {
   const post = props.post;
@@ -23,7 +24,7 @@ export function Post(props) {
       if (el.type === 'code') return <Code key={id} lang={el.lang}>{el.val}</Code>;
       if (el.type === 'output') return <Output key={id}>{el.val}</Output>;
       if (el.type === 'img') return <Img key={id} src={el.src || el.link || el.path} width={el.width} alt={el.alt}/>;
-      return <div key={id}>{el.val}</div>;
+      return <Div key={id}>{el.val}</Div>;
     });
   }
 

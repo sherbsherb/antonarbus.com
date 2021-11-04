@@ -1,37 +1,75 @@
 import React from 'react';
-import styled from 'styled-components';
 import { CodeSpan } from '../components/post/CodeSpan';
 
 function Component() {
-
   return (
     <>
-      <div>color: "green", fontSize: "30px"</div>
-      <div style={{ color: "green", fontSize: "30px"}}>ABC</div><hr />
-
-      <div>color: "green", fontSize: "30px", color: "<span style={{color: "red"}}>revert</span>"</div>
-      <div style={{ color: "green", fontSize: "30px", color: "revert"}}>ABC</div><hr />
-
-      <div>color: "green", fontSize: "30px", <span style={{color: "red"}}>all</span>: "revert"</div>
-      <div style={{ color: "green", fontSize: "30px", all: "revert"}}>ABC</div><hr />
-
-      <div>color: "green", fontSize: "30px", all: "<span style={{color: "red"}}>initial</span>"</div>
-      <div style={{ color: "green", fontSize: "30px", all: "initial"}}>ABC</div><hr />
-
-      <div>background: "yellow"</div>
-      <div style={{ background: "grey", border: "1px solid red", padding: "10px" }}>
-        <div style={{ background: "yellow", border: "1px solid red", padding: "10px"}}>
-          hi
+      <div style={{ background: 'grey', padding: '10px' }}>
+        <CodeSpan lang="css">{'{background: grey}'}</CodeSpan><br /><br />
+        <div style={{ background: 'beige', padding: '10px', border: '1px solid red',  }}>
+          <CodeSpan lang="css">{'{background: beige}'}</CodeSpan>
         </div>
       </div>
-      <div>background: "<span style={{color: "red"}}>inherit</span>"</div>
-      <div style={{ background: "grey", border: "1px solid red", padding: "10px" }}>
-        <div style={{ background: "inherit", border: "1px solid red", padding: "10px"}}>
-          hi
+      <br />
+      <div style={{ background: 'grey', padding: '10px' }}>
+        <CodeSpan lang="css">{'{background: grey}'}</CodeSpan><br /><br />
+        <div style={{background: 'inherit', border: '1px solid red', padding: '10px' }}>
+          <CodeSpan lang="css">{'{background: inherit}'}</CodeSpan> sets <i>background</i> property to the parent's color.
         </div>
       </div>
-
-
+      <hr style={{ margin: '20px 0px' }} />
+      We have <i>inline</i> styles & local <i>body</i> styles for an anchor tag.
+      <br />
+      <br />
+      <CodeSpan lang="css">
+        {
+          '<a href="www.google.com" style={{ color: "red", fontSize: "30px"}}>Google</a>'
+        }
+      </CodeSpan>{' '}
+      <br />
+      <a href="https://google.com" target="_blank" style={{ color: 'red', fontSize: '30px' }}>
+        Google
+      </a>
+      <hr style={{ margin: '20px 0px' }} />
+      <CodeSpan lang="css">{'{color: revert}'}</CodeSpan> sets color CSS
+      property to the user agent stylesheet. <br />
+      {/* eslint-disable-next-line */}
+      <a
+        href="https://google.com" target="_blank"
+        style={{ color: 'green', fontSize: '30px', color: 'revert' }}
+      >
+        Google
+      </a>
+      <hr style={{ margin: '20px 0px' }} />
+      <CodeSpan lang="css">{'{all: revert}'}</CodeSpan> sets all CSS properties
+      to the user agent stylesheet.
+      <br />
+      <a
+        href="https://google.com" target="_blank"
+        style={{ color: 'green', fontSize: '30px', all: 'revert' }}
+      >
+        Google
+      </a>
+      <hr style={{ margin: '20px 0px' }} />
+      <CodeSpan lang="css">{'{color: initial}'}</CodeSpan> sets property back to
+      the spec default.
+      <br />
+      <a
+        href="https://google.com" target="_blank"
+        style={{ color: 'green', fontSize: '30px', all: 'initial' }}
+      >
+        Google
+      </a>
+      <hr style={{ margin: '20px 0px' }} />
+      <CodeSpan lang="css">{'{color: unset}'}</CodeSpan> inherits from parent if
+      possible or sets property back to the spec default.
+      <br />
+      <a
+        href="https://google.com" target="_blank"
+        style={{ color: 'green', fontSize: '30px', all: 'unset' }}
+      >
+        Google
+      </a>
     </>
   );
 }
@@ -47,39 +85,10 @@ export const resetCSSProperty = {
       type: 'text',
       val: (
         <>
-          <CodeSpan lang="css">{'{all: revert}'}</CodeSpan> resets all CSS properties to the user agent stylesheet.
-        </>
-      ),
-    },
-    {
-      type: 'text',
-      val: (
-        <>
-          <CodeSpan lang="css">{'{color: revert}'}</CodeSpan> sets color property only. 
-        </>
-      ),
-    },
-    {
-      type: 'text',
-      val: (
-        <>
-          <CodeSpan lang="css">{'{color: inherit}'}</CodeSpan> sets property to the parents one. 
-        </>
-      ),
-    },
-    {
-      type: 'text',
-      val: (
-        <>
-          <CodeSpan lang="css">{'{color: initial}'}</CodeSpan> sets property back to the spec default. 
-        </>
-      ),
-    },
-    {
-      type: 'text',
-      val: (
-        <>
-          <CodeSpan lang="css">{'{color: unset}'}</CodeSpan> for a property that is inherited (e.g. color) it means <i>inherit</i>, and for a property that isn’t inherited (e.g. float) it means <i>initial</i>.
+          Let's show CSS properties: <CodeSpan>{'inherit'}</CodeSpan>
+          {', '}
+          <CodeSpan>{'revert'}</CodeSpan>, <CodeSpan>{'initial'}</CodeSpan>,{' '}
+          <CodeSpan>{'unset'}</CodeSpan>
         </>
       ),
     },

@@ -82,7 +82,7 @@ const Div4 = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1em;
+    height: 1.05em;
     background-color: #0083bf;
     transform: translateX(-100%) translateY(1em);
   }

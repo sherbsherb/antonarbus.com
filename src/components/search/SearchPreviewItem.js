@@ -34,7 +34,7 @@ const SearchPreviewStyled = styled.div`
   }
 
   h4 {
-    margin-bottom: 5px;
+    margin: 5px 0px;
     color: #0083bf;
   }
 

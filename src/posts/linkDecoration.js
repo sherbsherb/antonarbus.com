@@ -50,7 +50,7 @@ const Div3 = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 0.1em;
+    height: 0.05em;
     background-color: #0083bf;
     opacity: 0;
     transition: opacity 300ms, transform 300ms;
@@ -82,7 +82,7 @@ const Div4 = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1.1em;
+    height: 1em;
     background-color: #0083bf;
     transform: translateX(-100%) translateY(1em);
   }
@@ -110,7 +110,7 @@ const Div5 = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: .1em;
+    height: .05em;
     background-color: #0083bf;
   }
 
@@ -120,7 +120,7 @@ const Div5 = styled.div`
   }
 
   a:hover::after,
-  a:focus::after{
+  a:focus::after {
     transform: scale(1);
     transition:  transform 300ms;
   }
@@ -162,8 +162,8 @@ export const linkDecoration = {
     {
       type: 'text',
       val: <>
-        To remove the line from the link change property 
-        from <CodeSpan>{'{text-decoration: underline;}'}</CodeSpan> to <CodeSpan>{'{text-decoration: none;}'}</CodeSpan>
+        To remove the line below the link change property 
+        from <CodeSpan>{'{text-decoration: underline}'}</CodeSpan> to <CodeSpan>{'{text-decoration: none}'}</CodeSpan>
       </>,
     },
     {

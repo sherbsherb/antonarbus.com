@@ -5,6 +5,7 @@ import NavList from './NavList';
 export const Context = createContext({});
 
 export function Nav() {
+  console.log(666)
   const [openedMenuState, setOpenedMenuState] = useState(null);
   const [prevMenuState, setPrevMenuState] = useState(null);
   const [showMenuState, setShowMenuState] = useState(false);

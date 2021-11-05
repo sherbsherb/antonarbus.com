@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../../App';
 import { _allPosts } from '../../posts/_allPosts';
-import searchIco from './../../imgs/searchIco.png'
-
+import searchIco from './../../imgs/searchIco.png';
 
 export function InputSearch() {
   const dispatch = useDispatch();
@@ -13,6 +12,7 @@ export function InputSearch() {
     <DivStyled
       id="input"
       contentEditable={true}
+      spellCheck={false}
       placeholder="Search"
       onFocus={e => {
         dispatch({ type: 'show search menu' });
@@ -38,6 +38,9 @@ export function InputSearch() {
         });
       }}
       onInput={debounce(e => {
+        console.log(0);
+        e.target.scrollLeft = 10000;
+
         dispatch({ type: 'show search menu' });
         dispatch({
           type: 'store search input val',
@@ -59,8 +62,7 @@ export function InputSearch() {
           tagsInputVal: store.getState().tagsInputVal,
           tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
         });
-        e.target.scrollLeft = 10000;
-      }, 300)}
+      })}
       onPaste={e => {
         e.preventDefault();
         console.log('pasted');
@@ -74,7 +76,10 @@ export function InputSearch() {
           e.preventDefault();
           if (store.getState().searchInputVal === '') {
             dispatch({ type: 'remove search input val' });
-            dispatch({ type: 'display following posts', postsToShow: _allPosts });
+            dispatch({
+              type: 'display following posts',
+              postsToShow: _allPosts,
+            });
             dispatch({ type: 'close search menu' });
             dispatch({ type: 'remove remove found posts msg' });
             dispatch({ type: 'remove tags input val' });
@@ -113,11 +118,9 @@ export function InputSearch() {
 
 const DivStyled = styled.div`
   flex-grow: 1;
-  padding-top: 5px;
   padding-left: 5px;
   padding-right: 40px;
   font-size: 24px;
-  line-height: 24px;
   border-width: 1px;
   border-color: #c0c0c0;
   border-style: solid;
@@ -143,11 +146,11 @@ const DivStyled = styled.div`
 
   &[contenteditable]:empty:before {
     content: attr(placeholder);
-    content: "Search";
+    content: 'Search';
     color: #bfbfbf;
     font-weight: 200;
   }
-/* 
+  /* 
   &[contenteditable]:empty:after {
     background-image: url(${searchIco});
     background-size: 20px 20px;
@@ -161,18 +164,18 @@ const DivStyled = styled.div`
 
   } */
 
-
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
-function debounce(callback, wait) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(function () {
-      callback.apply(this, args);
-    }, wait);
+// returns debounced function, not calling it
+function debounce(fn, delay = 300) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      fn(...args);
+    }, delay);
   };
 }

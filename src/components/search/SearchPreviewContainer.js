@@ -1,21 +1,7 @@
 import styled from "styled-components";
 import React from 'react'
-import { useDispatch } from "react-redux";
 
 export  function SearchPreviewContainer(props) {
-  const dispatch = useDispatch()
-
-  function closeSearchPreview() {
-    dispatch({ type: 'close search menu' })
-    dispatch({ type: 'remove tags input val' })
-  }
-  const closeSearchPreviewMemo = React.useCallback(closeSearchPreview, [dispatch]);
-
-  React.useEffect(() => {
-    document.addEventListener('click', closeSearchPreviewMemo);
-    return () => document.removeEventListener('click', closeSearchPreviewMemo)
-  }, [closeSearchPreviewMemo]);
-
   return (
     <Div>
       {props.children}

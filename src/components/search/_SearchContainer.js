@@ -11,6 +11,7 @@ import { RemoveFoundPosts } from './RemoveFoundPosts';
 import { SearchPreviewContainer } from './SearchPreviewContainer';
 import { SearchPreviewItem } from './SearchPreviewItem';
 import { TagsContainer } from './TagsContainer';
+import { useDispatch } from "react-redux";
 
 export default function SearchContainer() {
   const showSearchMenuState = useSelector(state => state.showSearchMenu);
@@ -31,10 +32,56 @@ export default function SearchContainer() {
     highlightTextInPreview(store.getState().typedWords);
   });
 
+
+  const dispatch = useDispatch()
+  const ref = React.useRef()
+
+  function closeSearchPreview() {
+    dispatch({ type: 'close search menu' })
+    dispatch({ type: 'remove tags input val' })
+  }
+  const closeSearchPreviewMemo = React.useCallback(closeSearchPreview, [dispatch]);
+
+  React.useEffect(() => {
+
+    function closeModalOnEscape(e) {
+      if (e.key === 'Escape') closeSearchPreviewMemo();
+    }
+
+    function isClickedElOutsideThisEl(clickedEl, thisEl) {
+      return thisEl.contains(clickedEl) ? false : true;
+    }
+
+    function closeModalOnClickOutside(e) {
+      const modalWindow = ref.current;
+      const clickedEl = e.target;
+      if (!modalWindow) return;
+      if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeSearchPreviewMemo();
+    }
+
+    document.addEventListener('click', closeModalOnClickOutside);
+    document.addEventListener('keydown', closeModalOnEscape);
+
+    return () => {
+      document.removeEventListener('click', closeModalOnClickOutside);
+      document.removeEventListener('keydown', closeModalOnEscape);
+    };
+
+
+
+
+    // document.addEventListener('click', closeSearchPreviewMemo);
+    // return () => document.removeEventListener('click', closeSearchPreviewMemo)
+
+
+
+  }, [closeSearchPreviewMemo]);
+
   return (
     <DivStyled
       // do not close dropdown search menu if clicked inside
-      onClick={e => e.stopPropagation()}
+      // onClick={e => e.stopPropagation()}
+      ref={ref}
     >
       <InputSearch /><BtnCancel /><BtnSearch />
       {showRemoveFoundPostsMsgState && <RemoveFoundPosts />}

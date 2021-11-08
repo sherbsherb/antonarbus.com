@@ -44,7 +44,7 @@ export function NavItem(props) {
             if (isLink) return;
             // if not a link, open menu
             e.preventDefault();
-            e.nativeEvent.stopImmediatePropagation();
+            // e.nativeEvent.stopImmediatePropagation();
             showMenu(menuO);
           }}
         >

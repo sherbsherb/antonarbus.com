@@ -42,7 +42,7 @@ export function Menu() {
     menuTransitionState])
 
   function closeMenu(e) {
-    e?.stopPropagation();
+    // e?.stopPropagation();
     if (!showMenuState) return;
     setShowMenuState(false);
     setOpenedMenuState(null);
@@ -69,7 +69,7 @@ export function Menu() {
   }
 
   function goBack(e) {
-    e?.stopPropagation();
+    // e?.stopPropagation();
     setWhereToSlidState('forward');
     setPrevMenuState(openedMenuState);
     setOpenedMenuState(openedMenuState.prevMenu.pop());
@@ -99,20 +99,43 @@ export function Menu() {
     closeMenuMemoized,
   ]);
 
-  const ref = useRef();
+  const fakeMenuRef = useRef();
+  const menuRef = useRef();
+  
   const [menuHeightState, setMenuHeightState] = useState(0);
   
   useEffect(() => {
-    setMenuHeightState(calcHeight(ref.current));
-
-    window.addEventListener('keydown', navKeyboardHandlerMemoized);
-    window.addEventListener('click', closeMenuMemoized);
+    setMenuHeightState(calcHeight(fakeMenuRef.current));
     return () => {
-      window.removeEventListener('keydown', navKeyboardHandlerMemoized);
-      window.removeEventListener('click', closeMenuMemoized);
       setMenuHeightState(0);
     };
   }, [openedMenuState, navKeyboardHandlerMemoized, closeMenuMemoized, setMenuHeightState]); 
+
+  useEffect(() => {
+    window.addEventListener('keydown', navKeyboardHandlerMemoized);
+    return () => {
+      window.removeEventListener('keydown', navKeyboardHandlerMemoized);
+    };
+  }, [openedMenuState, navKeyboardHandlerMemoized, closeMenuMemoized, setMenuHeightState]); 
+
+  useEffect(() => {
+    const navItem = menuRef.current.parentElement
+
+    function isClickedElOutsideThisEl(clickedEl, thisEl) {
+      return thisEl.contains(clickedEl) ? false : true;
+    }
+
+    function closeModalOnClickOutside(e) {
+      const clickedEl = e.target;
+      if (!navItem) return;
+      if (isClickedElOutsideThisEl(clickedEl, navItem)) closeMenuMemoized();
+    }
+
+    document.addEventListener('click', closeModalOnClickOutside);
+    return () => {
+      document.removeEventListener('click', closeModalOnClickOutside);
+    };
+  }, [closeMenuMemoized])
 
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   const menuItemsDivStyle = {
@@ -138,7 +161,7 @@ export function Menu() {
 
   return (
     <ContextMenu.Provider value={contextValue}>
-      <MenuContainer style={{ height: menuHeightState }}>
+      <MenuContainer style={{ height: menuHeightState }} ref={menuRef}>
         {isNestedMenu ? <BackItem /> : <CloseItem />}
 
         {/* 
@@ -193,7 +216,7 @@ export function Menu() {
         </CSSTransition>
 
         {/* fake div to measure the for menu height animation */}
-        <div style={{ position: 'absolute', right: '1000px' }} ref={ref}>
+        <div style={{ position: 'absolute', right: '1000px' }} ref={fakeMenuRef}>
           {openedMenuState.menuItems.map(menuItem => (
             <MenuItem menuItem={menuItem} key={menuItem.id} />
           ))}

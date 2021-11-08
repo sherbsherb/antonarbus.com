@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import React, { useContext } from 'react';
+import React from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 import { LeftPart, MenuLink } from './MenuItem';
 import { IoClose } from 'react-icons/io5';
-import { ContextNavItem } from './NavItem';
+import { ContextMenu } from './Menu';
+
 const closeIcon = React.createElement(IoClose, {});
 
 export function CloseItem() {
-  const context = useContext(ContextNavItem);
-  const { closeMenu } = context;
+  const { closeMenu } = React.useContext(ContextMenu);
 
   return (
     <CloseLink 

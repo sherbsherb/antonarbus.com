@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import React, { useContext } from 'react';
+import React from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 import { LeftPart, MenuLink } from './MenuItem';
 import { FaChevronLeft as LeftArrowIcon } from 'react-icons/fa';
-import { ContextNavItem } from './NavItem';
+import { ContextMenu } from './Menu';
 
 export function BackItem() {
-  const context = useContext(ContextNavItem);
-  const { goBack } = context;
+  const { goBack } = React.useContext(ContextMenu);
 
   return (
     <BackLink 

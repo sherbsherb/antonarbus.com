@@ -1,26 +1,24 @@
 import styled from 'styled-components';
 import { FaChevronRight as ForwardIcon } from 'react-icons/fa';
-import React, { useContext } from 'react';
+import React from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
-import { ContextNavItem } from './NavItem';
+import { ContextMenu } from './Menu';
 
 export function MenuItem(props) {
-  const context = useContext(ContextNavItem);
-  const { changeMenu, isTopMenuState, swapMenu, setWhereToSlidState } = context;
-
-  const { menuItem } = props
+  const { setWhereToSlidState, swapMenu, changeMenu } = React.useContext(ContextMenu);
+  const { menuItem } = props;
+  
   return (
     <MenuLink
       href=""
-      isTopMenuState={isTopMenuState}
       onClick={e => {
-        e.preventDefault()
-        e.nativeEvent.stopImmediatePropagation()
-        const isSubMenu = !!menuItem.menu
-        if(!isSubMenu) return
-        setWhereToSlidState('backward')
-        swapMenu()
+        e.preventDefault();
+        e.nativeEvent.stopImmediatePropagation();
+        const isSubMenu = !!menuItem.menu;
+        if (!isSubMenu) return;
+        setWhereToSlidState('backward');
+        swapMenu();
         changeMenu(menuItem);
       }}
     >
@@ -33,7 +31,9 @@ export function MenuItem(props) {
         // show right arrow only if sub-menu exists
         menuItem.menu && (
           <RightPart>
-            <MenuIconRight><ForwardIcon /></MenuIconRight>
+            <MenuIconRight>
+              <ForwardIcon />
+            </MenuIconRight>
           </RightPart>
         )
       }

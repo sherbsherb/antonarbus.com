@@ -4,6 +4,7 @@ import { NavItem } from './NavItem';
 import navStructure from './navStructure';
 
 export default function NavList() {
+  console.log(666)
   // show items on navbar where .visible = true
   return (
     <Ul>

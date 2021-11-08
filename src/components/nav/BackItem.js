@@ -4,10 +4,10 @@ import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 import { LeftPart, MenuLink } from './MenuItem';
 import { FaChevronLeft as LeftArrowIcon } from 'react-icons/fa';
-import { Context } from './_Nav';
+import { ContextNavItem } from './NavItem';
 
 export function BackItem() {
-  const context = useContext(Context);
+  const context = useContext(ContextNavItem);
   const { goBack } = context;
 
   return (

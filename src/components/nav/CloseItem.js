@@ -4,11 +4,11 @@ import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 import { LeftPart, MenuLink } from './MenuItem';
 import { IoClose } from 'react-icons/io5';
-import { Context } from './_Nav';
+import { ContextNavItem } from './NavItem';
 const closeIcon = React.createElement(IoClose, {});
 
 export function CloseItem() {
-  const context = useContext(Context);
+  const context = useContext(ContextNavItem);
   const { closeMenu } = context;
 
   return (

@@ -3,10 +3,10 @@ import { FaChevronRight as ForwardIcon } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
-import { Context } from './_Nav';
+import { ContextNavItem } from './NavItem';
 
 export function MenuItem(props) {
-  const context = useContext(Context);
+  const context = useContext(ContextNavItem);
   const { changeMenu, isTopMenuState, swapMenu, setWhereToSlidState } = context;
 
   const { menuItem } = props

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { BackItem } from './BackItem';
 import { CloseItem } from './CloseItem';
 import { MenuItem } from './MenuItem';
-import { Context } from './_Nav';
+import { ContextNavItem } from './NavItem';
 import { CSSTransition } from 'react-transition-group';
 
 // calculate height of fake to manually set height to MenuContainer
@@ -17,7 +17,8 @@ function calcHeight(el) {
 }
 
 export function Menu() {
-  const context = useContext(Context);
+
+  const context = useContext(ContextNavItem);
   const {
     openedMenuState,
     closeMenu,
@@ -46,13 +47,11 @@ export function Menu() {
   const menuItemsDivStyle = { position: 'absolute', right: '0px', left: '0px', height: 'auto' }
 
   return (
-    <MenuContainer
-      style={{ height: menuHeightState }}
-    >
+    <MenuContainer style={{ height: menuHeightState }} >
       {isNestedMenu ? <BackItem /> : <CloseItem />}
 
       {/* 
-      same principle as here 
+      same principle as in 
       https://antonarbus.com/post/slide-sideways-with-csstransition
 
       we have 2 divs with transition 
@@ -96,7 +95,7 @@ export function Menu() {
         </div>
       </CSSTransition>
 
-      {/* it is fake div to measure the height for animation */}
+      {/* it is a fake div to measure the height for animation */}
       <div style={{ position: 'absolute', right: '1000px'}} ref={ref} >
         {openedMenuState.menuItems.map(menuItem => (
           <MenuItem menuItem={menuItem} key={menuItem.id} />

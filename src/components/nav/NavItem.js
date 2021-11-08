@@ -8,6 +8,7 @@ export const ContextNavItem = React.createContext(null);
 
 // icons w/o text on the navbar
 export function NavItem(props) {
+  // console.log('NavItem')
   const {menuO} = props;
 
   const [showMenuState, setShowMenuState] = React.useState(false);

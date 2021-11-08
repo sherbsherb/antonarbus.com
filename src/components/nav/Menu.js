@@ -19,6 +19,8 @@ function calcHeight(el) {
 }
 
 export function Menu() {
+  // console.log('Menu')
+  
   const context = useContext(ContextNavItem);
   const {
     openedMenuState,
@@ -36,15 +38,23 @@ export function Menu() {
   const [whereToSlidState, setWhereToSlidState] = React.useState('nowhere');
   const [menuTransitionState, setMenuTransitionState] = React.useState(true);
   const swapMenu = () => setMenuTransitionState(!menuTransitionState);
+  const swapMenuMemoized = React.useCallback(swapMenu, [setMenuTransitionState,
+    menuTransitionState])
 
   function closeMenu(e) {
     e?.stopPropagation();
-    if (showMenuState) {
-      setShowMenuState(false);
-      setOpenedMenuState(null);
-      setPrevMenuState(null);
-    }
+    if (!showMenuState) return;
+    setShowMenuState(false);
+    setOpenedMenuState(null);
+    setPrevMenuState(null);
   }
+
+  const closeMenuMemoized = React.useCallback(closeMenu, [
+    showMenuState,
+    setShowMenuState,
+    setOpenedMenuState,
+    setPrevMenuState,
+  ]);
 
   function changeMenu(o) {
     const isSubMenu = o.menu;
@@ -63,33 +73,46 @@ export function Menu() {
     setWhereToSlidState('forward');
     setPrevMenuState(openedMenuState);
     setOpenedMenuState(openedMenuState.prevMenu.pop());
-    swapMenu();
-    // setWhereToSlidState('forward');
+    swapMenuMemoized();
   }
+
+  const changeMenuMemoized = React.useCallback(goBack, [
+    setWhereToSlidState,
+    setPrevMenuState,
+    openedMenuState,
+    setOpenedMenuState,
+    swapMenuMemoized,
+  ]);
 
   function navKeyboardHandler(e) {
     const { key } = e;
-     console.log(key);
     if (!openedMenuState) return;
     const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
-    isNestedMenu && key === 'Backspace' && goBack();
-    !isNestedMenu && key === 'Backspace' && closeMenu();
-    key === 'Escape' && closeMenu();
+    isNestedMenu && key === 'Backspace' && changeMenuMemoized();
+    !isNestedMenu && key === 'Backspace' && closeMenuMemoized();
+    key === 'Escape' && closeMenuMemoized();
   }
+
+  const navKeyboardHandlerMemoized = React.useCallback(navKeyboardHandler, [
+    openedMenuState,
+    changeMenuMemoized,
+    closeMenuMemoized,
+  ]);
 
   const ref = useRef();
   const [menuHeightState, setMenuHeightState] = useState(0);
-
+  
   useEffect(() => {
     setMenuHeightState(calcHeight(ref.current));
 
-    window.addEventListener('keydown', navKeyboardHandler);
-    window.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', navKeyboardHandlerMemoized);
+    window.addEventListener('click', closeMenuMemoized);
     return () => {
-      window.removeEventListener('keydown', navKeyboardHandler);
-      window.removeEventListener('click', closeMenu);
+      window.removeEventListener('keydown', navKeyboardHandlerMemoized);
+      window.removeEventListener('click', closeMenuMemoized);
+      setMenuHeightState(0);
     };
-  }, [openedMenuState, navKeyboardHandler, closeMenu]);
+  }, [openedMenuState, navKeyboardHandlerMemoized, closeMenuMemoized, setMenuHeightState]); 
 
   const isNestedMenu = openedMenuState?.prevMenu?.length > 0;
   const menuItemsDivStyle = {
@@ -139,12 +162,14 @@ export function Menu() {
           <div className={whereToSlidState} style={menuItemsDivStyle}>
             {/* if transition enters, current menu renders
             if transition exists, pervious menu renders */}
-            {menuTransitionState && openedMenuState.menuItems.map(menuItem => (
+            {menuTransitionState &&
+              openedMenuState.menuItems.map(menuItem => (
                 <MenuItem menuItem={menuItem} key={menuItem.id} />
-            ))}
-            {!menuTransitionState && prevMenuState?.menuItems.map(menuItem => (
+              ))}
+            {!menuTransitionState &&
+              prevMenuState?.menuItems.map(menuItem => (
                 <MenuItem menuItem={menuItem} key={menuItem.id} />
-            ))}
+              ))}
           </div>
         </CSSTransition>
 

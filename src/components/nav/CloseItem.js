@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import React from 'react';
+import styled from 'styled-components';
 import { MenuText } from './MenuText';
 import { Icon } from './Icon';
 import { LeftPart, MenuLink } from './MenuItem';
@@ -8,7 +8,15 @@ import { ContextMenu } from './Menu';
 
 const closeIcon = React.createElement(IoClose, {});
 
+const CloseLink = styled(MenuLink)`
+  color: #858383;
+  animation: none;
+  margin: 0px 16px;
+  margin-top: 16px;
+`;
+
 export function CloseItem() {
+  // console.log('CloseItem')
   const { closeMenu } = React.useContext(ContextMenu);
 
   return (
@@ -28,9 +36,4 @@ export function CloseItem() {
   );
 }
 
-const CloseLink = styled(MenuLink)`
-  color: #858383;
-  animation: none;
-  margin: 0px 16px;
-  margin-top: 16px;
-`;
+

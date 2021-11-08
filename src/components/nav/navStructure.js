@@ -38,18 +38,6 @@ const navStructure = [
               {
                 text: 'text',
                 iconLeft: '😎',
-                menu: null,
-                id: shortid(),
-              },
-              {
-                text: 'text',
-                iconLeft: '😎',
-                menu: null,
-                id: shortid(),
-              },
-              {
-                text: 'text',
-                iconLeft: '😎',
                 menu: {
                   visible: false,
                   menuItems: [
@@ -99,6 +87,19 @@ const navStructure = [
                 },
                 id: shortid(),
               },
+              {
+                text: 'text',
+                iconLeft: '😎',
+                menu: null,
+                id: shortid(),
+              },
+              {
+                text: 'text',
+                iconLeft: '😎',
+                menu: null,
+                id: shortid(),
+              },
+              
             ],
           },
           id: shortid(),

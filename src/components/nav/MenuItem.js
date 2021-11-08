@@ -6,6 +6,7 @@ import { Icon } from './Icon';
 import { ContextMenu } from './Menu';
 
 export function MenuItem(props) {
+  // console.log('MenuItem')
   const { setWhereToSlidState, swapMenu, changeMenu } = React.useContext(ContextMenu);
   const { menuItem } = props;
   
@@ -41,7 +42,7 @@ export function MenuItem(props) {
   );
 }
 
-export const MenuLink = styled.a`
+export var MenuLink = styled.a`
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -68,11 +69,11 @@ export const LeftPart = styled.span`
   flex-wrap: nowrap;
 `;
 
-export const RightPart = styled.span`
+const RightPart = styled.span`
   margin-left: 40px;
 `;
 
-export const MenuIconRight = styled(Icon)`
+const MenuIconRight = styled(Icon)`
   background-color: transparent;
   margin-right: -5px;
 `;

@@ -74,26 +74,21 @@ export function InputSearch() {
       onKeyDown={e => {
         if (e.key === 'Enter') {
           e.preventDefault();
+          dispatch({ type: 'show 5 pages' });
+          dispatch({ type: 'close search menu' });
+          
           if (store.getState().searchInputVal === '') {
             dispatch({ type: 'remove search input val' });
-            dispatch({
-              type: 'display following posts',
-              postsToShow: _allPosts,
-            });
-            dispatch({ type: 'close search menu' });
+            dispatch({ type: 'display following posts', postsToShow: _allPosts });
             dispatch({ type: 'remove remove found posts msg' });
             dispatch({ type: 'remove tags input val' });
             dispatch({ type: 'reset posts' });
             dispatch({ type: 'get tags from all posts' });
             return;
           }
-          dispatch({ type: 'close search menu' });
           dispatch({ type: 'show found posts msg' });
           dispatch({ type: 'show remove found posts msg' });
-          dispatch({
-            type: 'display following posts',
-            postsToShow: store.getState().foundPosts,
-          });
+          dispatch({ type: 'display following posts', postsToShow: store.getState().foundPosts });
           dispatch({ type: 'remove tags input val' });
         }
 
@@ -109,6 +104,7 @@ export function InputSearch() {
           dispatch({ type: 'forget words from input' });
           dispatch({ type: 'reset posts' });
           dispatch({ type: 'get tags from all posts' });
+          dispatch({ type: 'show 5 pages' });
           document.querySelector('#input').innerHTML = '';
         }
       }}

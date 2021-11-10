@@ -17,10 +17,8 @@ export function FoundPosts() {
         dispatch({ type: 'remove tags input val' })
         dispatch({ type: 'show found posts msg' });
         dispatch({ type: 'show remove found posts msg' });
-        dispatch({
-          type: 'display following posts',
-          postsToShow: store.getState().foundPosts,
-        });
+        dispatch({ type: 'display following posts', postsToShow: store.getState().foundPosts });
+        dispatch({ type: 'show 5 pages' });
       }}
     >
       Show {ending ? 'all' : ''} {foundPostsState.length} post{ending}

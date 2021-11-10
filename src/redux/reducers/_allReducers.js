@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import filteredTags from "./filteredTags";
 import foundPosts from "./foundPosts";
+import fromToPages from "./fromToPages";
 import postsOnDisplay from "./postsOnDisplay";
 import searchInputVal from "./searchInputVal";
 import showFoundPostsMsg from "./showFoundPostsMsg";
@@ -23,6 +24,7 @@ const allReducers = combineReducers({
   searchInputVal,
   tagsInputVal,
   filteredTags,
+  fromToPages,
 });
 
 export default allReducers;

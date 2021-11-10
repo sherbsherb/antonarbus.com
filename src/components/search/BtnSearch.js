@@ -10,25 +10,23 @@ export function BtnSearch() {
     <ButtonStyled
       onClick={e => {
         e.preventDefault();
+        dispatch({ type: 'show 5 pages' });
+        dispatch({ type: 'remove tags input val' });
+        dispatch({ type: 'close search menu' });
+
         if (store.getState().searchInputVal === '') {
           dispatch({ type: 'remove search input val' });
           dispatch({ type: 'display following posts', postsToShow: _allPosts });
           dispatch({ type: 'close search menu' });
-          dispatch({ type: 'remove remove found posts msg' });
-          dispatch({ type: 'remove tags input val' });
           dispatch({ type: 'reset posts' });
           dispatch({ type: 'get tags from all posts' });
           window.history.pushState({}, null, "/");
           return;
         }
-        dispatch({ type: 'close search menu' });
-        dispatch({ type: 'remove tags input val' })
+        
         dispatch({ type: 'show found posts msg' });
         dispatch({ type: 'show remove found posts msg' });
-        dispatch({
-          type: 'display following posts',
-          postsToShow: store.getState().foundPosts,
-        });
+        dispatch({ type: 'display following posts', postsToShow: store.getState().foundPosts });
         window.history.pushState({}, null, "/");
       }}
     >

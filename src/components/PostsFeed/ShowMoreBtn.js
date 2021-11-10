@@ -64,6 +64,8 @@ const Btn = styled.button`
   text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
   font-weight: bold;
   overflow: hidden;
+  /* to fix overflow problem on iphone */
+  z-index: 10;
   &:hover {
     background-color: #4eb2df;
   }

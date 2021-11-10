@@ -7,6 +7,8 @@ export function RemoveFoundPosts() {
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
   const postsNum = postsOnDisplayState.length;
 
+  if (postsNum === _allPosts.length) return null
+
   return (
     <DivStyled>
       <span>

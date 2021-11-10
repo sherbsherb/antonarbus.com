@@ -2,29 +2,26 @@ import React from 'react';
 import { CodeSpan } from '../components/Post/CodeSpan';
 import useAnimatedWrapper from '../helpers/functions/useAnimatedWrapper';
 
-const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer',  };
-const animationCss = {
-  animationDuration: '.25s',
-  keyframes: ` 0% { transform: translateX(0) } 10% { transform: translateX(5px) } 30% { transform: translateX(0) } 50% { transform: translateX(5px) } 70% { transform: translateX(0) } 90% { transform: translateX(5px) } 100% { transform: translateX(0) }  `,
+const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer' };
+const options = {
+  wrapperCss: { background: 'OldLace', margin: '5px', padding: '5px', cursor: 'pointer'},
+  animationEndFunc: () => alert('Hello after animation'),
+  animationCss: { animationDuration: '.25s', keyframes: ` 0% { transform: translateX(0) } 10% { transform: translateX(5px) } 30% { transform: translateX(0) } 50% { transform: translateX(5px) } 70% { transform: translateX(0) } 90% { transform: translateX(5px) } 100% { transform: translateX(0) }  `, },
 };
 
 function Component() {
   const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
-  const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper(animationCss);
+  const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper(options);
 
   return (
     <>
       <div>
-        <AnimationWrapper>
-          <div style={divCss}>Default animation</div>
-        </AnimationWrapper>
+        <AnimationWrapper><div style={divCss}>Default animation</div></AnimationWrapper>
         <button onClick={turnAnimationOn}>Start animation</button>
       </div>
 
       <div>
-        <AnimationWrapper2>
-          <div style={divCss}>Custom animation</div>
-        </AnimationWrapper2>
+        <AnimationWrapper2>Custom animation without inner element</AnimationWrapper2>
         <button onClick={turnAnimationOn2}>Start animation</button>
       </div>
     </>
@@ -50,23 +47,26 @@ export const useAnimatedWrapperPost = {
       lang: 'jsx',
       val: `
         // useAnimatedWrapper.js
-        import { useState } from "react";
-        import styled, { keyframes } from "styled-components";
+        import { useState } from 'react';
+        import styled, { keyframes } from 'styled-components';
 
         export default function useAnimatedWrapper(args) {
-
-          const animationCss = {       
-            keyframes: \`
-              from { transform: scaleY(0); }
-              to { transform: scaleY(1); }
-            \`,
-            animationDuration: '0.3s',
-            animationTimingFunction: 'ease-in-out',
-            animationDelay: '0s',
-            animationIterationCount: 1,
-            animationDirection: 'normal',
-            animationFillMode: 'forwards', 
-            ...args
+          const options = {
+            animationCss: {
+              keyframes: \`
+                from { transform: scaleY(0); }
+                to { transform: scaleY(1); }
+              \`,
+              animationDuration: '0.3s',
+              animationTimingFunction: 'ease-in-out',
+              animationDelay: '0s',
+              animationIterationCount: 1,
+              animationDirection: 'normal',
+              animationFillMode: 'forwards',
+              ...args?.animationCss,
+            },
+            animationEndFunc: args?.animationEndFunc || null,
+            wrapperCss: {...args?.wrapperCss || ''},
           };
 
           const [animationState, setAnimationState] = useState(false);
@@ -75,9 +75,13 @@ export const useAnimatedWrapperPost = {
           function AnimationWrapper(props) {
             return (
               <Div
-                onAnimationEnd={() => setAnimationState(false)}
+                style={!!options?.wrapperCss && options.wrapperCss}
+                onAnimationEnd={() => {
+                  setAnimationState(false);
+                  !!options?.animationEndFunc && options.animationEndFunc();
+                }}
                 isAnimationOn={animationState}
-                css={animationCss}
+                css={options.animationCss}
               >
                 {props.children}
               </Div>
@@ -115,34 +119,33 @@ export const useAnimatedWrapperPost = {
         import React from 'react';
         import useAnimatedWrapper from '../helpers/functions/useAnimatedWrapper';
         
-        const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer',  };
-        const animationCss = {
-          animationDuration: '.25s',
-          keyframes: \` 0% { transform: translateX(0) } 10% { transform: translateX(5px) } 30% { transform: translateX(0) } 50% { transform: translateX(5px) } 70% { transform: translateX(0) } 90% { transform: translateX(5px) } 100% { transform: translateX(0) } \`,
+        const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer' };
+        const options = {
+          wrapperCss: { background: 'OldLace', margin: '5px', padding: '5px', cursor: 'pointer'},
+          animationEndFunc: () => alert('Hello after animation'),
+          animationCss: { animationDuration: '.25s', keyframes: \` 0% { transform: translateX(0) } 10% { transform: translateX(5px) } 30% { transform: translateX(0) } 50% { transform: translateX(5px) } 70% { transform: translateX(0) } 90% { transform: translateX(5px) } 100% { transform: translateX(0) }  \`, },
         };
         
         function Component() {
           const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
-          const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper(animationCss);
+          const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper(options);
         
           return (
             <>
               <div>
-                <AnimationWrapper>
-                  <div style={divCss}>Default animation</div>
-                </AnimationWrapper>
+                <AnimationWrapper><div style={divCss}>Default animation</div></AnimationWrapper>
                 <button onClick={turnAnimationOn}>Start animation</button>
               </div>
         
               <div>
-                <AnimationWrapper2>
-                  <div style={divCss}>Custom animation</div>
-                </AnimationWrapper2>
+                <AnimationWrapper2>Custom animation without inner element</AnimationWrapper2>
                 <button onClick={turnAnimationOn2}>Start animation</button>
               </div>
             </>
           );
         }
+        
+        const toRender = <Component />;
       `,
     },
     {

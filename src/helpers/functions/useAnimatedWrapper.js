@@ -1,38 +1,46 @@
-import { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 export default function useAnimatedWrapper(args) {
-
-  const animationCss = {       
-    keyframes: `
-      from { transform: scaleY(0); }
-      to { transform: scaleY(1); }
-    `,
-    animationDuration: '0.3s',
-    animationTimingFunction: 'ease-in-out',
-    animationDelay: '0s',
-    animationIterationCount: 1,
-    animationDirection: 'normal',
-    animationFillMode: 'forwards', 
-    ...args
+  const options = {
+    animationCss: {
+      keyframes: `
+        from { transform: scaleY(0); }
+        to { transform: scaleY(1); }
+      `,
+      animationDuration: '0.3s',
+      animationTimingFunction: 'ease-in-out',
+      animationDelay: '0s',
+      animationIterationCount: 1,
+      animationDirection: 'normal',
+      animationFillMode: 'forwards',
+      ...args?.animationCss,
+    },
+    animationEndFunc: args?.animationEndFunc || null,
+    wrapperCss: {...args?.wrapperCss || ''},
   };
 
   const [animationState, setAnimationState] = useState(false);
   const turnAnimationOn = () => setAnimationState(true);
+  const turnAnimationOff = () => setAnimationState(false);
 
   function AnimationWrapper(props) {
     return (
       <Div
-        onAnimationEnd={() => setAnimationState(false)}
+        style={!!options?.wrapperCss && options.wrapperCss}
+        onAnimationEnd={() => {
+          setAnimationState(false);
+          !!options?.animationEndFunc && options.animationEndFunc();
+        }}
         isAnimationOn={animationState}
-        css={animationCss}
+        css={options.animationCss}
       >
         {props.children}
       </Div>
     );
   }
 
-  return [AnimationWrapper, turnAnimationOn];
+  return [AnimationWrapper, turnAnimationOn, turnAnimationOff];
 }
 
 const animationName = keyframeRules => keyframes`${keyframeRules}`;

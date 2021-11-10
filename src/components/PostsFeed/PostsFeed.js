@@ -6,7 +6,7 @@ import { store } from '../../App';
 import { Post } from '../Post/Post';
 import { _allPosts } from '../../posts/_allPosts';
 import { useLocation } from 'react-router-dom';
-import { ShowMorePosts } from './ShowMorePosts';
+import { ShowMoreBtn } from './ShowMoreBtn';
 
 export function PostsFeed(props) {
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ export function PostsFeed(props) {
 
   return <StyledMain>
   {returnPostsMemo}
-  {fromToPages.to < postsOnDisplayState.length ? <ShowMorePosts /> : null}
+  {fromToPages.to < postsOnDisplayState.length ? <ShowMoreBtn /> : null}
   </StyledMain>;
 }
 

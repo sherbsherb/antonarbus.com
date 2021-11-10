@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import shortid from 'shortid';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 const Context = createContext('');
 

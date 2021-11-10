@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 const style = {
   border: '2px solid grey',

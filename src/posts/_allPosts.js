@@ -68,8 +68,10 @@ import { SlideSidewaysWithCSSTransition } from './SlideSidewaysWithCSSTransition
 import { linkDecoration } from './linkDecoration';
 import { resetCSSProperty } from './resetCSSProperty';
 import { disableEslintWarning } from './disableEslintWarning';
+import { intersectionObserver } from './intersectionObserver';
 
 const posts = [
+  intersectionObserver,
   linkDecoration,
   disableEslintWarning,
   resetCSSProperty,

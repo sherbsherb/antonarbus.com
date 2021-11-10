@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import isIos from '../../helpers/functions/isIos';
-import { Tag } from '../post/Tag';
+import { Tag } from '../Post/Tag';
 import { InputTagsSearch } from './InputTagsSearch';
 
 export function TagsContainer() {

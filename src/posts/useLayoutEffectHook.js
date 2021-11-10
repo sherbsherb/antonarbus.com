@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Img } from '../components/post/Img';
-import { Lnk } from '../components/post/Lnk';
+import { CodeSpan } from '../components/Post/CodeSpan';
+import { Img } from '../components/Post/Img';
+import { Lnk } from '../components/Post/Lnk';
 import syncWait from '../helpers/functions/syncWait';
 
 function Component1() {

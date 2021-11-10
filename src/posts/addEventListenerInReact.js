@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 function Component() {
   const [x, setX] = useState(0);

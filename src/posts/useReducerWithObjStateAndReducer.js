@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 const initState = { counter: 0, sex: 'male' };
 

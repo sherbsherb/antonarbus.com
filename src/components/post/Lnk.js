@@ -12,4 +12,3 @@ export function Lnk(props) {
 const AStyled = styled.a`
   color: #0098f7;
 `;
-

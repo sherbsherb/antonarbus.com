@@ -3,7 +3,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mark from 'mark.js';
 import { store } from '../../App';
-import { Post } from '../post/Post';
+import { Post } from '../Post/Post';
 import { _allPosts } from '../../posts/_allPosts';
 import { useLocation } from 'react-router-dom';
 import { ShowMorePosts } from './ShowMorePosts';

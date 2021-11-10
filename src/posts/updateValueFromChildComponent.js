@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 function Parent() {
   const [state, setState] = React.useState(0);

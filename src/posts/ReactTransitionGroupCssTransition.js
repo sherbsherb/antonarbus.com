@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
+import { CodeSpan } from '../components/Post/CodeSpan';
+import { Lnk } from '../components/Post/Lnk';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 

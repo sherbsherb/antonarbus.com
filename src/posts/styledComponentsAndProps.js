@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
+import { CodeSpan } from '../components/Post/CodeSpan';
+import { Lnk } from '../components/Post/Lnk';
 
 const DivStyled = styled.div`
   display: inline-block;

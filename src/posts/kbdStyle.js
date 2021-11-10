@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 function Parent() {
   return (

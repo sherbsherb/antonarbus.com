@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavItem } from './NavItem';
-import navStructure from './navStructure';
+import navStructure from './#navStructure';
 
 export default function NavList() {
   // console.log('NavList')

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
+import { CodeSpan } from '../components/Post/CodeSpan';
+import { Lnk } from '../components/Post/Lnk';
 import axios from 'axios';
 const style = { width: '20px', margin: '0px 10px' };
 

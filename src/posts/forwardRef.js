@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
+import { CodeSpan } from '../components/Post/CodeSpan';
+import { Lnk } from '../components/Post/Lnk';
 
 const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />);
 

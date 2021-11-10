@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 const Cmpt0 = () => <Div0><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div0>
 const Div0 = styled.div`

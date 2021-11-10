@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 const greenCss = { color: 'green' }
 const redCss = { color: 'red' }

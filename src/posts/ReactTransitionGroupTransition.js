@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
-import { Lnk } from '../components/post/Lnk';
+import { CodeSpan } from '../components/Post/CodeSpan';
+import { Lnk } from '../components/Post/Lnk';
 import { Transition } from 'react-transition-group';
 
 function Component1() {

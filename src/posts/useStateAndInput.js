@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 function InputWithState() {
   const [inpVal, setInpVal] = useState('initial text');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 
 export const jsVsJsx = {
   title: 'JS vs JSX',

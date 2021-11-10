@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSpan } from '../components/post/CodeSpan';
+import { CodeSpan } from '../components/Post/CodeSpan';
 import { useModalWithBackground } from '../helpers/functions/useModalWindowWithBackgroundLayer';
 
 function Parent() {

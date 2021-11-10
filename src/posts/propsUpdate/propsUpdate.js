@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../../components/post/CodeSpan';
-import { Img } from '../../components/post/Img';
+import { CodeSpan } from '../../components/Post/CodeSpan';
+import { Img } from '../../components/Post/Img';
 import consolePic from './console.png';
 import errorPic from './error.png';
 

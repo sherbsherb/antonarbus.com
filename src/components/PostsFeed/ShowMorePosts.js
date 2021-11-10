@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from '../../App';
-import { _allPosts } from '../../posts/_allPosts';
 
 export function ShowMorePosts() {
   const dispatch = useDispatch();

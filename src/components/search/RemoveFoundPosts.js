@@ -28,6 +28,7 @@ export function RemoveFoundPosts() {
           dispatch({ type: 'forget words from input' });
           dispatch({ type: 'reset posts' });
           dispatch({ type: 'get tags from all posts' });
+          dispatch({ type: 'show 5 pages' });
           document.querySelector('#input').innerHTML = '';
           window.history.pushState({}, null, "/");
         }}

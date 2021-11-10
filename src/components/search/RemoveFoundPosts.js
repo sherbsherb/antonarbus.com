@@ -14,7 +14,7 @@ export function RemoveFoundPosts() {
         {!!postsNum && postsNum && ' post'}
         {!!postsNum && (postsNum > 1 ? 's are ' : ' is ')}
         {!postsNum && 'Not '}
-        shown
+        found
       </span>
       <span
         onClick={e => {

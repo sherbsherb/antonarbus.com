@@ -1,0 +1,154 @@
+import shortid from 'shortid';
+import { classVsFunctionComponent } from './classVsFunctionComponent'
+import { controlledVsUncontrolledComponent } from './controlledVsUncontrolledComponent'
+import { forwardLotsOfProps } from './forwardLotsOfProps'
+import { forwardRef } from './forwardRef'
+import { immutableState } from './immutabilityOfState'
+import { jsVsJsx } from './jsVsJsx'
+import { randomIntegerNumberFunction } from './randomIntegerNumberFunction';
+import { passProps } from './passProps'
+import { updateValueFromChildComponent } from './updateValueFromChildComponent'
+import { toDoList } from './toDoList'
+import { useStateAndInput } from './useStateAndInput'
+import { whyToUseState } from './whyToUseState'
+import { uuid } from './uuid'
+import { useRefExample } from './useRefExample';
+import { jsxToString } from './jsxToString/jsxToString';
+import { imgInReact } from './imgInReact/imgInReact';
+import { styledComponentsAndProps } from './styledComponentsAndProps';
+import { childrenComponentsRender } from './childrenComponentsRender';
+import { stateUpdateWithSameValue } from './stateUpdateWithSameValue.js';
+import { propsUpdate } from './propsUpdate/propsUpdate';
+import { domRenderInDevTools } from './domRenderInDevTools/domRenderInDevTools';
+import { reduxExampleByDevEd } from './reduxExampleByDevEd';
+import { useStatePrevious } from './useStatePrevious';
+import { useEffectPost } from './useEffectPost';
+import { addEventListenerInReact } from './addEventListenerInReact';
+import { useEffectCleanUp } from './useEffectCleanUp';
+import { useEffectFetchData } from './useEffectFetchData';
+import { axiosVsFetch } from './axiosVsFetch';
+import { useContextPost } from './useContextPost';
+import jsxToStr from '../../../helpers/functions/jsxToStr';
+import { useReducerPost } from './useReducerPost';
+import { useReducerWithObjStateAndReducer } from './useReducerWithObjStateAndReducer';
+import { oneReducerForMultipleComponents } from './oneReducerForMultipleComponents.js';
+import { useContextWithUseReducer } from './useContextWithUseReducer';
+import { fetchWithLoadingIndicator } from './fetchWithLoadingIndicator';
+import { delayPromise } from './delayPromise';
+import { animationTriggerByClass } from './animationTriggerByClass';
+import { animationTriggerByProp } from './animationTriggerByProp';
+import { useRefAsGlobalVar } from './useRefAsGlobalVar';
+import { useStateSkipInitialRender } from './useStateSkipInitialRender';
+import { reactMemo } from './reactMemo';
+import { useCallbackHook } from './useCallbackHook';
+import { useMemoHook } from './useMemoHook';
+import { objectsAreNotEqual } from './objectsAreNotEqual';
+import { synchronousDelayFunc } from './synchronousDelayFunc';
+import { timerInReact } from './timerInReact';
+import { secToHHMMSSfunc } from './secToHHMMSSfunc';
+import { useLayoutEffectHook } from './useLayoutEffectHook';
+import { customHooks } from './customHooks';
+import { useInputCustomHook } from './useInputCustomHook';
+import { useToggleBooleanStateCustomHook } from './useToggleStateCustomHook';
+import { useContexWithUseStateWithoutUseReducer } from './useContexWithUseStateWithoutUseReducer';
+import { reactRouting } from './reactRouting/reactRouting';
+import { expressServerForReact } from './expressServerForReact';
+import { reactIcons } from './reactIcons';
+import { tableOfContent } from './tableOfContent';
+import { RoutesCombination } from './RoutesCombination';
+import { modalWindowWithBackgroundLayer } from './modalWindowWithBackgroundLayer';
+import { modalWindowWithoutBackgroundLayer } from './modalWindowWithoutBackgroundLayer';
+import { kbdStyle } from './kbdStyle';
+import { clickedInsideOutside } from './clickedInsideOutside';
+import { passArgsIntoFunc } from './passArgsIntoFunc';
+import { useAnimatedWrapperPost } from './useAnimatedWrapperPost';
+import { ReactTransitionGroupTransition } from './ReactTransitionGroupTransition';
+import { ReactTransitionGroupCssTransition } from './ReactTransitionGroupCssTransition';
+import { SlideSidewaysWithCSSTransition } from './SlideSidewaysWithCSSTransition';
+import { linkDecoration } from './linkDecoration';
+import { resetCSSProperty } from './resetCSSProperty';
+import { disableEslintWarning } from './disableEslintWarning';
+import { intersectionObserver } from './intersectionObserver';
+
+const posts = [
+  intersectionObserver,
+  linkDecoration,
+  disableEslintWarning,
+  resetCSSProperty,
+  SlideSidewaysWithCSSTransition,
+  ReactTransitionGroupCssTransition,
+  ReactTransitionGroupTransition,
+  randomIntegerNumberFunction,
+  useAnimatedWrapperPost,
+  passArgsIntoFunc,
+  clickedInsideOutside,
+  kbdStyle,
+  modalWindowWithoutBackgroundLayer,
+  modalWindowWithBackgroundLayer,
+  RoutesCombination,
+  tableOfContent,
+  reactIcons,
+  expressServerForReact,
+  reactRouting,
+  useContexWithUseStateWithoutUseReducer,
+  useToggleBooleanStateCustomHook,
+  useInputCustomHook,
+  customHooks,
+  useLayoutEffectHook,
+  timerInReact,
+  secToHHMMSSfunc,
+  synchronousDelayFunc,
+  useMemoHook,
+  useCallbackHook,
+  reactMemo,
+  objectsAreNotEqual,
+  useStateSkipInitialRender,
+  useRefAsGlobalVar,
+  animationTriggerByProp,
+  animationTriggerByClass,
+  delayPromise,
+  fetchWithLoadingIndicator,
+  useContextWithUseReducer,
+  oneReducerForMultipleComponents,
+  useReducerWithObjStateAndReducer,
+  useReducerPost,
+  useContextPost,
+  axiosVsFetch,
+  useEffectFetchData,
+  useEffectCleanUp,
+  addEventListenerInReact,
+  useEffectPost,
+  useStatePrevious,
+  reduxExampleByDevEd,
+  domRenderInDevTools,
+  propsUpdate,
+  stateUpdateWithSameValue,
+  childrenComponentsRender,
+  styledComponentsAndProps,
+  imgInReact,
+  jsxToString,
+  useRefExample,
+  uuid,
+  updateValueFromChildComponent,
+  forwardRef,
+  controlledVsUncontrolledComponent,
+  forwardLotsOfProps,
+  passProps,
+  immutableState,
+  toDoList,
+  classVsFunctionComponent,
+  useStateAndInput,
+  whyToUseState,
+  jsVsJsx,
+]
+
+export const _allPosts = posts.map((o, index) => ({
+  ...o,
+  titleTxt: jsxToStr(o.title), 
+  uriPostName: encodeURI(jsxToStr(o.title).replace(/\s/g,'-').toLowerCase()),
+  postTxt: o.postParts.map(el => jsxToStr(el.val)).join(''),
+  id: shortid(),
+  postNum: posts.length - index,
+}))
+
+// console.log(_allPosts)

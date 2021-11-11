@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../../../App';
-import { _allPosts } from '../../../posts/_allPosts';
+import { _allPosts } from '../../PostsFeed/posts/_allPosts';
 
 export function BtnSearch() {
   const dispatch = useDispatch();

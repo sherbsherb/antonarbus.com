@@ -1,5 +1,6 @@
 import returnAllTagsFromArr from '../../helpers/functions/returnAllTagsFromArr';
-import { _allPosts } from '../../posts/_allPosts';
+// import { _allPosts } from '../../posts/_allPosts';
+import { _allPosts } from '../../components/PostsFeed/posts/_allPosts'
 
 let allTags = returnAllTagsFromArr(_allPosts);
 

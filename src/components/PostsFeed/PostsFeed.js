@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Mark from 'mark.js';
 import { store } from '../../App';
 import { Post } from './components/Post';
-import { _allPosts } from '../../posts/_allPosts';
+import { _allPosts } from './posts/_allPosts';
 import { useLocation } from 'react-router-dom';
 import { ShowMoreBtn } from './components/ShowMoreBtn';
 

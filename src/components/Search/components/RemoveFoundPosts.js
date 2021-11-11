@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { _allPosts } from '../../../posts/_allPosts';
+import { _allPosts } from '../../PostsFeed/posts/_allPosts';
 
 export function RemoveFoundPosts() {
   const dispatch = useDispatch();

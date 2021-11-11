@@ -1,6 +1,7 @@
 import areTagsInPost from '../../helpers/functions/areTagsInPost';
 import areWordsInText from '../../helpers/functions/areWordsInText';
-import { _allPosts } from '../../posts/_allPosts';
+// import { _allPosts } from '../../posts/_allPosts';
+import { _allPosts } from '../../components/PostsFeed/posts/_allPosts'
 
 export default function foundPosts(state = _allPosts, action) {
   const words = action.typedWords

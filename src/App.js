@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { Nav } from './components/Nav/_Nav.js';
+import { Nav } from './components/Nav/Nav.js';
 import Search from './components/Search/Search.js';
 import allReducers from './redux/reducers/_allReducers';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';

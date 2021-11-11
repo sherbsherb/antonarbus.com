@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CodeSpan } from '../components/Post/CodeSpan';
+import { Lnk } from '../components/Post/Lnk';
 
 const Cmpt0 = () => <Div0><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div0>
 const Div0 = styled.div`
@@ -127,13 +128,22 @@ const Div5 = styled.div`
 `;
 const toRender5 = <Cmpt5 />;
 
-
-
 export const linkDecoration = {
   title: 'Link style',
   date: '2021.11.04',
   tagsArr: ['css'],
   postParts: [
+    {
+      type: 'text',
+      val: (
+        <>
+          Post is inspired by{' '}
+          <Lnk path="https://michellebarker.co.uk/">Michelle Barker's</Lnk>{' '}
+          great{' '}
+          <Lnk path="https://css-irl.info/animating-underlines/">article</Lnk>.
+        </>
+      ),
+    },
     {
       type: 'text',
       val: (
@@ -161,10 +171,13 @@ export const linkDecoration = {
     },
     {
       type: 'text',
-      val: <>
-        To remove the line below the link change property 
-        from <CodeSpan>{'{text-decoration: underline}'}</CodeSpan> to <CodeSpan>{'{text-decoration: none}'}</CodeSpan>
-      </>,
+      val: (
+        <>
+          To remove the line below the link change property from{' '}
+          <CodeSpan>{'{text-decoration: underline}'}</CodeSpan> to{' '}
+          <CodeSpan>{'{text-decoration: none}'}</CodeSpan>
+        </>
+      ),
     },
     {
       type: 'code',
@@ -185,7 +198,11 @@ export const linkDecoration = {
     },
     {
       type: 'text',
-      val: <>Simple styles can be applied for an anchor tag to make it look nicer.</>,
+      val: (
+        <>
+          Simple styles can be applied for an anchor tag to make it look nicer.
+        </>
+      ),
     },
     {
       type: 'code',

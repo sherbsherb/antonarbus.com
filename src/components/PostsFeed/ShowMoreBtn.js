@@ -7,46 +7,43 @@ export function ShowMoreBtn() {
   const dispatch = useDispatch();
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
   const options = {
-    wrapperCss: { background: '#00000042', transform: 'translateX(-101%)', position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 },
+    wrapperCss: {  background: '#00000042', transform: 'translateX(-101%)', position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 },
     animationEndFunc: () => dispatch({ type: 'show more pages', maxNumOfPosts: postsOnDisplayState.length }),
-    animationCss: { animationDuration: '5s', keyframes: ` from { transform: translateX(-101%) } to { transform: translateX(0) } ` },
+    animationCss: { animationDuration: '5s', keyframes: `from { transform: translateX(-101%) } to { transform: translateX(0) }`},
   };
   const [AnimationWrapper, turnAnimationOn, turnAnimationOff] = useAnimatedWrapper(options);
   const ref = React.useRef(null);
 
   React.useEffect(() => {
     document.addEventListener('click', turnAnimationOff);
-    return () => {
-      document.removeEventListener('click', turnAnimationOff);
-    }
-  }, []);
+    return () => document.removeEventListener('click', turnAnimationOff);
+  }, [turnAnimationOff]);
 
   React.useEffect(() => {
     const target = ref.current;
-    const options = { threshold: .95 };
+    const options = { threshold: 0.95 };
 
     function callback(entries, observer) {
-      if (!entries[0].isIntersecting) return
-      console.log('intersected');
-      turnAnimationOn()
+      if (entries[0].isIntersecting) turnAnimationOn();
+      if (!entries[0].isIntersecting) turnAnimationOff();
     }
 
     const observer = new IntersectionObserver(callback, options);
     observer.observe(target);
-  }, []);
+
+    return () => {
+      observer.unobserve(target);
+      observer.disconnect();
+    };
+  }, [turnAnimationOn, turnAnimationOff]);
 
   return (
     <Btn
-      onClick={() => {
-        dispatch({
-          type: 'show more pages',
-          maxNumOfPosts: postsOnDisplayState.length,
-        });
-      }}
+      onClick={() => dispatch({ type: 'show more pages', maxNumOfPosts: postsOnDisplayState.length })}
       ref={ref}
     >
-    Show more
-      <AnimationWrapper/>
+      Show more
+      <AnimationWrapper />
     </Btn>
   );
 }
@@ -64,9 +61,7 @@ const Btn = styled.button`
   text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
   font-weight: bold;
   overflow: hidden;
-  /* to fix overflow problem on iphone */
+  /* to fix overflow problem on iphone, otherwise overflow: hidden not working properly */
   z-index: 10;
-  &:hover {
-    background-color: #4eb2df;
-  }
+  &:hover { background-color: #4eb2df }
 `;

@@ -30,6 +30,13 @@ function Component() {
 
     const observer = new IntersectionObserver(callback, options);
     observer.observe(target);
+
+    return () => {
+      // Stop watching for intersection events on a specific target Element.
+      observer.unobserve(target);
+      // Stop observing threshold events on all target elements.
+      observer.disconnect();
+    }
   }, []);
 
   return (
@@ -97,6 +104,13 @@ export const intersectionObserver = {
 
             const observer = new IntersectionObserver(callback, options);
             observer.observe(target);
+
+            return () => {
+              // Stop watching for intersection events
+              observer.unobserve(target);
+              // Stop observing
+              observer.disconnect();
+            }
           }, []);
 
           return (

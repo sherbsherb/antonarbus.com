@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 export default function useAnimatedWrapper(args) {
@@ -20,9 +20,11 @@ export default function useAnimatedWrapper(args) {
     wrapperCss: {...args?.wrapperCss || ''},
   };
 
-  const [animationState, setAnimationState] = useState(false);
+  const [animationState, setAnimationState] = React.useState(false);
   const turnAnimationOn = () => setAnimationState(true);
   const turnAnimationOff = () => setAnimationState(false);
+  const turnAnimationOnMemoized = React.useCallback(turnAnimationOn, [])
+  const turnAnimationOffMemoized = React.useCallback(turnAnimationOff, [])
 
   function AnimationWrapper(props) {
     return (
@@ -40,7 +42,7 @@ export default function useAnimatedWrapper(args) {
     );
   }
 
-  return [AnimationWrapper, turnAnimationOn, turnAnimationOff];
+  return [AnimationWrapper, turnAnimationOnMemoized, turnAnimationOffMemoized];
 }
 
 const animationName = keyframeRules => keyframes`${keyframeRules}`;

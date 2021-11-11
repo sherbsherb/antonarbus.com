@@ -42,7 +42,7 @@ function Child(props) {
 
 const toRender = <Parent />;
 
-export const useContexWithUseStateWithoutUseReducer = {
+export const useContextWithUseStateWithoutUseReducer = {
   title: <>
     <CodeSpan>useContext()</CodeSpan> with <CodeSpan>useState()</CodeSpan> & without <CodeSpan>useReducer()</CodeSpan>
   </>

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../../../App';
-import { _allPosts } from '../../PostsFeed/posts/_allPosts';
+import { postsArr } from '../../PostsFeed/postsArr';
 
 export function BtnSearch() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export function BtnSearch() {
 
         if (store.getState().searchInputVal === '') {
           dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display following posts', postsToShow: _allPosts });
+          dispatch({ type: 'display following posts', postsToShow: postsArr });
           dispatch({ type: 'close search menu' });
           dispatch({ type: 'reset posts' });
           dispatch({ type: 'get tags from all posts' });

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { _allPosts } from '../../PostsFeed/posts/_allPosts';
+import { postsArr } from '../../PostsFeed/postsArr';
 
 export function BtnCancel() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export function BtnCancel() {
       onClick={e => {
         e.preventDefault();
         dispatch({ type: 'remove search input val' });
-        dispatch({ type: 'display following posts', postsToShow: _allPosts });
+        dispatch({ type: 'display following posts', postsToShow: postsArr });
         dispatch({ type: 'close search menu' });
         dispatch({ type: 'remove tags input val' })
         dispatch({ type: 'remove remove found posts msg' });

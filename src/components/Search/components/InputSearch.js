@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../../../App';
-import { _allPosts } from '../../PostsFeed/posts/_allPosts';
+import { postsArr } from '../../PostsFeed/postsArr';
 
 export function InputSearch() {
   const dispatch = useDispatch();
@@ -78,7 +78,7 @@ export function InputSearch() {
           
           if (store.getState().searchInputVal === '') {
             dispatch({ type: 'remove search input val' });
-            dispatch({ type: 'display following posts', postsToShow: _allPosts });
+            dispatch({ type: 'display following posts', postsToShow: postsArr });
             dispatch({ type: 'remove remove found posts msg' });
             dispatch({ type: 'remove tags input val' });
             dispatch({ type: 'reset posts' });
@@ -94,7 +94,7 @@ export function InputSearch() {
         if (e.key === 'Escape') {
           e.preventDefault();
           dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display following posts', postsToShow: _allPosts });
+          dispatch({ type: 'display following posts', postsToShow: postsArr });
           dispatch({ type: 'close search menu' });
           dispatch({ type: 'remove remove found posts msg' });
           dispatch({ type: 'remove tags input val' });

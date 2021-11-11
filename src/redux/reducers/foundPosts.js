@@ -1,16 +1,16 @@
 import areTagsInPost from '../../helpers/functions/areTagsInPost';
 import areWordsInText from '../../helpers/functions/areWordsInText';
-// import { _allPosts } from '../../posts/_allPosts';
-import { _allPosts } from '../../components/PostsFeed/posts/_allPosts'
+// import { postsArr } from '../../posts/postsArr';
+import { postsArr } from '../../components/PostsFeed/postsArr'
 
-export default function foundPosts(state = _allPosts, action) {
+export default function foundPosts(state = postsArr, action) {
   const words = action.typedWords
   const tags = action.typedTags
 
   if (action.type === 'find posts')
-    return _allPosts
+    return postsArr
       .filter(el => areWordsInText(words, el.titleTxt + el.postTxt))
       .filter(el => areTagsInPost(tags, el.tagsArr));
-  if (action.type === 'reset posts') return _allPosts;
+  if (action.type === 'reset posts') return postsArr;
   return state;
 }

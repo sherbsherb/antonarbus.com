@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { _allPosts } from '../../PostsFeed/posts/_allPosts';
+import { postsArr } from '../../PostsFeed/postsArr';
 
 export function RemoveFoundPosts() {
   const dispatch = useDispatch();
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
   const postsNum = postsOnDisplayState.length;
 
-  if (postsNum === _allPosts.length) return null
+  if (postsNum === postsArr.length) return null
 
   return (
     <DivStyled>
@@ -22,7 +22,7 @@ export function RemoveFoundPosts() {
         onClick={e => {
           e.preventDefault();
           dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display following posts', postsToShow: _allPosts });
+          dispatch({ type: 'display following posts', postsToShow: postsArr });
           dispatch({ type: 'close search menu' });
           dispatch({ type: 'remove remove found posts msg' });
           dispatch({ type: 'remove tags input val' });

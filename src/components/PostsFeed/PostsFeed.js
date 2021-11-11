@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Mark from 'mark.js';
 import { store } from '../../App';
 import { Post } from './components/Post';
-import { _allPosts } from './posts/_allPosts';
 import { useLocation } from 'react-router-dom';
 import { ShowMoreBtn } from './components/ShowMoreBtn';
+import { postsArr } from './postsArr';
 
 export function PostsFeed(props) {
   const dispatch = useDispatch();
@@ -16,20 +16,20 @@ export function PostsFeed(props) {
   const postNameFromUri = props?.match?.params?.uriPostName;
 
   useEffect(() => {
-    const doesPostFromUriExist = _allPosts.some(
+    const doesPostFromUriExist = postsArr.some(
       o => o.uriPostName === postNameFromUri
     );
 
     if (doesPostFromUriExist) {
       dispatch({
         type: 'display following posts',
-        postsToShow: _allPosts.filter(o => o.uriPostName === postNameFromUri),
+        postsToShow: postsArr.filter(o => o.uriPostName === postNameFromUri),
       });
       dispatch({ type: 'show remove found posts msg' });
     } else {
       dispatch({
         type: 'display following posts',
-        postsToShow: _allPosts,
+        postsToShow: postsArr,
       });
     }
   }, [location, dispatch, postNameFromUri]);

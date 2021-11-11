@@ -3,17 +3,17 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { store } from '../../App';
-import { BtnCancel } from './BtnCancel';
-import { BtnSearch } from './BtnSearch';
-import { FoundPosts } from './FoundPosts';
-import { InputSearch } from './InputSearch';
-import { RemoveFoundPosts } from './RemoveFoundPosts';
-import { SearchPreviewContainer } from './SearchPreviewContainer';
-import { SearchPreviewItem } from './SearchPreviewItem';
-import { TagsContainer } from './TagsContainer';
+import { BtnCancel } from './components/BtnCancel';
+import { BtnSearch } from './components/BtnSearch';
+import { FoundPosts } from './components/FoundPosts';
+import { InputSearch } from './components/InputSearch';
+import { RemoveFoundPosts } from './components/RemoveFoundPosts';
+import { SearchPreviewContainer } from './components/SearchPreviewContainer';
+import { SearchPreviewItem } from './components/SearchPreviewItem';
+import { TagsContainer } from './components/TagsContainer';
 import { useDispatch } from "react-redux";
 
-export default function SearchContainer() {
+export default function Search() {
   const showSearchMenuState = useSelector(state => state.showSearchMenu);
   const showRemoveFoundPostsMsgState = useSelector(
     state => state.showRemoveFoundPostsMsg

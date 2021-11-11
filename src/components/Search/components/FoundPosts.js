@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { store } from '../../App';
+import { store } from '../../../App';
 
 export function FoundPosts() {
   const foundPostsState = useSelector(state => state.foundPosts);

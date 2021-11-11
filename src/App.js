@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Nav } from './components/Nav/_Nav.js';
-import SearchContainer from './components/search/_SearchContainer.js';
+import Search from './components/Search/Search.js';
 import allReducers from './redux/reducers/_allReducers';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NotFound } from './components/NotFound/NotFound.js';
@@ -21,7 +21,7 @@ export default function App() {
     <Provider store={store}>
       <Router>
         {/* <Nav /> */}
-        {/* <SearchContainer /> */}
+        {/* <Search /> */}
         <Switch>
           <Route
             path="/post/:uriPostName"
@@ -29,7 +29,7 @@ export default function App() {
             render={props => (
               <>
                 <Nav />
-                <SearchContainer />
+                <Search />
                 <PostsFeed {...props} />
               </>
             )}
@@ -41,7 +41,7 @@ export default function App() {
             render={props => (
               <>
                 <Nav />
-                <SearchContainer />
+                <Search />
                 <PostsFeed {...props} />
               </>
             )}

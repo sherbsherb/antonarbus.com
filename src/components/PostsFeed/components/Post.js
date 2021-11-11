@@ -6,7 +6,7 @@ import { Tags } from './Tags.js';
 import { Text } from './Text.js';
 import { Output } from './Output.js';
 import { Code } from './Code.js';
-import { Img } from '../../Post/Img.js';
+import { Img } from './Img.js';
 import { Div } from './Div.js';
 
 export function Post(props) {

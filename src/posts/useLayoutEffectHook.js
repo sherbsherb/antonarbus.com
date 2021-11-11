@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { CodeSpan } from '../components/Post/CodeSpan';
-import { Img } from '../components/Post/Img';
+import { Img } from '../components/PostsFeed/components/Img';
 import { Lnk } from '../components/Post/Lnk';
 import syncWait from '../helpers/functions/syncWait';
 

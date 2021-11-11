@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 const initState = 0;
 function reducer(state, action) {

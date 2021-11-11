@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 const Nav = () => (
   <div>

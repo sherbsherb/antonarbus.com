@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 import { v1 as uuidv1 } from 'uuid';
 import { v4 as uuidv4 } from 'uuid';

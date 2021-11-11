@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 const btnCss = {padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer',}
 

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
 
 let toggle = true;
 

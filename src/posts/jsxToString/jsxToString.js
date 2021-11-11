@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSpan } from '../../components/Post/CodeSpan';
+import { CodeSpan } from '../../components/PostsFeed/components/CodeSpan';
 import img from './img.png';
 
 function jsxToStr(el) {

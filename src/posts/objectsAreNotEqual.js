@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lnk } from '../components/Post/Lnk';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 export const objectsAreNotEqual = {
   title: <>Same objects are not equal</>,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
 
 function ParentComponent(props) {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 const Cmpt0 = () => <Div0><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div0>
 const Div0 = styled.div`

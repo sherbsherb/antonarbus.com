@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React, { useMemo, useRef, useState } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
 import randomNumFromTo from '../helpers/functions/randomNumFromTo';
 
 function Parent() {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { CodeSpan } from '../../components/Post/CodeSpan';
-import { Lnk } from '../../components/Post/Lnk';
+import { CodeSpan } from '../../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../../components/PostsFeed/components/Lnk';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import img from './linkProps.png'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lnk } from '../components/Post/Lnk';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 
 function Component() {
   const ref = React.useRef(null);

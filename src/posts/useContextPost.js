@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px',};
 
 const ContextA = createContext('');

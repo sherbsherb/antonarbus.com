@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
 import useAnimatedWrapper from '../helpers/functions/useAnimatedWrapper';
 
 const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer' };

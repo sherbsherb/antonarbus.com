@@ -1,6 +1,6 @@
 import React from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 import { MdOutlineMenuBook } from 'react-icons/md';
 import { FaRedhat as HatIcon } from 'react-icons/fa';
 const icon = React.createElement(MdOutlineMenuBook)

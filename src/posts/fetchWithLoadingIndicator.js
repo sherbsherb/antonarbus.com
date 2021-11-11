@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useReducer, useState } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
-import { Lnk } from '../components/Post/Lnk';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
+import { Lnk } from '../components/PostsFeed/components/Lnk';
 import randomNumFromTo from '../helpers/functions/randomNumFromTo';
 import sleeper from '../helpers/functions/sleeper';
 

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/Post/CodeSpan';
+import { CodeSpan } from '../components/PostsFeed/components/CodeSpan';
 const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' };
 
 function Parent() {

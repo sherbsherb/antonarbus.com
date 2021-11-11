@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
-import './../PostsFeed/components/prism.css'
+import './prism.css'
 
 export function CodeSpan(props) {
   let lang = 'jsx'

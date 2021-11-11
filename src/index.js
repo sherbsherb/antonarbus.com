@@ -30,6 +30,11 @@ const StyleReset = createGlobalStyle`
     }
   }
 
+  html {
+    ${'' /* makes scrollbar fixed and not moving content to the left */}
+    overflow: overlay;
+  }
+
   body {
     height: 100%;
     margin: 0;

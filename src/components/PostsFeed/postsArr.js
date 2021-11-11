@@ -70,8 +70,10 @@ import { resetCSSProperty } from './posts/resetCSSProperty';
 import { disableEslintWarning } from './posts/disableEslintWarning';
 import { intersectionObserver } from './posts/intersectionObserver';
 import { gsapAndReact } from './posts/gsapAndReact';
+import { gsapBasics } from './posts/gsapBasics';
 
 const posts = [
+  gsapBasics,
   gsapAndReact,
   intersectionObserver,
   linkDecoration,

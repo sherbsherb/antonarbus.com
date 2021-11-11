@@ -69,8 +69,10 @@ import { linkDecoration } from './posts/linkDecoration';
 import { resetCSSProperty } from './posts/resetCSSProperty';
 import { disableEslintWarning } from './posts/disableEslintWarning';
 import { intersectionObserver } from './posts/intersectionObserver';
+import { gsapAndReact } from './posts/gsapAndReact';
 
 const posts = [
+  gsapAndReact,
   intersectionObserver,
   linkDecoration,
   disableEslintWarning,

@@ -5,7 +5,7 @@ import { Nav } from './components/Nav/Nav.js';
 import Search from './components/Search/Search.js';
 import allReducers from './redux/reducers/_allReducers';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { NotFound } from './components/NotFound/NotFound.js';
+import { NotFound } from './components/NotFound.js';
 import { PostsFeed } from './components/PostsFeed/PostsFeed.js';
 
 export const store = createStore(

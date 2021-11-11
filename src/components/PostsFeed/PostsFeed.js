@@ -3,10 +3,10 @@ import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mark from 'mark.js';
 import { store } from '../../App';
-import { Post } from '../Post/Post';
+import { Post } from './components/Post';
 import { _allPosts } from '../../posts/_allPosts';
 import { useLocation } from 'react-router-dom';
-import { ShowMoreBtn } from './ShowMoreBtn';
+import { ShowMoreBtn } from './components/ShowMoreBtn';
 
 export function PostsFeed(props) {
   const dispatch = useDispatch();
@@ -57,10 +57,12 @@ export function PostsFeed(props) {
     return returnPosts();
   }, [postsOnDisplayState, fromToPages]);
 
-  return <StyledMain>
-  {returnPostsMemo}
-  {fromToPages.to < postsOnDisplayState.length ? <ShowMoreBtn /> : null}
-  </StyledMain>;
+  return (
+    <StyledMain>
+      {returnPostsMemo}
+      {fromToPages.to < postsOnDisplayState.length ? <ShowMoreBtn /> : null}
+    </StyledMain>
+  );
 }
 
 const StyledMain = styled.main`

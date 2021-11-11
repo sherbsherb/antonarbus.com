@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
-import './prism.css';
+import './prism.css'
 
 Prism.plugins.NormalizeWhitespace.setDefaults({
   'remove-trailing': true,

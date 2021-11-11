@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import useAnimatedWrapper from '../../helpers/functions/useAnimatedWrapper';
+import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper';
+
 
 export function ShowMoreBtn() {
   const dispatch = useDispatch();

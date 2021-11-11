@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import setCaretToEnd from '../../helpers/functions/setCaretToEnd';
+import setCaretToEnd from './../../../helpers/functions/setCaretToEnd';
 
 export function Tag(props) {
 

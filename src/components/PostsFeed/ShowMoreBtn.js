@@ -12,7 +12,7 @@ export function ShowMoreBtn() {
     animationCss: { animationDuration: '5s', keyframes: `from { transform: translateX(-101%) } to { transform: translateX(0) }`},
   };
   const [AnimationWrapper, turnAnimationOn, turnAnimationOff] = useAnimatedWrapper(options);
-  const ref = React.useRef(null);
+  const ref = React.useRef();
 
   React.useEffect(() => {
     document.addEventListener('click', turnAnimationOff);

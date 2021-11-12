@@ -28,7 +28,7 @@ const toRender = <Component />;
 export const gsapAndReact = {
   title: "GSAP in React",
   date: '2021.11.11',
-  tagsArr: ['react', 'animation'],
+  tagsArr: ['react', 'animation', 'gsap'],
   postParts: [
     {
       type: 'text',
@@ -50,7 +50,7 @@ export const gsapAndReact = {
       type: 'text',
       val: (
         <>
-          Use <i>gsap</i> in React via <CodeSpan>{'React.useEffect()'}</CodeSpan> hook.
+          Use <i>gsap</i> in React via <CodeSpan>{'React.useRef()'}</CodeSpan> hook to target an element.
         </>
       ),
     },

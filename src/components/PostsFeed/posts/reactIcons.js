@@ -25,29 +25,43 @@ export const reactIcons = {
   postParts: [
     {
       type: 'text',
-      val:<>
-        <Lnk path={'https://www.npmjs.com/package/react-icons'}>React-icons</Lnk> package can be installed 
-        with <CodeSpan>npm i react-icons</CodeSpan> from terminal.
-      </>,
+      val: (
+        <>
+          <Lnk path={'https://www.npmjs.com/package/react-icons'}>
+            React-icons
+          </Lnk>{' '}
+          package can be installed with <CodeSpan>npm i react-icons</CodeSpan>{' '}
+          from terminal.
+        </>
+      ),
     },
     {
       type: 'text',
-      val:<>
-        Whole set of icons can be checked <Lnk path={'https://react-icons.github.io/react-icons'}>here</Lnk>.
-      </>,
+      val: (
+        <>
+          Whole set of icons can be checked{' '}
+          <Lnk path={'https://react-icons.github.io/react-icons'}>here</Lnk>.
+        </>
+      ),
     },
     {
       type: 'text',
-      val:<>
-        We can use icons as JSX components <CodeSpan>{'<Icon />'}</CodeSpan> or pass in 
-        variables <CodeSpan>{'const iconVar = React.createElement(Icon)'}</CodeSpan>.
-      </>,
+      val: (
+        <>
+          We can use icons as JSX components <CodeSpan>{'<Icon />'}</CodeSpan>{' '}
+          or assign them to variables{' '}
+          <CodeSpan>{'const iconVar = React.createElement(Icon)'}</CodeSpan>.
+        </>
+      ),
     },
     {
       type: 'text',
-      val:<>
-        Styles can be applied on svg <CodeSpan>{'<MdOutlineMenuBook style={styles}/>'}</CodeSpan>.
-      </>,
+      val: (
+        <>
+          Styles can be applied on svg{' '}
+          <CodeSpan>{'<MdOutlineMenuBook style={styles}/>'}</CodeSpan>.
+        </>
+      ),
     },
     {
       type: 'code',

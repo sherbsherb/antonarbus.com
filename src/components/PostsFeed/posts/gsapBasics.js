@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Lnk } from './../components/Lnk';
 import { gsap } from "gsap";
 import { CodeSpan } from '../components/CodeSpan';
@@ -8,18 +8,28 @@ import TelegramSvg from './svgPics/telegram.svg';
 const style = {width: '200px', height: '50px', margin: '10px', border: '1px solid black', display: 'flex', justifyContent: 'center', alignItems: 'center'}
 
 function Cmpt1() {
-  const ref1 = React.useRef()
-  const ref2 = React.useRef()
-  const ref3 = React.useRef()
-  const ref4 = React.useRef()
+  const ref1 = useRef()
+  const ref2 = useRef()
+  const ref3 = useRef()
+  const ref4 = useRef()
+  const allEls = useRef([]);
+
+  useEffect(() => allEls.current = [
+    ref1.current, ref2.current, ref3.current, ref4.current
+  ], [])
   
   const animate = () => {
+    gsap.set([allEls.current, '#id450, .class564, div span.class498'], { 
+      x: 0, y: 0, scale: 1, opacity: 1, backgroundColor: "transparent", 
+      borderRadius: '0%', border: "1px solid black"
+    })
     gsap.to(ref1.current, { duration: 1, x: 300 });
     gsap.to('#id450', { duration: 2, x: 300 });
     gsap.to('.class564', { duration: 3, rotation: 360, scale: 0.5 });
     gsap.to('div span.class498', { duration: 1, opacity: 0.1 });
     gsap.to([ref2.current, ref3.current, ref4.current], {
-      duration: 4, x: 50, y: 20, backgroundColor: 'purple', borderRadius: '50%', border: "5px solid orange"
+      duration: 4, x: 50, y: 20, backgroundColor: 'purple', 
+      borderRadius: '50%', border: "5px solid orange"
     });
   };
 
@@ -41,12 +51,18 @@ function Cmpt1() {
 const toRender1 = <Cmpt1 />;
 
 function Cmpt2() {
-  const ref1 = React.useRef()
-  const ref2 = React.useRef()
-  const ref3 = React.useRef()
-  const ref4 = React.useRef()
+  const ref1 = useRef()
+  const ref2 = useRef()
+  const ref3 = useRef()
+  const ref4 = useRef()
+  const allEls = useRef([]);
+
+  useEffect(() => allEls.current = [
+    ref1.current, ref2.current, ref3.current, ref4.current
+  ], [])
 
   const animate = () => {
+    gsap.set(allEls.current, { x: 0 })
     gsap.to(ref1.current, { duration: 2, x: 100, ease: 'bounce.in' });
     gsap.to(ref2.current, { duration: 2, x: 100, ease: 'bounce.out' });
     gsap.to(ref3.current, { duration: 2, x: 100, ease: 'bounce.inOut' });
@@ -67,18 +83,13 @@ function Cmpt2() {
 const toRender2 = <Cmpt2 />;
 
 function Cmpt3() {
-  const ref1 = React.useRef()
-  const ref2 = React.useRef()
+  const ref1 = useRef()
+  const ref2 = useRef()
 
-  const animate = () =>
-    gsap.to([ref1.current, ref2.current], {
-      duration: 3, rotation: 360, scale: 0.1 
-    });
-
-  React.useEffect(() => {
-    gsap.set(ref1.current, {transformOrigin: "50% 50%", x: '0px'})
-    gsap.set(ref2.current, {transformOrigin: "50% 50%", x: '200px'})
-  }, [])
+  const animate = () => {
+    gsap.set([ref1.current, ref2.current], { transformOrigin: '50% 50%', rotation: 0, scale: 1 });
+    gsap.to([ref1.current, ref2.current], { duration: 3, rotation: 360, scale: 0.1 });
+  };
 
   return (
     <>
@@ -93,19 +104,26 @@ function Cmpt3() {
 const toRender3 = <Cmpt3 />;
 
 function Cmpt4() {
-  const myObject = { someProperty: 0 }
-  const [start, setStart] = React.useState('')
-  const [update, setUpdate] = React.useState('')
-  const [complete, setComplete] = React.useState('')
-
-  const animate = () =>
+  const myObject = { count: 0 }
+  const [start, setStart] = useState('')
+  const [update, setUpdate] = useState('')
+  const [complete, setComplete] = useState('')
+  const reset = () => {
+    setStart('')
+    setUpdate('0')
+    setComplete('')
+    myObject.count = 0
+  }
+  const animate = () => {
+    reset();
     gsap.to(myObject, {
       duration: 5,
-      someProperty: 1000,
+      count: 1000,
       onStart: () => setStart('gsap started'),
-      onUpdate: () => setUpdate(myObject.someProperty.toString()),
+      onUpdate: () => setUpdate(myObject.count.toString()),
       onComplete: () => setComplete('gsap completed'),
     });
+  };
 
   return (
     <>
@@ -120,25 +138,19 @@ function Cmpt4() {
 const toRender4 = <Cmpt4 />;
 
 function Cmpt5() {
-  const ref1 = React.useRef()
-  const ref2 = React.useRef()
+  const ref1 = useRef()
+  const ref2 = useRef()
 
   const animate = () => {
-    gsap.to(ref1.current, {duration: 3, scale: .1, opacity: .1});
-    gsap.from(ref2.current, {duration: 3, scale: .1, opacity: .1});
+    gsap.set([ref1.current, ref2.current], { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
+    gsap.to(ref1.current, { duration: 3, scale: .1, opacity: .1 });
+    gsap.from(ref2.current, { duration: 3, scale: .1, opacity: .1 });
   }
-
-  React.useEffect(() => {
-    gsap.set(ref1.current, {transformOrigin: "50% 50%", x: '0px'})
-    gsap.set(ref2.current, {transformOrigin: "50% 50%", x: '200px'})
-  }, [])
 
   return (
     <>
-      {/* eslint-disable-next-line */}
-      <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} />
-      {/* eslint-disable-next-line */}
-      <img ref={ref2} src={CocaColaSvg} style={{width: '100px'}} />
+      <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
+      <img ref={ref2} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
       <div><button onClick={animate}>Animate</button></div>
     </>
   );
@@ -146,7 +158,7 @@ function Cmpt5() {
 const toRender5 = <Cmpt5 />;
 
 function Circle(props) {
-  const style = { display: 'inline-block', margin: '10px', width: '50px', height: '50px', borderRadius: '50%', background: props.color }
+  const style = { display: 'inline-block', margin: '10px', width: '50px', height: '50px', borderRadius: '50%', background: props.clr }
   return <div style={style} className="circle945"/>
 }
 function Cmpt6() {
@@ -155,20 +167,16 @@ function Cmpt6() {
   const animateWithStagger = () => gsap.to('.circle945', {duration: 1, scale: 1, opacity: 1, y: 0, stagger: .25})
   return (
     <>
-      <Circle color="grey" />
-      <Circle color="green" />
-      <Circle color="blue" />
-      <Circle color="purple" />
-      <Circle color="orange" />
+      <Circle clr="grey"/><Circle clr="green"/><Circle clr="blue"/><Circle clr="purple"/><Circle clr="orange"/>
       <div><button onClick={() => { resetAnimation(); animate(); }} >Animate</button></div>
-      <div><button onClick={() => { resetAnimation(); animateWithStagger(); }}> Animate with stagger </button> </div>
+      <div><button onClick={() => { resetAnimation(); animateWithStagger(); }}>Animate with stagger</button></div>
     </>
   );
 }
 const toRender6 = <Cmpt6 />;
 
 export const gsapBasics = {
-  title: "GSAP basics",
+  title: 'GSAP basics',
   date: '2021.11.12',
   tagsArr: ['react', 'animation', 'gsap'],
   postParts: [
@@ -176,7 +184,9 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          We can access elements in gsap by reference & query selector. We also can have an array of target elements.
+          Let's go through start{' '}
+          <Lnk path="https://greensock.com/get-started/">guideline</Lnk> and try
+          to replicate examples.
         </>
       ),
     },
@@ -184,7 +194,17 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          GSAP converts parameters into inline style parameters and animate them.
+          We can access elements in gsap by reference & query selector. We also
+          can have an array of target elements.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          GSAP converts parameters into inline style parameters and animate
+          them.
         </>
       ),
     },
@@ -199,10 +219,10 @@ export const gsapBasics = {
         const style = {width: '200px', height: '50px', margin: '10px', border: '1px solid black', display: 'flex', justifyContent: 'center', alignItems: 'center'}
 
         function Cmpt1() {
-          const ref1 = React.useRef()
-          const ref2 = React.useRef()
-          const ref3 = React.useRef()
-          const ref4 = React.useRef()
+          const ref1 = useRef()
+          const ref2 = useRef()
+          const ref3 = useRef()
+          const ref4 = useRef()
           
           const animate = () => {
             gsap.to(ref1.current, { duration: 1, x: 300 });
@@ -240,7 +260,8 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          Ease function can be applied. All sets of ease function can be found <Lnk path="https://greensock.com/ease-visualizer/">here</Lnk>.
+          Ease function can be applied. All sets of ease can be found{' '}
+          <Lnk path="https://greensock.com/ease-visualizer/">here</Lnk>.
         </>
       ),
     },
@@ -249,10 +270,10 @@ export const gsapBasics = {
       lang: 'jsx',
       val: `
         function Cmpt2() {
-          const ref1 = React.useRef()
-          const ref2 = React.useRef()
-          const ref3 = React.useRef()
-          const ref4 = React.useRef()
+          const ref1 = useRef()
+          const ref2 = useRef()
+          const ref3 = useRef()
+          const ref4 = useRef()
         
           const animate = () => {
             gsap.to(ref1.current, { duration: 2, x: 100, ease: 'bounce.in' });
@@ -284,7 +305,11 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          <CodeSpan>{'gsap.set(target, propertiesObj)'}</CodeSpan> can be used to set initial state <Lnk path="https://greensock.com/docs/v3/GSAP/gsap.set">properties</Lnk>
+          <CodeSpan>{'gsap.set(target, propertiesObj)'}</CodeSpan> can be used
+          to set initial state{' '}
+          <Lnk path="https://greensock.com/docs/v3/GSAP/gsap.set">
+            properties
+          </Lnk>.
         </>
       ),
     },
@@ -293,15 +318,15 @@ export const gsapBasics = {
       lang: 'jsx',
       val: `
         function Cmpt3() {
-          const ref1 = React.useRef()
-          const ref2 = React.useRef()
+          const ref1 = useRef()
+          const ref2 = useRef()
 
           const animate = () =>
             gsap.to([ref1.current, ref2.current], {
               duration: 3, rotation: 360, scale: 0.1 
             });
 
-          React.useEffect(() => {
+          useEffect(() => {
             gsap.set(ref1.current, {transformOrigin: "50% 50%", x: '0px'})
             gsap.set(ref2.current, {transformOrigin: "50% 50%", x: '200px'})
           }, [])
@@ -316,7 +341,7 @@ export const gsapBasics = {
         }
 
         const toRender3 = <Cmpt3 />;
-      `
+      `,
     },
     {
       type: 'output',
@@ -326,7 +351,10 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          Custom object property animation & callbacks <CodeSpan>onStart: func</CodeSpan>, <CodeSpan>onUpdate: func</CodeSpan>, <CodeSpan>onComplete: func</CodeSpan>
+          Custom object property can be animationed with <i>gsap</i>. We may pass custom callbacks into gsap properties{' '}
+          <CodeSpan>onStart: func</CodeSpan>,{' '}
+          <CodeSpan>onUpdate: func</CodeSpan>,{' '}
+          <CodeSpan>onComplete: func</CodeSpan>
         </>
       ),
     },
@@ -335,17 +363,17 @@ export const gsapBasics = {
       lang: 'jsx',
       val: `
         function Cmpt4() {
-          const myObject = { someProperty: 0 }
-          const [start, setStart] = React.useState('')
-          const [update, setUpdate] = React.useState('')
-          const [complete, setComplete] = React.useState('')
+          const myObject = { count: 0 }
+          const [start, setStart] = useState('')
+          const [update, setUpdate] = useState('')
+          const [complete, setComplete] = useState('')
         
           const animate = () =>
             gsap.to(myObject, {
               duration: 5,
-              someProperty: 1000,
+              count: 1000,
               onStart: () => setStart('gsap started'),
-              onUpdate: () => setUpdate(myObject.someProperty.toString()),
+              onUpdate: () => setUpdate(myObject.count.toString()),
               onComplete: () => setComplete('gsap completed'),
             });
         
@@ -360,7 +388,7 @@ export const gsapBasics = {
           );
         }
         const toRender4 = <Cmpt4 />;
-      `
+      `,
     },
     {
       type: 'output',
@@ -379,15 +407,15 @@ export const gsapBasics = {
       lang: 'jsx',
       val: `
         function Cmpt5() {
-          const ref1 = React.useRef()
-          const ref2 = React.useRef()
+          const ref1 = useRef()
+          const ref2 = useRef()
         
           const animate = () => {
             gsap.to(ref1.current, {duration: 3, scale: .1, opacity: .1});
             gsap.from(ref2.current, {duration: 3, scale: .1, opacity: .1});
           }
         
-          React.useEffect(() => {
+          useEffect(() => {
             gsap.set(ref1.current, {transformOrigin: "50% 50%", x: '0px'})
             gsap.set(ref2.current, {transformOrigin: "50% 50%", x: '200px'})
           }, [])
@@ -401,7 +429,7 @@ export const gsapBasics = {
           );
         }
         const toRender5 = <Cmpt5 />;
-      `
+      `,
     },
     {
       type: 'output',
@@ -411,8 +439,9 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          <CodeSpan>stagger</CodeSpan> property puts a delay between animations. 
-          <Lnk path="https://greensock.com/docs/v3/Staggers">Advanced</Lnk> stagger object can be applied.
+          <CodeSpan>stagger</CodeSpan> property puts a delay between animations.
+          <Lnk path="https://greensock.com/docs/v3/Staggers">Advanced</Lnk>{' '}
+          stagger object can be applied.
         </>
       ),
     },
@@ -441,7 +470,7 @@ export const gsapBasics = {
           );
         }
         const toRender6 = <Cmpt6 />;
-      `
+      `,
     },
     {
       type: 'output',

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>phone</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      height: 100vh;
+      background-color: Beige;
+    }
+  </style>
+</head>
+<body contenteditable >
+  <h3 class="h3">Non react page</h3>
+</body>
+<script>
+  document.body.addEventListener('click', function (e) {
+    this.innerHTML = `
+      window.innerHeight: ${window.innerHeight} <br/>
+      window.visualViewport.height: ${window.visualViewport.height}
+    `
+  })
+</script>
+</html>

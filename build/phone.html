@@ -21,11 +21,12 @@
   <h3 class="h3">Non react page</h3>
 </body>
 <script>
-  document.body.addEventListener('click', function (e) {
-    this.innerHTML = `
+
+  visualViewport.addEventListener('resize', function() {
+    document.body.innerHTML = `
       window.innerHeight: ${window.innerHeight} <br/>
       window.visualViewport.height: ${window.visualViewport.height}
     `
-  })
+  });
 </script>
 </html>

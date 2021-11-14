@@ -164,12 +164,12 @@ const Circle = React.forwardRef((props, ref) => {
 })
 function Cmpt6() {
   const ref = useRef()
-  let circles
-  useEffect(() => circles = ref.current.querySelectorAll('.circle945'))
-  const resetAnimation = () =>  gsap.set(circles, {scale: '.2', opacity: '.2', y: '-50'})
-  const animate = () => gsap.to(circles, {duration: 1, scale: 1, opacity: 1, y: 0})
-  const animateWithStagger = () => gsap.to(circles, {duration: 1, scale: 1, opacity: 1, y: 0, stagger: .25})
-  const animateWithFunc = () => gsap.to(circles, {duration: 1, scale: 1, opacity: 1, y: () => randomNumFromTo(0, 50)})
+  const circles = useRef()
+  useEffect(() => circles.current = ref.current.querySelectorAll('.circle945'), [])
+  const resetAnimation = () =>  gsap.set(circles.current, {scale: '.2', opacity: '.2', y: '-50'})
+  const animate = () => gsap.to(circles.current, {duration: 1, scale: 1, opacity: 1, y: 0})
+  const animateWithStagger = () => gsap.to(circles.current, {duration: 1, scale: 1, opacity: 1, y: 0, stagger: .25})
+  const animateWithFunc = () => gsap.to(circles.current, {duration: 1, scale: 1, opacity: 1, y: () => randomNumFromTo(0, 50)})
 
   return (
     <div ref={ref}>
@@ -184,9 +184,9 @@ const toRender6 = <Cmpt6 />;
 
 function Cmpt7() {
   const ref = useRef()
-  let circles
-  useEffect(() =>  circles = ref.current.querySelectorAll('.circle945'))
-  const animate = () => gsap.from(circles, {duration: 1, scale: .5, opacity: 1, y: "random(-100,100)"})
+  const circles = useRef()
+  useEffect(() => circles.current = ref.current.querySelectorAll('.circle945'), [])
+  const animate = () => gsap.from(circles.current, {duration: 1, scale: .5, opacity: 1, y: "random(-100,100)"})
 
   return (
     <div ref={ref}>
@@ -317,10 +317,22 @@ function Cmpt12() {
 const toRender12 = <Cmpt12 />;
 
 function Cmpt13() {
+  const style = {width: "10px", height: "2px", margin: "10px", background: 'red'}
+  const ref = useRef()
+  const tl = gsap.timeline({paused: true})
+  useEffect(() => {
+    tl.to(ref.current, {duration: 1, width: "100px"})
+    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+  },[tl] )
 
   return (
     <>
-
+      <div ref={ref} style={style}></div> 
+      <button onClick={() => tl.play()} >tl.play()</button>
+      <button onClick={() => tl.pause()} >tl.pause()</button>
+      <button onClick={() => tl.resume()} >tl.resume()</button>
+      <button onClick={() => tl.reverse()} >tl.reverse()</button>
+      <button onClick={() => tl.restart()} >tl.restart()</button>
     </>
   );
 }
@@ -631,12 +643,12 @@ const Circle = React.forwardRef((props, ref) => {
 })
 function Cmpt6() {
   const ref = useRef()
-  let circles
-  useEffect(() => circles = ref.current.querySelectorAll('.circle945'))
-  const resetAnimation = () =>  gsap.set(circles, {scale: '.2', opacity: '.2', y: '-50'})
-  const animate = () => gsap.to(circles, {duration: 1, scale: 1, opacity: 1, y: 0})
-  const animateWithStagger = () => gsap.to(circles, {duration: 1, scale: 1, opacity: 1, y: 0, stagger: .25})
-  const animateWithFunc = () => gsap.to(circles, {duration: 1, scale: 1, opacity: 1, y: () => randomNumFromTo(0, 50)})
+  const circles = useRef()
+  useEffect(() => circles.current = ref.current.querySelectorAll('.circle945'), [])
+  const resetAnimation = () =>  gsap.set(circles.current, {scale: '.2', opacity: '.2', y: '-50'})
+  const animate = () => gsap.to(circles.current, {duration: 1, scale: 1, opacity: 1, y: 0})
+  const animateWithStagger = () => gsap.to(circles.current, {duration: 1, scale: 1, opacity: 1, y: 0, stagger: .25})
+  const animateWithFunc = () => gsap.to(circles.current, {duration: 1, scale: 1, opacity: 1, y: () => randomNumFromTo(0, 50)})
 
   return (
     <div ref={ref}>
@@ -668,9 +680,9 @@ const toRender6 = <Cmpt6 />;
       val: `
       function Cmpt7() {
         const ref = useRef()
-        let circles
-        useEffect(() =>  circles = ref.current.querySelectorAll('.circle945'))
-        const animate = () => gsap.from(circles, {duration: 1, scale: .5, opacity: 1, y: "random(-100,100)"})
+        const circles = useRef()
+        useEffect(() => circles.current = ref.current.querySelectorAll('.circle945'), [])
+        const animate = () => gsap.from(circles.current, {duration: 1, scale: .5, opacity: 1, y: "random(-100,100)"})
       
         return (
           <div ref={ref}>
@@ -919,7 +931,15 @@ const toRender6 = <Cmpt6 />;
       val: (
         <>
           Timeline can be controlled with 
-          methods <CodeSpan>tl.someMethod()</CodeSpan>, <CodeSpan>tl.anotherMethod()</CodeSpan>
+          methods <CodeSpan>tl.play()</CodeSpan>, <CodeSpan>tl.pause()</CodeSpan>, <CodeSpan>tl.resume()</CodeSpan>, <CodeSpan>tl.reverse()</CodeSpan>, <CodeSpan>tl.restart()</CodeSpan>
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Note that timeline is initiated in a paused state <CodeSpan>{"tl = gsap.timeline({paused: true})"}</CodeSpan>
         </>
       ),
     },
@@ -927,7 +947,27 @@ const toRender6 = <Cmpt6 />;
       type: 'code',
       lang: 'jsx',
       val: `
-        to be continued
+      function Cmpt13() {
+        const style = {width: "10px", height: "2px", margin: "10px", background: 'red'}
+        const ref = useRef()
+        const tl = gsap.timeline({paused: true})
+        useEffect(() => {
+          tl.to(ref.current, {duration: 1, width: "100px"})
+          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+        },[tl] )
+      
+        return (
+          <>
+            <div ref={ref} style={style}></div> 
+            <button onClick={() => tl.play()} >tl.play()</button>
+            <button onClick={() => tl.pause()} >tl.pause()</button>
+            <button onClick={() => tl.resume()} >tl.resume()</button>
+            <button onClick={() => tl.reverse()} >tl.reverse()</button>
+            <button onClick={() => tl.restart()} >tl.restart()</button>
+          </>
+        );
+      }
+      const toRender13 = <Cmpt13 />;
       `,
     },
     {

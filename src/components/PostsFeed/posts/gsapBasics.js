@@ -139,20 +139,30 @@ function Cmpt4() {
 const toRender4 = <Cmpt4 />;
 
 function Cmpt5() {
-  const ref1 = useRef()
-  const ref2 = useRef()
+  const ref = useRef()
 
-  const animate = () => {
-    gsap.set([ref1.current, ref2.current], { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
-    gsap.to(ref1.current, { duration: 3, scale: .1, opacity: .1 });
-    gsap.from(ref2.current, { duration: 3, scale: .1, opacity: .1 });
+  const animateFrom = () => {
+    gsap.set(ref.current, { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
+    gsap.from(ref.current, { duration: 3, scale: .1, opacity: .1 });
+  }
+  const animateTo = () => {
+    gsap.set(ref.current, { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
+    gsap.to(ref.current, { duration: 3, scale: .1, opacity: .1 });
+  }
+  const animateFromTo = () => {
+    gsap.fromTo(
+      ref.current, 
+      { duration: 3, scale: .5, opacity: .5 },
+      { duration: 3, scale: 1.5, opacity: 1 }
+    );
   }
 
   return (
     <>
-      <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
-      <img ref={ref2} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
-      <div><button onClick={animate}>Animate</button></div>
+      <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
+      <div><button onClick={animateFrom}>AnimateFrom</button></div>
+      <div><button onClick={animateTo}>AnimateTo</button></div>
+      <div><button onClick={animateFromTo}>AnimateFromTo</button></div>
     </>
   );
 }
@@ -290,19 +300,19 @@ function Cmpt12() {
     const tl = gsap.timeline({repeat: 2})
     gsap.set(ref.current, {width: "10px",background: 'red'})
     tl.to(ref.current, {duration: 1, width: "100px"})
-    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
   }
   const animateRepeatYoyo = () => {
     const tl = gsap.timeline({repeat: 2, yoyo: true})
     gsap.set(ref.current, {width: "10px",background: 'red'})
     tl.to(ref.current, {duration: 1, width: "100px"})
-    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
   }
   const animateInfinitely = () => {
     const tl = gsap.timeline({repeat: -1})
     gsap.set(ref.current, {width: "10px",background: 'red'})
     tl.to(ref.current, {duration: 1, width: "100px"})
-    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+    tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
   }
 
   return (
@@ -333,10 +343,51 @@ function Cmpt13() {
       <button onClick={() => tl.resume()} >tl.resume()</button>
       <button onClick={() => tl.reverse()} >tl.reverse()</button>
       <button onClick={() => tl.restart()} >tl.restart()</button>
+      <button onClick={() => tl.timeScale(5)} >tl.timeScale(5)</button>
     </>
   );
 }
 const toRender13 = <Cmpt13 />;
+
+function Cmpt14() {
+  const style = {width: "10px", height: "2px", margin: "10px", background: 'red'}
+  const ref = useRef()
+  
+  const animate = () => {
+    const tl = gsap.timeline()
+    tl
+      .fromTo(ref.current, {width: "10px",background: 'red'}, {duration: 1, width: "100px"})
+      .to(ref.current, {duration: 1, width: "200px", background: "orange"})
+  }
+
+  return (
+    <>
+      <div ref={ref} style={style}></div> 
+      <div><button onClick={animate} >Animate</button></div>
+    </>
+  );
+}
+const toRender14 = <Cmpt14 />;
+
+function Cmpt15() {
+  const style = {width: "10px", height: "2px", margin: "10px", background: 'red'}
+  const ref = useRef()
+  
+  const animate = () => {
+    const tl = gsap.timeline({ defaults: { duration: 1 } })
+    tl
+      .fromTo(ref.current, {width: "10px",background: 'red'}, {width: "100px"})
+      .to(ref.current, {width: "200px", background: "orange"})
+  }
+
+  return (
+    <>
+      <div ref={ref} style={style}></div> 
+      <div><button onClick={animate} >Animate</button></div>
+    </>
+  );
+}
+const toRender15 = <Cmpt15 />;
 
 export const gsapBasics = {
   title: 'GSAP basics',
@@ -366,8 +417,7 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          GSAP converts parameters into inline style parameters and animate
-          them.
+          GSAP converts parameters into inline style parameters and animate them.
         </>
       ),
     },
@@ -529,9 +579,9 @@ function Cmpt1() {
       val: (
         <>
           Custom object property can be animationed with <i>gsap</i>. We may pass custom callbacks into gsap properties{' '}
-          <CodeSpan>onStart: func</CodeSpan>,{' '}
-          <CodeSpan>onUpdate: func</CodeSpan>,{' '}
-          <CodeSpan>onComplete: func</CodeSpan>
+          <CodeSpan>onStart</CodeSpan>,{' '}
+          <CodeSpan>onUpdate</CodeSpan>,{' '}
+          <CodeSpan>onComplete</CodeSpan>
         </>
       ),
     },
@@ -582,7 +632,7 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          <CodeSpan>gsap.to()</CodeSpan> vs <CodeSpan>gsap.from()</CodeSpan>
+          <CodeSpan>gsap.to()</CodeSpan> vs <CodeSpan>gsap.from()</CodeSpan> vs <CodeSpan>gsap.fromTo()</CodeSpan>
         </>
       ),
     },
@@ -591,24 +641,34 @@ function Cmpt1() {
       lang: 'jsx',
       val: `
       function Cmpt5() {
-        const ref1 = useRef()
-        const ref2 = useRef()
+        const ref = useRef()
       
-        const animate = () => {
-          gsap.set([ref1.current, ref2.current], { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
-          gsap.to(ref1.current, { duration: 3, scale: .1, opacity: .1 });
-          gsap.from(ref2.current, { duration: 3, scale: .1, opacity: .1 });
+        const animateFrom = () => {
+          gsap.set(ref.current, { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
+          gsap.from(ref.current, { duration: 3, scale: .1, opacity: .1 });
+        }
+        const animateTo = () => {
+          gsap.set(ref.current, { transformOrigin: "50% 50%", scale: 1, opacity: 1 })
+          gsap.to(ref.current, { duration: 3, scale: .1, opacity: .1 });
+        }
+        const animateFromTo = () => {
+          gsap.fromTo(
+            ref.current, 
+            { duration: 3, scale: .5, opacity: .5 },
+            { duration: 3, scale: 1.5, opacity: 1 }
+          );
         }
       
         return (
           <>
-            <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
-            <img ref={ref2} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
-            <div><button onClick={animate}>Animate</button></div>
+            <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
+            <div><button onClick={animateFrom}>AnimateFrom</button></div>
+            <div><button onClick={animateTo}>AnimateTo</button></div>
+            <div><button onClick={animateFromTo}>AnimateFromTo</button></div>
           </>
         );
       }
-      const toRender5 = <Cmpt5 />;     
+      const toRender5 = <Cmpt5 />;    
       `,
     },
     {
@@ -752,7 +812,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          With a delay we can shift our tweens on the timeline, but better to use the third <i>position</i> parameter.
+          With a delay we can shift our tweens on the timeline, but better to use a third <Lnk path="https://greensock.com/position-parameter/">position parameter</Lnk>
         </>
       ),
     },
@@ -879,7 +939,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Tween or timeline can be repeated, yoyoed or make it infinite.
+          Tween or timeline can be repeated, yoyoed or infinite.
         </>
       ),
     },
@@ -895,19 +955,19 @@ const toRender6 = <Cmpt6 />;
           const tl = gsap.timeline({repeat: 2})
           gsap.set(ref.current, {width: "10px",background: 'red'})
           tl.to(ref.current, {duration: 1, width: "100px"})
-          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
         }
         const animateRepeatYoyo = () => {
           const tl = gsap.timeline({repeat: 2, yoyo: true})
           gsap.set(ref.current, {width: "10px",background: 'red'})
           tl.to(ref.current, {duration: 1, width: "100px"})
-          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
         }
         const animateInfinitely = () => {
           const tl = gsap.timeline({repeat: -1})
           gsap.set(ref.current, {width: "10px",background: 'red'})
           tl.to(ref.current, {duration: 1, width: "100px"})
-          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"}, 1)
+          tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
         }
       
         return (
@@ -931,7 +991,7 @@ const toRender6 = <Cmpt6 />;
       val: (
         <>
           Timeline can be controlled with 
-          methods <CodeSpan>tl.play()</CodeSpan>, <CodeSpan>tl.pause()</CodeSpan>, <CodeSpan>tl.resume()</CodeSpan>, <CodeSpan>tl.reverse()</CodeSpan>, <CodeSpan>tl.restart()</CodeSpan>
+          methods <CodeSpan>tl.play()</CodeSpan>, <CodeSpan>tl.pause()</CodeSpan>, <CodeSpan>tl.resume()</CodeSpan>, <CodeSpan>tl.reverse()</CodeSpan>, <CodeSpan>tl.restart()</CodeSpan>, <CodeSpan>tl.timeScale(5)</CodeSpan> 
         </>
       ),
     },
@@ -973,6 +1033,81 @@ const toRender6 = <Cmpt6 />;
     {
       type: 'output',
       val: toRender13,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Methods of timeline can be chained.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      function Cmpt14() {
+        const style = {width: "10px", height: "2px", margin: "10px", background: 'red'}
+        const ref = useRef()
+        
+        const animate = () => {
+          const tl = gsap.timeline()
+          gsap.set(ref.current, {width: "10px",background: 'red'})
+          tl
+            .fromTo(ref.current, {width: "10px",background: 'red'}, {duration: 1, width: "100px"})
+            .to(ref.current, {duration: 1, width: "200px", background: "orange"})
+        }
+      
+        return (
+          <>
+            <div ref={ref} style={style}></div> 
+            <div><button onClick={animate} >Animate</button></div>
+          </>
+        );
+      }
+      const toRender14 = <Cmpt14 />;   
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender14,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Repetitive properties of tweens in a timeline can be centrally assigned to defaults <CodeSpan>{'tl = gsap.timeline({ defaults: { duration: 1 } })'}</CodeSpan>.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      function Cmpt15() {
+        const style = {width: "10px", height: "2px", margin: "10px", background: 'red'}
+        const ref = useRef()
+        
+        const animate = () => {
+          const tl = gsap.timeline({ defaults: { duration: 1 } })
+          tl
+            .fromTo(ref.current, {width: "10px",background: 'red'}, {width: "100px"})
+            .to(ref.current, {width: "200px", background: "orange"})
+        }
+      
+        return (
+          <>
+            <div ref={ref} style={style}></div> 
+            <div><button onClick={animate} >Animate</button></div>
+          </>
+        );
+      }
+      const toRender15 = <Cmpt15 />;
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender15,
     },
   ],
 };

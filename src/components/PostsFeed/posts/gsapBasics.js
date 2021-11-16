@@ -3,7 +3,6 @@ import { Lnk } from './../components/Lnk';
 import { gsap } from "gsap";
 import { CodeSpan } from '../components/CodeSpan';
 import CocaColaSvg from './svgPics/cocaCola.svg';
-import TelegramSvg from './svgPics/telegram.svg';
 import randomNumFromTo from './../../../helpers/functions/randomNumFromTo'
 
 const style = {width: '200px', height: '50px', margin: '10px', border: '1px solid black', display: 'flex', justifyContent: 'center', alignItems: 'center'}
@@ -423,6 +422,7 @@ function Cmpt17() {
   const ref = useRef()
   let tween
   useEffect(function() {
+    /* eslint-disable-next-line */
     tween = gsap.to(
       ref.current, 
       {duration: 10, x: 200, repeat: -1, paused: true, immediateRender: false, delay:.5 }
@@ -486,9 +486,8 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          Let's go through start{' '}
-          <Lnk path="https://greensock.com/get-started/">guideline</Lnk> and try
-          to replicate examples.
+          Main aspects of GSAP basen on the {' '}
+          <Lnk path="https://greensock.com/get-started/">guideline</Lnk>.
         </>
       ),
     },
@@ -496,7 +495,7 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          We can access elements in gsap by reference & query selector. We also
+          <b>Target elements.</b> We can access elements in gsap by reference & query selector. We also
           can have an array of target elements.
         </>
       ),
@@ -574,7 +573,7 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          Ease function can be applied. All sets of ease can be found{' '}
+          <b>Ease functions</b> can be applied. All sets of ease can be found{' '}
           <Lnk path="https://greensock.com/ease-visualizer/">here</Lnk>.
         </>
       ),
@@ -624,7 +623,7 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          <CodeSpan>{'gsap.set(target, propertiesObj)'}</CodeSpan> can be used
+          <b><CodeSpan>{'gsap.set(target, propertiesObj)'}</CodeSpan></b> can be used
           to set initial state{' '}
           <Lnk path="https://greensock.com/docs/v3/GSAP/gsap.set">properties</Lnk>.
         </>
@@ -670,7 +669,7 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          Custom object property can be animated with <i>gsap</i>. We may pass custom callbacks into gsap properties{' '}
+          <b>Custom object</b> property can be animated with gsap. We may pass custom callbacks into gsap properties{' '}
           <CodeSpan>onStart</CodeSpan>,{' '}
           <CodeSpan>onUpdate</CodeSpan>,{' '}
           <CodeSpan>onComplete</CodeSpan>,{' '}
@@ -725,7 +724,7 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          <CodeSpan>gsap.to()</CodeSpan> vs <CodeSpan>gsap.from()</CodeSpan> vs <CodeSpan>gsap.fromTo()</CodeSpan>
+          <b><CodeSpan>gsap.to()</CodeSpan> vs <CodeSpan>gsap.from()</CodeSpan> vs <CodeSpan>gsap.fromTo()</CodeSpan></b>
         </>
       ),
     },
@@ -772,7 +771,7 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          <CodeSpan>stagger</CodeSpan> property puts a delay between animations.
+          <b><CodeSpan>stagger</CodeSpan></b> property puts a delay between animations.
           <Lnk path="https://greensock.com/docs/v3/Staggers">. Advanced</Lnk>{' '}
           stagger object can be applied.
         </>
@@ -823,7 +822,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          GSAP has in-build randomized property in string form, like <CodeSpan>'random(-200, 200)'</CodeSpan>
+          <b>random</b> property exists in string form in GSAP <CodeSpan>'random(-200, 200)'</CodeSpan>
         </>
       ),
     },
@@ -855,7 +854,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          GSAP has a <i>delay</i> property to control the start time of a tween.
+          GSAP has a <b>delay</b> property to control the start time of a tween.
         </>
       ),
     },
@@ -889,7 +888,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          We can put different animations on a single timeline and control them in whole. Timeline can be created with <CodeSpan>gsap.timeline()</CodeSpan>
+          <b>Timeline.</b> We can put different animations on a single timeline and control them in whole. Timeline can be created with <CodeSpan>gsap.timeline()</CodeSpan>
         </>
       ),
     },
@@ -941,7 +940,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Position parameter can be an absolute or relative value
+          <b>Position parameter</b> can be an absolute or relative value.
         </>
       ),
     },
@@ -982,7 +981,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Instead of using a <i>position</i> parameter we can refer to a specific tween by creating a <i>label</i> and position our tween at a label.
+          <b>Label.</b> Instead of using a <i>position</i> parameter we can refer to a specific tween by creating a <i>label</i> and position our tween at a label.
         </>
       ),
     },
@@ -1032,7 +1031,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Tween or timeline can be repeated with a delay, yoyoed or infinite.
+          <b>Repeat.</b> Tween or timeline can be repeated with a delay, yoyoed or infinite.
         </>
       ),
     },
@@ -1083,7 +1082,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Timeline or tween can be controlled with methods{' '}
+          <b>Control.</b> Timeline or tween can be controlled with methods{' '}
           <CodeSpan>play()</CodeSpan>,{' '}
           <CodeSpan>pause()</CodeSpan>,{' '}
           <CodeSpan>resume()</CodeSpan>,{' '}
@@ -1143,7 +1142,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Methods of timeline can be chained.
+          <b>Chaining.</b> Methods of timeline can be chained.
         </>
       ),
     },
@@ -1181,7 +1180,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Repetitive properties of tweens in a timeline can be centrally assigned to defaults <CodeSpan>{'tl = gsap.timeline({ defaults: { duration: 1 } })'}</CodeSpan>.
+          <b>Defaults.</b> Repetitive properties of tweens in a timeline can be centrally assigned to defaults <CodeSpan>{'tl = gsap.timeline({ defaults: { duration: 1 } })'}</CodeSpan>.
         </>
       ),
     },
@@ -1218,7 +1217,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Parameters to a callback function should be passed in an array in a special properties: 
+          <b>Callback parameters.</b> Parameters to a callback function should be passed in an array in a special properties: 
           <CodeSpan>onStartParams: [params]</CodeSpan>{' '},
           <CodeSpan>onCompleteParams: [params]</CodeSpan>{' '},
           <CodeSpan>onRepeatParams: [params]</CodeSpan>{' '},
@@ -1265,7 +1264,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          With some methods like {' '}
+          <b>Getters & setters.</b> With some methods like {' '}
           <CodeSpan>time()</CodeSpan>,{' '}
           <CodeSpan>progress()</CodeSpan>,{' '}
           <CodeSpan>duration()</CodeSpan>,{' '}
@@ -1319,7 +1318,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          We can get animated elements from the callback function accessing <CodeSpan>this.targets()</CodeSpan> in non-arrow function.
+          <b>Property value of animated element </b> can be taken within a non-arrow callback function accessing <CodeSpan>this.targets()</CodeSpan>.
         </>
       ),
     },

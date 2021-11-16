@@ -71,8 +71,10 @@ import { disableEslintWarning } from './posts/disableEslintWarning';
 import { intersectionObserver } from './posts/intersectionObserver';
 import { gsapAndReact } from './posts/gsapAndReact';
 import { gsapBasics } from './posts/gsapBasics';
+import { promisePost } from './posts/promise';
 
 const posts = [
+  promisePost,
   gsapBasics,
   gsapAndReact,
   intersectionObserver,

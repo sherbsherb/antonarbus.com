@@ -84,21 +84,20 @@ function Cmpt2() {
 const toRender2 = <Cmpt2 />;
 
 function Cmpt3() {
-  const ref1 = useRef()
-  const ref2 = useRef()
-
+  const ref = useRef()
   const animate = () => {
-    gsap.set([ref1.current, ref2.current], { transformOrigin: '50% 50%', rotation: 0, scale: 1 });
-    gsap.to([ref1.current, ref2.current], { duration: 3, rotation: 360, scale: 0.1 });
+    gsap.set(ref.current, { transformOrigin: '50% 50%', rotation: 0, scale: 2 });
+    gsap.to(ref.current, { duration: 3, rotation: 360, scale: 0.1 });
   };
-
+  const animate2 = () => {
+    gsap.to(ref.current, { duration: 3, startAt: { scale: 2 }, scale: 0.1 });
+  };
   return (
     <>
       {/* eslint-disable-next-line */}
-      <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} /> 
-      {/* eslint-disable-next-line */}
-      <img ref={ref2} src={TelegramSvg} style={{width: '100px'}} />
-      <div><button onClick={animate}>Animate</button></div>
+      <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+      <div><button onClick={animate}>Animate with gsap.set()</button></div>
+      <div><button onClick={animate2}>Animate with startAt property</button></div>
     </>
   );
 }
@@ -297,19 +296,19 @@ function Cmpt12() {
   const ref = useRef()
   
   const animateRepeat = () => {
-    const tl = gsap.timeline({repeat: 2})
+    const tl = gsap.timeline({repeat: 2, repeatDelay: .5})
     gsap.set(ref.current, {width: "10px",background: 'red'})
     tl.to(ref.current, {duration: 1, width: "100px"})
     tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
   }
   const animateRepeatYoyo = () => {
-    const tl = gsap.timeline({repeat: 2, yoyo: true})
+    const tl = gsap.timeline({repeat: 2, repeatDelay: .5, yoyo: true})
     gsap.set(ref.current, {width: "10px",background: 'red'})
     tl.to(ref.current, {duration: 1, width: "100px"})
     tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
   }
   const animateInfinitely = () => {
-    const tl = gsap.timeline({repeat: -1})
+    const tl = gsap.timeline({repeat: -1, repeatDelay: .5})
     gsap.set(ref.current, {width: "10px",background: 'red'})
     tl.to(ref.current, {duration: 1, width: "100px"})
     tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
@@ -344,6 +343,10 @@ function Cmpt13() {
       <button onClick={() => tl.reverse()} >tl.reverse()</button>
       <button onClick={() => tl.restart()} >tl.restart()</button>
       <button onClick={() => tl.timeScale(5)} >tl.timeScale(5)</button>
+      <button onClick={() => tl.timeScale(1)} >tl.timeScale(1)</button>
+      <button onClick={() => tl.timeScale(0.5)} >tl.timeScale(0.5)</button>
+      <button onClick={() => tl.progress(0.25)} >tl.progress(0.25)</button>
+      <button onClick={() => tl.kill()} >tl.kill()</button>
     </>
   );
 }
@@ -388,6 +391,91 @@ function Cmpt15() {
   );
 }
 const toRender15 = <Cmpt15 />;
+
+function Cmpt16() {
+  const ref = useRef()
+  const showMessage = (msg1, msg2) => {
+    alert(msg1)
+    alert(msg2)
+  }
+
+  const animate = () => {
+    gsap.to(ref.current, { 
+      duration: 1, 
+      x: 100,
+      opacity: 1,
+      onComplete: showMessage, 
+      onCompleteParams: ["I am A", "I am B"]
+    });
+  };
+
+  return (
+    <>
+      {/* eslint-disable-next-line */}
+      <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+      <div><button onClick={animate}>Animate</button></div>
+    </>
+  );
+}
+const toRender16 = <Cmpt16 />;
+
+function Cmpt17() {
+  const ref = useRef()
+  let tween
+  useEffect(function() {
+    tween = gsap.to(
+      ref.current, 
+      {duration: 10, x: 200, repeat: -1, paused: true, immediateRender: false, delay:.5 }
+    );
+  }, [])
+
+  return (
+    <>
+      {/* eslint-disable-next-line */}
+      <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+      <div><button onClick={() => tween.play()}>tween.play()</button></div>
+      <div>getters</div>
+      <button onClick={() => alert(tween.time())}>tween.time()</button>
+      <button onClick={() => alert(tween.progress())}>tween.progress()</button>
+      <button onClick={() => alert(tween.duration())}>tween.duration()</button>
+      <button onClick={() => alert(tween.delay())}>tween.delay()</button>
+      <button onClick={() => alert(tween.timeScale())}>tween.timeScale()</button>
+      <div>setters</div>
+      <button onClick={() => tween.time(parseFloat(prompt('', '5')))}>tween.time(arg)</button>
+      <button onClick={() => tween.progress(parseFloat(prompt('', '0.9')))}>tween.progress(arg)</button>
+      <button onClick={() => tween.duration(parseFloat(prompt('', '1')))}>tween.duration(arg)</button>
+      <button onClick={() => tween.delay(parseFloat(prompt('', '1'))).restart(true)}>tween.delay(arg)</button>
+      <button onClick={() => tween.timeScale(parseFloat(prompt('', '5')))}>tween.timeScale(arg)</button>
+    </>
+  );
+}
+const toRender17 = <Cmpt17 />;
+
+function Cmpt18() {
+  const ref = useRef()
+
+  const animate = () => {
+    gsap.to(ref.current, { 
+      duration: 1, 
+      x: 100,
+      opacity: 1,
+      onComplete: function() {
+        // get first tweened el to the console
+        let elem = this.targets()[0];
+        alert(`x: ${gsap.getProperty(elem, "x")}`)
+      } 
+    });
+  };
+
+  return (
+    <>
+      {/* eslint-disable-next-line */}
+      <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+      <div><button onClick={animate}>Animate</button></div>
+    </>
+  );
+}
+const toRender18 = <Cmpt18 />;
 
 export const gsapBasics = {
   title: 'GSAP basics',
@@ -538,9 +626,15 @@ function Cmpt1() {
         <>
           <CodeSpan>{'gsap.set(target, propertiesObj)'}</CodeSpan> can be used
           to set initial state{' '}
-          <Lnk path="https://greensock.com/docs/v3/GSAP/gsap.set">
-            properties
-          </Lnk>.
+          <Lnk path="https://greensock.com/docs/v3/GSAP/gsap.set">properties</Lnk>.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Also <CodeSpan>startAt</CodeSpan> property of a tween can set initial state.
         </>
       ),
     },
@@ -549,25 +643,23 @@ function Cmpt1() {
       lang: 'jsx',
       val: `
       function Cmpt3() {
-        const ref1 = useRef()
-        const ref2 = useRef()
-      
+        const ref = useRef()
         const animate = () => {
-          gsap.set([ref1.current, ref2.current], { transformOrigin: '50% 50%', rotation: 0, scale: 1 });
-          gsap.to([ref1.current, ref2.current], { duration: 3, rotation: 360, scale: 0.1 });
+          gsap.set(ref.current, { transformOrigin: '50% 50%', rotation: 0, scale: 2 });
+          gsap.to(ref.current, { duration: 3, rotation: 360, scale: 0.1 });
         };
-      
+        const animate2 = () => {
+          gsap.to(ref.current, { duration: 3, startAt: { scale: 2 }, scale: 0.1 });
+        };
         return (
           <>
-            {/* eslint-disable-next-line */}
-            <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} /> 
-            {/* eslint-disable-next-line */}
-            <img ref={ref2} src={TelegramSvg} style={{width: '100px'}} />
-            <div><button onClick={animate}>Animate</button></div>
+            <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+            <div><button onClick={animate}>Animate with gsap.set()</button></div>
+            <div><button onClick={animate2}>Animate with startAt property</button></div>
           </>
         );
       }
-      const toRender3 = <Cmpt3 />;     
+      const toRender3 = <Cmpt3 />;
       `,
     },
     {
@@ -578,10 +670,12 @@ function Cmpt1() {
       type: 'text',
       val: (
         <>
-          Custom object property can be animationed with <i>gsap</i>. We may pass custom callbacks into gsap properties{' '}
+          Custom object property can be animated with <i>gsap</i>. We may pass custom callbacks into gsap properties{' '}
           <CodeSpan>onStart</CodeSpan>,{' '}
           <CodeSpan>onUpdate</CodeSpan>,{' '}
-          <CodeSpan>onComplete</CodeSpan>
+          <CodeSpan>onComplete</CodeSpan>,{' '}
+          <CodeSpan>onRepeat</CodeSpan>,{' '}
+          <CodeSpan>onReverseComplete</CodeSpan>
         </>
       ),
     },
@@ -613,7 +707,6 @@ function Cmpt1() {
       
         return (
           <>
-            <div>Custom object property animation & callback functions</div>
             <div>{start}</div>
             <div>{update}</div>
             <div>{complete}</div>
@@ -661,7 +754,7 @@ function Cmpt1() {
       
         return (
           <>
-            <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> {/* eslint-disable-line */}
+            <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} />
             <div><button onClick={animateFrom}>AnimateFrom</button></div>
             <div><button onClick={animateTo}>AnimateTo</button></div>
             <div><button onClick={animateFromTo}>AnimateFromTo</button></div>
@@ -939,7 +1032,7 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Tween or timeline can be repeated, yoyoed or infinite.
+          Tween or timeline can be repeated with a delay, yoyoed or infinite.
         </>
       ),
     },
@@ -952,19 +1045,19 @@ const toRender6 = <Cmpt6 />;
         const ref = useRef()
         
         const animateRepeat = () => {
-          const tl = gsap.timeline({repeat: 2})
+          const tl = gsap.timeline({repeat: 2, repeatDelay: .5})
           gsap.set(ref.current, {width: "10px",background: 'red'})
           tl.to(ref.current, {duration: 1, width: "100px"})
           tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
         }
         const animateRepeatYoyo = () => {
-          const tl = gsap.timeline({repeat: 2, yoyo: true})
+          const tl = gsap.timeline({repeat: 2, repeatDelay: .5, yoyo: true})
           gsap.set(ref.current, {width: "10px",background: 'red'})
           tl.to(ref.current, {duration: 1, width: "100px"})
           tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
         }
         const animateInfinitely = () => {
-          const tl = gsap.timeline({repeat: -1})
+          const tl = gsap.timeline({repeat: -1, repeatDelay: .5})
           gsap.set(ref.current, {width: "10px",background: 'red'})
           tl.to(ref.current, {duration: 1, width: "100px"})
           tl.to(ref.current, {duration: 1, width: "200px", background: "orange"})
@@ -990,8 +1083,15 @@ const toRender6 = <Cmpt6 />;
       type: 'text',
       val: (
         <>
-          Timeline can be controlled with 
-          methods <CodeSpan>tl.play()</CodeSpan>, <CodeSpan>tl.pause()</CodeSpan>, <CodeSpan>tl.resume()</CodeSpan>, <CodeSpan>tl.reverse()</CodeSpan>, <CodeSpan>tl.restart()</CodeSpan>, <CodeSpan>tl.timeScale(5)</CodeSpan> 
+          Timeline or tween can be controlled with methods{' '}
+          <CodeSpan>play()</CodeSpan>,{' '}
+          <CodeSpan>pause()</CodeSpan>,{' '}
+          <CodeSpan>resume()</CodeSpan>,{' '}
+          <CodeSpan>reverse()</CodeSpan>,{' '}
+          <CodeSpan>restart()</CodeSpan>,{' '}
+          <CodeSpan>timeScale()</CodeSpan>,{' '}
+          <CodeSpan>progress()</CodeSpan>,{' '}
+          <CodeSpan>kill()</CodeSpan> 
         </>
       ),
     },
@@ -1024,6 +1124,11 @@ const toRender6 = <Cmpt6 />;
             <button onClick={() => tl.resume()} >tl.resume()</button>
             <button onClick={() => tl.reverse()} >tl.reverse()</button>
             <button onClick={() => tl.restart()} >tl.restart()</button>
+            <button onClick={() => tl.timeScale(5)} >tl.timeScale(5)</button>
+            <button onClick={() => tl.timeScale(1)} >tl.timeScale(1)</button>
+            <button onClick={() => tl.timeScale(0.5)} >tl.timeScale(0.5)</button>
+            <button onClick={() => tl.progress(0.25)} >tl.progress(0.25)</button>
+            <button onClick={() => tl.kill()} >tl.kill()</button>
           </>
         );
       }
@@ -1108,6 +1213,157 @@ const toRender6 = <Cmpt6 />;
     {
       type: 'output',
       val: toRender15,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Parameters to a callback function should be passed in an array in a special properties: 
+          <CodeSpan>onStartParams: [params]</CodeSpan>{' '},
+          <CodeSpan>onCompleteParams: [params]</CodeSpan>{' '},
+          <CodeSpan>onRepeatParams: [params]</CodeSpan>{' '},
+          <CodeSpan>onReverseCompleteParams: [params]</CodeSpan>{' '},
+          <CodeSpan>onUpdateParams: [params]</CodeSpan>
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      function Cmpt16() {
+        const ref = useRef()
+        const showMessage = (msg1, msg2) => {
+          alert(msg1)
+          alert(msg2)
+        }
+      
+        const animate = () => {
+          gsap.to(ref1.current, { 
+            duration: 1, 
+            x: 100, 
+            onComplete: showMessage, 
+            onCompleteParams: ["I am A", "I am B"] 
+          });
+        };
+      
+        return (
+          <>
+            <img ref={ref1} src={CocaColaSvg} style={{width: '100px'}} /> 
+            <div><button onClick={animate}>Animate</button></div>
+          </>
+        );
+      }
+      const toRender16 = <Cmpt16 />;
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender16,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          With some methods like {' '}
+          <CodeSpan>time()</CodeSpan>,{' '}
+          <CodeSpan>progress()</CodeSpan>,{' '}
+          <CodeSpan>duration()</CodeSpan>,{' '}
+          <CodeSpan>delay()</CodeSpan>,{' '}
+          <CodeSpan>timeScale()</CodeSpan>{' '}
+          we can both get and set values.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      function Cmpt17() {
+        const ref = useRef()
+        let tween
+        useEffect(function() {
+          tween = gsap.to(
+            ref.current, 
+            {duration: 10, x: 200, repeat: -1, paused: true, immediateRender: false, delay:.5 }
+          );
+        }, [])
+      
+        return (
+          <>
+            <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+            <div><button onClick={() => tween.play()}>tween.play()</button></div>
+            <div>getters</div>
+            <button onClick={() => alert(tween.time())}>tween.time()</button>
+            <button onClick={() => alert(tween.progress())}>tween.progress()</button>
+            <button onClick={() => alert(tween.duration())}>tween.duration()</button>
+            <button onClick={() => alert(tween.delay())}>tween.delay()</button>
+            <button onClick={() => alert(tween.timeScale())}>tween.timeScale()</button>
+            <div>setters</div>
+            <button onClick={() => tween.time(parseFloat(prompt('', '5')))}>tween.time(arg)</button>
+            <button onClick={() => tween.progress(parseFloat(prompt('', '0.9')))}>tween.progress(arg)</button>
+            <button onClick={() => tween.duration(parseFloat(prompt('', '1')))}>tween.duration(arg)</button>
+            <button onClick={() => tween.delay(parseFloat(prompt('', '1'))).restart(true)}>tween.delay(arg)</button>
+            <button onClick={() => tween.timeScale(parseFloat(prompt('', '5')))}>tween.timeScale(arg)</button>
+          </>
+        );
+      }
+      const toRender17 = <Cmpt17 />;
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender17,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          We can get animated elements from the callback function accessing <CodeSpan>this.targets()</CodeSpan> in non-arrow function.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          To get a current property at any point of time we may use <CodeSpan>gsap.getProperty(elem, "x")</CodeSpan> method.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      function Cmpt18() {
+        const ref = useRef()
+      
+        const animate = () => {
+          gsap.to(ref.current, { 
+            duration: 1, 
+            x: 100,
+            opacity: 1,
+            onComplete: function() {
+              // get first tweened el to the console
+              let elem = this.targets()[0];
+              alert(\`x: \${gsap.getProperty(elem, "x")}\`)
+            } 
+          });
+        };
+      
+        return (
+          <>
+            <img ref={ref} src={CocaColaSvg} style={{width: '100px'}} /> 
+            <div><button onClick={animate}>Animate</button></div>
+          </>
+        );
+      }
+      const toRender18 = <Cmpt18 />;
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender18,
     },
   ],
 };

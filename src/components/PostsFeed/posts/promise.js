@@ -26,7 +26,7 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          3 goes after 4 in the example below, but we need vice versa. 
+          Check the example. 
         </>
       ),
     },
@@ -45,7 +45,15 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          To ensure that code is run after async func we may wrap async func in <i>promise</i> and chain our code in <CodeSpan>.then()</CodeSpan>
+          3 goes after 4, but we need vice versa. 
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          To ensure that code is run after an async func we may wrap async func in <i>promise</i> and chain our code in <CodeSpan>.then()</CodeSpan>
         </>
       ),
     },
@@ -55,13 +63,13 @@ export const promisePost = {
       val: `
       console.log(1)
       console.log(2)
-      const logC = new Promise(resolve => {
+      const log3 = new Promise(resolve => {
         setTimeout(() => {
           console.log(3)
           resolve('done')
         }, 1000)
       })
-      logC.then(result => console.log(4))
+      log3.then(result => console.log(4))
       // 1, 2, 3, 4
       `,
     },
@@ -78,13 +86,13 @@ export const promisePost = {
       lang: 'jsx',
       val: `
       const promise = new Promise((resolve, reject) => {
-        /*some code*/
+        /* code */
         resolve('done')
         reject(new Error('failed'))
       })
       
       promise
-        .finally(() => { /*some code*/ })
+        .finally(() => { /* code */ })
         .then(
           result => { console.log(result) },
           error => { console.log(error) }

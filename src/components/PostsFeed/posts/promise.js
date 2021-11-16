@@ -100,6 +100,31 @@ export const promisePost = {
         .catch(error => { console.log(error) })
       `,
     },
-    
+    {
+      type: 'text',
+      val: (
+        <>
+          Promise can be called inside async function.
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      async func() {
+        try {
+          await promise
+          /* code */
+        } 
+        finally {
+          /* code */
+        }
+        catch(error) {
+          console.log(error)
+        } 
+      }
+      `,
+    },
   ],
 };

@@ -18,7 +18,7 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          Async operations are put into an event queue, which runs after the main thread has finished processing so that they do not block subsequent JavaScript code from running.
+          Async funcs are <CodeSpan>setTimeout()</CodeSpan>, <CodeSpan>setInterval()</CodeSpan>, http calls,  Web APIs.
         </>
       ),
     },

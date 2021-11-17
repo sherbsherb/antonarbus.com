@@ -3,7 +3,7 @@ import { CodeSpan } from '../components/CodeSpan';
 
 export const promisePost = {
   title: 'Promise',
-  date: '2021.11.16',
+  date: '2021.11.17',
   tagsArr: ['javascript', 'vanilla', 'js'],
   postParts: [
     {
@@ -18,7 +18,7 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          Async funcs are <CodeSpan>setTimeout()</CodeSpan>, <CodeSpan>setInterval()</CodeSpan>, http calls, <CodeSpan>.then()</CodeSpan>, <CodeSpan>.catch()</CodeSpan>, <CodeSpan>.finally()</CodeSpan>.
+          Async funcs are <CodeSpan>setTimeout()</CodeSpan>, <CodeSpan>setInterval()</CodeSpan>, http calls, <CodeSpan>.then()</CodeSpan>, <CodeSpan>.catch()</CodeSpan>, <CodeSpan>.finally()</CodeSpan>,  Web APIs.
         </>
       ),
     },
@@ -104,7 +104,7 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          Promise can be called inside async function.
+          Promise can be called with another syntax form inside an async function.
         </>
       ),
     },

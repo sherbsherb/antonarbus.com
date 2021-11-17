@@ -26,6 +26,14 @@ export const callback = {
       type: 'text',
       val: (
         <>
+          A callback function is passed into another function as an argument and will be called back later.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
           Simple callback function example. 
         </>
       ),

@@ -477,6 +477,37 @@ function Cmpt18() {
 }
 const toRender18 = <Cmpt18 />;
 
+function Cmpt19() {
+  const ref = useRef()
+
+  const animate = () => {
+    gsap.fromTo(
+      ref.current.children, 
+      { 
+        opacity: 1,
+      },
+      { 
+        opacity: function(i,el,els) {
+          console.log(i, el, els)
+          return 1 - 0.1*i
+        },
+        stagger: .25
+      },
+    );
+  };
+
+  return (
+    <>
+      <div ref={ref}> 
+        <span>h</span><span>e</span><span>l</span><span>l</span><span>o</span><span>{' '}</span>
+        <span>g</span><span>s</span><span>a</span><span>p</span>
+      </div>
+      <div><button onClick={animate}>Animate</button></div>
+    </>
+  );
+}
+const toRender19 = <Cmpt19 />;
+
 export const gsapBasics = {
   title: 'GSAP basics',
   date: '2021.11.15',
@@ -486,7 +517,7 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
-          Main aspects of GSAP basen on the {' '}
+          Main aspects of GSAP are taken from the {' '}
           <Lnk path="https://greensock.com/get-started/">guideline</Lnk>.
         </>
       ),
@@ -772,7 +803,7 @@ function Cmpt1() {
       val: (
         <>
           <b><CodeSpan>stagger</CodeSpan></b> property puts a delay between animations.
-          <Lnk path="https://greensock.com/docs/v3/Staggers">. Advanced</Lnk>{' '}
+          <Lnk path="https://greensock.com/docs/v3/Staggers"> Advanced</Lnk>{' '}
           stagger object can be applied.
         </>
       ),
@@ -1363,6 +1394,68 @@ const toRender6 = <Cmpt6 />;
     {
       type: 'output',
       val: toRender18,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          May use a <b>function</b> instead of a number/string for almost any property. 
+          Func will be called for each target. 
+          Returned value by the function will be set as the property value.      
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          GSAP will pass the following parameters into the function:
+
+          - index
+          - element being affected
+          - An array of all elements affected by the tween        
+        </>
+      ),
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+      function Cmpt19() {
+        const ref = useRef()
+      
+        const animate = () => {
+          gsap.fromTo(
+            ref.current.children, 
+            { 
+              opacity: 1,
+            },
+            { 
+              opacity: function(i,el,els) {
+                console.log(i, el, els)
+                return 1 - 0.1*i
+              },
+              stagger: .25
+            },
+          );
+        };
+      
+        return (
+          <>
+            <div ref={ref}> 
+              <span>h</span><span>e</span><span>l</span><span>l</span><span>o</span><span>{' '}</span>
+              <span>g</span><span>s</span><span>a</span><span>p</span>
+            </div>
+            <div><button onClick={animate}>Animate</button></div>
+          </>
+        );
+      }
+      const toRender19 = <Cmpt19 />;
+      `,
+    },
+    {
+      type: 'output',
+      val: toRender19,
     },
   ],
 };

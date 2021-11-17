@@ -41,12 +41,10 @@ export const callback = {
       lang: 'jsx',
       val: `
       function func(cb) {
-        setTimeout(() => { 
-          alert('1 sec has passed')
-          cb() 
-        }, 1000)
+        alert('in 1 sec callback func will be triggered')
+        setTimeout(() => cb(), 1000)
       }
-
+      
       const msg = () => alert('callback func is triggered')
       
       func(msg)

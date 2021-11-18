@@ -16,17 +16,17 @@ const StyleReset = createGlobalStyle`
     }
 
     &::-webkit-scrollbar-thumb {
-      background: #f1f1f1;
+      background: rgb(0 0 0 / 12%);
       border-radius: 5px;
-      box-shadow: inset 0 0 6px #19191980;
+      box-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
 
       &:hover {
-        background: #dbdbdbb0;
+        background: rgb(0 0 0 / 20%);
       }
     }
 
     &::-webkit-scrollbar-track {
-      background: #f5f5f5;
+      background: rgb(0 0 0 / 5%);
     }
   }
 

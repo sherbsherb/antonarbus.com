@@ -73,8 +73,10 @@ import { gsapAndReact } from './posts/gsapAndReact';
 import { gsapBasics } from './posts/gsapBasics';
 import { promisePost } from './posts/promise';
 import { callback } from './posts/callback';
+import { scrollbarStyle } from './posts/scrollbarStyle';
 
 const posts = [
+  scrollbarStyle,
   promisePost,
   callback,
   gsapBasics,

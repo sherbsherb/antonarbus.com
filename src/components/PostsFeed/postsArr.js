@@ -74,8 +74,12 @@ import { gsapBasics } from './posts/gsapBasics';
 import { promisePost } from './posts/promise';
 import { callback } from './posts/callback';
 import { scrollbarStyle } from './posts/scrollbarStyle';
+import { gradients } from './posts/gradients/gradients';
+import { dimBackgroundImg } from './posts/dimBackgroundImg/dimBackgroundImg';
 
 const posts = [
+  dimBackgroundImg,
+  gradients,
   scrollbarStyle,
   promisePost,
   callback,

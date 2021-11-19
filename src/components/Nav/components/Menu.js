@@ -103,11 +103,14 @@ export function Menu() {
   const menuRef = useRef();
   
   const [menuHeightState, setMenuHeightState] = useState(0);
+  const [opacityState, setOpacityState] = useState(0);
   
   useEffect(() => {
     setMenuHeightState(calcHeight(fakeMenuRef.current));
+    setOpacityState(1);
     return () => {
       setMenuHeightState(0);
+      setOpacityState(0);
     };
   }, [openedMenuState, navKeyboardHandlerMemoized, closeMenuMemoized, setMenuHeightState]); 
 
@@ -161,7 +164,7 @@ export function Menu() {
 
   return (
     <ContextMenu.Provider value={contextValue}>
-      <MenuContainer style={{ height: menuHeightState }} ref={menuRef}>
+      <MenuContainer style={{ height: menuHeightState, opacity: opacityState }} ref={menuRef}>
         {isNestedMenu ? <BackItem /> : <CloseItem />}
 
         {/* 
@@ -238,8 +241,8 @@ export const MenuContainer = styled.div`
   z-index: 666;
   transform: translateX(-45%);
 
-  transition-property: height;
-  transition-duration: 0.35s;
+  transition-property: height, opacity;
+  transition-duration: .35s;
 
   @media screen and (max-width: 480px) {
     transform: translateX(0px) !important;

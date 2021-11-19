@@ -59,6 +59,7 @@ const StyleReset = createGlobalStyle`
 
   ol, ul {
     padding-left: 15px;
+    margin-top: 15px;
     li {
       padding-left: 10px;
     }

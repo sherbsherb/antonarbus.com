@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Lnk } from '../components/Lnk';
 
-
-function Cmpt() {
+function Cmpt(props) {
   return (
     <Div>
-      <div className="bkg"> 
+      <div className="bkg"  style={{backgroundImage: props.backgroundImage}}> 
         <div className="glass">
           <h3>Glass style</h3>
           <input type="text" placeholder="search" />
@@ -75,7 +74,6 @@ const Div = styled.div `
     color: #426696;
   }
 `
-const toRender = <Cmpt />
 
 
 export const glassStyle = {
@@ -87,15 +85,11 @@ export const glassStyle = {
       type: 'text',
       val: (
         <>
-          Just watched a nice <Lnk path="https://www.youtube.com/watch?v=O7WbVj5apxU">video</Lnk> how to make a glassy element with CSS. 
+          Just watched a nice <Lnk path="https://www.youtube.com/watch?v=O7WbVj5apxU">video</Lnk> how to make a glassy element with CSS. Let's replicate.
         </>
       ),
     },
 
-    {
-      type: 'output',
-      val: toRender
-    },
     {
       type: 'code',
       val: `
@@ -171,18 +165,26 @@ export const glassStyle = {
             color: #426696;
           }
           \`
-        const toRender = <Cmpt />
+
       `
+    },
+    {
+      type: 'output',
+      val: <Cmpt backgroundImage= "linear-gradient(to right top, #65dfc9, #6cdbeb)" />
     },
     {
       type: 'text',
       val: (
         <>
-          Just manipulate the parent background color to have different glassy styles. 
+          Manipulate the parent background color to have different glassy styles. 
         </>
       ),
     },
-
+    {
+      type: 'output',
+      val: <Cmpt backgroundImage = "linear-gradient(to right top, #545454,#a5a5a5)" />
+    },
+  
     
   ],
 };

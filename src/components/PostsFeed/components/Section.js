@@ -13,9 +13,6 @@ const SectionStyled = styled.section`
   /* align-content: stretch; align the flex lines, similar to align-items, but aligns flex lines (group els as if they were one el) */
   border: 1px solid #d2d2d2;
   border-radius: 6px;
-  margin: 0 auto;
-  width: 90vw;
-  max-width: 800px;
   font-size: 16px;
   padding: 20px;
   background: white;

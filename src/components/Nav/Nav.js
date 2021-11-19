@@ -14,12 +14,13 @@ export function Nav() {
 }
 
 const NavStyled = styled.nav`
+  margin: 5px 0px;
+  border-radius: 6px;
+  background: rgb(52 52 52 / 98%);
   height: 60px;
   padding: 0 1rem;
-  border-bottom: 1px solid #474a4d;
   position: relative;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
   position: sticky;
-  top: 0;
+  top: 5px;
   z-index: 2;
 `;

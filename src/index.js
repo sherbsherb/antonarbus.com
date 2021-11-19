@@ -39,6 +39,8 @@ const StyleReset = createGlobalStyle`
     height: 100%;
     margin: 0;
     line-height: 1.6;
+    padding-left: 10px;
+    padding-right: 10px;
     
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

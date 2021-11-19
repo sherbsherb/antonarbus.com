@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import img from './headphones.jpg';
+
 const style = {height: "200px", display: "flex", justifyContent: 'center', alignItems: 'center'}
 
 function Cmpt1() {
@@ -10,6 +11,7 @@ function Cmpt1() {
     </Div1>
   )
 }
+
 const Div1 = styled.div `
   background-image: url(${img});
   background-size: cover;
@@ -54,7 +56,7 @@ export const dimBackgroundImg = {
       type: 'text',
       val: (
         <>
-          There is a trick how we can dim an image putting a bit transparent gradient without gradient in front.
+          There is a CSS trick how we can dim an image putting a bit transparent gradient without gradient in front.
         </>
       ),
     },

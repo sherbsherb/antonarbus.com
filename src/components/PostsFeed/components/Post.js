@@ -8,6 +8,7 @@ import { Output } from './Output.js';
 import { Code } from './Code.js';
 import { Img } from './Img.js';
 import { Div } from './Div.js';
+import styled from 'styled-components';
 
 export function Post(props) {
   const post = props.post;
@@ -29,7 +30,7 @@ export function Post(props) {
   }
 
   return (
-    <article className="post">
+    <Article className="post">
       <Title uriPostName={uriPostName}>{title}</Title>
       <Section>
         {jsxesFromPostParts(post)}
@@ -37,6 +38,10 @@ export function Post(props) {
         <Tags tags={tags}/>
         <Date>{date}</Date>
       </Section>
-    </article>
+    </Article>
   );
 }
+
+const Article = styled.article `
+  width: 100%;
+`

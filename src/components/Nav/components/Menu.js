@@ -233,26 +233,26 @@ export const MenuContainer = styled.div`
   position: absolute;
   top: 110%;
   width: 300px;
-  background-color: #242526;
+  background: rgb(52 52 52 / 98%);
 
   border: 1px solid #474a4d;
   border-radius: 8px;
   overflow: hidden;
   z-index: 666;
-  transform: translateX(-45%);
+  right: 0;
 
   transition-property: height, opacity;
   transition-duration: .35s;
+  transition-timing-function: ease-out;
 
   @media screen and (max-width: 480px) {
-    transform: translateX(0px) !important;
-    left: 10px;
-    right: 10px;
+    left: 0px;
+    right: 0px;
     width: auto;
   }
 
   .forward-appear {
-    transform: translateX(-150%);
+    transform: translateX(-110%);
   }
   .forward-appear-active {
     transform: translateX(0%);
@@ -262,7 +262,7 @@ export const MenuContainer = styled.div`
     transform: translateX(0%);
   }
   .forward-enter {
-    transform: translateX(-150%);
+    transform: translateX(-110%);
   }
   .forward-enter-active {
     transform: translateX(0%);
@@ -275,15 +275,15 @@ export const MenuContainer = styled.div`
     transform: translateX(0%);
   }
   .forward-exit-active {
-    transform: translateX(150%);
+    transform: translateX(110%);
     transition: all 350ms linear;
   }
   .forward-exit-done {
-    transform: translateX(150%);
+    transform: translateX(110%);
   }
 
   .backward-appear {
-    transform: translateX(150%);
+    transform: translateX(110%);
   }
   .backward-appear-active {
     transform: translateX(0%);
@@ -293,7 +293,7 @@ export const MenuContainer = styled.div`
     transform: translateX(0%);
   }
   .backward-enter {
-    transform: translateX(150%);
+    transform: translateX(110%);
   }
   .backward-enter-active {
     transform: translateX(0%);
@@ -306,10 +306,10 @@ export const MenuContainer = styled.div`
     transform: translateX(0%);
   }
   .backward-exit-active {
-    transform: translateX(-150%);
+    transform: translateX(-110%);
     transition: all 350ms linear;
   }
   .backward-exit-done {
-    transform: translateX(-150%);
+    transform: translateX(-110%);
   }
 `;

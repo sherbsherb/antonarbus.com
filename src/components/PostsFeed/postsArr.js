@@ -76,8 +76,10 @@ import { callback } from './posts/callback';
 import { scrollbarStyle } from './posts/scrollbarStyle';
 import { gradients } from './posts/gradients/gradients';
 import { dimBackgroundImg } from './posts/dimBackgroundImg/dimBackgroundImg';
+import { glassStyle } from './posts/glassStyle';
 
 const posts = [
+  glassStyle,
   dimBackgroundImg,
   gradients,
   scrollbarStyle,

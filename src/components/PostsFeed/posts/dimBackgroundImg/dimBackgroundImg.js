@@ -46,7 +46,7 @@ export const dimBackgroundImg = {
       type: 'text',
       val: (
         <>
-          Several backgrounds images separated by comma can be applied. 
+          Several background images separated by comma can be applied. 
         </>
       ),
     },
@@ -54,7 +54,7 @@ export const dimBackgroundImg = {
       type: 'text',
       val: (
         <>
-          There is a trick how we can dim a photo putting a bit transparent gradient without gradient image on top.
+          There is a trick how we can dim an image putting a bit transparent gradient without gradient in front.
         </>
       ),
     },

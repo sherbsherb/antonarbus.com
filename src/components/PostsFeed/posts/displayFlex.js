@@ -6,15 +6,14 @@ import useInput from '../../../helpers/functions/useInput';
 import { CodeSpan } from '../components/CodeSpan';
 
 function Cmpt() {
-  const [input, bindInput] = useInput(10);
-  const [rowGapInput, bindRowGapInput] = useInput(10);
-  const [columnGapInput, bindColumnGapInput] = useInput(10);
-  const [paddingParent, bindPaddingParent] = useInput(5);
-  const [minHeightParent, bindMinHeightParent] = useInput(200);
-  const [maxHeightParent, bindMaxHeightParent] = useInput(1000);
-  const [paddingChild, bindPaddingChild] = useInput(5);
-  const [marginChild, bindMarginChild] = useInput(5);
-  const [minWidthChild, bindMinWidthChild] = useInput(80);
+  const [childrenQty, bindChildrenQty] = useInput(15);
+  const [rowGapInput, bindRowGapInput] = useInput(0);
+  const [columnGapInput, bindColumnGapInput] = useInput(0);
+  const [paddingParent, bindPaddingParent] = useInput(0);
+  const [heightParent, bindHeightParent] = useInput(200);
+  const [paddingChild, bindPaddingChild] = useInput(0);
+  const [marginChild, bindMarginChild] = useInput(0);
+  const [minWidthChild, bindMinWidthChild] = useInput(75);
 
   const [display, setDisplay] = useState('flex');
   const [flexDirection, setFlexDirection] = useState('row');
@@ -42,7 +41,7 @@ function Cmpt() {
     border: '1px solid red',
     borderRadius: '6px',
     marginBottom: '10px',
-    overflow: 'scroll'
+    overflow: 'auto'
   };
   const parentCustomStyle = {
     display: display,
@@ -54,8 +53,7 @@ function Cmpt() {
     rowGap: rowGapInput + 'px',
     columnGap: columnGapInput + 'px',
     padding: paddingParent + 'px',
-    minHeight: minHeightParent + 'px',
-    maxHeight: maxHeightParent + 'px',
+    height: heightParent + 'px',
   };
   const childrenStyle = {
     border: '1px solid grey',
@@ -70,9 +68,9 @@ function Cmpt() {
   return (
     <Div>
     <div style={{ ...parentStyle, ...parentCustomStyle }} ref={ref}>
-        {parseInt(input) > 0 &&
-          new Array(parseInt(input))
-            .fill('', 0, parseInt(input))
+        {parseInt(childrenQty) > 0 &&
+          new Array(parseInt(childrenQty))
+            .fill('', 0, parseInt(childrenQty))
             .map((el, i) => (
               <div
                 key={i}
@@ -91,7 +89,7 @@ function Cmpt() {
           type="number"
           min="1"
           max="100"
-          {...bindInput}
+          {...bindChildrenQty}
           style={{ width: '150px' }}
         />
       </div>
@@ -407,7 +405,7 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
               {...bindRowGapInput}
               style={{ width: '50px' }}
@@ -419,7 +417,7 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
               {...bindColumnGapInput}
               style={{ width: '50px' }}
@@ -431,7 +429,7 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
               {...bindPaddingParent}
               style={{ width: '50px' }}
@@ -443,21 +441,9 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
-              {...bindMinHeightParent}
-              style={{ width: '50px' }}
-            />
-            px
-          </div>
-
-          <div>max-height:</div>
-          <div>
-            <input
-              type="number"
-              min="1"
-              max="1000"
-              {...bindMaxHeightParent}
+              {...bindHeightParent}
               style={{ width: '50px' }}
             />
             px
@@ -476,7 +462,7 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
               {...bindPaddingChild}
               style={{ width: '50px' }}
@@ -488,7 +474,7 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
               {...bindMarginChild}
               style={{ width: '50px' }}
@@ -500,7 +486,7 @@ function Cmpt() {
           <div>
             <input
               type="number"
-              min="1"
+              min="0"
               max="1000"
               {...bindMinWidthChild}
               style={{ width: '50px' }}

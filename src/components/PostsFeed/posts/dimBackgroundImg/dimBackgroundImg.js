@@ -7,7 +7,7 @@ const style = {height: "200px", display: "flex", justifyContent: 'center', align
 function Cmpt1() {
   return (
     <Div1 style={style}>
-        {"background-image: url(${img})"}
+      {`background-image: url(\${img})`}
     </Div1>
   )
 }
@@ -25,7 +25,7 @@ const toRender1 = <Cmpt1 />
 function Cmpt2() {
   return (
     <Div2 style={style}>
-      {"background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${img});"}
+      {`background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(\${img})`}
     </Div2>
   )
 }

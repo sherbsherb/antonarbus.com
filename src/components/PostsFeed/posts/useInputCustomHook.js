@@ -72,7 +72,7 @@ export const useInputCustomHook = {
       val: (
         <>
           With controlled component input values are always driven by the React
-          state and we always need to creat such logic for every input.
+          state and we always need to create such logic for every input.
         </>
       ),
     },

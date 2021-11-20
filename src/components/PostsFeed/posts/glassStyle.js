@@ -5,7 +5,7 @@ import { Lnk } from '../components/Lnk';
 function Cmpt(props) {
   return (
     <Div>
-      <div className="bkg"  style={{backgroundImage: props.backgroundImage}}> 
+      <div className="bkg" style={{backgroundImage: props.backgroundImage}}> 
         <div className="glass">
           <h3>Glass style</h3>
           <input type="text" placeholder="search" />

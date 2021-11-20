@@ -77,8 +77,10 @@ import { scrollbarStyle } from './posts/scrollbarStyle';
 import { gradients } from './posts/gradients/gradients';
 import { dimBackgroundImg } from './posts/dimBackgroundImg/dimBackgroundImg';
 import { glassStyle } from './posts/glassStyle';
+import { displayFlex } from './posts/displayFlex';
 
 const posts = [
+  displayFlex,
   glassStyle,
   dimBackgroundImg,
   gradients,

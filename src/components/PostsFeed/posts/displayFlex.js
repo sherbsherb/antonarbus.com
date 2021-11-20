@@ -10,7 +10,7 @@ function Cmpt() {
   const [rowGapInput, bindRowGapInput] = useInput(10);
   const [columnGapInput, bindColumnGapInput] = useInput(10);
   const [paddingParent, bindPaddingParent] = useInput(5);
-  const [minHeightParent, bindMinHeightParent] = useInput(400);
+  const [minHeightParent, bindMinHeightParent] = useInput(200);
   const [maxHeightParent, bindMaxHeightParent] = useInput(1000);
   const [paddingChild, bindPaddingChild] = useInput(5);
   const [marginChild, bindMarginChild] = useInput(5);
@@ -38,11 +38,13 @@ function Cmpt() {
     ref.current.querySelector('div').style.alignSelf = alignSelf;
   }, [order, flexBasis, flexGrow, flexShrink, alignSelf]);
 
-  const containerStyle = {
+  const parentStyle = {
     border: '1px solid red',
     borderRadius: '6px',
+    marginBottom: '10px',
+    overflow: 'scroll'
   };
-  const containerCustomStyle = {
+  const parentCustomStyle = {
     display: display,
     flexDirection: flexDirection,
     flexWrap: flexWrap,
@@ -67,6 +69,21 @@ function Cmpt() {
 
   return (
     <Div>
+    <div style={{ ...parentStyle, ...parentCustomStyle }} ref={ref}>
+        {parseInt(input) > 0 &&
+          new Array(parseInt(input))
+            .fill('', 0, parseInt(input))
+            .map((el, i) => (
+              <div
+                key={i}
+                contentEditable={true}
+                suppressContentEditableWarning={true}
+                style={{ ...childrenStyle, ...containerChildrenStyle }}
+              >
+                div{i + 1} <br /> editable
+              </div>
+            ))}
+      </div>
       <div>
         Number of divs inside flex box{' '}
         <input
@@ -592,22 +609,6 @@ function Cmpt() {
           </div>
         </div>
         <div>{'}'}</div>
-      </div>
-
-      <div style={{ ...containerStyle, ...containerCustomStyle }} ref={ref}>
-        {parseInt(input) > 0 &&
-          new Array(parseInt(input))
-            .fill('', 0, parseInt(input))
-            .map((el, i) => (
-              <div
-                key={i}
-                contentEditable={true}
-                suppressContentEditableWarning={true}
-                style={{ ...childrenStyle, ...containerChildrenStyle }}
-              >
-                div{i + 1} <br /> editable
-              </div>
-            ))}
       </div>
     </Div>
   );

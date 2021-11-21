@@ -86,12 +86,11 @@ function Cmpt() {
       <div>
         Number of divs inside flex box{' '}
         <input
-          placeholder="number of children"
           type="number"
           min="1"
           max="100"
           {...bindChildrenQty}
-          style={{ width: '150px' }}
+          style={{ width: '50px' }}
         />
       </div>
 

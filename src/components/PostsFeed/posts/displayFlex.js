@@ -6,7 +6,7 @@ import useInput from '../../../helpers/functions/useInput';
 import { CodeSpan } from '../components/CodeSpan';
 
 function Cmpt() {
-  const [childrenQty, bindChildrenQty] = useInput(15);
+  const [childrenQty, bindChildrenQty] = useInput(10);
   const [rowGapInput, bindRowGapInput] = useInput(0);
   const [columnGapInput, bindColumnGapInput] = useInput(0);
   const [paddingParent, bindPaddingParent] = useInput(0);

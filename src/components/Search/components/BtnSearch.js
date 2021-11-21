@@ -47,6 +47,8 @@ const ButtonStyled = styled.button`
   padding: 0px 10px;
   margin-left: 10px;
   cursor: pointer;
+  background-color: transparent;
+  background-image: linear-gradient(to right bottom,rgb(255 255 255 / 85%),rgb(255 255 255 / 95%));
 
   &:hover,
   &:focus {

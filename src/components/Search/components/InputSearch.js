@@ -116,26 +116,26 @@ const DivStyled = styled.div`
   padding-left: 5px;
   padding-right: 40px;
   font-size: 24px;
-  border-width: 1px;
-  border-color: #c0c0c0;
-  border-style: solid;
+  border: 1px solid transparent;
   border-radius: 4px;
   outline-style: none;
   width: auto;
   min-width: 0; /* for shrinking */
-  background-color: white;
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: text;
 
+  background-color: transparent;
+  background-image: linear-gradient(to right bottom, rgb(255 255 255 / 85%), rgb(255 255 255 / 95%));
+
   &:hover {
-    border-color: grey;
+    border: 1px solid grey;
     transition: border-color 200ms ease;
   }
 
   &:focus {
-    border-color: rgba(0, 157, 214, 1);
+    border: 1px solid rgba(0 157 214 / 100%);
     margin: 0px;
   }
 

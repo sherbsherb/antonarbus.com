@@ -49,7 +49,7 @@ const DivStyled = styled.div`
   width: 100%;
 
   & span:first-child {
-    color: grey;
+    color: rgba(255 255 255 / 60%);
   }
 
   & span:last-child {

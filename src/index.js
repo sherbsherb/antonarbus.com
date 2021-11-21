@@ -51,7 +51,9 @@ const StyleReset = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-image: linear-gradient(120deg, #fff 0%, #ebedee 100%);
+    background-image: 
+      linear-gradient(to right bottom,rgb(255 255 255 / 70%),rgb(255 255 255 / 30%)), 
+      linear-gradient(to right top,rgb(0 0 0),rgb(0 0 0));
     background-attachment: fixed;
   }
 

@@ -21,4 +21,14 @@ const H3Styled = styled.h3`
   text-align: center;
   line-height: 1.1;
   font-weight: 400;
+
+  a {
+    color: white;
+    opacity: .8;
+
+    &:hover {
+      text-decoration-color: white;
+      opacity: .8;
+    }
+  }
 `;

@@ -11,12 +11,13 @@ const SectionStyled = styled.section`
   justify-content: flex-start; /* align on main-axis */
   align-items: left; /* align on cross-axis */
   /* align-content: stretch; align the flex lines, similar to align-items, but aligns flex lines (group els as if they were one el) */
-  border: 1px solid #d2d2d2;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 16px;
   padding: 20px;
   background: white;
   position: relative;
-  box-shadow: 0 0px 2px #0000003d;
   line-height: 1.8;
+  background-color: transparent;
+  background-image: linear-gradient(to right bottom,rgb(255 255 255 / 90%),rgb(255 255 255 / 90%));
+  box-shadow: rgb(122 122 122 / 20%) 6px 6px 20px;
 `;

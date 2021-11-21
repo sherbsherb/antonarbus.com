@@ -41,7 +41,7 @@ function Cmpt() {
     border: '1px solid red',
     borderRadius: '6px',
     marginBottom: '10px',
-    overflow: 'auto'
+    overflow: 'auto',
   };
   const parentCustomStyle = {
     display: display,
@@ -67,7 +67,7 @@ function Cmpt() {
 
   return (
     <Div>
-    <div style={{ ...parentStyle, ...parentCustomStyle }} ref={ref}>
+      <div style={{ ...parentStyle, ...parentCustomStyle }} ref={ref} className="parent">
         {parseInt(childrenQty) > 0 &&
           new Array(parseInt(childrenQty))
             .fill('', 0, parseInt(childrenQty))
@@ -77,6 +77,7 @@ function Cmpt() {
                 contentEditable={true}
                 suppressContentEditableWarning={true}
                 style={{ ...childrenStyle, ...containerChildrenStyle }}
+                className="child"
               >
                 div{i + 1} <br /> editable
               </div>
@@ -494,10 +495,16 @@ function Cmpt() {
             px
           </div>
 
-          <div></div>
-          <div style={{marginTop: "10px", fontSize: "12px"}}>Applied only to the 1st child</div>
+          
+        </div>
+        <div>{'}'}</div>
 
-          <div>order:</div>
+        <br />
+
+        <div>{'.child:first-child {'}</div>
+        <div className="grid">
+
+        <div>order:</div>
           <div>
             <input
               type="number"
@@ -511,23 +518,19 @@ function Cmpt() {
           <div>flex-basis:</div>
           <div>
             <input type="text" {...bindFlexBasis} style={{ width: '100px' }} />
-            <span style={{marginLeft: "10px", fontSize: "12px"}}>can be length or 'auto'</span>
+            <span style={{ marginLeft: '10px', fontSize: '12px' }}>
+              can be length or 'auto'
+            </span>
           </div>
 
           <div>flex-grow:</div>
           <div>
-            <input
-              {...bindFlexGrow}
-              style={{ width: '50px' }}
-            />
+            <input {...bindFlexGrow} style={{ width: '50px' }} />
           </div>
 
           <div>flex-shrink:</div>
           <div>
-            <input
-              {...bindFlexShrink}
-              style={{ width: '50px' }}
-            />
+            <input {...bindFlexShrink} style={{ width: '50px' }} />
           </div>
 
           <div>align-self:</div>
@@ -593,8 +596,10 @@ function Cmpt() {
               baseline
             </label>
           </div>
+
         </div>
         <div>{'}'}</div>
+
       </div>
     </Div>
   );
@@ -608,6 +613,8 @@ const Div = styled.div`
     border-radius: 6px;
     margin: 10px 0px;
     padding: 5px;
+    white-space: nowrap;
+    overflow: auto;
   }
 
   label {
@@ -622,7 +629,7 @@ const Div = styled.div`
   .grid {
     display: grid;
     grid-template-columns: 120px auto;
-    gap: 0px 20px;
+    gap: 0px 10px;
     justify-self: end;
 
     & > *:nth-child(2n + 1) {

@@ -17,9 +17,9 @@ function Cmpt() {
 
   const [display, setDisplay] = useState('flex');
   const [flexDirection, setFlexDirection] = useState('row');
-  const [flexWrap, setFlexWrap] = useState('nowrap');
-  const [justifyContent, setJustifyContent] = useState('flex-start');
-  const [alignItems, setAlignItems] = useState('stretch');
+  const [flexWrap, setFlexWrap] = useState('wrap');
+  const [justifyContent, setJustifyContent] = useState('center');
+  const [alignItems, setAlignItems] = useState('center');
   const [alignContent, setAlignContent] = useState('normal');
 
   const [order, bindOrder] = useInput(0);

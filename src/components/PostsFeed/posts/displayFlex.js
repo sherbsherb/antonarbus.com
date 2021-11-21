@@ -605,7 +605,7 @@ function Cmpt() {
 }
 
 const Div = styled.div`
-  line-height: 1.2;
+  font-size: 12px;
 
   .cssContainer {
     border: 1px solid #c7c7c7;
@@ -619,23 +619,31 @@ const Div = styled.div`
   label {
     margin-right: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
 
-    input {
-      margin-right: 5px;
-    }
+  input {
+    margin-right: 5px;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: 120px auto;
-    gap: 0px 10px;
+    grid-template-columns: 100px auto;
+    gap: 5px 10px;
     justify-self: end;
+
 
     & > *:nth-child(2n + 1) {
       justify-self: end;
+      
+      display: flex;
+      align-items: center;
     }
     & > *:nth-child(2n) {
       color: grey;
+      display: flex;
+      align-items: center;
     }
   }
 `;

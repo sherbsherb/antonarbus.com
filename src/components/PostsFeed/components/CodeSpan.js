@@ -16,6 +16,8 @@ export function CodeSpan(props) {
   })
 
   return (
-    <code  className={`lang-${lang}`} ref={ref}>{props.children}</code>
+    <code className={`lang-${lang}`} ref={ref} style={{wordBreak: 'break-all'}}>
+      {props.children} 
+    </code>
   );
 }

@@ -38,14 +38,14 @@ export const gsapCSSRulePlugin = {
     },
     {
       type: 'text',
-      val: <>With <i>CSSRulePlugin</i> we can animate <i>::after</i> element.</>,
+      val: <>With <Lnk path="https://greensock.com/docs/v3/Plugins/CSSRulePlugin">CSSRulePlugin</Lnk> we can animate <i>::after</i> element.</>,
     },
     {
       type: 'text',
       val: (
         <>
           Selector in{' '}
-          <CodeSpan>{"CSSRulePlugin.getRule('.style73::after')"}</CodeSpan>{' '}
+          <CodeSpan>{"CSSRulePlugin.getRule(selector)"}</CodeSpan>{' '}
           should be exactly the same as in CSS stylesheet.
         </>
       ),
@@ -134,7 +134,8 @@ export const gsapCSSRulePlugin = {
       type: 'text',
       val: (
         <>
-          On my phone it still blinks, maybe easier to avoid pseudo elements animation and use normal elements. GSAP creators suggest to <Lnk path='https://greensock.com/docs/v3/Plugins/CSSRulePlugin#:~:text=convert%20your%20pseudo%2Delements%20to%20real%20HTML%20elements%20and%20animate%20them%20directly'><q>convert your pseudo-elements to real HTML elements and animate them </q></Lnk>.
+          On my phone it still blinks, maybe easier to avoid pseudo elements animation and use normal elements. 
+          And indeed, GSAP creators <Lnk path='https://greensock.com/docs/v3/Plugins/CSSRulePlugin#:~:text=convert%20your%20pseudo%2Delements%20to%20real%20HTML%20elements%20and%20animate%20them%20directly'>suggest to</Lnk> <i><q>convert your pseudo-elements to real HTML elements and animate them</q></i>.
         </>
       ),
     },

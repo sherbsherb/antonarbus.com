@@ -79,8 +79,10 @@ import { dimBackgroundImg } from './posts/dimBackgroundImg/dimBackgroundImg';
 import { glassStyle } from './posts/glassStyle';
 import { displayFlex } from './posts/displayFlex';
 import { gsapCSSRulePlugin } from './posts/gsapCSSRulePlugin/gsapCSSRulePlugin';
+import { gsapMotionPathPlugin } from './posts/gsapMotionPath';
 
 const posts = [
+  gsapMotionPathPlugin,
   gsapCSSRulePlugin,
   displayFlex,
   glassStyle,

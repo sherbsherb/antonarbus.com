@@ -174,7 +174,15 @@ export const gsapMotionPathPlugin = {
       type: 'text',
       val: (
         <>
-          No comments from my side here, just a simple test. Maybe will update the post later.
+          But we can create one on official <Lnk path="https://codepen.io/GreenSock/pen/aYYOdN">gsap codepan</Lnk> where all plugins are accessible.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Here is my simplified version of <Lnk path="https://codepen.io/sherbsherb/pen/LYjoRNp">MotionPathHelper curve</Lnk>.
         </>
       ),
     },

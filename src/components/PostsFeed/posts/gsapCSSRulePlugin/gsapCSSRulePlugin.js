@@ -4,6 +4,7 @@ import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
 import randomNumFromTo from '../../../../helpers/functions/randomNumFromTo';
 import { CodeSpan } from '../../components/CodeSpan';
 import './style73.css';
+import { Lnk } from '../../components/Lnk';
 
 const rand = () => randomNumFromTo(1, 255);
 gsap.registerPlugin(CSSRulePlugin);
@@ -110,7 +111,7 @@ export const gsapCSSRulePlugin = {
           background-color: red;
           position: absolute;
           top: 0px;
-          right: -70px;
+          right: -80px;
           padding: 5px;
           color: white;
         }
@@ -133,7 +134,7 @@ export const gsapCSSRulePlugin = {
       type: 'text',
       val: (
         <>
-          On my phone it still blinks, maybe easier to avoid pseudo elements animation and use normal elements.
+          On my phone it still blinks, maybe easier to avoid pseudo elements animation and use normal elements. GSAP creators suggest to <Lnk path='https://greensock.com/docs/v3/Plugins/CSSRulePlugin#:~:text=convert%20your%20pseudo%2Delements%20to%20real%20HTML%20elements%20and%20animate%20them%20directly'><q>convert your pseudo-elements to real HTML elements and animate them </q></Lnk>.
         </>
       ),
     },

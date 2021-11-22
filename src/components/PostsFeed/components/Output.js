@@ -5,7 +5,7 @@ export function Output(props) {
 }
 
 const DivStyled = styled.div`
-  background: #f3fcff;
+  background: white;
   padding: 0.5em;
   margin: 10px 0px;
   overflow: auto;

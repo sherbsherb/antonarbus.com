@@ -526,6 +526,15 @@ export const gsapBasics = {
       type: 'text',
       val: (
         <>
+          All properties in one {' '}
+          <Lnk path="https://greensock.com/cheatsheet/">cheatsheet</Lnk>.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
           <b>Target elements.</b> We can access elements in gsap by reference & query selector. We also
           can have an array of target elements.
         </>

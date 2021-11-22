@@ -78,8 +78,10 @@ import { gradients } from './posts/gradients/gradients';
 import { dimBackgroundImg } from './posts/dimBackgroundImg/dimBackgroundImg';
 import { glassStyle } from './posts/glassStyle';
 import { displayFlex } from './posts/displayFlex';
+import { gsapCSSRulePlugin } from './posts/gsapCSSRulePlugin/gsapCSSRulePlugin';
 
 const posts = [
+  gsapCSSRulePlugin,
   displayFlex,
   glassStyle,
   dimBackgroundImg,

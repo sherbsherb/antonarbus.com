@@ -55,6 +55,14 @@ export const gsapAndReact = {
       ),
     },
     {
+      type: 'text',
+      val: (
+        <>
+          Other not useful aspects can be found <Lnk path="https://greensock.com/react">here</Lnk>
+        </>
+      ),
+    },
+    {
       type: 'code',
       lang: 'jsx',
       val: `

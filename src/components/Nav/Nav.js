@@ -20,7 +20,7 @@ const NavStyled = styled.nav`
   height: 60px;
   padding: 0 1rem;
   position: relative;
-  position: sticky;
-  top: 5px;
+  /* position: sticky; */
+  /* top: 5px; */
   z-index: 2;
 `;

@@ -101,7 +101,7 @@ export const gsapCSSRulePlugin = {
           align-items: center;
           width: 100px;
           height: 100px;
-          background-color: green;
+          border: 1px solid black;
           position: relative;
         }
         
@@ -126,6 +126,14 @@ export const gsapCSSRulePlugin = {
         <>
           Note that we use <CodeSpan>{'gsap.set()'}</CodeSpan> to set initial color. 
           No clue why but without it the element blinks on the button first click.
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          On my phone it still blinks, maybe easier to avoid pseudo elements animation and use normal elements.
         </>
       ),
     },

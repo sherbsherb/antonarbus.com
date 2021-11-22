@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.b34731a0.chunk.css",
-    "main.js": "/static/js/main.ea3f936b.chunk.js",
-    "main.js.map": "/static/js/main.ea3f936b.chunk.js.map",
+    "main.css": "/static/css/main.5fdfd91f.chunk.css",
+    "main.js": "/static/js/main.4e3e978d.chunk.js",
+    "main.js.map": "/static/js/main.4e3e978d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.23ce6147.js",
     "runtime-main.js.map": "/static/js/runtime-main.23ce6147.js.map",
     "static/js/2.1aab461f.chunk.js": "/static/js/2.1aab461f.chunk.js",
     "static/js/2.1aab461f.chunk.js.map": "/static/js/2.1aab461f.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.b34731a0.chunk.css.map": "/static/css/main.b34731a0.chunk.css.map",
+    "static/css/main.5fdfd91f.chunk.css.map": "/static/css/main.5fdfd91f.chunk.css.map",
     "static/js/2.1aab461f.chunk.js.LICENSE.txt": "/static/js/2.1aab461f.chunk.js.LICENSE.txt",
     "static/media/cocaCola.67502607.svg": "/static/media/cocaCola.67502607.svg",
     "static/media/error.1f826b44.png": "/static/media/error.1f826b44.png",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.23ce6147.js",
     "static/js/2.1aab461f.chunk.js",
-    "static/css/main.b34731a0.chunk.css",
-    "static/js/main.ea3f936b.chunk.js"
+    "static/css/main.5fdfd91f.chunk.css",
+    "static/js/main.4e3e978d.chunk.js"
   ]
 }

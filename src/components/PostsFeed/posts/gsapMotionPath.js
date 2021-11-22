@@ -166,7 +166,7 @@ export const gsapMotionPathPlugin = {
       type: 'text',
       val: (
         <>
-          There is a great <Lnk path="https://greensock.com/docs/v3/Plugins/MotionPathHelper">MotionPathHelper</Lnk> tool to create a path curve, but unfortunately it is a paid tool. It is quite hard to work with the plugin without it.
+          There is a great <Lnk path="https://greensock.com/docs/v3/Plugins/MotionPathHelper">MotionPathHelper</Lnk> tool to create a path curve, but unfortunately it is a paid tool.
         </>
       ),
     },
@@ -174,7 +174,7 @@ export const gsapMotionPathPlugin = {
       type: 'text',
       val: (
         <>
-          But we can create one on official <Lnk path="https://codepen.io/GreenSock/pen/aYYOdN">gsap codepan</Lnk> where all plugins are accessible.
+          But we can create one on official <Lnk path="https://codepen.io/GreenSock/pen/aYYOdN">gsap codepen</Lnk> where all plugins are accessible.
         </>
       ),
     },
@@ -182,7 +182,7 @@ export const gsapMotionPathPlugin = {
       type: 'text',
       val: (
         <>
-          Here is my simplified version of <Lnk path="https://codepen.io/sherbsherb/pen/LYjoRNp">MotionPathHelper curve</Lnk>.
+          Here is my simplified curve on <Lnk path="https://codepen.io/sherbsherb/pen/LYjoRNp">codepen</Lnk>.
         </>
       ),
     },

@@ -80,8 +80,10 @@ import { glassStyle } from './posts/glassStyle';
 import { displayFlex } from './posts/displayFlex';
 import { gsapCSSRulePlugin } from './posts/gsapCSSRulePlugin/gsapCSSRulePlugin';
 import { gsapMotionPathPlugin } from './posts/gsapMotionPath';
+import { gsapScrollTo } from './posts/gsapScrollTo';
 
 const posts = [
+  gsapScrollTo,
   gsapMotionPathPlugin,
   gsapCSSRulePlugin,
   displayFlex,

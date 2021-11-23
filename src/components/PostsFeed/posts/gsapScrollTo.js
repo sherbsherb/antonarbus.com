@@ -31,19 +31,19 @@ function Cmpt() {
       <button onClick={scrollMin}>scroll min</button>
 
       <Div ref={ref}>
-        {new Array(51).fill('').map((el, i) => <Line i={i}/>)}
+        {new Array(20).fill('').map(() => <Line/>)}
         <div id="final-line" style={{background:`red`}}>final line with id</div>
-        {new Array(51).fill('').map(() => <Line/>)}
+        {new Array(20).fill('').map(() => <Line/>)}
       </Div>
     </div>
   )
 }
 const rand = () => randomNumFromTo(0, 255)
-const Line = (props) => <div style={{
-  background:`rgb(${rand()} ${rand()} ${rand()} / 50%)`, 
+const Line = () => <div style={{
+  background:`rgb(${rand()} ${rand()} ${rand()} / 30%)`, 
   width: "1000px"}}
 >
-  line {props.i}
+  line
 </div> 
 
 const Div = styled.div `
@@ -123,19 +123,19 @@ export const gsapScrollTo = {
               <button onClick={scrollMin}>scroll min</button>
 
               <Div ref={ref}>
-                {new Array(51).fill('').map((el, i) => <Line i={i}/>)}
+                {new Array(20).fill('').map(() => <Line/>)}
                 <div id="final-line" style={{background:\`red\`}}>final line with id</div>
-                {new Array(51).fill('').map(() => <Line/>)}
+                {new Array(20).fill('').map(() => <Line/>)}
               </Div>
             </div>
           )
         }
         const rand = () => randomNumFromTo(0, 255)
-        const Line = (props) => <div style={{
-          background:\`rgb(\${rand()} \${rand()} \${rand()} / 50%)\`, 
+        const Line = () => <div style={{
+          background:\`rgb(\${rand()} \${rand()} \${rand()} / 30%)\`, 
           width: "1000px"}}
         >
-          line {props.i}
+          line
         </div> 
 
         const Div = styled.div \`

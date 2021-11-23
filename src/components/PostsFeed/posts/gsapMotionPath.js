@@ -39,7 +39,7 @@ function Cmpt() {
     <div style={{height: "200px", position: "relative"}}>
       <Div ref={ref}/>
       <div><button onClick={animate}>Animate</button></div>
-      {path.map(o => <Coords style={{top: o.y, left: o.x}}/>)}
+      {path.map((o, i) => <Coords key={`cords ${i}`} style={{top: o.y, left: o.x}}/>)}
     </div>
   )
 }

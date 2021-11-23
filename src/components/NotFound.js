@@ -7,7 +7,7 @@ export function NotFound(props) {
   
   return (
     <Div>
-      <div style={{ color: '#f7695f' }}>Not found</div>
+      <div style={{ color: 'rgb(255 255 255 / 58%)' }}>Not found</div>
       <div>
         <Link
           to="/"

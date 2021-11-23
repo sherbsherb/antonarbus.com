@@ -125,18 +125,16 @@ const DivStyled = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   cursor: text;
-
   background-color: transparent;
   background-image: linear-gradient(to right bottom, rgb(255 255 255 / 85%), rgb(255 255 255 / 95%));
 
-  &:hover {
-    border: 1px solid grey;
-    transition: border-color 200ms ease;
-  }
-
   &:focus {
-    border: 1px solid rgba(0 157 214 / 100%);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(82 168 236/ 80%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 8%), 0px 1px 5px rgb(82 168 236 / 60%) inset;
     margin: 0px;
+    outline: 0;
   }
 
   &[contenteditable]:empty:before {

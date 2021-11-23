@@ -31,9 +31,9 @@ function Cmpt() {
       <button onClick={scrollMin}>scroll min</button>
 
       <Div ref={ref}>
-        {new Array(20).fill('').map(() => <Line/>)}
+        {new Array(20).fill('').map((el,i) => <Line key={`start lines ${i}`}/>)}
         <div id="final-line" style={{background:`red`}}>final line with id</div>
-        {new Array(20).fill('').map(() => <Line/>)}
+        {new Array(20).fill('').map((el,i) => <Line key={`end lines ${i}`}/>)}
       </Div>
     </div>
   )

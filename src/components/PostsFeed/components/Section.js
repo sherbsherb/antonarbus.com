@@ -19,5 +19,5 @@ const SectionStyled = styled.section`
   line-height: 1.8;
   background-color: transparent;
   background-image: linear-gradient(to right bottom,rgb(255 255 255 / 90%),rgb(255 255 255 / 90%));
-  box-shadow: rgb(122 122 122 / 20%) 6px 6px 20px;
+  box-shadow: rgb(122 122 122 / 90%) 6px 6px 20px;
 `;

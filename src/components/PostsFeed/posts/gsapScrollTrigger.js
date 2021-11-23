@@ -45,7 +45,7 @@ function Cmpt() {
     <div style={{overflow: "auto", height: "300px"}} ref={ref}>
       Scroll down
       <Box top={100} ref={ref1}>box1</Box>
-      <Box top={850}>box2</Box>
+      <Box top={250}>box2</Box>
     </div>
   )
 }
@@ -126,7 +126,7 @@ export const gsapScrollTrigger = {
             <div style={{overflow: "auto", height: "300px"}} ref={ref}>
               Scroll down
               <Box top={100} ref={ref1}>box1</Box>
-              <Box top={850}>box2</Box>
+              <Box top={250}>box2</Box>
             </div>
           )
         }

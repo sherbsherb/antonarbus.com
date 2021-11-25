@@ -83,8 +83,11 @@ import { gsapMotionPathPlugin } from './posts/gsapMotionPath';
 import { gsapScrollTo } from './posts/gsapScrollTo';
 import { gsapText } from './posts/gsapText';
 import { gsapScrollTrigger } from './posts/gsapScrollTrigger';
+import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx';
+
 
 const posts = [
+  typeScriptBasics,
   gsapScrollTrigger,
   gsapText,
   gsapScrollTo,

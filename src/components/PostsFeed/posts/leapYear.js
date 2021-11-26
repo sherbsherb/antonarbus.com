@@ -45,7 +45,6 @@ function LeapYearComponent() {
         {isLeapYearState === true && <span style={{ color: 'green' }}>Yes</span>}
         {isLeapYearState === false && <span style={{ color: 'red' }}>No</span>}
       </div>
-
     </Div>
   );
 }
@@ -138,7 +137,6 @@ export const leapYear = {
                 {isLeapYearState === true && <span style={{ color: 'green' }}>Yes</span>}
                 {isLeapYearState === false && <span style={{ color: 'red' }}>No</span>}
               </div>
-        
             </Div>
           );
         }

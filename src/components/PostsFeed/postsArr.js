@@ -84,10 +84,12 @@ import { gsapScrollTo } from './posts/gsapScrollTo';
 import { gsapText } from './posts/gsapText';
 import { gsapScrollTrigger } from './posts/gsapScrollTrigger';
 import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx';
+import { leapYear } from './posts/leapYear';
 
 
 const posts = [
-  typeScriptBasics,
+  leapYear,
+  //typeScriptBasics,
   gsapScrollTrigger,
   gsapText,
   gsapScrollTo,

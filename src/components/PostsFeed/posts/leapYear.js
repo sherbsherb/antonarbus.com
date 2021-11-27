@@ -98,10 +98,12 @@ export const leapYear = {
           const [leapYearState, setLeapYearState] = React.useState(null);
         
           function isLeapYear(inputVal) {
-            const year = parseInt(inputVal);
+            const year = Number(inputVal);
             // if string and zero
             if (isNaN(year)) return setLeapYearState(null);
             if (year === 0) return setLeapYearState(null);
+            // if number is too big
+            if (year > Number.MAX_SAFE_INTEGER) return setLeapYearState('too large number');
             // eliminate years divisible by 4000 as leap years
             if (year % 4000 === 0) return setLeapYearState('not leap');
             // years divisible by 100 but not by 400 are NOT leap years
@@ -121,9 +123,6 @@ export const leapYear = {
               <h3>Is a leap year?</h3>
               <input
                 type="number"
-                min="1"
-                max="9999999"
-                step="1"
                 placeholder="Year"
                 value={inputValState}
                 onChange={e => {
@@ -136,6 +135,7 @@ export const leapYear = {
                 {leapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
                 {leapYearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
                 {leapYearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
+                {leapYearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
               </div>
             </Div>
           );

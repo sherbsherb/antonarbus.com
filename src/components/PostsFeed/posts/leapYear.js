@@ -3,25 +3,27 @@ import styled from 'styled-components';
 
 function LeapYearComponent() {
   const [inputValState, setInputValState] = React.useState('');
-  const [isLeapYearState, setIsLeapYearState] = React.useState(null);
+  const [leapYearState, setLeapYearState] = React.useState(null);
 
   function isLeapYear(inputVal) {
-    const year = parseInt(inputVal);
+    const year = Number(inputVal);
     // if string and zero
-    if (isNaN(year)) return setIsLeapYearState(null);
-    if (year === 0) return setIsLeapYearState(null);
+    if (isNaN(year)) return setLeapYearState(null);
+    if (year === 0) return setLeapYearState(null);
+    // if number is too big
+    if (year > Number.MAX_SAFE_INTEGER) return setLeapYearState('too large number');
     // eliminate years divisible by 4000 as leap years
-    if (year % 4000 === 0) return setIsLeapYearState(false);
+    if (year % 4000 === 0) return setLeapYearState('not leap');
     // years divisible by 100 but not by 400 are NOT leap years
-    if (year % 100 === 0 && year % 400 !== 0) return setIsLeapYearState(false);
+    if (year % 100 === 0 && year % 400 !== 0) return setLeapYearState('not leap');
     // years not divisible by 4 are NOT leap years
-    if (year % 4 !== 0) return setIsLeapYearState(false);
+    if (year % 4 !== 0) return setLeapYearState('not leap');
     // years divisible by 400 ARE leap years
-    if (year % 400 === 0) return setIsLeapYearState(true);
+    if (year % 400 === 0) return setLeapYearState('leap');
     // years divisible by 4 but not by 100 ARE leap years
-    if (year % 4 === 0 && year % 100 !== 0) return setIsLeapYearState(true);
+    if (year % 4 === 0 && year % 100 !== 0) return setLeapYearState('leap');
     // all other
-    return false;
+    return 'not leap';
   }
 
   return (
@@ -29,9 +31,6 @@ function LeapYearComponent() {
       <h3>Is a leap year?</h3>
       <input
         type="number"
-        min="1"
-        max="9999999"
-        step="1"
         placeholder="Year"
         value={inputValState}
         onChange={e => {
@@ -41,9 +40,10 @@ function LeapYearComponent() {
         }}
       />
       <div>
-        {isLeapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
-        {isLeapYearState === true && <span style={{ color: 'green' }}>Yes</span>}
-        {isLeapYearState === false && <span style={{ color: 'red' }}>No</span>}
+        {leapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
+        {leapYearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
+        {leapYearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
+        {leapYearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
       </div>
     </Div>
   );
@@ -95,25 +95,25 @@ export const leapYear = {
         
         function LeapYearComponent() {
           const [inputValState, setInputValState] = React.useState('');
-          const [isLeapYearState, setIsLeapYearState] = React.useState(null);
+          const [leapYearState, setLeapYearState] = React.useState(null);
         
           function isLeapYear(inputVal) {
             const year = parseInt(inputVal);
             // if string and zero
-            if (isNaN(year)) return setIsLeapYearState(null);
-            if (year === 0) return setIsLeapYearState(null);
+            if (isNaN(year)) return setLeapYearState(null);
+            if (year === 0) return setLeapYearState(null);
             // eliminate years divisible by 4000 as leap years
-            if (year % 4000 === 0) return setIsLeapYearState(false);
+            if (year % 4000 === 0) return setLeapYearState('not leap');
             // years divisible by 100 but not by 400 are NOT leap years
-            if (year % 100 === 0 && year % 400 !== 0) return setIsLeapYearState(false);
+            if (year % 100 === 0 && year % 400 !== 0) return setLeapYearState('not leap');
             // years not divisible by 4 are NOT leap years
-            if (year % 4 !== 0) return setIsLeapYearState(false);
+            if (year % 4 !== 0) return setLeapYearState('not leap');
             // years divisible by 400 ARE leap years
-            if (year % 400 === 0) return setIsLeapYearState(true);
+            if (year % 400 === 0) return setLeapYearState('leap');
             // years divisible by 4 but not by 100 ARE leap years
-            if (year % 4 === 0 && year % 100 !== 0) return setIsLeapYearState(true);
+            if (year % 4 === 0 && year % 100 !== 0) return setLeapYearState('leap');
             // all other
-            return false;
+            return 'not leap';
           }
         
           return (
@@ -133,9 +133,9 @@ export const leapYear = {
                 }}
               />
               <div>
-                {isLeapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
-                {isLeapYearState === true && <span style={{ color: 'green' }}>Yes</span>}
-                {isLeapYearState === false && <span style={{ color: 'red' }}>No</span>}
+                {leapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
+                {leapYearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
+                {leapYearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
               </div>
             </Div>
           );

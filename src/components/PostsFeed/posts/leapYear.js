@@ -3,27 +3,27 @@ import styled from 'styled-components';
 
 function LeapYearComponent() {
   const [inputValState, setInputValState] = React.useState('');
-  const [leapYearState, setLeapYearState] = React.useState(null);
+  const [yearState, setYearState] = React.useState(null);
 
   function isLeapYear(inputVal) {
     const year = Number(inputVal);
     // if string and zero
-    if (isNaN(year)) return setLeapYearState(null);
-    if (year === 0) return setLeapYearState(null);
+    if (isNaN(year)) return setYearState(null);
+    if (year === 0) return setYearState(null);
     // if number is too big
-    if (year > Number.MAX_SAFE_INTEGER) return setLeapYearState('too large number');
+    if (year > Number.MAX_SAFE_INTEGER) return setYearState('too large number');
     // if number is too small
-    if (year < -4.54e9) return setLeapYearState('too small number');
+    if (year < -4.54e9) return setYearState('too small number');
     // eliminate years divisible by 4000 as leap years
-    if (year % 4000 === 0) return setLeapYearState('not leap');
+    if (year % 4000 === 0) return setYearState('not leap');
     // years divisible by 100 but not by 400 are NOT leap years
-    if (year % 100 === 0 && year % 400 !== 0) return setLeapYearState('not leap');
+    if (year % 100 === 0 && year % 400 !== 0) return setYearState('not leap');
     // years not divisible by 4 are NOT leap years
-    if (year % 4 !== 0) return setLeapYearState('not leap');
+    if (year % 4 !== 0) return setYearState('not leap');
     // years divisible by 400 ARE leap years
-    if (year % 400 === 0) return setLeapYearState('leap');
+    if (year % 400 === 0) return setYearState('leap');
     // years divisible by 4 but not by 100 ARE leap years
-    if (year % 4 === 0 && year % 100 !== 0) return setLeapYearState('leap');
+    if (year % 4 === 0 && year % 100 !== 0) return setYearState('leap');
     // all other
     return 'not leap';
   }
@@ -42,15 +42,16 @@ function LeapYearComponent() {
         }}
       />
       <div>
-        {leapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
-        {leapYearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
-        {leapYearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
-        {leapYearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
-        {leapYearState === 'too small number' && <span style={{ color: 'blue' }}>World is not formed yet 😞</span>}
+        {yearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
+        {yearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
+        {yearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
+        {yearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
+        {yearState === 'too small number' && <span style={{ color: 'blue' }}>World is not formed yet 😞</span>}
       </div>
     </Div>
   );
 }
+
 const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -96,52 +97,56 @@ export const leapYear = {
         import React from 'react';
         import styled from 'styled-components';
         
+        const [inputValState, setInputValState] = React.useState('');
+        const [yearState, setYearState] = React.useState(null);
+
         function isLeapYear(inputVal) {
           const year = Number(inputVal);
           // if string and zero
-          if (isNaN(year)) return setLeapYearState(null);
-          if (year === 0) return setLeapYearState(null);
+          if (isNaN(year)) return setYearState(null);
+          if (year === 0) return setYearState(null);
           // if number is too big
-          if (year > Number.MAX_SAFE_INTEGER) return setLeapYearState('too large number');
+          if (year > Number.MAX_SAFE_INTEGER) return setYearState('too large number');
           // if number is too small
-          if (year < -4.54e9) return setLeapYearState('too small number');
+          if (year < -4.54e9) return setYearState('too small number');
           // eliminate years divisible by 4000 as leap years
-          if (year % 4000 === 0) return setLeapYearState('not leap');
+          if (year % 4000 === 0) return setYearState('not leap');
           // years divisible by 100 but not by 400 are NOT leap years
-          if (year % 100 === 0 && year % 400 !== 0) return setLeapYearState('not leap');
+          if (year % 100 === 0 && year % 400 !== 0) return setYearState('not leap');
           // years not divisible by 4 are NOT leap years
-          if (year % 4 !== 0) return setLeapYearState('not leap');
+          if (year % 4 !== 0) return setYearState('not leap');
           // years divisible by 400 ARE leap years
-          if (year % 400 === 0) return setLeapYearState('leap');
+          if (year % 400 === 0) return setYearState('leap');
           // years divisible by 4 but not by 100 ARE leap years
-          if (year % 4 === 0 && year % 100 !== 0) return setLeapYearState('leap');
+          if (year % 4 === 0 && year % 100 !== 0) return setYearState('leap');
           // all other
           return 'not leap';
         }
-        
-          return (
-            <Div>
-              <h3>Is a leap year?</h3>
-              <input
-                type="number"
-                placeholder="Year"
-                value={inputValState}
-                onChange={e => {
-                  const val = e.target.value;
-                  setInputValState(val);
-                  isLeapYear(val);
-                }}
-              />
-              <div>
-                {leapYearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
-                {leapYearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
-                {leapYearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
-                {leapYearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
-                {leapYearState === 'too small number' && <span style={{ color: 'blue' }}>World is not formed yet 😞</span>}
-              </div>
-            </Div>
-          );
-        }
+
+        return (
+          <Div>
+            <h3>Is a leap year?</h3>
+            <input
+              type="number"
+              placeholder="Year"
+              value={inputValState}
+              onChange={e => {
+                const val = e.target.value;
+                setInputValState(val);
+                isLeapYear(val);
+              }}
+            />
+            <div>
+              {yearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
+              {yearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
+              {yearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
+              {yearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
+              {yearState === 'too small number' && <span style={{ color: 'blue' }}>World is not formed yet 😞</span>}
+            </div>
+          </Div>
+        );
+      }
+
         const Div = styled.div\`
           display: flex;
           flex-direction: column;

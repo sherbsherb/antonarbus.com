@@ -94,15 +94,45 @@ export const typeScriptBasics = {
       ),
     },
     {
+      type: 'text',
+      val: (
+        <>
+          To set types we can use <i>interface</i>
+        </>
+      ),
+    },
+    {
       type: 'code',
       lang: 'jsx',
       val: `
-      
+        interface propsTypes1 {
+          name: string;
+          lastName?: string;
+          likesNum: string | number;
+        }
+        function Msg1(props: propsTypes1): JSX.Element {
+          return (
+            <div>
+              Hello {props.name}
+              {props.lastName && ' ' + props.lastName}, you have received{' '}
+              {props.likesNum} likes.
+            </div>
+          );
+        }
+        const toRender1 = <Msg1 name="John" likesNum={5} />;
       `,
     },
     {
       type: 'output',
       val: toRender1,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Types can be assigned also via <i>type</i>, which is event preferable.
+        </>
+      ),
     },
     {
       type: 'output',

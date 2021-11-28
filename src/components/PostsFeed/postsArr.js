@@ -88,8 +88,8 @@ import { leapYear } from './posts/leapYear';
 
 
 const posts = [
+  typeScriptBasics,
   leapYear,
-  //typeScriptBasics,
   gsapScrollTrigger,
   gsapText,
   gsapScrollTo,

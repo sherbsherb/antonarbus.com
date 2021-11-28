@@ -13,7 +13,7 @@ function LeapYearComponent() {
     // if number is too big
     if (year > Number.MAX_SAFE_INTEGER) return setYearState('too large number');
     // if number is too small
-    if (year < -4.54e9) return setYearState('too small number');
+    if (year < -4.543e9) return setYearState('too small number');
     // eliminate years divisible by 4000 as leap years
     if (year % 4000 === 0) return setYearState('not leap');
     // years divisible by 100 but not by 400 are NOT leap years
@@ -45,8 +45,8 @@ function LeapYearComponent() {
         {yearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
         {yearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
         {yearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
-        {yearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
-        {yearState === 'too small number' && <span style={{ color: 'blue' }}>World is not formed yet 😞</span>}
+        {yearState === 'too large number' && <span style={{ color: 'blue' }}>The Earth doesn't exist anymore 😞</span>}
+        {yearState === 'too small number' && <span style={{ color: 'blue' }}>The Earth is not formed yet 😞</span>}
       </div>
     </Div>
   );
@@ -108,7 +108,7 @@ export const leapYear = {
           // if number is too big
           if (year > Number.MAX_SAFE_INTEGER) return setYearState('too large number');
           // if number is too small
-          if (year < -4.54e9) return setYearState('too small number');
+          if (year < -4.543e9) return setYearState('too small number');
           // eliminate years divisible by 4000 as leap years
           if (year % 4000 === 0) return setYearState('not leap');
           // years divisible by 100 but not by 400 are NOT leap years
@@ -140,8 +140,8 @@ export const leapYear = {
               {yearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
               {yearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
               {yearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
-              {yearState === 'too large number' && <span style={{ color: 'blue' }}>World doesn't exist anymore 😞</span>}
-              {yearState === 'too small number' && <span style={{ color: 'blue' }}>World is not formed yet 😞</span>}
+              {yearState === 'too large number' && <span style={{ color: 'blue' }}>The Earth doesn't exist anymore 😞</span>}
+              {yearState === 'too small number' && <span style={{ color: 'blue' }}>The Earth is not formed yet 😞</span>}
             </div>
           </Div>
         );

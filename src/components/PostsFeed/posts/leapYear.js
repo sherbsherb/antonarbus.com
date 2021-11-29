@@ -94,12 +94,13 @@ export const leapYear = {
       type: 'code',
       lang: 'jsx',
       val: `
-        import React from 'react';
-        import styled from 'styled-components';
-        
+      import React from 'react';
+      import styled from 'styled-components';
+      
+      function LeapYearComponent() {
         const [inputValState, setInputValState] = React.useState('');
         const [yearState, setYearState] = React.useState(null);
-
+      
         function isLeapYear(inputVal) {
           const year = Number(inputVal);
           // if string and zero
@@ -119,10 +120,10 @@ export const leapYear = {
           if (year % 400 === 0) return setYearState('leap');
           // years divisible by 4 but not by 100 ARE leap years
           if (year % 4 === 0 && year % 100 !== 0) return setYearState('leap');
-          // all other years
+          // all other
           return 'not leap';
         }
-
+      
         return (
           <Div>
             <h3>Is a leap year?</h3>
@@ -146,21 +147,21 @@ export const leapYear = {
           </Div>
         );
       }
-
-        const Div = styled.div\`
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          min-height: 130px;
-          font-size: 1.3rem;
-          input {
-            padding: 10px;
-            min-width: 200px;
-            font-size: inherit;
-          }
-        \`;
-        const toRender = <LeapYearComponent />;
+      
+      const Div = styled.div\`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 130px;
+        font-size: 1.3rem;
+        input {
+          padding: 10px;
+          min-width: 200px;
+          font-size: inherit;
+        }
+      \`;
+      const toRender = <LeapYearComponent />;
       `,
     },
     {

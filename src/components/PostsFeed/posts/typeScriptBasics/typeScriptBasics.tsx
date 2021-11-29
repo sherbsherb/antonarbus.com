@@ -68,7 +68,7 @@ const toRender3 = <Msg3 status={'completed'} />;
 
 export const typeScriptBasics = {
   title: <>TypeScript in React</>,
-  date: '2021.11.25',
+  date: '2021.11.29',
   tagsArr: ['react', 'typescript', 'basics'],
   postParts: [
     {

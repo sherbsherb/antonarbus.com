@@ -7,9 +7,8 @@ function LeapYearComponent() {
 
   function isLeapYear(inputVal) {
     const year = Number(inputVal);
-    // if string and zero
-    if (isNaN(year)) return setYearState(null);
-    if (year === 0) return setYearState(null);
+    // if string or zero
+    if (isNaN(year) || year === 0) return setYearState(null);
     // if number is too big
     if (year > Number.MAX_SAFE_INTEGER) return setYearState('too large number');
     // if number is too small
@@ -103,8 +102,8 @@ export const leapYear = {
       
         function isLeapYear(inputVal) {
           const year = Number(inputVal);
-          // if string and zero
-          if (isNaN(year)) return setYearState(null);
+          // if string or zero
+          if (isNaN(year) || year === 0) return setYearState(null);
           if (year === 0) return setYearState(null);
           // if number is too big
           if (year > Number.MAX_SAFE_INTEGER) return setYearState('too large number');
@@ -120,7 +119,7 @@ export const leapYear = {
           if (year % 400 === 0) return setYearState('leap');
           // years divisible by 4 but not by 100 ARE leap years
           if (year % 4 === 0 && year % 100 !== 0) return setYearState('leap');
-          // all other
+          // all others
           return 'not leap';
         }
       

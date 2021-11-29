@@ -119,7 +119,7 @@ export const leapYear = {
           if (year % 400 === 0) return setYearState('leap');
           // years divisible by 4 but not by 100 ARE leap years
           if (year % 4 === 0 && year % 100 !== 0) return setYearState('leap');
-          // all other
+          // all other years
           return 'not leap';
         }
 

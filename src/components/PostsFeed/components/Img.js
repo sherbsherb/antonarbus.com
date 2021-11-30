@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export function Img(props) {
+  console.log(props)
   return (
     <ImgStyled
       src={props.src}
       width={props.width}
       path={props.path}
       link={props.link}
+      alt={props.alt}
     />
   );
 }

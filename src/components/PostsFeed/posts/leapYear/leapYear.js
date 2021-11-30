@@ -47,7 +47,7 @@ const toRender = <Component />;
 
 export const leapYear = {
   title: 'Leap year',
-  date: '2021.11.26',
+  date: '2021.11.30',
   tagsArr: ['interview', 'js'],
   postParts: [
     {
@@ -203,7 +203,8 @@ export const leapYear = {
     {
       type: 'img',
       path: img,
-      //width: '100%',
+      alt: 'jest test results',
+      // width: '20%'
     },
   ],
 };

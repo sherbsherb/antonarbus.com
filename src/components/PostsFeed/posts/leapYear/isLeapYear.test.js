@@ -3,6 +3,10 @@ import {isLeapYear} from './isLeapYear.js'
 test('is a leap year', () => {
   expect(isLeapYear('abc')).toEqual(null)
   expect(isLeapYear(0)).toEqual(null)
+  expect(isLeapYear(undefined)).toEqual(null)
+  expect(isLeapYear(null)).toEqual(null)
+  expect(isLeapYear('')).toEqual(null)
+  expect(isLeapYear()).toEqual(null)
   expect(isLeapYear(-12345678910)).toEqual('too small number')
   expect(isLeapYear(9007199254740991 + 1)).toEqual('too large number')
   expect(isLeapYear(4000)).toEqual('not leap')

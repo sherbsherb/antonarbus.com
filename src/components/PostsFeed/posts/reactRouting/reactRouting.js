@@ -53,7 +53,6 @@ const Shop = () => {
 };
 
 const ItemInShop = (props) => {
-  console.log(props)
   const [state, setState] = useState({});
   const hasFetchedData = React.useRef(false);
   
@@ -243,7 +242,6 @@ export const reactRouting = {
         };
         
         const ItemInShop = (props) => {
-          console.log(props)
           const [state, setState] = useState({});
           
           useEffect(() => {

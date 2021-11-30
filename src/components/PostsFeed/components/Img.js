@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export function Img(props) {
-  console.log(props)
   return (
     <ImgStyled
       src={props.src}

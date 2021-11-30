@@ -1,49 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import {isLeapYear} from './isLeapYear'
+import { Main } from './Main';
 import img from './tests.png';
-
-function Component() {
-  const [inputValState, setInputValState] = React.useState('');
-  const [yearState, setYearState] = React.useState(null);
-
-  return (
-    <Div>
-      <h3>Is a leap year?</h3>
-      <input
-        type="number"
-        placeholder="Year"
-        value={inputValState}
-        onChange={e => {
-          const val = e.target.value;
-          setInputValState(val);
-          setYearState(isLeapYear(val));
-        }}
-      />
-      <div>
-        {yearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
-        {yearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
-        {yearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
-        {yearState === 'too large number' && <span style={{ color: 'blue' }}>The Earth doesn't exist anymore 😞</span>}
-        {yearState === 'too small number' && <span style={{ color: 'blue' }}>The Earth is not formed yet 😞</span>}
-      </div>
-    </Div>
-  );
-}
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 130px;
-  font-size: 1.3rem;
-  input {
-    padding: 10px;
-    min-width: 200px;
-    font-size: inherit;
-  }
-`;
-const toRender = <Component />;
+const toRender = <Main />;
 
 export const leapYear = {
   title: 'Leap year',
@@ -70,63 +27,102 @@ export const leapYear = {
     },
     {
       type: 'text',
-      val: 'React component and styles',
+      val: 'Main component',
     },
     {
       type: 'code',
       lang: 'jsx',
       val: `
-        // leapYear.js
+        // Main.js
         import React from 'react';
         import styled from 'styled-components';
-        import {isLeapYear} from './isLeapYear'
+        import { Input } from './Input';
+        import { Output} from './Output';
 
-        function Component() {
-          const [inputValState, setInputValState] = React.useState('');
-          const [yearState, setYearState] = React.useState(null);
+        export function Main() {
+          const [yearTypeState, setYearTypeState] = React.useState(null);
 
           return (
-            <Div>
+            <DivStyled data-testid="cmpt">
               <h3>Is a leap year?</h3>
-              <input
-                type="number"
-                placeholder="Year"
-                value={inputValState}
-                onChange={e => {
-                  const val = e.target.value;
-                  setInputValState(val);
-                  setYearState(isLeapYear(val));
-                }}
-              />
-              <div>
-                {yearState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
-                {yearState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
-                {yearState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
-                {yearState === 'too large number' && <span style={{ color: 'blue' }}>The Earth doesn't exist anymore 😞</span>}
-                {yearState === 'too small number' && <span style={{ color: 'blue' }}>The Earth is not formed yet 😞</span>}
-              </div>
-            </Div>
+              <Input setYearTypeState={setYearTypeState} />
+              <OutputyearTypeState={yearTypeState} />
+            </DivStyled>
           );
         }
-        const Div = styled.div\`
+
+        const DivStyled = styled.div\`
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           min-height: 130px;
           font-size: 1.3rem;
-          input {
-            padding: 10px;
-            min-width: 200px;
-            font-size: inherit;
-          }
         \`;
-        const toRender = <Component />;
       `,
     },
     {
       type: 'text',
-      val: 'Function that checks if an input value is a leap year',
+      val: 'Input component',
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        // Input.js
+        import styled from 'styled-components';
+        import React from 'react';
+        import { isLeapYear } from './isLeapYear';
+
+        export function Input(props) {
+          const [inputValState, setInputValState] = React.useState('');
+
+          return (
+            <InputStyled
+              type="number"
+              placeholder="Year"
+              value={inputValState}
+              onChange={e => {
+                const val = e.target.value;
+                setInputValState(val);
+                props.setYearTypeState(isLeapYear(val));
+              }}
+            />
+          );
+        }
+
+        const InputStyled = styled.input\`
+          padding: 10px;
+          min-width: 200px;
+          font-size: inherit;
+        \`;
+      `
+    },
+    {
+      type: 'text',
+      val: 'Output component',
+    },
+    {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        // Output.js
+        export function Output({yearTypeState}) {
+          return (
+            <div data-testid="output">
+              {yearTypeState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}
+              {yearTypeState === 'leap' && <span style={{ color: 'green' }}>Yes</span>}
+              {yearTypeState === 'not leap' && <span style={{ color: 'red' }}>No</span>}
+              {yearTypeState === 'too large number' && <span style={{ color: 'blue' }}>The Earth doesn't exist anymore 😞</span>}
+              {yearTypeState === 'too small number' && <span style={{ color: 'blue' }}>The Earth is not formed yet 😞</span>}
+            </div>
+          )
+        }
+      `
+    },
+    {
+      type: 'text',
+      val: 'Function that checks if a year value is a leap year',
     },
     {
       type: 'code',
@@ -158,7 +154,7 @@ export const leapYear = {
     },
     {
       type: 'text',
-      val: 'Jest tests',
+      val: 'Jest unit tests',
     },
     {
       type: 'code',
@@ -201,6 +197,53 @@ export const leapYear = {
       `,
     },
     {
+      type: 'code',
+      lang: 'jsx',
+      val: `
+        // Output.test.js
+        import { render, screen, cleanup } from '@testing-library/react';
+        import '@testing-library/jest-dom'
+        import { Output} from './Output';
+        import { isLeapYear } from './isLeapYear';
+        
+        test('Output component exists', () => {
+          render(<Output/>);
+          const cmpt = screen.getByTestId('output');
+          expect(cmpt).toBeInTheDocument();
+        });
+        
+        test('Year is not provided', () => {
+          render(<OutputyearTypeState={null}/>);
+          const cmpt = screen.getByTestId('output');
+          expect(cmpt).toHaveTextContent('Year is not provided');
+        });
+        
+        test('Yes', () => {
+          render(<OutputyearTypeState={isLeapYear(2000)}/>);
+          const cmpt = screen.getByTestId('output');
+          expect(cmpt).toHaveTextContent('Yes');
+        });
+        
+        test('No', () => {
+          render(<OutputyearTypeState={isLeapYear(1700)}/>);
+          const cmpt = screen.getByTestId('output');
+          expect(cmpt).toHaveTextContent('No');
+        });
+        
+        test(\`The Earth doesn't exist anymore 😞\`, () => {
+          render(<OutputyearTypeState={isLeapYear(9007199254740991 + 1)}/>);
+          const cmpt = screen.getByTestId('output');
+          expect(cmpt).toHaveTextContent(\`The Earth doesn't exist anymore 😞\`);
+        });
+        
+        test(\`The Earth is not formed yet 😞\`, () => {
+          render(<OutputyearTypeState={isLeapYear(-12345678910)}/>);
+          const cmpt = screen.getByTestId('output');
+          expect(cmpt).toHaveTextContent(\`The Earth is not formed yet 😞\`);
+        });
+      `,
+    },
+    {
       type: 'text',
       val: 'Test results in console',
     },
@@ -208,7 +251,6 @@ export const leapYear = {
       type: 'img',
       path: img,
       alt: 'jest test results',
-      // width: '20%'
     },
   ],
 };

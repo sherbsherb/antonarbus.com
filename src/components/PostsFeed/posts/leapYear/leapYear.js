@@ -46,7 +46,7 @@ export const leapYear = {
             <DivStyled data-testid="cmpt">
               <h3>Is a leap year?</h3>
               <Input setYearTypeState={setYearTypeState} />
-              <OutputyearTypeState={yearTypeState} />
+              <Output yearTypeState={yearTypeState} />
             </DivStyled>
           );
         }
@@ -213,31 +213,31 @@ export const leapYear = {
         });
         
         test('Year is not provided', () => {
-          render(<OutputyearTypeState={null}/>);
+          render(<Output yearTypeState={null}/>);
           const cmpt = screen.getByTestId('output');
           expect(cmpt).toHaveTextContent('Year is not provided');
         });
         
         test('Yes', () => {
-          render(<OutputyearTypeState={isLeapYear(2000)}/>);
+          render(<Output yearTypeState={isLeapYear(2000)}/>);
           const cmpt = screen.getByTestId('output');
           expect(cmpt).toHaveTextContent('Yes');
         });
         
         test('No', () => {
-          render(<OutputyearTypeState={isLeapYear(1700)}/>);
+          render(<Output yearTypeState={isLeapYear(1700)}/>);
           const cmpt = screen.getByTestId('output');
           expect(cmpt).toHaveTextContent('No');
         });
         
         test(\`The Earth doesn't exist anymore 😞\`, () => {
-          render(<OutputyearTypeState={isLeapYear(9007199254740991 + 1)}/>);
+          render(<Output yearTypeState={isLeapYear(9007199254740991 + 1)}/>);
           const cmpt = screen.getByTestId('output');
           expect(cmpt).toHaveTextContent(\`The Earth doesn't exist anymore 😞\`);
         });
         
         test(\`The Earth is not formed yet 😞\`, () => {
-          render(<OutputyearTypeState={isLeapYear(-12345678910)}/>);
+          render(<Output yearTypeState={isLeapYear(-12345678910)}/>);
           const cmpt = screen.getByTestId('output');
           expect(cmpt).toHaveTextContent(\`The Earth is not formed yet 😞\`);
         });

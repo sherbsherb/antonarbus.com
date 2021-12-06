@@ -10,7 +10,7 @@ function ComponentWithUseState() {
 
   function getTitle() {
     const postNum = randomNumFromTo(1, 150);
-    const url = 'https://jsonplaceholder.typicode.com/posts/' + postNum
+    const url = `https://jsonplaceholder.typicode.com/posts/${  postNum}`
     setState({ ...state, loading: true, postNum: postNum, errorMsg: '' });
     axios(url)
       .then(sleeper(1000))
@@ -43,7 +43,7 @@ function ComponentWithUseReducer() {
 
   function getTitle() {
     const postNum = randomNumFromTo(1, 150)
-    const url = 'https://jsonplaceholder.typicode.com/posts/' + postNum
+    const url = `https://jsonplaceholder.typicode.com/posts/${  postNum}`
     dispatch({ type: 'loading', postNum: postNum })
     axios(url)
       .then(sleeper(1000))

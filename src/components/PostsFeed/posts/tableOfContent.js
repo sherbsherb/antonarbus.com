@@ -9,8 +9,8 @@ export function TblOfContent() {
       <Ul>
         {postsArr.map(o => (
           <li style={{listStyleType: 'none'}} key={o.id}>
-            <Link to={'/post/' + o.uriPostName}>
-              {o.postNum < 10 ? '0' + o.postNum : o.postNum} - {o.titleTxt}
+            <Link to={`/post/${  o.uriPostName}`}>
+              {o.postNum < 10 ? `0${  o.postNum}` : o.postNum} - {o.titleTxt}
             </Link>
           </li>
         ))}

@@ -7,7 +7,7 @@ function Component() {
   const [state, setState] = useState('');
   return (
     <>
-      <button onClick={() => setState(state + ' + some text')}>Add text</button>
+      <button onClick={() => setState(`${state  } + some text`)}>Add text</button>
       <br />
       <br />
       <div>Text{state}</div>

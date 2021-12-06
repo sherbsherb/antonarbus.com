@@ -1,7 +1,7 @@
 export default function setCaretToEnd(el) {
   if (!el.childNodes.length) return;
-  let range = document.createRange();
-  let sel = window.getSelection();
+  const range = document.createRange();
+  const sel = window.getSelection();
   const lastNode = el.childNodes[el.childNodes.length - 1];
   range.setStart(lastNode, lastNode.length);
   range.collapse(true);

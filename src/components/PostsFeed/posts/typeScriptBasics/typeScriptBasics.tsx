@@ -10,7 +10,7 @@ function Msg1(props: propsTypes1): JSX.Element {
   return (
     <div>
       Hello {props.name}
-      {props.lastName && ' ' + props.lastName}, you have received{' '}
+      {props.lastName && ` ${  props.lastName}`}, you have received{' '}
       {props.likesNum} likes.
     </div>
   );
@@ -31,8 +31,8 @@ type propTypes2 = {
 function Msg2(props: propTypes2): JSX.Element {
   return (
     <>
-      Hello {props.name} {props.company && 'from ' + props.company}
-      {props.isLogged && ', you have received ' + props.likesNum + ' likes.'} We
+      Hello {props.name} {props.company && `from ${  props.company}`}
+      {props.isLogged && `, you have received ${  props.likesNum  } likes.`} We
       wish you and {props.spouseName.name} {props.spouseName.lastName} a good
       day. Your following cars have unpaid fine tickets:{' '}
       {props.cars.map((car, i) => {

@@ -5,7 +5,7 @@ export function Title(props) {
   return (
     <H3Styled className="title">
       <Link
-        to={'/post/' + props.uriPostName}
+        to={`/post/${  props.uriPostName}`}
       >
         {props.children}
       </Link>

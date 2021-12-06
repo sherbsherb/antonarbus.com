@@ -43,7 +43,7 @@ export function MenuItem(props) {
 }
 
 // var may fix the error 'styled component hot-update Cannot access before initialization'
-export var MenuLink = styled.a`
+export const MenuLink = styled.a`
   height: 50px;
   display: flex;
   justify-content: space-between;

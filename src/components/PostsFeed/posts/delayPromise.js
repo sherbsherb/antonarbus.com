@@ -15,7 +15,7 @@ function Component() {
         onClick={() => {
           alert('start request')
           axios('https://jsonplaceholder.typicode.com/posts/1')
-          .then(res => alert('Title: ' + res.data.title))
+          .then(res => alert(`Title: ${  res.data.title}`))
           .catch(err => alert(JSON.stringify(err)));
         }}
       >
@@ -27,7 +27,7 @@ function Component() {
           alert('start request with 3s delay')
           axios('https://jsonplaceholder.typicode.com/posts/1')
           .then(sleeper(3000))
-          .then(res => alert('Title: ' + res.data.title))
+          .then(res => alert(`Title: ${  res.data.title}`))
           .catch(err => alert(JSON.stringify(err)));
         }}
       >

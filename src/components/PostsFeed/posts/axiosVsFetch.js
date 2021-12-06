@@ -16,7 +16,7 @@ function Component() {
       <div>
         <button
           onClick={() => {
-            fetch('https://jsonplaceholder.typicode.com/posts/' + inputVal1)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${  inputVal1}`)
               .then(res => res.json())
               .then(data => setTitle1(data.title))
               .catch(err => console.log(err));
@@ -36,7 +36,7 @@ function Component() {
       <div>
         <button
           onClick={() => {
-            axios('https://jsonplaceholder.typicode.com/posts/' + inputVal2)
+            axios(`https://jsonplaceholder.typicode.com/posts/${  inputVal2}`)
               .then(res => setTitle2(res.data.title))
               .catch(err => console.log(err));
           }}

@@ -20,7 +20,7 @@ export function Post(props) {
 
   function jsxesFromPostParts(post) {
     return post.postParts.map((el, index) => {
-      const id = post.id + '_part_' + index;
+      const id = `${post.id  }_part_${  index}`;
       if (el.type === 'text') return <Text key={id}>{el.val}</Text>;
       if (el.type === 'code')
         return (

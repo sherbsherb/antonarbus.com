@@ -85,10 +85,12 @@ import { gsapText } from './posts/gsapText';
 import { gsapScrollTrigger } from './posts/gsapScrollTrigger';
 import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx';
 import { leapYear } from './posts/leapYear/leapYear';
+import { esLint } from './posts/esLint/esLint';
 
 
 const posts = [
   //  typeScriptBasics,
+  esLint,
   leapYear,
   gsapScrollTrigger,
   gsapText,

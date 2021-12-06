@@ -29,7 +29,7 @@ function ChildA() {
     <div style={style}>
       <div>ChildA</div>
       <div> Data from the Parent's context:</div>
-      <b>{varA + ' + ' + varB }</b>
+      <b>{`${varA  } + ${  varB}` }</b>
       <ChildB />
     </div>
   );
@@ -42,7 +42,7 @@ function ChildB() {
     <div style={style}>
       <div>ChildB</div>
       <div> Data from the Parent's context:</div>
-      <b>{varA + ' + ' + varB }</b>
+      <b>{`${varA  } + ${  varB}` }</b>
       <ChildC />
     </div>
   );
@@ -55,7 +55,7 @@ function ChildC() {
     <div style={style}>
       <div>ChildC</div>
       <div> Data from the Parent's context:</div>
-      <b>{varA + ' + ' + varB }</b>
+      <b>{`${varA  } + ${  varB}` }</b>
     </div>
   );
 }

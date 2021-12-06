@@ -7,7 +7,7 @@ export function SearchPreviewItem(props) {
 
   return (
     <Link style={{textDecoration: 'none'}}
-      to={'/post/' + props.uriPostName}
+      to={`/post/${  props.uriPostName}`}
       onClick={() => {
         dispatch({ type: 'close search menu' });
       }}

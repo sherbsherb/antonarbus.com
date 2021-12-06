@@ -22,7 +22,7 @@ const allReducers = combineReducers({
 });
 
 // STORE (holds all states)
-let store = createStore(
+const store = createStore(
   allReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // opt param for dev tools
 );

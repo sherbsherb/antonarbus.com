@@ -1,7 +1,7 @@
 import returnAllTagsFromArr from '../../helpers/functions/returnAllTagsFromArr';
 import { postsArr } from '../../components/PostsFeed/postsArr'
 
-let allTags = returnAllTagsFromArr(postsArr);
+const allTags = returnAllTagsFromArr(postsArr);
 
 export default function filteredTags(state = allTags, action) {
   const tagsInputVal = action.tagsInputVal;

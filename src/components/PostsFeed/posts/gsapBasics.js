@@ -461,7 +461,7 @@ function Cmpt18() {
       opacity: 1,
       onComplete: function() {
         // get first tweened el to the console
-        let elem = this.targets()[0];
+        const elem = this.targets()[0];
         alert(`x: ${gsap.getProperty(elem, "x")}`)
       } 
     });

@@ -2,7 +2,7 @@ import returnAllTagsFromArr from '../../helpers/functions/returnAllTagsFromArr';
 // import { postsArr } from '../../posts/postsArr';
 import { postsArr } from '../../components/PostsFeed/postsArr'
 
-let allTags = returnAllTagsFromArr(postsArr);
+const allTags = returnAllTagsFromArr(postsArr);
 
 export default function tagsFromFoundPosts(state = allTags, action) {
   const foundPosts = action.foundPosts

@@ -34,14 +34,22 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "tst": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-var": "warn",
+      "no-empty": "warn",
+      "prefer-template": "warn",
+      "prefer-const": "warn"
+      
+      
+    }
   },
   "browserslist": {
     "production": [
@@ -54,8 +62,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^1.5.1"
   }
 }

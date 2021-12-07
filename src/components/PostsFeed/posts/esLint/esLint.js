@@ -25,7 +25,7 @@ export const esLint = {
       type: 'text',
       val: (
         <>
-          <Lnk path="https://eslint.org/">ESLint</Lnk> is a package to to find problematic code.
+          <Lnk path="https://eslint.org/">ESLint</Lnk> is a package to find problematic code.
         </>
       ),
     },
@@ -116,7 +116,7 @@ export const esLint = {
       type: 'text',
       val: (
         <>
-          ESLint may try to fix problems with <CodeSpan>eslint path --fix</CodeSpan>, for ex. check errors for this file <CodeSpan>$ eslint "./src/components/PostsFeed/posts/esLint/esLint.js" --fix</CodeSpan>
+          ESLint may try to fix problems with <CodeSpan>eslint path --fix</CodeSpan>, for ex. fix errors for this file <CodeSpan>eslint "./src/components/PostsFeed/posts/esLint/esLint.js" --fix</CodeSpan>
         </>
       ),
     },

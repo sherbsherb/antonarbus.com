@@ -19,15 +19,6 @@ module.exports = {
     'react',
     '@typescript-eslint'
   ],
-  rules: {
-    'comma-dangle': ['error', 'only-multiline'],
-    'react/no-unescaped-entities': 'off',
-    'space-before-function-paren': ['error', 'never'],
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'no-template-curly-in-string': 'off',
-    'no-use-before-define': 'off',
-  },
   globals: {
     React: true,
     google: true,
@@ -40,4 +31,15 @@ module.exports = {
     jsdom: true,
     JSX: true,
   },
+  rules: {
+    'comma-dangle': ['error', 'only-multiline'],
+    'react/no-unescaped-entities': 'off',
+    'space-before-function-paren': ['error', 'never'],
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-template-curly-in-string': 'off',
+    'no-use-before-define': 'off',
+    'no-console': 'warn',
+  },
+  
 }

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useEffect, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 function Component() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(res => res.json())
       .then(data => setPosts(data.slice(0, 5)))
-      .catch(err => console.log(err));
-  }, []);
+      .catch(err => console.log(err))
+  }, [])
 
   return (
     <ul>
@@ -18,10 +18,10 @@ function Component() {
         <li key={post.id}>{post.title}</li>
       ))}
     </ul>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const useEffectFetchData = {
   title: (
@@ -77,4 +77,4 @@ export const useEffectFetchData = {
       val: toRender,
     },
   ],
-};
+}

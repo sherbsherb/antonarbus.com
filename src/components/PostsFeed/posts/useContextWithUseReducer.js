@@ -1,20 +1,20 @@
-import React, { createContext, useContext, useReducer } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { createContext, useContext, useReducer } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
 const style = {
   border: '2px solid grey',
   padding: '10px',
   margin: '10px',
   maxWidth: '500px',
-};
+}
 
 function reducer(state, action) {
-  if (action === 'increment') return state + 1;
-  return state;
+  if (action === 'increment') return state + 1
+  return state
 }
-const ContextA = createContext('');
+const ContextA = createContext('')
 
 function Parent() {
-  const [countState, dispatch] = useReducer(reducer, 0);
+  const [countState, dispatch] = useReducer(reducer, 0)
 
   return (
     <ContextA.Provider value={{ countState: countState, dispatch: dispatch }}>
@@ -26,21 +26,21 @@ function Parent() {
         <Child childName={'Child B'} />
       </div>
     </ContextA.Provider>
-  );
+  )
 }
 
 function Child(props) {
-  const data = useContext(ContextA);
+  const data = useContext(ContextA)
   return (
     <div style={style}>
       <div>{props.childName}</div>
       <div>Count: {data.countState}</div>
       <button onClick={() => data.dispatch('increment')}>Increment</button>
     </div>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const useContextWithUseReducer = {
   title: (
@@ -111,4 +111,4 @@ export const useContextWithUseReducer = {
       val: toRender,
     },
   ],
-};
+}

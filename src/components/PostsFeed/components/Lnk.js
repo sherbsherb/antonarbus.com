@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export function Lnk(props) {
   return (
@@ -6,9 +6,9 @@ export function Lnk(props) {
       {props.text}
       {props.children}
     </AStyled>
-  );
+  )
 }
 
 const AStyled = styled.a`
   color: #0098f7;
-`;
+`

@@ -1,29 +1,29 @@
-import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import { postsArr } from '../../PostsFeed/postsArr';
+import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
+import { postsArr } from '../../PostsFeed/postsArr'
 
 export function BtnCancel() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <ButtonStyled
       onClick={e => {
-        e.preventDefault();
-        dispatch({ type: 'remove search input val' });
-        dispatch({ type: 'display following posts', postsToShow: postsArr });
-        dispatch({ type: 'close search menu' });
+        e.preventDefault()
+        dispatch({ type: 'remove search input val' })
+        dispatch({ type: 'display following posts', postsToShow: postsArr })
+        dispatch({ type: 'close search menu' })
         dispatch({ type: 'remove tags input val' })
-        dispatch({ type: 'remove remove found posts msg' });
-        dispatch({ type: 'forget tags from input' });
-        dispatch({ type: 'forget words from input' });
-        dispatch({ type: 'reset posts' });   
-        dispatch({ type: 'get tags from all posts' });
-        dispatch({ type: 'show 5 pages' });
+        dispatch({ type: 'remove remove found posts msg' })
+        dispatch({ type: 'forget tags from input' })
+        dispatch({ type: 'forget words from input' })
+        dispatch({ type: 'reset posts' })
+        dispatch({ type: 'get tags from all posts' })
+        dispatch({ type: 'show 5 pages' })
         document.querySelector('#input').innerHTML = ''
-        window.history.pushState({}, null, "/");
+        window.history.pushState({}, null, '/')
       }}
     />
-  );
+  )
 }
 
 const ButtonStyled = styled.button`
@@ -58,4 +58,4 @@ const ButtonStyled = styled.button`
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
-`;
+`

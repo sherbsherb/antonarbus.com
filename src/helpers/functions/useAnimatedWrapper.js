@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
 export default function useAnimatedWrapper(args) {
   const options = {
@@ -17,12 +17,12 @@ export default function useAnimatedWrapper(args) {
       ...args?.animationCss,
     },
     animationEndFunc: args?.animationEndFunc || null,
-    wrapperCss: {...args?.wrapperCss || ''},
-  };
+    wrapperCss: { ...args?.wrapperCss || '' },
+  }
 
-  const [animationState, setAnimationState] = React.useState(false);
-  const turnAnimationOn = () => setAnimationState(true);
-  const turnAnimationOff = () => setAnimationState(false);
+  const [animationState, setAnimationState] = React.useState(false)
+  const turnAnimationOn = () => setAnimationState(true)
+  const turnAnimationOff = () => setAnimationState(false)
   const turnAnimationOnMemoized = React.useCallback(turnAnimationOn, [])
   const turnAnimationOffMemoized = React.useCallback(turnAnimationOff, [])
 
@@ -31,21 +31,21 @@ export default function useAnimatedWrapper(args) {
       <Div
         style={!!options?.wrapperCss && options.wrapperCss}
         onAnimationEnd={() => {
-          setAnimationState(false);
-          !!options?.animationEndFunc && options.animationEndFunc();
+          setAnimationState(false)
+          !!options?.animationEndFunc && options.animationEndFunc()
         }}
         isAnimationOn={animationState}
         css={options.animationCss}
       >
         {props.children}
       </Div>
-    );
+    )
   }
 
-  return [AnimationWrapper, turnAnimationOnMemoized, turnAnimationOffMemoized];
+  return [AnimationWrapper, turnAnimationOnMemoized, turnAnimationOffMemoized]
 }
 
-const animationName = keyframeRules => keyframes`${keyframeRules}`;
+const animationName = keyframeRules => keyframes`${keyframeRules}`
 
 const Div = styled.div`
   display: inline-block;
@@ -57,4 +57,4 @@ const Div = styled.div`
   animation-iteration-count: ${props => props.css.animationIterationCount};
   animation-direction: ${props => props.css.animationDirection};
   animation-fill-mode: ${props => props.css.animationFillMode};
-`;
+`

@@ -1,18 +1,17 @@
-import React from 'react';
-import { useModalWithoutBackground } from '../../../helpers/functions/useModalWindowWithoutBackgroundLayer';
+import { useModalWithoutBackground } from '../../../helpers/functions/useModalWindowWithoutBackgroundLayer'
 
 function Parent() {
-  const [showModalState, openModal, Modal] = useModalWithoutBackground();
+  const [showModalState, openModal, Modal] = useModalWithoutBackground()
   return (
     <div>
       <div>Parent component</div>
       <button onClick={openModal}>Show modal window</button>
       {showModalState && <Modal>Modal child component</Modal>}
     </div>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const modalWindowWithoutBackgroundLayer = {
   title: 'Modal window without background layer',
@@ -24,7 +23,7 @@ export const modalWindowWithoutBackgroundLayer = {
       val: (
         <>
           Modal window has a basic styling with fixed position and {' '}
-          <span style={{fontSize: '30px',color: 'red', position: 'relative', top: '3px', cursor: 'pointer'}} >
+          <span style={{ fontSize: '30px', color: 'red', position: 'relative', top: '3px', cursor: 'pointer' }} >
             ×
           </span> close button.
         </>
@@ -172,7 +171,7 @@ export const modalWindowWithoutBackgroundLayer = {
       val: (
         <>
           On the modal window mount we start listening for click events to close the window.
-          We close modal if click event target element is outside of modal element. 
+          We close modal if click event target element is outside of modal element.
         </>
       ),
     },
@@ -197,4 +196,4 @@ export const modalWindowWithoutBackgroundLayer = {
       val: toRender,
     },
   ],
-};
+}

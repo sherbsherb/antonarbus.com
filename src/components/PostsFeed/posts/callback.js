@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Cmpt() {
   function func(cb) {
     alert('in 1 sec callback func will be triggered')
@@ -32,7 +30,7 @@ export const callback = {
       type: 'text',
       val: (
         <>
-          Simple callback function example. 
+          Simple callback function example.
         </>
       ),
     },
@@ -54,6 +52,6 @@ export const callback = {
       type: 'output',
       val: toRender
     }
-    
+
   ],
-};
+}

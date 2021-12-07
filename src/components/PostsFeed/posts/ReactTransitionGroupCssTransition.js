@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-import { CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
+import { useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+import { CSSTransition } from 'react-transition-group'
+import styled from 'styled-components'
 
 function Component() {
-  const [showMessage, setShowMessage] = useState(true);
+  const [showMessage, setShowMessage] = useState(true)
   const toggle = () => setShowMessage(!showMessage)
   return (
     <Div>
@@ -25,10 +25,10 @@ function Component() {
         <p>Hello</p>
       </CSSTransition>
     </Div>
-  );
+  )
 }
 
-const Div = styled.div `
+const Div = styled.div`
   .xxx-appear {
     background: yellow;
   }
@@ -68,7 +68,7 @@ const Div = styled.div `
   }
 `
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const ReactTransitionGroupCssTransition = {
   title: 'React transition group - CSSTransition',
@@ -240,4 +240,4 @@ export const ReactTransitionGroupCssTransition = {
       ,
     },
   ],
-};
+}

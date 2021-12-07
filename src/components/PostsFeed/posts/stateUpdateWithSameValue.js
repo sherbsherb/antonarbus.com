@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 function Component() {
-  const [state, setState] = useState(0);
-  const ref = useRef();
-  if (!!ref.current) ref.current.innerHTML += '<span>Render triggered </span>';
+  const [state, setState] = useState(0)
+  const ref = useRef()
+  if (ref.current) ref.current.innerHTML += '<span>Render triggered </span>'
   return (
     <div>
       <h5>{new Date().toString()}</h5>
@@ -18,10 +18,10 @@ function Component() {
       </button>
       <div ref={ref}></div>
     </div>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const stateUpdateWithSameValue = {
   title: 'State update with same value',
@@ -80,4 +80,4 @@ export const stateUpdateWithSameValue = {
       ),
     },
   ],
-};
+}

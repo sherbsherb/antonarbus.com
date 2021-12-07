@@ -1,27 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Menu } from './Menu';
-import { Icon } from './Icon';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import styled from 'styled-components'
+import { Menu } from './Menu'
+import { Icon } from './Icon'
+import { Link } from 'react-router-dom'
 
-export const ContextNavItem = React.createContext(null);
+export const ContextNavItem = React.createContext(null)
 
 // icons w/o text on the navbar
 export function NavItem(props) {
   // console.log('NavItem')
-  const {menuO} = props;
+  const { menuO } = props
 
-  const [showMenuState, setShowMenuState] = React.useState(false);
-  const [openedMenuState, setOpenedMenuState] = React.useState(null);
+  const [showMenuState, setShowMenuState] = React.useState(false)
+  const [openedMenuState, setOpenedMenuState] = React.useState(null)
 
   function showMenu(o) {
-      const menu = o.menu;
-      setShowMenuState(true);
-      setOpenedMenuState({
-        ...menu,
-        navItemId: o.id,
-        prevMenu: [],
-      });
+    const menu = o.menu
+    setShowMenuState(true)
+    setOpenedMenuState({
+      ...menu,
+      navItemId: o.id,
+      prevMenu: [],
+    })
   }
 
   const contextValue = {
@@ -31,7 +31,7 @@ export function NavItem(props) {
     setShowMenuState,
     showMenu,
     menuO
-  };
+  }
 
   // every li get its menuO from navStructure via props and we can open it on click event
   return (
@@ -40,12 +40,12 @@ export function NavItem(props) {
         <Link
           to={menuO.link || '/'}
           onClick={e => {
-            const isLink = !!menuO.link;
-            if (isLink) return;
+            const isLink = !!menuO.link
+            if (isLink) return
             // if not a link, open menu
-            e.preventDefault();
+            e.preventDefault()
             // e.nativeEvent.stopImmediatePropagation();
-            showMenu(menuO);
+            showMenu(menuO)
           }}
         >
           {menuO.icon && <Icon>{menuO.icon}</Icon>}
@@ -56,7 +56,7 @@ export function NavItem(props) {
         {showMenuState && openedMenuState?.navItemId === menuO.id && <Menu />}
       </Li>
     </ContextNavItem.Provider>
-  );
+  )
 }
 
 const Li = styled.li`
@@ -74,10 +74,10 @@ const Li = styled.li`
       filter: brightness(1.2);
     }
   }
-`;
+`
 
 const Text = styled.span`
   margin-left: 5px;
   margin-right: 5px;
   color: grey;
-`;
+`

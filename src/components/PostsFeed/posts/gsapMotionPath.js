@@ -1,45 +1,44 @@
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { Lnk } from '../components/Lnk';
-import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { useEffect, useRef } from 'react'
+import styled from 'styled-components'
+import { Lnk } from '../components/Lnk'
+import { gsap } from 'gsap'
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 
-gsap.registerPlugin(MotionPathPlugin);
-const path = [{x: 30, y:100}, {x:100, y: 150}, {x:200, y:100}, {x:300, y:50}, {x:400, y:100}]
+gsap.registerPlugin(MotionPathPlugin)
+const path = [{ x: 30, y: 100 }, { x: 100, y: 150 }, { x: 200, y: 100 }, { x: 300, y: 50 }, { x: 400, y: 100 }]
 
 function Cmpt() {
   const ref = useRef()
-  
+
   useEffect(() => {
-    gsap.set(ref.current, {x: 30, y: 100, xPercent:-50, yPercent:-50, transformOrigin: "50% 50%"})
+    gsap.set(ref.current, { x: 30, y: 100, xPercent: -50, yPercent: -50, transformOrigin: '50% 50%' })
   }, [])
-  
 
   function animate() {
     // gsap.set(ref.current, {x: 30, y: 100})
-    gsap.set(ref.current, {x: 30, y: 100, xPercent:-50, yPercent:-50, transformOrigin: "50% 50%"})
+    gsap.set(ref.current, { x: 30, y: 100, xPercent: -50, yPercent: -50, transformOrigin: '50% 50%' })
     gsap.to(ref.current, {
       motionPath: {
         path: path,
         // align: path,
         autoRotate: true,
         // alignOrigin: [0.5, 0.5],
-        start: 0, 
+        start: 0,
         end: 1,
         curviness: 0.8,
       },
-      transformOrigin: "50% 50%",
+      transformOrigin: '50% 50%',
       duration: 5,
       immediateRender: true,
-      ease: "linear"
-    });
+      ease: 'linear'
+    })
   }
 
   return (
-    <div style={{height: "200px", position: "relative"}}>
+    <div style={{ height: '200px', position: 'relative' }}>
       <Div ref={ref}/>
       <div><button onClick={animate}>Animate</button></div>
-      {path.map((o, i) => <Coords key={`cords ${i}`} style={{top: o.y, left: o.x}}/>)}
+      {path.map((o, i) => <Coords key={`cords ${i}`} style={{ top: o.y, left: o.x }}/>)}
     </div>
   )
 }
@@ -50,7 +49,7 @@ function Coords(props) {
 
 const toRender = <Cmpt />
 
-const Div = styled.div `
+const Div = styled.div`
   display: inline-block;
   height: 20px;
   width: 40px;
@@ -60,7 +59,7 @@ const Div = styled.div `
   position: absolute;
   
 `
-const Dot = styled.div `
+const Dot = styled.div`
   display: inline-block;
   height: 5px;
   width: 5px;
@@ -187,4 +186,4 @@ export const gsapMotionPathPlugin = {
       ),
     },
   ],
-};
+}

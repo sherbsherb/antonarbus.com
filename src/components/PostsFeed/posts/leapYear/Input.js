@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import React from 'react';
-import { isLeapYear } from './isLeapYear';
+import styled from 'styled-components'
+import React from 'react'
+import { isLeapYear } from './isLeapYear'
 
 export function Input(props) {
-  const [inputValState, setInputValState] = React.useState('');
+  const [inputValState, setInputValState] = React.useState('')
 
   return (
     <InputStyled
@@ -11,16 +11,16 @@ export function Input(props) {
       placeholder="Year"
       value={inputValState}
       onChange={e => {
-        const val = e.target.value;
-        setInputValState(val);
-        props.setYearTypeState(isLeapYear(val));
+        const val = e.target.value
+        setInputValState(val)
+        props.setYearTypeState(isLeapYear(val))
       }}
     />
-  );
+  )
 }
 
 const InputStyled = styled.input`
   padding: 10px;
   min-width: 200px;
   font-size: inherit;
-`;
+`

@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Lnk } from '../components/Lnk';
+import styled from 'styled-components'
+import { Lnk } from '../components/Lnk'
 
 function Cmpt(props) {
   return (
     <Div>
-      <div className="bkg" style={{backgroundImage: props.backgroundImage}}> 
+      <div className="bkg" style={{ backgroundImage: props.backgroundImage }}>
         <div className="glass">
           <h3>Glass style</h3>
           <input type="text" placeholder="search" />
@@ -19,7 +18,7 @@ function Cmpt(props) {
   )
 }
 
-const Div = styled.div `
+const Div = styled.div`
   .bkg {
     height: 500px;
     background-color: transparent;
@@ -74,7 +73,6 @@ const Div = styled.div `
     color: #426696;
   }
 `
-
 
 export const glassStyle = {
   title: 'Glass style',
@@ -176,7 +174,7 @@ export const glassStyle = {
       type: 'text',
       val: (
         <>
-          Manipulate the parent background color to have different glassy styles. 
+          Manipulate the parent background color to have different glassy styles.
         </>
       ),
     },
@@ -184,7 +182,6 @@ export const glassStyle = {
       type: 'output',
       val: <Cmpt backgroundImage = "linear-gradient(to right top, #545454,#a5a5a5)" />
     },
-  
-    
+
   ],
-};
+}

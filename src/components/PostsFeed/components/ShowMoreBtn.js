@@ -1,42 +1,41 @@
-import styled from 'styled-components';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper';
-
+import styled from 'styled-components'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper'
 
 export function ShowMoreBtn() {
-  const dispatch = useDispatch();
-  const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
+  const dispatch = useDispatch()
+  const postsOnDisplayState = useSelector(state => state.postsOnDisplay)
   const options = {
-    wrapperCss: {  background: '#00000042', transform: 'translateX(-101%)', position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 },
+    wrapperCss: { background: '#00000042', transform: 'translateX(-101%)', position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 },
     animationEndFunc: () => dispatch({ type: 'show more pages', maxNumOfPosts: postsOnDisplayState.length }),
-    animationCss: { animationDuration: '5s', keyframes: `from { transform: translateX(-101%) } to { transform: translateX(0) }`},
-  };
-  const [AnimationWrapper, turnAnimationOn, turnAnimationOff] = useAnimatedWrapper(options);
-  const ref = React.useRef();
+    animationCss: { animationDuration: '5s', keyframes: 'from { transform: translateX(-101%) } to { transform: translateX(0) }' },
+  }
+  const [AnimationWrapper, turnAnimationOn, turnAnimationOff] = useAnimatedWrapper(options)
+  const ref = React.useRef()
 
   React.useEffect(() => {
-    document.addEventListener('click', turnAnimationOff);
-    return () => document.removeEventListener('click', turnAnimationOff);
-  }, [turnAnimationOff]);
+    document.addEventListener('click', turnAnimationOff)
+    return () => document.removeEventListener('click', turnAnimationOff)
+  }, [turnAnimationOff])
 
   React.useEffect(() => {
-    const target = ref.current;
-    const options = { threshold: 0.95 };
+    const target = ref.current
+    const options = { threshold: 0.95 }
 
     function callback(entries, observer) {
-      if (entries[0].isIntersecting) turnAnimationOn();
-      if (!entries[0].isIntersecting) turnAnimationOff();
+      if (entries[0].isIntersecting) turnAnimationOn()
+      if (!entries[0].isIntersecting) turnAnimationOff()
     }
 
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(target);
+    const observer = new IntersectionObserver(callback, options)
+    observer.observe(target)
 
     return () => {
-      observer.unobserve(target);
-      observer.disconnect();
-    };
-  }, [turnAnimationOn, turnAnimationOff]);
+      observer.unobserve(target)
+      observer.disconnect()
+    }
+  }, [turnAnimationOn, turnAnimationOff])
 
   return (
     <Btn
@@ -46,7 +45,7 @@ export function ShowMoreBtn() {
       Show more
       <AnimationWrapper />
     </Btn>
-  );
+  )
 }
 
 const Btn = styled.button`
@@ -65,4 +64,4 @@ const Btn = styled.button`
   /* to fix overflow problem on iphone, otherwise overflow: hidden not working properly */
   z-index: 10;
   &:hover { background-color: #4eb2df }
-`;
+`

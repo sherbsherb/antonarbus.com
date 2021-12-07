@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { CodeSpan } from '../../components/CodeSpan';
-import img from './linearGradient.png';
-const style = {height: "200px", display: "flex", justifyContent: 'center', alignItems: 'center'}
+import styled from 'styled-components'
+import { CodeSpan } from '../../components/CodeSpan'
+import img from './linearGradient.png'
+const style = { height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }
 
 function Cmpt1() {
   return (
@@ -11,7 +10,7 @@ function Cmpt1() {
     </Div1>
   )
 }
-const Div1 = styled.div `
+const Div1 = styled.div`
   background: linear-gradient(red, green);
 `
 const toRender1 = <Cmpt1 />
@@ -23,7 +22,7 @@ function Cmpt2() {
     </Div2>
   )
 }
-const Div2 = styled.div `
+const Div2 = styled.div`
   background: linear-gradient(to top right, red, green);
 `
 const toRender2 = <Cmpt2 />
@@ -35,7 +34,7 @@ function Cmpt3() {
     </Div3>
   )
 }
-const Div3 = styled.div `
+const Div3 = styled.div`
   background: linear-gradient(0deg, red, green);
 `
 const toRender3 = <Cmpt3 />
@@ -47,7 +46,7 @@ function Cmpt4() {
     </Div4>
   )
 }
-const Div4 = styled.div `
+const Div4 = styled.div`
   background: linear-gradient(45deg, red, green);
 `
 const toRender4 = <Cmpt4 />
@@ -59,7 +58,7 @@ function Cmpt5() {
     </Div5>
   )
 }
-const Div5 = styled.div `
+const Div5 = styled.div`
   background: linear-gradient(red, white, green);
 `
 const toRender5 = <Cmpt5 />
@@ -71,7 +70,7 @@ function Cmpt6() {
     </Div6>
   )
 }
-const Div6 = styled.div `
+const Div6 = styled.div`
   background: linear-gradient(to right, red 0%, white 10%, green 50%);
 `
 const toRender6 = <Cmpt6 />
@@ -79,11 +78,11 @@ const toRender6 = <Cmpt6 />
 function Cmpt7() {
   return (
     <Div7 style={style}>
-      linear-gradient(red, green); 
+      linear-gradient(red, green);
     </Div7>
   )
 }
-const Div7 = styled.div `
+const Div7 = styled.div`
   height: 600px !important;
   background: linear-gradient(red, green);
 `
@@ -96,7 +95,7 @@ function Cmpt8() {
     </Div8>
   )
 }
-const Div8 = styled.div `
+const Div8 = styled.div`
   height: 600px !important;
   background: linear-gradient(red, green);
   background-attachment: fixed;
@@ -113,11 +112,11 @@ export const gradients = {
         <>
         We will speak only about linear gradient here, but there are more.
         <ul>
-          <li>Linear gradient (goes down/up/left/right/diagonally)</li> 
-          <li>Radial gradient (defined by their center)</li> 
-          <li>Conic gradient (rotated around a center point)</li> 
+          <li>Linear gradient (goes down/up/left/right/diagonally)</li>
+          <li>Radial gradient (defined by their center)</li>
+          <li>Conic gradient (rotated around a center point)</li>
         </ul>
-          
+
         </>
       ),
     },
@@ -126,7 +125,7 @@ export const gradients = {
       val: (
         <>
           Gradient is an image, not a color. <br />
-          
+
           We can assign it to <CodeSpan code='css'>background-image: linear-gradient(red, green)</CodeSpan>.
         </>
       ),
@@ -181,7 +180,7 @@ export const gradients = {
       type: 'text',
       val: (
         <>
-          Or use an angle.  
+          Or use an angle.
         </>
       ),
     },
@@ -193,10 +192,10 @@ export const gradients = {
       type: 'text',
       val: (
         <>
-          Line goes through the center of the box. 
+          Line goes through the center of the box.
           The colors of the gradient are determined by several points.
-          Start & end points are defined by the intersection the line with a perpendiculars from the box corners. 
-          Start & end points are symmetrical from center. 
+          Start & end points are defined by the intersection the line with a perpendiculars from the box corners.
+          Start & end points are symmetrical from center.
         </>
       ),
     },
@@ -207,11 +206,11 @@ export const gradients = {
         background: linear-gradient(0deg, red, green)
       `,
     },
-      {
+    {
       type: 'text',
       val: (
         <>
-          Or use an angle. Note that as far as the div shape is not square, the line doesn't go diagonally. 
+          Or use an angle. Note that as far as the div shape is not square, the line doesn't go diagonally.
         </>
       ),
     },
@@ -223,7 +222,7 @@ export const gradients = {
       type: 'text',
       val: (
         <>
-          Or use an angle. Note that as far as the div shape is not square, the line doesn't go diagonally. 
+          Or use an angle. Note that as far as the div shape is not square, the line doesn't go diagonally.
         </>
       ),
     },
@@ -291,6 +290,6 @@ export const gradients = {
     {
       type: 'output',
       val: toRender8
-    },   
+    },
   ],
-};
+}

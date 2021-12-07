@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
-let renderCount = 0;
+let renderCount = 0
 
 function Component() {
-  const [state, setState] = useState(false);
-  const ref = useRef(0);
+  const [state, setState] = useState(false)
+  const ref = useRef(0)
 
-  renderCount++;
-  ref.current++;
+  renderCount++
+  ref.current++
 
   return (
     <div>
@@ -17,10 +17,10 @@ function Component() {
       <div>Render count by <i>useRef</i>: <b>{ref.current}</b></div>
       <button onClick={() => setState(!state)}>Change state to render</button>
     </div>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const useRefAsGlobalVar = {
   title: (
@@ -83,4 +83,4 @@ export const useRefAsGlobalVar = {
       ),
     },
   ],
-};
+}

@@ -1,10 +1,9 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
-import { v1 as uuidv1 } from 'uuid';
-import { v4 as uuidv4 } from 'uuid';
-import shortid from 'shortid';
+import { v1 as uuidv1, v4 as uuidv4 } from 'uuid'
+
+import shortid from 'shortid'
 
 function UuidExample() {
   return (
@@ -27,10 +26,10 @@ export const uuid = {
       type: 'text',
       val: <>
         We often need to generate a unique string as a universally unique identifier (UUID).<br/><br/>
-        We may just type some random string from the keyboard 
+        We may just type some random string from the keyboard
         <CodeSpan>Ada78Gfh</CodeSpan> or dynamically generate it via <CodeSpan>Math.random().toString()</CodeSpan>
       </>
-    }, 
+    },
     {
       type: 'text',
       val: <>
@@ -70,4 +69,4 @@ export const uuid = {
       val: toRender
     },
   ],
-};
+}

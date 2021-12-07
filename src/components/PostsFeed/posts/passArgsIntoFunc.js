@@ -1,5 +1,4 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { CodeSpan } from '../components/CodeSpan'
 
 export const passArgsIntoFunc = {
   title: 'Pass arguments into function',
@@ -33,7 +32,7 @@ export const passArgsIntoFunc = {
           to = to || 'John@mail.com'
           return '"' + msg + '" sent to "' + to + '"'
         }
-        mail() // "Hello" sent to "John@mail.com" 
+        mail() // "Hello" sent to "John@mail.com"
         mail('Bye') // "Bye" sent to "John@mail.com"
         mail('Bye', 'Kris@mail.com') // "Bye" sent to "Kris@mail.com"   
       `,
@@ -71,16 +70,16 @@ export const passArgsIntoFunc = {
       type: 'code',
       lang: 'jsx',
       val: `
-        mail('Hi', 'John@mail.com', 1, 2, 3) // "Hi" sent to "John@mail.com" 
+        mail('Hi', 'John@mail.com', 1, 2, 3) // "Hi" sent to "John@mail.com"
       `,
     },
     {
       type: 'text',
       val: (
         <>
-          All arguments are accessed within function inside a special iterable {' '}
-          <CodeSpan>arguments</CodeSpan> variable.
-          In arrow function <CodeSpan>arguments</CodeSpan> variable doesn't exist.
+          All arguments are accessed within function inside a special iterable{' '}
+          <CodeSpan>arguments</CodeSpan> variable. In arrow function{' '}
+          <CodeSpan>arguments</CodeSpan> variable doesn't exist.
         </>
       ),
     },
@@ -144,7 +143,7 @@ export const passArgsIntoFunc = {
         }
         mail({}) // "Hello" sent to "John@mail.com"
         mail({ msg: 'Bye' }) // "Bye" sent to "John@mail.com"
-        mail() // Cannot read property 'msg' of undefined 
+        mail() // Cannot read property 'msg' of undefined
       `,
     },
     {
@@ -167,7 +166,10 @@ export const passArgsIntoFunc = {
     {
       type: 'text',
       val: (
-        <>But it looks bulky and there is a more <b>straight forward</b> approach.</>
+        <>
+          But it looks bulky and there is a more <b>straight forward</b>{' '}
+          approach.
+        </>
       ),
     },
     {
@@ -200,4 +202,4 @@ export const passArgsIntoFunc = {
       `,
     },
   ],
-};
+}

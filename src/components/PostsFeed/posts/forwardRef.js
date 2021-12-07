@@ -1,12 +1,13 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import React from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
-const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />);
+const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />)
+Input.displayName = 'Custom Input'
 
 function InputWithFocus() {
-  const refContainer = React.useRef();
-  const focus = () => refContainer.current.focus();
+  const refContainer = React.useRef()
+  const focus = () => refContainer.current.focus()
 
   return (
     <>
@@ -17,10 +18,10 @@ function InputWithFocus() {
       />
       <button onClick={focus}>Focus</button>
     </>
-  );
+  )
 }
 
-const toRender = <InputWithFocus />;
+const toRender = <InputWithFocus />
 
 export const forwardRef = {
   title: (
@@ -47,16 +48,20 @@ export const forwardRef = {
           To pass a reference to a DOM element into a custom component via{' '}
           <CodeSpan>React.useRef()</CodeSpan> we need to wrap a custom component
           into <CodeSpan>React.forwardRef()</CodeSpan>{' '}
-          <Lnk link={'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'}
+          <Lnk
+            link={
+              'https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components'
+            }
             text={'function'}
-          />.
+          />
+          .
         </>
       ),
     },
     {
       type: 'code',
       lang: 'jsx',
-        val: `
+      val: `
           const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />);
 
           function InputWithFocus() {
@@ -84,7 +89,7 @@ export const forwardRef = {
     },
     {
       type: 'text',
-      val:''
-    }
+      val: '',
+    },
   ],
-};
+}

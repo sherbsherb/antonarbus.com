@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' };
+import React, { useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
 
 function Parent() {
-  const [state, setState] = useState(false);
-  const ref = useRef(0);
-  ref.current++;
-  const someVar = 666;
-  const someFunc = () => console.log('I am function');
+  const [state, setState] = useState(false)
+  const ref = useRef(0)
+  ref.current++
+  const someVar = 666
+  const someFunc = () => console.log('I am function')
   return (
     <div style={style}>
       <div><b>Parent</b> rendered x<b>{ref.current}</b></div>
@@ -17,20 +17,20 @@ function Parent() {
       <MemoizedChild name={'Memoized child with var pass'} variable={someVar} />
       <MemoizedChild name={'Memoized child with func pass'} func={someFunc} />
     </div>
-  );
+  )
 }
 
 function Child(props) {
-  const ref = useRef(0);
-  ref.current++;
+  const ref = useRef(0)
+  ref.current++
   return (
     <div style={style}><b>{props.name}</b> rendered x<b>{ref.current}</b></div>
-  );
+  )
 }
 
-const MemoizedChild = React.memo(Child);
+const MemoizedChild = React.memo(Child)
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const reactMemo = {
   title: (
@@ -125,7 +125,7 @@ export const reactMemo = {
       val: (
         <>
           It happens because passed function is created every time the Parent
-          component renders. Functions passed are not equal to each other because they are objects, 
+          component renders. Functions passed are not equal to each other because they are objects,
           even they look and behave the same way.
         </>
       ),
@@ -134,10 +134,10 @@ export const reactMemo = {
       type: 'text',
       val: (
         <>
-          <i>React.memo</i> considers passed function as a new value. 
+          <i>React.memo</i> considers passed function as a new value.
           We can fix it & memorize function with <CodeSpan>useCallback()</CodeSpan> hook.
         </>
       ),
     },
   ],
-};
+}

@@ -1,14 +1,14 @@
 // import & set icons
-import { FaReact } from 'react-icons/fa';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { MdOutlineMenuBook as BookIcon } from 'react-icons/md';
+import { FaReact } from 'react-icons/fa'
+import { AiOutlinePlus } from 'react-icons/ai'
+import { MdOutlineMenuBook as BookIcon } from 'react-icons/md'
 
 // can use alias with 'as'
-import React from 'react';
-import shortid from 'shortid';
+import React from 'react'
+import shortid from 'shortid'
 
-const reactIcon = React.createElement(FaReact, {});
-const plusIcon = React.createElement(AiOutlinePlus, {});
+const reactIcon = React.createElement(FaReact, {})
+const plusIcon = React.createElement(AiOutlinePlus, {})
 
 // menu structure
 const navStructure = [
@@ -99,7 +99,7 @@ const navStructure = [
                 menu: null,
                 id: shortid(),
               },
-              
+
             ],
           },
           id: shortid(),
@@ -132,6 +132,6 @@ const navStructure = [
     },
     id: shortid(),
   },
-];
+]
 
-export default navStructure;
+export default navStructure

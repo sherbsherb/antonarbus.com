@@ -1,17 +1,17 @@
-import React, { useReducer } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px',};
+import { useReducer } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
 
 function reducer(state, action) {
   // need to return new state
-  if (action === 'increment') return state + 1;
-  if (action === 'reset') return 0;
+  if (action === 'increment') return state + 1
+  if (action === 'reset') return 0
   // if action is not specified
-  return state;
+  return state
 }
 
 function Component1() {
-  const [countState1, dispatch1] = useReducer(reducer, 0);
+  const [countState1, dispatch1] = useReducer(reducer, 0)
   return (
     <div style={style}>
       <div>Component 1</div>
@@ -19,11 +19,11 @@ function Component1() {
       <button onClick={() => dispatch1('increment')}>Increment</button>
       <button onClick={() => dispatch1('reset')}>Reset</button>
     </div>
-  );
+  )
 }
 
 function Component2() {
-  const [countState2, dispatch2] = useReducer(reducer, 0);
+  const [countState2, dispatch2] = useReducer(reducer, 0)
   return (
     <div style={style}>
       <div>Component 2</div>
@@ -31,13 +31,13 @@ function Component2() {
       <button onClick={() => dispatch2('increment')}>Increment</button>
       <button onClick={() => dispatch2('reset')}>Reset</button>
     </div>
-  );
+  )
 }
 
 const toRender = <>
   <Component1 />
   <Component2 />
-</>;
+</>
 
 export const oneReducerForMultipleComponents = {
   title: (
@@ -106,4 +106,4 @@ export const oneReducerForMultipleComponents = {
       val: toRender,
     },
   ],
-};
+}

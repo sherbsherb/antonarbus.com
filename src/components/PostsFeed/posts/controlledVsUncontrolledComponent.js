@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 function ControlledInput() {
-  const [inpVal, setInpVal] = useState('initial text');
+  const [inpVal, setInpVal] = useState('initial text')
 
   return (
     <>
@@ -14,13 +14,13 @@ function ControlledInput() {
         onChange={e => setInpVal(e.target.value)}
       />
     </>
-  );
+  )
 }
 
 const toRender1 = <ControlledInput />
 
 function UncontrolledInput() {
-  const [inpVal, setInpVal] = useState('initial text');
+  const [inpVal, setInpVal] = useState('initial text')
   const inpRef = useRef('initial text')
 
   return (
@@ -33,7 +33,7 @@ function UncontrolledInput() {
         onChange={() => setInpVal(inpRef.current.value)}
       />
     </>
-  );
+  )
 }
 
 const toRender2 = <UncontrolledInput />
@@ -47,9 +47,9 @@ export const controlledVsUncontrolledComponent = {
       type: 'text',
       val: (
         <>
-          <strong>Controlled component</strong> data is handled 
+          <strong>Controlled component</strong> data is handled
           by a React component via <CodeSpan>useState()</CodeSpan> {' '}
-          <Lnk link={'https://reactjs.org/docs/hooks-reference.html#usestate'}>hook</Lnk>. 
+          <Lnk link={'https://reactjs.org/docs/hooks-reference.html#usestate'}>hook</Lnk>.
           Event handler takes care of a state update.
         </>
       ),
@@ -86,7 +86,7 @@ export const controlledVsUncontrolledComponent = {
       type: 'text',
       val: (
         <>
-          <strong>Uncontrolled component</strong> data is handled by the DOM itself. 
+          <strong>Uncontrolled component</strong> data is handled by the DOM itself.
           We need to use <CodeSpan>useRef()</CodeSpan> {' '}
           <Lnk link={'https://reactjs.org/docs/hooks-reference.html#useref'}>hook</Lnk> to get form values from the DOM.
         </>
@@ -130,6 +130,6 @@ export const controlledVsUncontrolledComponent = {
       type: 'output',
       val: toRender2
     },
-    
+
   ],
-};
+}

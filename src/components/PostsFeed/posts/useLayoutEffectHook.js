@@ -1,22 +1,22 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Img } from '../components/Img';
-import { Lnk } from '../components/Lnk';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Img } from '../components/Img'
+import { Lnk } from '../components/Lnk'
 import syncWait from '../../../helpers/functions/syncWait'
 
 function Component1() {
-  const [state, setState] = useState(false);
-  const firstRender = useRef(true);
-  const ref = useRef(null);
+  const [state, setState] = useState(false)
+  const firstRender = useRef(true)
+  const ref = useRef(null)
 
   useLayoutEffect(() => {
     if (firstRender.current) {
-      firstRender.current = false;
-      return;
+      firstRender.current = false
+      return
     }
-    syncWait(2000);
-    ref.current.innerHTML += '<div>useLayoutEffect triggered</div>';
-  }, [state]);
+    syncWait(2000)
+    ref.current.innerHTML += '<div>useLayoutEffect triggered</div>'
+  }, [state])
 
   return (
     <>
@@ -26,24 +26,24 @@ function Component1() {
       <button onClick={() => setState(!state)}>Update state</button>
       <div ref={ref}></div>
     </>
-  );
+  )
 }
 
-const toRender1 = <Component1 />;
+const toRender1 = <Component1 />
 
 function Component2() {
-  const [state, setState] = useState(false);
-  const firstRender = useRef(true);
-  const ref = useRef(null);
+  const [state, setState] = useState(false)
+  const firstRender = useRef(true)
+  const ref = useRef(null)
 
   useEffect(() => {
     if (firstRender.current) {
-      firstRender.current = false;
-      return;
+      firstRender.current = false
+      return
     }
-    syncWait(2000);
-    ref.current.innerHTML += '<div>useEffect triggered</div>';
-  }, [state]);
+    syncWait(2000)
+    ref.current.innerHTML += '<div>useEffect triggered</div>'
+  }, [state])
 
   return (
     <>
@@ -53,10 +53,10 @@ function Component2() {
       <button onClick={() => setState(!state)}>Update state</button>
       <div ref={ref}></div>
     </>
-  );
+  )
 }
 
-const toRender2 = <Component2 />;
+const toRender2 = <Component2 />
 
 export const useLayoutEffectHook = {
   title: (
@@ -183,4 +183,4 @@ export const useLayoutEffectHook = {
       </>
     },
   ],
-};
+}

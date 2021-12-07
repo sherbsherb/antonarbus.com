@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const expressServerForReact = {
   title: 'Express with React app',
   date: '2021.10.26',
@@ -19,7 +17,7 @@ export const expressServerForReact = {
     {
       type: 'code',
       lang: 'js',
-        val: `
+      val: `
           const express = require('express');
           const path = require('path');
           const app = express();
@@ -42,4 +40,4 @@ export const expressServerForReact = {
         `,
     },
   ],
-};
+}

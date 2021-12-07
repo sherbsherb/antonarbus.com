@@ -1,13 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-import isIos from '../../../helpers/functions/isIos';
-import { Tag } from '../../PostsFeed/components/Tag';
-import { InputTagsSearch } from './InputTagsSearch';
+import { useSelector } from 'react-redux'
+import styled from 'styled-components'
+import isIos from '../../../helpers/functions/isIos'
+import { Tag } from '../../PostsFeed/components/Tag'
+import { InputTagsSearch } from './InputTagsSearch'
 
 export function TagsContainer() {
-  const filteredTagsState = useSelector(state => state.filteredTags);
-  const foundPostsState = useSelector(state => state.foundPosts);
+  const filteredTagsState = useSelector(state => state.filteredTags)
+  const foundPostsState = useSelector(state => state.foundPosts)
 
   return (
     <>
@@ -22,7 +21,7 @@ export function TagsContainer() {
         </TagsContainerStyled>
       )}
     </>
-  );
+  )
 }
 
 const TagsContainerStyled = styled.div`
@@ -34,4 +33,4 @@ const TagsContainerStyled = styled.div`
   height: auto;
   padding: 7px;
   padding-bottom: 3px;
-`;
+`

@@ -1,5 +1,4 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { CodeSpan } from '../components/CodeSpan'
 
 function Component1(props) {
   return (
@@ -8,7 +7,7 @@ function Component1(props) {
       props.prop2 = {props.prop2} <br/>
       props.prop3 = {props.prop3} <br/>
     </div>
-  );
+  )
 }
 
 const toRender1 = <Component1 prop1='hello' prop2='my' prop3='friend'/>
@@ -20,7 +19,7 @@ function Component2({ prop1, prop2, prop3 }) {
       prop2 = {prop2} <br/>
       prop3 = {prop3} <br/>
     </div>
-  );
+  )
 }
 
 const toRender2 = <Component2 prop1='hello' prop2='my' prop3='friend'/>
@@ -32,7 +31,7 @@ function Component3({ prop1, prop2, prop3 }) {
       prop2 = {prop2} <br/>
       prop3 = {prop3} <br/>
     </div>
-  );
+  )
 }
 
 const userProps = {
@@ -159,4 +158,4 @@ export const passProps = {
       val: toRender3,
     },
   ],
-};
+}

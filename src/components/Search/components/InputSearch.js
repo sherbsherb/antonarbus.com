@@ -1,11 +1,10 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import { store } from '../../../App';
-import { postsArr } from '../../PostsFeed/postsArr';
+import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
+import { store } from '../../../App'
+import { postsArr } from '../../PostsFeed/postsArr'
 
 export function InputSearch() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <DivStyled
@@ -14,101 +13,101 @@ export function InputSearch() {
       spellCheck={false}
       placeholder="Search"
       onFocus={e => {
-        dispatch({ type: 'show search menu' });
+        dispatch({ type: 'show search menu' })
         dispatch({
           type: 'store search input val',
           searchInputVal: e.target.innerText,
-        });
-        dispatch({ type: 'get words from input' });
-        dispatch({ type: 'get tags from input' });
+        })
+        dispatch({ type: 'get words from input' })
+        dispatch({ type: 'get tags from input' })
         dispatch({
           type: 'find posts',
           typedWords: store.getState().typedWords,
           typedTags: store.getState().typedTags,
-        });
+        })
         dispatch({
           type: 'get tags from found posts',
           foundPosts: store.getState().foundPosts,
-        });
+        })
         dispatch({
           type: 'filter tags',
           tagsInputVal: store.getState().tagsInputVal,
           tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
-        });
+        })
       }}
       onInput={debounce(e => {
-        console.log(0);
-        e.target.scrollLeft = 10000;
+        console.log(0)
+        e.target.scrollLeft = 10000
 
-        dispatch({ type: 'show search menu' });
+        dispatch({ type: 'show search menu' })
         dispatch({
           type: 'store search input val',
           searchInputVal: e.target.innerText,
-        });
-        dispatch({ type: 'get words from input' });
-        dispatch({ type: 'get tags from input' });
+        })
+        dispatch({ type: 'get words from input' })
+        dispatch({ type: 'get tags from input' })
         dispatch({
           type: 'find posts',
           typedWords: store.getState().typedWords,
           typedTags: store.getState().typedTags,
-        });
+        })
         dispatch({
           type: 'get tags from found posts',
           foundPosts: store.getState().foundPosts,
-        });
+        })
         dispatch({
           type: 'filter tags',
           tagsInputVal: store.getState().tagsInputVal,
           tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
-        });
+        })
       })}
       onPaste={e => {
-        e.preventDefault();
-        console.log('pasted');
+        e.preventDefault()
+        console.log('pasted')
         // get text representation of clipboard
-        const text = (e.originalEvent || e).clipboardData.getData('text/plain');
+        const text = (e.originalEvent || e).clipboardData.getData('text/plain')
         // insert text manually
-        document.execCommand('insertHTML', false, text);
+        document.execCommand('insertHTML', false, text)
       }}
       onKeyDown={e => {
         if (e.key === 'Enter') {
-          e.preventDefault();
-          dispatch({ type: 'show 5 pages' });
-          dispatch({ type: 'close search menu' });
-          
+          e.preventDefault()
+          dispatch({ type: 'show 5 pages' })
+          dispatch({ type: 'close search menu' })
+
           if (store.getState().searchInputVal === '') {
-            dispatch({ type: 'remove search input val' });
-            dispatch({ type: 'display following posts', postsToShow: postsArr });
-            dispatch({ type: 'remove remove found posts msg' });
-            dispatch({ type: 'remove tags input val' });
-            dispatch({ type: 'reset posts' });
-            dispatch({ type: 'get tags from all posts' });
-            return;
+            dispatch({ type: 'remove search input val' })
+            dispatch({ type: 'display following posts', postsToShow: postsArr })
+            dispatch({ type: 'remove remove found posts msg' })
+            dispatch({ type: 'remove tags input val' })
+            dispatch({ type: 'reset posts' })
+            dispatch({ type: 'get tags from all posts' })
+            return
           }
-          dispatch({ type: 'show found posts msg' });
-          dispatch({ type: 'show remove found posts msg' });
-          dispatch({ type: 'display following posts', postsToShow: store.getState().foundPosts });
-          dispatch({ type: 'remove tags input val' });
+          dispatch({ type: 'show found posts msg' })
+          dispatch({ type: 'show remove found posts msg' })
+          dispatch({ type: 'display following posts', postsToShow: store.getState().foundPosts })
+          dispatch({ type: 'remove tags input val' })
         }
 
         if (e.key === 'Escape') {
-          e.preventDefault();
-          dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display following posts', postsToShow: postsArr });
-          dispatch({ type: 'close search menu' });
-          dispatch({ type: 'remove remove found posts msg' });
-          dispatch({ type: 'remove tags input val' });
-          dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'forget tags from input' });
-          dispatch({ type: 'forget words from input' });
-          dispatch({ type: 'reset posts' });
-          dispatch({ type: 'get tags from all posts' });
-          dispatch({ type: 'show 5 pages' });
-          document.querySelector('#input').innerHTML = '';
+          e.preventDefault()
+          dispatch({ type: 'remove search input val' })
+          dispatch({ type: 'display following posts', postsToShow: postsArr })
+          dispatch({ type: 'close search menu' })
+          dispatch({ type: 'remove remove found posts msg' })
+          dispatch({ type: 'remove tags input val' })
+          dispatch({ type: 'remove search input val' })
+          dispatch({ type: 'forget tags from input' })
+          dispatch({ type: 'forget words from input' })
+          dispatch({ type: 'reset posts' })
+          dispatch({ type: 'get tags from all posts' })
+          dispatch({ type: 'show 5 pages' })
+          document.querySelector('#input').innerHTML = ''
         }
       }}
     />
-  );
+  )
 }
 
 const DivStyled = styled.div`
@@ -147,15 +146,15 @@ const DivStyled = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
 // returns debounced function, not calling it
 function debounce(fn, delay = 300) {
-  let timeoutId;
-  return function (...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(function () {
-      fn(...args);
-    }, delay);
-  };
+  let timeoutId
+  return function(...args) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(function() {
+      fn(...args)
+    }, delay)
+  }
 }

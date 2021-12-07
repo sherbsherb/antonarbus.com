@@ -1,34 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
 
 export function useModalWithBackground() {
-  const [showModalState, setShowModalState] = useState(false);
+  const [showModalState, setShowModalState] = useState(false)
   const openModal = () => setShowModalState(true)
   const closeModal = () => setShowModalState(false)
 
   function Modal(props) {
     // prevent body scroll & prevent jumping when scrollbar gets hidden
-    document.body.style.width = window.getComputedStyle(document.body).width;
-    document.body.style.overflowY = 'hidden';
+    document.body.style.width = window.getComputedStyle(document.body).width
+    document.body.style.overflowY = 'hidden'
 
     useEffect(() => {
-
       function closeModalOnEscape(e) {
-        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Escape') closeModal()
       }
 
-      document.addEventListener('keydown', closeModalOnEscape);
-      
+      document.addEventListener('keydown', closeModalOnEscape)
+
       return () => {
         // on unmount put back scrolling & original width
-        document.body.style.overflowY = 'auto';
-        document.body.style.width = 'auto';
+        document.body.style.overflowY = 'auto'
+        document.body.style.width = 'auto'
         // do not listen for Esc
-        document.removeEventListener('keydown', closeModalOnEscape);
-      };
-  
-    }, []);
-  
+        document.removeEventListener('keydown', closeModalOnEscape)
+      }
+    }, [])
+
     return (
       <Bkg onClick={closeModal}>
         <Container onClick={e => e.stopPropagation()}>
@@ -36,7 +34,7 @@ export function useModalWithBackground() {
           {props.children}
         </Container>
       </Bkg>
-    );
+    )
   }
 
   return [showModalState, openModal, Modal]
@@ -55,7 +53,7 @@ const Bkg = styled.div`
   align-items: flex-start;
   padding-top: 20vh;
   z-index: 1000;
-`;
+`
 
 const Container = styled.div`
   background-color: #e2e2e2;
@@ -69,7 +67,7 @@ const Container = styled.div`
   box-shadow: 0px 0px 10px 0px #8b8b8b;
   border: 2px solid #494949;
   position: relative;
-`;
+`
 
 const CloseBtn = styled.span`
   position: absolute;
@@ -87,4 +85,4 @@ const CloseBtn = styled.span`
   &:after {
     content: '×';
   }
-`;
+`

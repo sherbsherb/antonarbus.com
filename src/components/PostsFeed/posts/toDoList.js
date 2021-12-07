@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import shortid from 'shortid';
+import { useState } from 'react'
+import styled from 'styled-components'
+import shortid from 'shortid'
 
 const StyledContainer = styled.div`
   width: 90%;
@@ -38,7 +38,7 @@ const StyledContainer = styled.div`
   .delBtn {
     cursor: pointer;
   }
-`;
+`
 
 function ToDoApp() {
   function getToDoList() {
@@ -59,13 +59,13 @@ function ToDoApp() {
             id: shortid(),
           },
         ])
-      );
+      )
     }
 
-    return JSON.parse(localStorage.getItem('toDoArr'));
+    return JSON.parse(localStorage.getItem('toDoArr'))
   }
 
-  const [toDoListState, setToDoListState] = useState(getToDoList);
+  const [toDoListState, setToDoListState] = useState(getToDoList)
 
   return (
     <StyledContainer>
@@ -80,25 +80,25 @@ function ToDoApp() {
         getToDoList={getToDoList}
       />
     </StyledContainer>
-  );
+  )
 }
 
 function AddItemForm({ toDoListState, setToDoListState, getToDoList }) {
-  const [inputState, setInputState] = useState('');
+  const [inputState, setInputState] = useState('')
 
   function addNewItem(e) {
-    e.preventDefault();
-    if (!inputState) return;
+    e.preventDefault()
+    if (!inputState) return
     const newList = [
       {
         toDoText: inputState,
         id: shortid(),
       },
       ...toDoListState,
-    ];
-    localStorage.setItem('toDoArr', JSON.stringify(newList));
-    setToDoListState(getToDoList());
-    setInputState('');
+    ]
+    localStorage.setItem('toDoArr', JSON.stringify(newList))
+    setToDoListState(getToDoList())
+    setInputState('')
   }
 
   return (
@@ -111,7 +111,7 @@ function AddItemForm({ toDoListState, setToDoListState, getToDoList }) {
       />
       <button onClick={addNewItem}>Add</button>
     </form>
-  );
+  )
 }
 
 function ToDoList({ setToDoListState, toDoListState, getToDoList }) {
@@ -129,7 +129,7 @@ function ToDoList({ setToDoListState, toDoListState, getToDoList }) {
       ))}
       {toDoListState.length === 0 ? 'Nothing to do' : ''}
     </div>
-  );
+  )
 }
 
 function ToDoItem({
@@ -140,9 +140,9 @@ function ToDoItem({
   getToDoList,
 }) {
   function removeItem() {
-    const newList = toDoListState.filter(o => o.id !== id);
-    localStorage.setItem('toDoArr', JSON.stringify(newList));
-    setToDoListState(getToDoList());
+    const newList = toDoListState.filter(o => o.id !== id)
+    localStorage.setItem('toDoArr', JSON.stringify(newList))
+    setToDoListState(getToDoList())
   }
 
   return (
@@ -152,7 +152,7 @@ function ToDoItem({
         Remove
       </button>
     </div>
-  );
+  )
 }
 
 const toRender = <ToDoApp />
@@ -164,7 +164,7 @@ export const toDoList = {
   postParts: [
     {
       type: 'text',
-      val: `Let's make the simplest todo list with local data storage.`,
+      val: 'Let\'s make the simplest todo list with local data storage.',
     },
     {
       type: 'code',
@@ -296,4 +296,4 @@ export const toDoList = {
       val: toRender
     },
   ],
-};
+}

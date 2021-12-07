@@ -1,17 +1,16 @@
-import React from 'react';
 import { CodeSpan } from '../../components/CodeSpan'
-import img from './img.png';
+import img from './img.png'
 
 function jsxToStr(el) {
-  if (!el) return '';
-  if (typeof el === 'string') return el;
-  const children = el.props && el.props.children;
-  if (children instanceof Array) return children.map(jsxToStr).join('');
-  return jsxToStr(children);
+  if (!el) return ''
+  if (typeof el === 'string') return el
+  const children = el.props && el.props.children
+  if (children instanceof Array) return children.map(jsxToStr).join('')
+  return jsxToStr(children)
 }
 
 // console.dir(<>Hello <strong>Mike</strong></>)
-const toRender = jsxToStr(<>Hello <strong>Mike</strong></>);
+const toRender = jsxToStr(<>Hello <strong>Mike</strong></>)
 
 export const jsxToString = {
   title: 'JSX to string',
@@ -34,7 +33,7 @@ export const jsxToString = {
       type: 'img',
       src: img,
       width: '50%',
-      alt: "console.log of jsx element"
+      alt: 'console.log of jsx element'
     },
     {
       type: '',
@@ -85,4 +84,4 @@ export const jsxToString = {
       </>,
     },
   ],
-};
+}

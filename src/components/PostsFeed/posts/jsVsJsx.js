@@ -1,5 +1,5 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import React from 'react'
+import { CodeSpan } from '../components/CodeSpan'
 
 export const jsVsJsx = {
   title: 'JS vs JSX',
@@ -9,19 +9,19 @@ export const jsVsJsx = {
     {
       type: 'text',
       val: <>
-        In React we generate html by javascript. We can use 
-        <CodeSpan>React.createElement()</CodeSpan> function from the React 
+        In React we generate html by javascript. We can use
+        <CodeSpan>React.createElement()</CodeSpan> function from the React
         library to add an HTML element or we can use JSX syntax.
       </>
     },
-    { 
-      type: 'text', 
+    {
+      type: 'text',
       val: <>
         Native <span style={{ fontWeight: 600 }}> JS </span>
-      </>  
+      </>
     },
-    { 
-      type: 'code', 
+    {
+      type: 'code',
       lang: 'jsx',
       val: `
         import React from 'react';
@@ -40,27 +40,27 @@ export const jsVsJsx = {
         )
       `
     },
-    { 
-      type: 'output', 
+    {
+      type: 'output',
       val: React.createElement('div', {},
         React.createElement(
-          'button', 
+          'button',
           {
             disabled: false,
             onClick: () => {
               alert('clicked')
             }
-          }, 
+          },
           'Click me'
         )
-      ) 
+      )
     },
-    { 
-      type: 'text', 
-      val: 'JSX' 
+    {
+      type: 'text',
+      val: 'JSX'
     },
-    { 
-      type: 'code', 
+    {
+      type: 'code',
       lang: 'jsx',
       val: `
         import React from 'react';
@@ -73,14 +73,14 @@ export const jsVsJsx = {
             Click me
           </button>
         </div>
-      ` 
+      `
     },
-    { 
-      type: 'output', 
-      val: 
+    {
+      type: 'output',
+      val:
         <div>
-          <button 
-            disabled={false} 
+          <button
+            disabled={false}
             onClick={() => alert('clicked')}
           >
             Click me
@@ -88,4 +88,4 @@ export const jsVsJsx = {
         </div>
     },
   ],
-};
+}

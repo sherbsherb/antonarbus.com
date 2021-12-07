@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import { useState } from 'react'
+import styled, { keyframes } from 'styled-components'
 
 const shakeAnimation = keyframes`
   0% { transform: translateX(0) }
@@ -9,7 +9,7 @@ const shakeAnimation = keyframes`
   70% { transform: translateX(0) }
   90% { transform: translateX(5px) }
   100% { transform: translateX(0) }
-`;
+`
 
 const SpanWithShake = styled.span`
   display: inline-block;
@@ -18,25 +18,25 @@ const SpanWithShake = styled.span`
   margin: 5px;
   padding: 5px;
   cursor: pointer;
-`;
+`
 
 function Component() {
-  const [animationState, setAnimationState] = useState(false);
+  const [animationState, setAnimationState] = useState(false)
 
   return (
     <>
-      <SpanWithShake 
-        onClick={() => {setAnimationState(true) }}
+      <SpanWithShake
+        onClick={() => { setAnimationState(true) }}
         animateNow={animationState}
-        onAnimationEnd={() => {setAnimationState(false)}}
+        onAnimationEnd={() => { setAnimationState(false) }}
       >
         Click me to shake
       </SpanWithShake>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const animationTriggerByProp = {
   title: <>Start animation by animation name change</>,
@@ -101,4 +101,4 @@ export const animationTriggerByProp = {
       val: toRender,
     },
   ],
-};
+}

@@ -1,17 +1,16 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper';
+import { CodeSpan } from '../components/CodeSpan'
+import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper'
 
-const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer' };
+const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer' }
 const options = {
-  wrapperCss: { background: 'OldLace', margin: '5px', padding: '5px', cursor: 'pointer'},
+  wrapperCss: { background: 'OldLace', margin: '5px', padding: '5px', cursor: 'pointer' },
   animationEndFunc: () => alert('Hello after animation'),
-  animationCss: { animationDuration: '.25s', keyframes: ` 0% { transform: translateX(0) } 10% { transform: translateX(5px) } 30% { transform: translateX(0) } 50% { transform: translateX(5px) } 70% { transform: translateX(0) } 90% { transform: translateX(5px) } 100% { transform: translateX(0) }  `, },
-};
+  animationCss: { animationDuration: '.25s', keyframes: ' 0% { transform: translateX(0) } 10% { transform: translateX(5px) } 30% { transform: translateX(0) } 50% { transform: translateX(5px) } 70% { transform: translateX(0) } 90% { transform: translateX(5px) } 100% { transform: translateX(0) }  ' },
+}
 
 function Component() {
-  const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
-  const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper(options);
+  const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper()
+  const [AnimationWrapper2, turnAnimationOn2] = useAnimatedWrapper(options)
 
   return (
     <>
@@ -25,10 +24,10 @@ function Component() {
         <button onClick={turnAnimationOn2}>Start animation</button>
       </div>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const useAnimatedWrapperPost = {
   title: <><CodeSpan>useAnimatedWrapper()</CodeSpan> custom hook</>,
@@ -153,4 +152,4 @@ export const useAnimatedWrapperPost = {
       val: toRender,
     },
   ],
-};
+}

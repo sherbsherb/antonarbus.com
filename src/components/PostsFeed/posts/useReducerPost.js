@@ -1,19 +1,19 @@
-import React, { useReducer } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useReducer } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
-const initState = 0;
+const initState = 0
 function reducer(state, action) {
   // need to return new state
-  if (action === 'increment') return state + 1;
-  if (action === 'decrement') return state - 1;
-  if (action === 'reset') return initState;
+  if (action === 'increment') return state + 1
+  if (action === 'decrement') return state - 1
+  if (action === 'reset') return initState
   // if action is not specified
-  return state;
+  return state
 }
 
 function Component() {
-  const [countState, dispatch] = useReducer(reducer, initState);
+  const [countState, dispatch] = useReducer(reducer, initState)
   return (
     <>
       <div>Count: {countState}</div>
@@ -21,10 +21,10 @@ function Component() {
       <button onClick={() => dispatch('decrement')}>Decrement</button>
       <button onClick={() => dispatch('reset')}>Reset</button>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const useReducerPost = {
   title: (
@@ -104,4 +104,4 @@ export const useReducerPost = {
       val: toRender,
     },
   ],
-};
+}

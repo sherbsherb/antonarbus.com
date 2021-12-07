@@ -1,18 +1,17 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-
+import React from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 function UseRefExample() {
-  const ref1 = React.useRef();
-  const ref2 = React.useRef();
-  const ref3 = React.useRef();
+  const ref1 = React.useRef()
+  const ref2 = React.useRef()
+  const ref3 = React.useRef()
 
   function clickHandler() {
     ref1.current.style.background = 'yellow'
     ref2.current.style.background = 'red'
     ref3.current.style.background = 'green'
-    console.log(ref1.current,ref2.current,ref3.current)
+    console.log(ref1.current, ref2.current, ref3.current)
   }
 
   return (
@@ -22,7 +21,7 @@ function UseRefExample() {
       <span ref={ref3}>span3 </span>
       <button onClick={clickHandler}>Color spans</button>
     </>
-  );
+  )
 }
 
 const toRender = <UseRefExample />
@@ -77,4 +76,4 @@ export const useRefExample = {
       val: toRender,
     },
   ],
-};
+}

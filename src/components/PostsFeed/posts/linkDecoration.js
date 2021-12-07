@@ -1,15 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import styled from 'styled-components'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 const Cmpt0 = () => <Div0><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div0>
 const Div0 = styled.div`
   a, a:hover, a:active, a:visited { 
     all: revert;
   }
-`;
-const toRender0 = <Cmpt0 />;
+`
+const toRender0 = <Cmpt0 />
 
 const Cmpt1 = () => <Div1><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div1>
 const Div1 = styled.div`
@@ -17,8 +16,8 @@ const Div1 = styled.div`
     all: revert;
     text-decoration: none;
   }
-`;
-const toRender1 = <Cmpt1 />;
+`
+const toRender1 = <Cmpt1 />
 
 const Cmpt2 = () => <Div2><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div2>
 const Div2 = styled.div`
@@ -33,8 +32,8 @@ const Div2 = styled.div`
       text-decoration-color: #0495d7;
     }
   }
-`;
-const toRender2 = <Cmpt2 />;
+`
+const toRender2 = <Cmpt2 />
 
 const Cmpt3 = () => <Div3><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div3>
 const Div3 = styled.div`
@@ -62,8 +61,8 @@ const Div3 = styled.div`
     opacity: 1;
     transform: translateY(0.15em);
   }
-`;
-const toRender3 = <Cmpt3 />;
+`
+const toRender3 = <Cmpt3 />
 
 const Cmpt4 = () => <Div4><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div4>
 const Div4 = styled.div`
@@ -93,8 +92,8 @@ const Div4 = styled.div`
     transform: translateX(0%) translateY(1em);
     transition: transform 300ms;
   }
-`;
-const toRender4 = <Cmpt4 />;
+`
+const toRender4 = <Cmpt4 />
 
 const Cmpt5 = () => <Div5><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div5>
 const Div5 = styled.div`
@@ -125,8 +124,8 @@ const Div5 = styled.div`
     transform: scale(1);
     transition:  transform 300ms;
   }
-`;
-const toRender5 = <Cmpt5 />;
+`
+const toRender5 = <Cmpt5 />
 
 export const linkDecoration = {
   title: 'Link style',
@@ -349,4 +348,4 @@ export const linkDecoration = {
       val: toRender5,
     },
   ],
-};
+}

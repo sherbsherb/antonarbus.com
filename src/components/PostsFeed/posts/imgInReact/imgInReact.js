@@ -1,6 +1,5 @@
-import React from 'react';
 import { CodeSpan } from '../../components/CodeSpan'
-import imgFile from './img.jpg';
+import imgFile from './img.jpg'
 
 const Component = () => (
   <img
@@ -8,7 +7,7 @@ const Component = () => (
     alt={'flamingos eating swimmers'}
     style={{ display: 'block', margin: '0 auto', maxWidth: '300px' }}
   />
-);
+)
 
 export const imgInReact = {
   title: 'Add image in React',
@@ -53,4 +52,4 @@ export const imgInReact = {
       val: <Component></Component>,
     },
   ],
-};
+}

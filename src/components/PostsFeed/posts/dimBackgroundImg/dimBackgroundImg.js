@@ -1,18 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import img from './headphones.jpg';
+import styled from 'styled-components'
+import img from './headphones.jpg'
 
-const style = {height: "200px", display: "flex", justifyContent: 'center', alignItems: 'center'}
+const style = { height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }
 
 function Cmpt1() {
   return (
     <Div1 style={style}>
-      {`background-image: url(\${img})`}
+      {'background-image: url(${img})'}
     </Div1>
   )
 }
 
-const Div1 = styled.div `
+const Div1 = styled.div`
   background-image: url(${img});
   background-size: cover;
   background-position: 50% 50%;
@@ -25,11 +24,11 @@ const toRender1 = <Cmpt1 />
 function Cmpt2() {
   return (
     <Div2 style={style}>
-      {`background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(\${img})`}
+      {'background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${img})'}
     </Div2>
   )
 }
-const Div2 = styled.div `
+const Div2 = styled.div`
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${img});
   background-size: cover;
   background-position: 50% 50%;
@@ -48,7 +47,7 @@ export const dimBackgroundImg = {
       type: 'text',
       val: (
         <>
-          Several background images separated by comma can be applied. 
+          Several background images separated by comma can be applied.
         </>
       ),
     },
@@ -68,6 +67,6 @@ export const dimBackgroundImg = {
       type: 'output',
       val: toRender2
     },
-    
+
   ],
-};
+}

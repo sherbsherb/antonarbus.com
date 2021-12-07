@@ -1,37 +1,35 @@
-import Mark from 'mark.js';
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { store } from '../../App';
-import { BtnCancel } from './components/BtnCancel';
-import { BtnSearch } from './components/BtnSearch';
-import { FoundPosts } from './components/FoundPosts';
-import { InputSearch } from './components/InputSearch';
-import { RemoveFoundPosts } from './components/RemoveFoundPosts';
-import { SearchPreviewContainer } from './components/SearchPreviewContainer';
-import { SearchPreviewItem } from './components/SearchPreviewItem';
-import { TagsContainer } from './components/TagsContainer';
-import { useDispatch } from "react-redux";
+import Mark from 'mark.js'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import styled from 'styled-components'
+import { store } from '../../App'
+import { BtnCancel } from './components/BtnCancel'
+import { BtnSearch } from './components/BtnSearch'
+import { FoundPosts } from './components/FoundPosts'
+import { InputSearch } from './components/InputSearch'
+import { RemoveFoundPosts } from './components/RemoveFoundPosts'
+import { SearchPreviewContainer } from './components/SearchPreviewContainer'
+import { SearchPreviewItem } from './components/SearchPreviewItem'
+import { TagsContainer } from './components/TagsContainer'
 
 export default function Search() {
-  const showSearchMenuState = useSelector(state => state.showSearchMenu);
+  const showSearchMenuState = useSelector(state => state.showSearchMenu)
   const showRemoveFoundPostsMsgState = useSelector(
     state => state.showRemoveFoundPostsMsg
-  );
-  const searchInputValState = useSelector(state => state.searchInputVal);
-  const foundPostsState = useSelector(state => state.foundPosts);
+  )
+  const searchInputValState = useSelector(state => state.searchInputVal)
+  const foundPostsState = useSelector(state => state.foundPosts)
 
   function highlightTextInPreview(words) {
-    const context = document.querySelectorAll('.post-preview');
-    const instance = new Mark(context);
-    instance.unmark();
-    instance.mark(words);
+    const context = document.querySelectorAll('.post-preview')
+    const instance = new Mark(context)
+    instance.unmark()
+    instance.mark(words)
   }
 
   useEffect(() => {
-    highlightTextInPreview(store.getState().typedWords);
-  });
-
+    highlightTextInPreview(store.getState().typedWords)
+  })
 
   const dispatch = useDispatch()
   const ref = React.useRef()
@@ -40,42 +38,35 @@ export default function Search() {
     dispatch({ type: 'close search menu' })
     dispatch({ type: 'remove tags input val' })
   }
-  const closeSearchPreviewMemo = React.useCallback(closeSearchPreview, [dispatch]);
+  const closeSearchPreviewMemo = React.useCallback(closeSearchPreview, [dispatch])
 
   React.useEffect(() => {
-
     function closeModalOnEscape(e) {
-      if (e.key === 'Escape') closeSearchPreviewMemo();
+      if (e.key === 'Escape') closeSearchPreviewMemo()
     }
 
     function isClickedElOutsideThisEl(clickedEl, thisEl) {
-      return thisEl.contains(clickedEl) ? false : true;
+      return !thisEl.contains(clickedEl)
     }
 
     function closeModalOnClickOutside(e) {
-      const modalWindow = ref.current;
-      const clickedEl = e.target;
-      if (!modalWindow) return;
-      if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeSearchPreviewMemo();
+      const modalWindow = ref.current
+      const clickedEl = e.target
+      if (!modalWindow) return
+      if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeSearchPreviewMemo()
     }
 
-    document.addEventListener('click', closeModalOnClickOutside);
-    document.addEventListener('keydown', closeModalOnEscape);
+    document.addEventListener('click', closeModalOnClickOutside)
+    document.addEventListener('keydown', closeModalOnEscape)
 
     return () => {
-      document.removeEventListener('click', closeModalOnClickOutside);
-      document.removeEventListener('keydown', closeModalOnEscape);
-    };
-
-
-
+      document.removeEventListener('click', closeModalOnClickOutside)
+      document.removeEventListener('keydown', closeModalOnEscape)
+    }
 
     // document.addEventListener('click', closeSearchPreviewMemo);
     // return () => document.removeEventListener('click', closeSearchPreviewMemo)
-
-
-
-  }, [closeSearchPreviewMemo]);
+  }, [closeSearchPreviewMemo])
 
   return (
     <DivStyled
@@ -97,14 +88,14 @@ export default function Search() {
                   title={o.titleTxt}
                   summary={foundPostsState.length < 10 && o.postTxt}
                   uriPostName={o.uriPostName}
-                  key={`${o.id  }_preview`}
+                  key={`${o.id}_preview`}
                 />
-              );
+              )
             })}
         </SearchPreviewContainer>
       )}
     </DivStyled>
-  );
+  )
 }
 
 const DivStyled = styled.div`
@@ -123,4 +114,4 @@ const DivStyled = styled.div`
   transform: translateX(-50%);
 
   z-index: 1;
-`;
+`

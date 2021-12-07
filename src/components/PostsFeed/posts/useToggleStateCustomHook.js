@@ -1,18 +1,17 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-import useToggleBooleanState from '../../../helpers/functions/useToggleBooleanState';
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+import useToggleBooleanState from '../../../helpers/functions/useToggleBooleanState'
 
 function Component() {
-  const [state, toggleState] = useToggleBooleanState(true);
+  const [state, toggleState] = useToggleBooleanState(true)
   return (
     <>
       <div>{state.toString()}</div>
       <button onClick={toggleState}>Toggle state</button>
     </>
-  );
+  )
 }
-const toRender = <Component />;
+const toRender = <Component />
 
 export const useToggleBooleanStateCustomHook = {
   title: (
@@ -92,4 +91,4 @@ export const useToggleBooleanStateCustomHook = {
       ),
     },
   ],
-};
+}

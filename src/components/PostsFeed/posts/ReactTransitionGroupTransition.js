@@ -1,22 +1,22 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-import { Transition } from 'react-transition-group';
+import { useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+import { Transition } from 'react-transition-group'
 
 function Component1() {
-  const [inProp, setInProp] = useState(false);
+  const [inProp, setInProp] = useState(false)
   const initCss = {
     background: 'yellow',
     margin: '5px 0px',
     whiteSpace: 'nowrap',
     width: '1000px',
-  };
+  }
   const transitionCss = {
-    entering: { width: '10px', transition: `all ${100}ms linear`, },
-    entered: { width: '600px', transition: `all ${200}ms linear`, },
-    exiting: { width: '200px', transition: `all ${300}ms linear`, },
-    exited: { width: '100px', transition: `all ${400}ms linear`,  },
-  };
+    entering: { width: '10px', transition: `all ${100}ms linear` },
+    entered: { width: '600px', transition: `all ${200}ms linear` },
+    exiting: { width: '200px', transition: `all ${300}ms linear` },
+    exited: { width: '100px', transition: `all ${400}ms linear` },
+  }
 
   const ref = useRef()
   const onEnterRef = useRef()
@@ -42,8 +42,8 @@ function Component1() {
 
   return (
     <>
-      <Transition 
-        in={inProp} 
+      <Transition
+        in={inProp}
         timeout={{
           enter: 5000,
           exit: 2000,
@@ -70,7 +70,7 @@ function Component1() {
         }}
         onExiting={() => {
           onExitingRef.current.innerHTML = timeStamp()
-          onExitingDeltaRef.current.innerHTML = +onExitingRef.current.innerText - +onExitRef.current.innerText 
+          onExitingDeltaRef.current.innerHTML = +onExitingRef.current.innerText - +onExitRef.current.innerText
           onExitingWidthRef.current.innerHTML = ref.current.style.width
         }}
         onExited={() => {
@@ -91,7 +91,7 @@ function Component1() {
         )}
       </Transition>
 
-      <button 
+      <button
         onClick={() => {
           setInProp(!inProp)
         }}
@@ -99,25 +99,25 @@ function Component1() {
         Toggle transition
       </button>
     </>
-  );
+  )
 }
 
-const toRender1 = <Component1 />;
+const toRender1 = <Component1 />
 
 function Component2() {
-  const [inProp, setInProp] = useState(false);
+  const [inProp, setInProp] = useState(false)
   const initCss = {
     background: 'yellow',
     margin: '5px 0px',
     whiteSpace: 'nowrap',
     width: '1000px',
-  };
+  }
   const transitionCss = {
-    entering: { width: '100px', transition: `all ${0}ms linear`, },
-    entered: { width: '600px', transition: `all ${200}ms linear`, },
-    exiting: { width: '600px', transition: `all ${0}ms linear`, },
-    exited: { width: '100px', transition: `all ${400}ms linear`,  },
-  };
+    entering: { width: '100px', transition: `all ${0}ms linear` },
+    entered: { width: '600px', transition: `all ${200}ms linear` },
+    exiting: { width: '600px', transition: `all ${0}ms linear` },
+    exited: { width: '100px', transition: `all ${400}ms linear` },
+  }
 
   const ref = useRef()
   const onEnterRef = useRef()
@@ -143,8 +143,8 @@ function Component2() {
 
   return (
     <>
-      <Transition 
-        in={inProp} 
+      <Transition
+        in={inProp}
         timeout={{
           enter: 0,
           exit: 0,
@@ -171,7 +171,7 @@ function Component2() {
         }}
         onExiting={() => {
           onExitingRef.current.innerHTML = timeStamp()
-          onExitingDeltaRef.current.innerHTML = +onExitingRef.current.innerText - +onExitRef.current.innerText 
+          onExitingDeltaRef.current.innerHTML = +onExitingRef.current.innerText - +onExitRef.current.innerText
           onExitingWidthRef.current.innerHTML = ref.current.style.width
         }}
         onExited={() => {
@@ -192,7 +192,7 @@ function Component2() {
         )}
       </Transition>
 
-      <button 
+      <button
         onClick={() => {
           setInProp(!inProp)
         }}
@@ -200,11 +200,10 @@ function Component2() {
         Toggle transition
       </button>
     </>
-  );
+  )
 }
 
-const toRender2 = <Component2 />;
-
+const toRender2 = <Component2 />
 
 export const ReactTransitionGroupTransition = {
   title: 'React transition group - transition',
@@ -282,7 +281,7 @@ export const ReactTransitionGroupTransition = {
     },
     {
       type: 'text',
-      val: `Let's get a closer look to transition css and timeouts.`,
+      val: 'Let\'s get a closer look to transition css and timeouts.',
     },
     {
       type: 'code',
@@ -305,20 +304,20 @@ export const ReactTransitionGroupTransition = {
           Basically happens following:
 
           <ul>
-            <li>{`init width 100px as in 'exited' CSS`}</li>
-            <li>{`we click btn to make prop in={true}`}</li>
-            <li>{`'entering' CSS applied immediately --> in 0.1s width becomes 10px`}</li>
-            <li>{`'entered' CSS applied in 5s --> in 0.2s width becomes 600px`}</li>
-            <li>{`click btn to make prop in={false}`}</li>
-            <li>{`'exiting' CSS applied immediately --> in 0.3s width becomes 200px`}</li>
-            <li>{`'exited' CSS applied in 2s --> in 0.4s width becomes 100px`}</li>
-          </ul> 
+            <li>{'init width 100px as in \'exited\' CSS'}</li>
+            <li>{'we click btn to make prop in={true}'}</li>
+            <li>{'\'entering\' CSS applied immediately --> in 0.1s width becomes 10px'}</li>
+            <li>{'\'entered\' CSS applied in 5s --> in 0.2s width becomes 600px'}</li>
+            <li>{'click btn to make prop in={false}'}</li>
+            <li>{'\'exiting\' CSS applied immediately --> in 0.3s width becomes 200px'}</li>
+            <li>{'\'exited\' CSS applied in 2s --> in 0.4s width becomes 100px'}</li>
+          </ul>
         </>
       ),
     },
     {
       type: 'text',
-      val: `According to this logic if we just want width to slide right & left we should modify timeouts and transition durations.`,
+      val: 'According to this logic if we just want width to slide right & left we should modify timeouts and transition durations.',
     },
     {
       type: 'code',
@@ -339,4 +338,4 @@ export const ReactTransitionGroupTransition = {
       val: toRender2,
     },
   ],
-};
+}

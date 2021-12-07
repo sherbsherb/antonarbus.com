@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export function Div(props) {
-  return <DivStyled>{props.children}</DivStyled>;
+  return <DivStyled>{props.children}</DivStyled>
 }
 
 const DivStyled = styled.div`
@@ -9,4 +9,4 @@ const DivStyled = styled.div`
   margin-bottom: 10px;
   align-self: flex-start;
   width: 100%;
-`;
+`

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import { useState } from 'react'
+import styled, { keyframes } from 'styled-components'
 
 const popAnimation = keyframes`
   from { transform: scaleY(0); }
   to { transform: scaleY(1); }
-`;
+`
 
 const SpanWithPop = styled.span`
   display: inline-block;
@@ -16,25 +16,25 @@ const SpanWithPop = styled.span`
   &.animationClass {
     animation: ${popAnimation} 0.5s ease;
   }
-`;
+`
 
 function Component() {
-  const [animationState, setAnimationState] = useState(false);
+  const [animationState, setAnimationState] = useState(false)
 
   return (
     <>
-      <SpanWithPop 
+      <SpanWithPop
         className={animationState ? 'animationClass' : ''}
-        onClick={() => {setAnimationState(true)}}
-        onAnimationEnd={() => {setAnimationState(false)}}
+        onClick={() => { setAnimationState(true) }}
+        onAnimationEnd={() => { setAnimationState(false) }}
       >
         Click me to pop out
       </SpanWithPop>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const animationTriggerByClass = {
   title: <>Start animation by class name change</>,
@@ -97,4 +97,4 @@ export const animationTriggerByClass = {
       val: toRender,
     },
   ],
-};
+}

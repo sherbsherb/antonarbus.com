@@ -1,51 +1,48 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
 
 export function useModalWithoutBackground() {
+  const [showModalState, setShowModalState] = useState(false)
+  const modalRef = useRef()
 
-  const [showModalState, setShowModalState] = useState(false);
-  const modalRef = useRef();
-  
-  const openModal = () => setShowModalState(true);
-  const closeModal = () => setShowModalState(false);
+  const openModal = () => setShowModalState(true)
+  const closeModal = () => setShowModalState(false)
 
   function Modal(props) {
-
     useEffect(() => {
       function closeModalOnEscape(e) {
-        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Escape') closeModal()
       }
 
       function isClickedElOutsideThisEl(clickedEl, thisEl) {
-        return thisEl.contains(clickedEl) ? false : true;
+        return !thisEl.contains(clickedEl)
       }
 
       function closeModalOnClickOutside(e) {
-        const modalWindow = modalRef.current;
-        const clickedEl = e.target;
-        if (!modalWindow) return;
-        if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeModal();
+        const modalWindow = modalRef.current
+        const clickedEl = e.target
+        if (!modalWindow) return
+        if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeModal()
       }
 
-      document.addEventListener('click', closeModalOnClickOutside);
-      document.addEventListener('keydown', closeModalOnEscape);
+      document.addEventListener('click', closeModalOnClickOutside)
+      document.addEventListener('keydown', closeModalOnEscape)
 
       return () => {
-        document.removeEventListener('click', closeModalOnClickOutside);
-        document.removeEventListener('keydown', closeModalOnEscape);
-      };
-
-    }, []);
+        document.removeEventListener('click', closeModalOnClickOutside)
+        document.removeEventListener('keydown', closeModalOnEscape)
+      }
+    }, [])
 
     return (
       <Box ref={modalRef}>
         <CloseBtn onClick={closeModal} />
         {props.children}
       </Box>
-    );
+    )
   }
 
-  return [showModalState, openModal, Modal];
+  return [showModalState, openModal, Modal]
 }
 
 const Box = styled.div`
@@ -59,7 +56,7 @@ const Box = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px #8b8b8b;
   border: 2px solid #2a2a2a;
-`;
+`
 
 const CloseBtn = styled.span`
   position: absolute;
@@ -77,4 +74,4 @@ const CloseBtn = styled.span`
   &:after {
     content: '×';
   }
-`;
+`

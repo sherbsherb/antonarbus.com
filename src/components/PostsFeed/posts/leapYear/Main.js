@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Input } from './Input';
-import { Output} from './Output';
+import React from 'react'
+import styled from 'styled-components'
+import { Input } from './Input'
+import { Output } from './Output'
 
 export function Main() {
-  const [yearTypeState, setYearTypeState] = React.useState(null);
+  const [yearTypeState, setYearTypeState] = React.useState(null)
 
   return (
     <DivStyled data-testid="cmpt">
@@ -12,7 +12,7 @@ export function Main() {
       <Input setYearTypeState={setYearTypeState} />
       <Output yearTypeState={yearTypeState} />
     </DivStyled>
-  );
+  )
 }
 
 const DivStyled = styled.div`
@@ -22,4 +22,4 @@ const DivStyled = styled.div`
   align-items: center;
   min-height: 130px;
   font-size: 1.3rem;
-`;
+`

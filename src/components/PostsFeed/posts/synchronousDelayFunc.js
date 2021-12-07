@@ -1,25 +1,22 @@
-import React from 'react';
-
 function Component() {
-
   const syncWait = ms => {
     const end = Date.now() + ms
     while (Date.now() < end) continue
   }
 
   const sayHiWithDelay = () => {
-    syncWait(2000);
-    alert('hi');
-  };
+    syncWait(2000)
+    alert('hi')
+  }
 
   return (
     <>
       <button onClick={sayHiWithDelay}>Say 'hi' with delay</button>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const synchronousDelayFunc = {
   title: (
@@ -83,4 +80,4 @@ export const synchronousDelayFunc = {
       val: toRender,
     },
   ],
-};
+}

@@ -1,32 +1,32 @@
-import React from 'react';
-import { Lnk } from './../components/Lnk';
-import { gsap } from "gsap";
-import { CodeSpan } from '../components/CodeSpan';
+import React from 'react'
+import { Lnk } from './../components/Lnk'
+import { gsap } from 'gsap'
+import { CodeSpan } from '../components/CodeSpan'
 
 function Component() {
   const ref = React.useRef()
-  const rotate = () => gsap.to(ref.current, { rotation: "+=360" });
+  const rotate = () => gsap.to(ref.current, { rotation: '+=360' })
 
   // animation on component load
   React.useEffect(() => {
-    rotate();
-  }, []);
+    rotate()
+  }, [])
 
   return (
   <>
-    <div ref={ref} style={{width: '100px', height: '100px', background: 'LightGrey', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <div ref={ref} style={{ width: '100px', height: '100px', background: 'LightGrey', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       Box
     </div>
     <button onClick={rotate}>Rotate</button>
   </>
-    
-  );
+
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const gsapAndReact = {
-  title: "GSAP in React",
+  title: 'GSAP in React',
   date: '2021.11.11',
   tagsArr: ['react', 'animation', 'gsap'],
   postParts: [
@@ -97,4 +97,4 @@ export const gsapAndReact = {
       val: toRender,
     },
   ],
-};
+}

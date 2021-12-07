@@ -1,17 +1,17 @@
-import React, { createContext, useContext, useState } from 'react';
-import shortid from 'shortid';
-import { CodeSpan } from '../components/CodeSpan';
+import { createContext, useContext, useState } from 'react'
+import shortid from 'shortid'
+import { CodeSpan } from '../components/CodeSpan'
 
-const Context = createContext('');
+const Context = createContext('')
 
 function Parent() {
   const [state, setState] = useState('state')
 
-  const contextValue={
+  const contextValue = {
     state,
     setState,
     message: 'hello from the context',
-    style: { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px' }
+    style: { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
   }
 
   return (
@@ -25,11 +25,11 @@ function Parent() {
         <Child name='Child 2'/>
       </div>
     </Context.Provider>
-  );
+  )
 }
 
 function Child(props) {
-  const data = useContext(Context);
+  const data = useContext(Context)
   return (
     <div style={data.style}>
       <div>{props.name}</div>
@@ -37,16 +37,15 @@ function Child(props) {
       <div>State 1: <b>{data.state}</b></div>
       <button onClick={() => data.setState(shortid()) }>Change state 1</button>
     </div>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const useContextWithUseStateWithoutUseReducer = {
   title: <>
     <CodeSpan>useContext()</CodeSpan> with <CodeSpan>useState()</CodeSpan> & without <CodeSpan>useReducer()</CodeSpan>
-  </>
-  ,
+  </>,
   date: '2021.10.25',
   tagsArr: ['react', 'useReducer', 'hook', 'basics'],
   postParts: [
@@ -101,4 +100,4 @@ export const useContextWithUseStateWithoutUseReducer = {
       val: toRender,
     },
   ],
-};
+}

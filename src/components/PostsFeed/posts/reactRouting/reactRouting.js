@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { CodeSpan } from '../../components/CodeSpan'
 import { Lnk } from '../../components/Lnk'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import axios from 'axios'
 import img from './linkProps.png'
 
 function Component() {
@@ -17,28 +17,28 @@ function Component() {
       </Switch>
       <Footer />
     </Router>
-  );
+  )
 }
 
 const Nav = () => (
   <div>
-    Nav: 
+    Nav:
     <Link to="/"> •Home</Link>
     <Link to="/about"> •About</Link>
     <Link to="/shop"> •Shop</Link>
   </div>
-);
+)
 
-const Home = () => <div>Home</div>;
+const Home = () => <div>Home</div>
 
-const About = () => <div>About</div>;
+const About = () => <div>About</div>
 
 const Shop = () => {
-  const [state, setState] = useState([]);
+  const [state, setState] = useState([])
   useEffect(() => {
     axios('https://fortnite-api.theapinetwork.com/store/get')
-      .then(res =>setState(res.data.data))
-  }, []);
+      .then(res => setState(res.data.data))
+  }, [])
 
   return (
     <>
@@ -49,19 +49,19 @@ const Shop = () => {
         </h3>
       ))}
     </>
-  );
-};
+  )
+}
 
 const ItemInShop = (props) => {
-  const [state, setState] = useState({});
-  const hasFetchedData = React.useRef(false);
-  
+  const [state, setState] = useState({})
+  const hasFetchedData = React.useRef(false)
+
   useEffect(() => {
     if (hasFetchedData.current) return
     axios(`https://fortnite-api.theapinetwork.com/item/get?id=${props.match.params.id}`)
       .then(res => setState({ ...state, ...res.data.data.item }))
-    hasFetchedData.current = true;
-  }, [props.match.params.id, state]); 
+    hasFetchedData.current = true
+  }, [props.match.params.id, state])
 
   return (
     <>
@@ -69,14 +69,14 @@ const ItemInShop = (props) => {
       <div><b>description</b>: {state.description}</div>
       <div><b>cost</b>: {state.cost}</div>
       <div><b>ratings</b>: {state.ratings?.avgStars}</div>
-      <img src={state.images?.icon} alt={state.description} /> 
+      <img src={state.images?.icon} alt={state.description} />
     </>
-  );
-};
+  )
+}
 
-const Footer = () => <div>Footer</div>;
+const Footer = () => <div>Footer</div>
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const reactRouting = {
   title: 'Routes in React',
@@ -138,7 +138,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Anchor tag to a component should be wrapped into <CodeSpan>{`<Link to='/about'>About</Link>`}</CodeSpan>
+          Anchor tag to a component should be wrapped into <CodeSpan>{'<Link to=\'/about\'>About</Link>'}</CodeSpan>
         </>
       ),
     },
@@ -146,7 +146,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          When we are redirected to a component from the <CodeSpan>{'<Link/>'}</CodeSpan> the component automatically gets props with useful information. 
+          When we are redirected to a component from the <CodeSpan>{'<Link/>'}</CodeSpan> the component automatically gets props with useful information.
         </>
       ),
     },
@@ -158,7 +158,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Component can have a dynamic routing with a placeholder <CodeSpan>{`<Route path="/shop/:id" component={ItemInShop} />`}</CodeSpan>. 
+          Component can have a dynamic routing with a placeholder <CodeSpan>{'<Route path="/shop/:id" component={ItemInShop} />'}</CodeSpan>.
         </>
       ),
     },
@@ -166,7 +166,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          Such component can be accessed with following <CodeSpan>{`<Link to={'/shop/\${o.itemId}'}>item</Link>`}</CodeSpan>. 
+          Such component can be accessed with following <CodeSpan>{'<Link to={\'/shop/${o.itemId}\'}>item</Link>'}</CodeSpan>.
         </>
       ),
     },
@@ -174,7 +174,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{`axios('https://apiUrl/get?id=\${props.match.params.id}')`}</CodeSpan>. 
+          <i>id</i> received by a component from props can be used for dynamic data presentation, for example for data fetching from api <CodeSpan>{'axios(\'https://apiUrl/get?id=${props.match.params.id}\')'}</CodeSpan>.
         </>
       ),
     },
@@ -182,7 +182,7 @@ export const reactRouting = {
       type: 'text',
       val: (
         <>
-          For dynamic components presentation we retrieve data from <Lnk path='https://docs.fortniteapi.com/'>fortniteapi</Lnk>. 
+          For dynamic components presentation we retrieve data from <Lnk path='https://docs.fortniteapi.com/'>fortniteapi</Lnk>.
         </>
       ),
     },
@@ -274,4 +274,4 @@ export const reactRouting = {
       val: <>Inspired by Dev Ed's <Lnk path="https://www.youtube.com/watch?v=Law7wfdg_ls">video</Lnk></>,
     },
   ],
-};
+}

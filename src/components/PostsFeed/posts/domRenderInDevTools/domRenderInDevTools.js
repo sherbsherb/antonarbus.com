@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import menuPic from './menu.png';
-import textSplash from './text splash.png';
-import pageSplash from './page splash.png';
+import menuPic from './menu.png'
+import textSplash from './text splash.png'
+import pageSplash from './page splash.png'
+import { useState } from 'react'
 
 function Component() {
-  const [state, setState] = useState('');
+  const [state, setState] = useState('')
   return (
     <>
-      <button onClick={() => setState(`${state  } + some text`)}>Add text</button>
+      <button onClick={() => setState(`${state} + some text`)}>Add text</button>
       <br />
       <br />
       <div>Text{state}</div>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const domRenderInDevTools = {
   title: 'DOM render in dev tools',
@@ -81,4 +81,4 @@ export const domRenderInDevTools = {
       width: '80%',
     },
   ],
-};
+}

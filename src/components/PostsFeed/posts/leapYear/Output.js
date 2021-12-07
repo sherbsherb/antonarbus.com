@@ -1,4 +1,4 @@
-export function Output({yearTypeState}) {
+export function Output({ yearTypeState }) {
   return (
     <div data-testid="output">
       {yearTypeState === null && <span style={{ color: 'grey' }}>Year is not provided</span>}

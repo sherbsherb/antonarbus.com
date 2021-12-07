@@ -1,8 +1,8 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import React from 'react'
+import { CodeSpan } from '../components/CodeSpan'
 
 function Parent() {
-  const [state, setState] = React.useState(0);
+  const [state, setState] = React.useState(0)
 
   return (
     <div style={{ background: 'lightyellow', padding: '20px' }}>
@@ -12,7 +12,7 @@ function Parent() {
       <br />
       <Child state={state} setState={setState} />
     </div>
-  );
+  )
 }
 
 function Child(props) {
@@ -25,19 +25,34 @@ function Child(props) {
       </button>
       <br />
     </div>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const updateValueFromChildComponent = {
   title: 'Update value from a child component',
   date: '2021.09.29',
-  tagsArr: ['react', 'props', 'state', 'useState', 'component', 'child', 'parent', 'basics'],
+  tagsArr: [
+    'react',
+    'props',
+    'state',
+    'useState',
+    'component',
+    'child',
+    'parent',
+    'basics',
+  ],
   postParts: [
     {
       type: 'text',
-      val: <>To update the state in a Parent component from a Child component we need to pass <CodeSpan>setState</CodeSpan> function via props to a child component.</>,
+      val: (
+        <>
+          To update the state in a Parent component from a Child component we
+          need to pass <CodeSpan>setState</CodeSpan> function via props to a
+          child component.
+        </>
+      ),
     },
     {
       type: 'code',
@@ -78,4 +93,4 @@ export const updateValueFromChildComponent = {
       val: toRender,
     },
   ],
-};
+}

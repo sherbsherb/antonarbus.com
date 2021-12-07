@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { store } from '../../../App';
+import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
+import { store } from '../../../App'
 
 export function InputTagsSearch() {
+  const tagsInputState = useSelector(state => state.tagsInputReducer)
+  const dispatch = useDispatch()
 
-  const tagsInputState = useSelector(state => state.tagsInputReducer);
-  const dispatch = useDispatch();
-  
   return (
     <InputStyled>
       <input
@@ -14,23 +13,22 @@ export function InputTagsSearch() {
         placeholder={'Filter tags'}
         value={tagsInputState}
         onChange={e => {
-          const inputVal = e.target.value;
+          const inputVal = e.target.value
 
-          dispatch({ 
-            type: 'store tags input val', 
-            tagsInputVal: inputVal 
-          });
+          dispatch({
+            type: 'store tags input val',
+            tagsInputVal: inputVal
+          })
 
-          dispatch({ 
-            type: 'filter tags', 
+          dispatch({
+            type: 'filter tags',
             tagsInputVal: store.getState().tagsInputVal,
             tagsFromFoundPosts: store.getState().tagsFromFoundPosts,
-          });
-
+          })
         }}
       />
     </InputStyled>
-  );
+  )
 }
 
 const InputStyled = styled.div`
@@ -64,4 +62,4 @@ const InputStyled = styled.div`
       cursor: pointer;
     }
   }
-`;
+`

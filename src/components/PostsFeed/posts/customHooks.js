@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 
 function Component1() {
   const [count, setCount] = useState(0)
-  const increment = () => setCount(prevVal => prevVal + 1);
-  const decrement = () => setCount(prevVal => prevVal - 1);
-  const reset = () => setCount(0);
+  const increment = () => setCount(prevVal => prevVal + 1)
+  const decrement = () => setCount(prevVal => prevVal - 1)
+  const reset = () => setCount(0)
 
   return (
     <div>
@@ -13,17 +13,17 @@ function Component1() {
       <button onClick={decrement}>-1</button>
       <button onClick={reset}>Reset</button>
     </div>
-  );
+  )
 }
 
-const toRender1 = <Component1 />;
+const toRender1 = <Component1 />
 
 // custom hook
 function useCounter(initVal = 0, step = 1) {
   const [count, setCount] = useState(initVal)
-  const increment = () => setCount(prevVal => prevVal + step);
-  const decrement = () => setCount(prevVal => prevVal - step);
-  const reset = () => setCount(initVal);
+  const increment = () => setCount(prevVal => prevVal + step)
+  const decrement = () => setCount(prevVal => prevVal - step)
+  const reset = () => setCount(initVal)
   return [count, increment, decrement, reset]
 }
 
@@ -39,10 +39,10 @@ function Component2() {
       <button onClick={decrement}>-{step}</button>
       <button onClick={reset}>Reset</button>
     </div>
-  );
+  )
 }
 
-const toRender2 = <Component2 />;
+const toRender2 = <Component2 />
 
 export const customHooks = {
   title: 'Custom hooks',
@@ -152,4 +152,4 @@ export const customHooks = {
       ),
     },
   ],
-};
+}

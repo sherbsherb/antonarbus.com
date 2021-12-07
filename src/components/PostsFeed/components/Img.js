@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export function Img(props) {
   return (
@@ -9,7 +9,7 @@ export function Img(props) {
       link={props.link}
       alt={props.alt}
     />
-  );
+  )
 }
 
 const ImgStyled = styled.img.attrs(props => ({
@@ -31,4 +31,4 @@ const ImgStyled = styled.img.attrs(props => ({
   @media screen and (max-width: 480px) {
     /* min-width: 100%; */
   }
-`;
+`

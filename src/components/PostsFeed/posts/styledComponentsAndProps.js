@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import React from 'react'
+import styled from 'styled-components'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 const DivStyled = styled.div`
   display: inline-block;
@@ -9,39 +9,39 @@ const DivStyled = styled.div`
   margin: 10px;
   color: ${props => props.color || 'white'};
   background: grey;
-`;
+`
 
 function Component1() {
-  const fontColor = 'blue';
-  return <DivStyled color={fontColor}>I am div</DivStyled>;
+  const fontColor = 'blue'
+  return <DivStyled color={fontColor}>I am div</DivStyled>
 }
 
-const toRender1 = <Component1 />;
+const toRender1 = <Component1 />
 
 const DivExtended = styled(DivStyled)`
   display: inline-block;
   padding: 10px;
   margin: 10px;
   background: ${props => props.bgColor};
-`;
+`
 
 function Component2() {
-  const [colorState, setColorState] = React.useState('red');
+  const [colorState, setColorState] = React.useState('red')
   return (
     <>
       <DivExtended bgColor={colorState}>I am div</DivExtended>
       <button
         onClick={() => {
-          setColorState(colorState === 'red' ? 'green' : 'red');
+          setColorState(colorState === 'red' ? 'green' : 'red')
         }}
       >
         Change color
       </button>
     </>
-  );
+  )
 }
 
-const toRender2 = <Component2 />;
+const toRender2 = <Component2 />
 
 const Img = styled.img.attrs(props => ({
   src: props.path,
@@ -53,7 +53,7 @@ const Img = styled.img.attrs(props => ({
   @media screen and (max-width: 800px) {
     min-width: 100%;
   }
-`;
+`
 
 function Component3() {
   return (
@@ -63,10 +63,10 @@ function Component3() {
       }
       width={'50%'}
     />
-  );
+  )
 }
 
-const toRender3 = <Component3 />;
+const toRender3 = <Component3 />
 
 export const styledComponentsAndProps = {
   title: 'Styled components & props',
@@ -96,7 +96,7 @@ export const styledComponentsAndProps = {
       type: 'text',
       val: (
         <>
-          Firstly we need to insall library via npm <CodeSpan>{'npm install --save styled-components'}</CodeSpan> <br/><br/> 
+          Firstly we need to insall library via npm <CodeSpan>{'npm install --save styled-components'}</CodeSpan> <br/><br/>
           Then add it to our file <CodeSpan>{"import styled from 'styled-components'"}</CodeSpan>
         </>
       ),
@@ -219,4 +219,4 @@ export const styledComponentsAndProps = {
       val: toRender3,
     },
   ],
-};
+}

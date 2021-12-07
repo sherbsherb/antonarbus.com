@@ -1,12 +1,10 @@
-import axios from 'axios';
-import React from 'react';
+import axios from 'axios'
 
 function Component() {
-
   function sleeper(ms) {
     return function(x) {
-      return new Promise(resolve => setTimeout(() => resolve(x), ms));
-    };
+      return new Promise(resolve => setTimeout(() => resolve(x), ms))
+    }
   }
 
   return (
@@ -15,8 +13,8 @@ function Component() {
         onClick={() => {
           alert('start request')
           axios('https://jsonplaceholder.typicode.com/posts/1')
-          .then(res => alert(`Title: ${  res.data.title}`))
-          .catch(err => alert(JSON.stringify(err)));
+            .then(res => alert(`Title: ${res.data.title}`))
+            .catch(err => alert(JSON.stringify(err)))
         }}
       >
         Get respond from server
@@ -26,18 +24,18 @@ function Component() {
         onClick={() => {
           alert('start request with 3s delay')
           axios('https://jsonplaceholder.typicode.com/posts/1')
-          .then(sleeper(3000))
-          .then(res => alert(`Title: ${  res.data.title}`))
-          .catch(err => alert(JSON.stringify(err)));
+            .then(sleeper(3000))
+            .then(res => alert(`Title: ${res.data.title}`))
+            .catch(err => alert(JSON.stringify(err)))
         }}
       >
         Get respond from server with delay
       </button>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const delayPromise = {
   title: <>Function to delay a promise</>,
@@ -123,4 +121,4 @@ export const delayPromise = {
       val: toRender,
     },
   ],
-};
+}

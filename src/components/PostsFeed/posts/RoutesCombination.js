@@ -1,7 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 const Nav = () => (
   <div>
@@ -10,12 +9,12 @@ const Nav = () => (
     <Link to="/about"> •About</Link>
     <Link to="/shop"> •Shop</Link>
   </div>
-);
+)
 
-const Home = () => <div>Home</div>;
-const About = () => <div>About</div>;
-const Shop = () => <div>Shop</div>;
-const Footer = () => <div>Footer</div>;
+const Home = () => <div>Home</div>
+const About = () => <div>About</div>
+const Shop = () => <div>Shop</div>
+const Footer = () => <div>Footer</div>
 
 function Component1() {
   return (
@@ -28,10 +27,10 @@ function Component1() {
       </Switch>
       <Footer />
     </Router>
-  );
+  )
 }
 
-const toRender1 = <Component1 />;
+const toRender1 = <Component1 />
 
 function Component2() {
   return (
@@ -42,7 +41,7 @@ function Component2() {
               <Nav />
               <About />
             </>
-          )}
+        )}
         />
         <Route path="/shop" exact render={props => (
             <>
@@ -50,7 +49,7 @@ function Component2() {
               <Shop />
               <Footer />
             </>
-          )}
+        )}
         />
         <Route path="/" render={props => (
             <>
@@ -58,14 +57,14 @@ function Component2() {
               <Home />
               <Footer />
             </>
-          )}
+        )}
         />
       </Switch>
     </Router>
-  );
+  )
 }
 
-const toRender2 = <Component2 />;
+const toRender2 = <Component2 />
 
 export const RoutesCombination = {
   title: 'Routes combination',
@@ -167,4 +166,4 @@ export const RoutesCombination = {
       ),
     },
   ],
-};
+}

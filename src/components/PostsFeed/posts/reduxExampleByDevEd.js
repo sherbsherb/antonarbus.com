@@ -1,44 +1,43 @@
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-import React from 'react';
-import { createStore, combineReducers } from 'redux';
-import { Provider, useSelector, useDispatch } from 'react-redux';
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+import { createStore, combineReducers } from 'redux'
+import { Provider, useSelector, useDispatch } from 'react-redux'
 
 // REDUCERS
 const counterReducer = (state = 0, action) => {
-  if (action.type === 'INCREMENT') return state + (action.num || 1);
-  if (action.type === 'DECREMENT') return state - action.num;
-  return state;
-};
+  if (action.type === 'INCREMENT') return state + (action.num || 1)
+  if (action.type === 'DECREMENT') return state - action.num
+  return state
+}
 
 const isLoggedReducer = (state = false, action) => {
-  if (action.type === 'SIGN_IN') return !state;
-  return state;
-};
+  if (action.type === 'SIGN_IN') return !state
+  return state
+}
 
 const allReducers = combineReducers({
   counterReducer: counterReducer,
   isLoggedReducer: isLoggedReducer,
-});
+})
 
 // STORE (holds all states)
 const store = createStore(
   allReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // opt param for dev tools
-);
-store.subscribe(() => console.log(store.getState())); // display in the console
+)
+store.subscribe(() => console.log(store.getState())) // display in the console
 
 const style = {
   border: '2px solid grey',
   padding: '10px',
   margin: '10px',
   maxWidth: '500px',
-};
+}
 
 function Component() {
-  const counter = useSelector(state => state.counterReducer);
-  const isLogged = useSelector(state => state.isLoggedReducer);
-  const dispatch = useDispatch();
+  const counter = useSelector(state => state.counterReducer)
+  const isLogged = useSelector(state => state.isLoggedReducer)
+  const dispatch = useDispatch()
 
   return (
     <div style={style}>
@@ -50,10 +49,10 @@ function Component() {
       <button
         onClick={() => {
           // with store.getState() we read data directly from the store object
-          console.log(store.getState().counterReducer);
-          dispatch({ type: 'DECREMENT', num: 5 });
+          console.log(store.getState().counterReducer)
+          dispatch({ type: 'DECREMENT', num: 5 })
           // we can see that dispatch() works synchronously & we get immediate update
-          console.log(store.getState().counterReducer);
+          console.log(store.getState().counterReducer)
         }}
       >
         Decrement
@@ -63,14 +62,14 @@ function Component() {
       </div>
       <button onClick={() => dispatch({ type: 'SIGN_IN' })}>Sign in/out</button>
     </div>
-  );
+  )
 }
 
 const toRender = (
   <Provider store={store}>
     <Component />
   </Provider>
-);
+)
 
 export const reduxExampleByDevEd = {
   title: (
@@ -158,7 +157,7 @@ export const reduxExampleByDevEd = {
           <i>Reducer</i> is a function where we set an initial state and put
           logic how we want to modify a state depending on an <i>action.type</i>{' '}
           which we provide as an object in the argument of the
-          <CodeSpan>{`dispatch({ type: 'SIGN_IN' })`}</CodeSpan> function.
+          <CodeSpan>{'dispatch({ type: \'SIGN_IN\' })'}</CodeSpan> function.
         </>
       ),
     },
@@ -179,7 +178,7 @@ export const reduxExampleByDevEd = {
         };
       `,
     },
-   
+
     {
       type: 'text',
       val: (
@@ -191,7 +190,6 @@ export const reduxExampleByDevEd = {
       ),
     },
 
-
     {
       type: 'code',
       lang: 'jsx',
@@ -202,17 +200,17 @@ export const reduxExampleByDevEd = {
         });
       `,
     },
-   
+
     {
       type: 'text',
       val: (
         <>
           To update a state we launch the{' '}
-          <CodeSpan>{`dispatch(actionObj)`}</CodeSpan> function with the
+          <CodeSpan>{'dispatch(actionObj)'}</CodeSpan> function with the
           following object parameter{' '}
-          <CodeSpan>{`{ type: 'SIGN_IN' }`}</CodeSpan>, which corresponds to the{' '}
+          <CodeSpan>{'{ type: \'SIGN_IN\' }'}</CodeSpan>, which corresponds to the{' '}
           <CodeSpan>action.type</CodeSpan> of a reducer.
-          <CodeSpan>{`dispatch()`}</CodeSpan> works synchronously.
+          <CodeSpan>{'dispatch()'}</CodeSpan> works synchronously.
         </>
       ),
     },
@@ -261,7 +259,7 @@ export const reduxExampleByDevEd = {
       type: 'text',
       val: (
         <>
-          With <CodeSpan>{`store.getState()`}</CodeSpan> we may read data
+          With <CodeSpan>{'store.getState()'}</CodeSpan> we may read data
           directly from the store object.
         </>
       ),
@@ -301,7 +299,7 @@ export const reduxExampleByDevEd = {
     },
     {
       type: 'text',
-      val: `Whole app's code.`
+      val: 'Whole app\'s code.'
     },
     {
       type: 'code',
@@ -391,4 +389,4 @@ export const reduxExampleByDevEd = {
       ),
     },
   ],
-};
+}

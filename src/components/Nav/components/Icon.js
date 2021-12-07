@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Icon = styled.span`
   width: ${60 * 0.5}px;
@@ -23,4 +23,4 @@ export const Icon = styled.span`
   &:hover {
     /* filter: brightness(1.2); */
   }
-`;
+`

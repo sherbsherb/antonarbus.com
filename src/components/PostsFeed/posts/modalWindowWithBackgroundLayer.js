@@ -1,19 +1,18 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { useModalWithBackground } from '../../../helpers/functions/useModalWindowWithBackgroundLayer';
+import { CodeSpan } from '../components/CodeSpan'
+import { useModalWithBackground } from '../../../helpers/functions/useModalWindowWithBackgroundLayer'
 
 function Parent() {
-  const [showModalState, openModal, Modal] = useModalWithBackground();
+  const [showModalState, openModal, Modal] = useModalWithBackground()
   return (
     <div>
       <div>Parent component</div>
       <button onClick={openModal}>Show modal window</button>
       {showModalState && <Modal>Modal child component</Modal>}
     </div>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const modalWindowWithBackgroundLayer = {
   title: 'Modal window with background layer',
@@ -184,8 +183,6 @@ export const modalWindowWithBackgroundLayer = {
       `,
     },
 
-
-
     {
       type: 'text',
       val: (
@@ -229,4 +226,4 @@ export const modalWindowWithBackgroundLayer = {
       val: toRender,
     },
   ],
-};
+}

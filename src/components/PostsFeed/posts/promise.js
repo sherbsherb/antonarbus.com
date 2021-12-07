@@ -1,5 +1,4 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { CodeSpan } from '../components/CodeSpan'
 
 export const promisePost = {
   title: 'Promise',
@@ -34,7 +33,7 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          Check the example. 
+          Check the example.
         </>
       ),
     },
@@ -53,7 +52,7 @@ export const promisePost = {
       type: 'text',
       val: (
         <>
-          3 goes after 4, but we need vice versa. 
+          3 goes after 4, but we need vice versa.
         </>
       ),
     },
@@ -135,4 +134,4 @@ export const promisePost = {
       `,
     },
   ],
-};
+}

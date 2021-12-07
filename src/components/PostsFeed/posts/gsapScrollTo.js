@@ -1,23 +1,23 @@
-import React, { useRef } from 'react';
-import styled from 'styled-components';
-import { Lnk } from '../components/Lnk';
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { CodeSpan } from '../components/CodeSpan';
-import randomNumFromTo from './../../../helpers/functions/randomNumFromTo';
+import { useRef } from 'react'
+import styled from 'styled-components'
+import { Lnk } from '../components/Lnk'
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import { CodeSpan } from '../components/CodeSpan'
+import randomNumFromTo from './../../../helpers/functions/randomNumFromTo'
 
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollToPlugin)
 
 function Cmpt() {
   const ref = useRef()
-  const scroll400pxDown = () => gsap.to(ref.current, {duration: 2, scrollTo: 400});
-  const scrollToId = () => gsap.to(ref.current, {duration: 2, scrollTo: "#final-line"});
-  const scrollToIdWithOffset = () => gsap.to(ref.current, {duration: 2, scrollTo: {y: "#final-line", offsetY: 50}});
-  const scrollWindow = () => gsap.to(window, {duration: 2, scrollTo: 400});
-  const scrollXY = () => gsap.to(ref.current, {duration: 2, scrollTo: {y: 500, x: 500}, ease: "power2"});
-  const scrollWithAutoKill = () => gsap.to(ref.current, {duration: 4, scrollTo:{y: 400, autoKill: true, onAutoKill: () => alert("autoKill")}});
-  const scrollMax = () => gsap.to(ref.current, {duration: 2, scrollTo: {y: "max"}});
-  const scrollMin = () => gsap.to(ref.current, {duration: 2, scrollTo: {y: "min"}});
+  const scroll400pxDown = () => gsap.to(ref.current, { duration: 2, scrollTo: 400 })
+  const scrollToId = () => gsap.to(ref.current, { duration: 2, scrollTo: '#final-line' })
+  const scrollToIdWithOffset = () => gsap.to(ref.current, { duration: 2, scrollTo: { y: '#final-line', offsetY: 50 } })
+  const scrollWindow = () => gsap.to(window, { duration: 2, scrollTo: 400 })
+  const scrollXY = () => gsap.to(ref.current, { duration: 2, scrollTo: { y: 500, x: 500 }, ease: 'power2' })
+  const scrollWithAutoKill = () => gsap.to(ref.current, { duration: 4, scrollTo: { y: 400, autoKill: true, onAutoKill: () => alert('autoKill') } })
+  const scrollMax = () => gsap.to(ref.current, { duration: 2, scrollTo: { y: 'max' } })
+  const scrollMin = () => gsap.to(ref.current, { duration: 2, scrollTo: { y: 'min' } })
 
   return (
     <div>
@@ -31,22 +31,23 @@ function Cmpt() {
       <button onClick={scrollMin}>scroll min</button>
 
       <Div ref={ref}>
-        {new Array(20).fill('').map((el,i) => <Line key={`start lines ${i}`}/>)}
-        <div id="final-line" style={{background:`red`}}>final line with id</div>
-        {new Array(20).fill('').map((el,i) => <Line key={`end lines ${i}`}/>)}
+        {new Array(20).fill('').map((el, i) => <Line key={`start lines ${i}`}/>)}
+        <div id="final-line" style={{ background: 'red' }}>final line with id</div>
+        {new Array(20).fill('').map((el, i) => <Line key={`end lines ${i}`}/>)}
       </Div>
     </div>
   )
 }
 const rand = () => randomNumFromTo(0, 255)
 const Line = () => <div style={{
-  background:`rgb(${rand()} ${rand()} ${rand()} / 30%)`, 
-  width: "1000px"}}
+  background: `rgb(${rand()} ${rand()} ${rand()} / 30%)`,
+  width: '1000px'
+}}
 >
   line
-</div> 
+</div>
 
-const Div = styled.div `
+const Div = styled.div`
   height: 300px;
   overflow: auto;
 `
@@ -63,7 +64,7 @@ export const gsapScrollTo = {
       val: (
         <>
           Scroll on click can be smoothed natively by {' '}
-          <Lnk path="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior">CSS</Lnk> property <CodeSpan>{"scroll-behavior: smooth"}</CodeSpan>
+          <Lnk path="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior">CSS</Lnk> property <CodeSpan>{'scroll-behavior: smooth'}</CodeSpan>
           .
         </>
       ),
@@ -151,4 +152,4 @@ export const gsapScrollTo = {
       val: toRender
     },
   ],
-};
+}

@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
-import NavList from './components/NavList';
+import styled from 'styled-components'
+import NavList from './components/NavList'
 
 export function Nav() {
   // console.log('Nav')
@@ -10,7 +9,7 @@ export function Nav() {
         <NavList />
         {/* <Hamburger /> */}
       </NavStyled>
-  );
+  )
 }
 
 const NavStyled = styled.nav`
@@ -23,4 +22,4 @@ const NavStyled = styled.nav`
   /* position: sticky; */
   /* top: 5px; */
   z-index: 2;
-`;
+`

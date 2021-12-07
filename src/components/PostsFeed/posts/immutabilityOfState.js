@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
 
 const greenCss = { color: 'green' }
 const redCss = { color: 'red' }
 const marginCss = { margin: '10px' }
 
 function StateIsImmutable() {
-  const [state, setState] = useState([1, 2, 3]);
+  const [state, setState] = useState([1, 2, 3])
   return (
     <div>
       <span>State value: </span> <span style={greenCss}>{JSON.stringify(state)}</span>
       <div style={marginCss}>
         <button
           onClick={() => {
-            state.push(state[state.length - 1] + 1); 
+            state.push(state[state.length - 1] + 1)
             // incorrect
             // state is updated, but not rendered
 
@@ -22,20 +22,20 @@ function StateIsImmutable() {
         >
           Add value directly to the state array
         </button>
-        <span style={{...marginCss, ...redCss}}></span>
+        <span style={{ ...marginCss, ...redCss }}></span>
       </div>
       <div style={marginCss}>
         <button
           onClick={() => {
-            setState([...state, state[state.length - 1] + 1]);
-            console.log(state);
+            setState([...state, state[state.length - 1] + 1])
+            console.log(state)
           }}
         >
           Assign to the state a copy of array with additional value
         </button>
       </div>
     </div>
-  );
+  )
 }
 
 const toRender = <StateIsImmutable />
@@ -60,7 +60,7 @@ export const immutableState = {
       val: (
         <>
           Instead, you need to create a new copy of{' '}
-          <CodeSpan>myData</CodeSpan> and change only the parts of it that need to be changed. 
+          <CodeSpan>myData</CodeSpan> and change only the parts of it that need to be changed.
           For state data React can compare the old copy with the new one.
         </>
       ),
@@ -68,7 +68,7 @@ export const immutableState = {
     {
       type: 'code',
       lang: 'jsx',
-      val: 
+      val:
       `
         import React, { useState } from 'react';
 
@@ -116,4 +116,4 @@ export const immutableState = {
       val: toRender,
     },
   ],
-};
+}

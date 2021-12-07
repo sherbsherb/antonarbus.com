@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { NavItem } from './NavItem';
-import navStructure from '../navStructure';
+import styled from 'styled-components'
+import { NavItem } from './NavItem'
+import navStructure from '../navStructure'
 
 export default function NavList() {
   // console.log('NavList')
@@ -12,7 +11,7 @@ export default function NavList() {
         menuO => menuO.visible && <NavItem menuO={menuO} key={menuO.id} />
       )}
     </Ul>
-  );
+  )
 }
 
 const Ul = styled.ul`
@@ -23,4 +22,4 @@ const Ul = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-`;
+`

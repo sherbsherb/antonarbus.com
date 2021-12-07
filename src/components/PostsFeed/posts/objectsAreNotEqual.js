@@ -1,5 +1,4 @@
-import React from 'react';
-import { Lnk } from '../components/Lnk';
+import { Lnk } from '../components/Lnk'
 
 export const objectsAreNotEqual = {
   title: <>Same objects are not equal</>,
@@ -45,6 +44,6 @@ export const objectsAreNotEqual = {
         [] === [] // false
         (() => 0) === (() => 0) // false
       `,
-    },    
+    },
   ],
-};
+}

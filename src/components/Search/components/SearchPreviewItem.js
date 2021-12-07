@@ -1,15 +1,15 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 export function SearchPreviewItem(props) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
-    <Link style={{textDecoration: 'none'}}
-      to={`/post/${  props.uriPostName}`}
+    <Link style={{ textDecoration: 'none' }}
+      to={`/post/${props.uriPostName}`}
       onClick={() => {
-        dispatch({ type: 'close search menu' });
+        dispatch({ type: 'close search menu' })
       }}
     >
       <SearchPreviewStyled className="post-preview">
@@ -17,7 +17,7 @@ export function SearchPreviewItem(props) {
         <summary>{props.summary}</summary>
       </SearchPreviewStyled>
     </Link>
-  );
+  )
 }
 
 const SearchPreviewStyled = styled.div`
@@ -42,4 +42,4 @@ const SearchPreviewStyled = styled.div`
     color: #3f3f3f;
     font-size: 14px;
   }
-`;
+`

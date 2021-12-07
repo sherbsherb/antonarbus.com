@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const scrollbarStyle = {
   title: 'Scrollbar style',
   date: '2021.11.18',
@@ -9,7 +7,7 @@ export const scrollbarStyle = {
       type: 'text',
       val: (
         <>
-          Custom scrollbar can be done with css. 
+          Custom scrollbar can be done with css.
         </>
       ),
     },
@@ -51,4 +49,4 @@ export const scrollbarStyle = {
       `
     },
   ],
-};
+}

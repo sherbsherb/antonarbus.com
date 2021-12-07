@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
-import axios from 'axios';
-const style = { width: '20px', margin: '0px 10px' };
+import axios from 'axios'
+const style = { width: '20px', margin: '0px 10px' }
 
 function Component() {
-  const [inputVal1, setInputVal1] = useState('1');
-  const [inputVal2, setInputVal2] = useState('2');
-  const [title1, setTitle1] = useState('title1');
-  const [title2, setTitle2] = useState('title2');
+  const [inputVal1, setInputVal1] = useState('1')
+  const [inputVal2, setInputVal2] = useState('2')
+  const [title1, setTitle1] = useState('title1')
+  const [title2, setTitle2] = useState('title2')
 
   return (
     <div>
       <div>
         <button
           onClick={() => {
-            fetch(`https://jsonplaceholder.typicode.com/posts/${  inputVal1}`)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${inputVal1}`)
               .then(res => res.json())
               .then(data => setTitle1(data.title))
-              .catch(err => console.log(err));
+              .catch(err => console.log(err))
           }}
         >
           Fetch article #
@@ -36,9 +36,9 @@ function Component() {
       <div>
         <button
           onClick={() => {
-            axios(`https://jsonplaceholder.typicode.com/posts/${  inputVal2}`)
+            axios(`https://jsonplaceholder.typicode.com/posts/${inputVal2}`)
               .then(res => setTitle2(res.data.title))
-              .catch(err => console.log(err));
+              .catch(err => console.log(err))
           }}
         >
           Axios article #
@@ -52,10 +52,10 @@ function Component() {
         <span>{title2}</span>
       </div>
     </div>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const axiosVsFetch = {
   title: <>Axios vs Fetch</>,
@@ -111,4 +111,4 @@ export const axiosVsFetch = {
       val: toRender,
     },
   ],
-};
+}

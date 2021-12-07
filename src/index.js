@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { createGlobalStyle } from 'styled-components';
+import ReactDOM from 'react-dom'
+import App from './App'
+import { createGlobalStyle } from 'styled-components'
 
 const StyleReset = createGlobalStyle`
   * {
@@ -104,7 +103,7 @@ const StyleReset = createGlobalStyle`
   }
 
 
-`;
+`
 
 ReactDOM.render(
   <>
@@ -112,4 +111,4 @@ ReactDOM.render(
     <App />
   </>,
   document.getElementById('root')
-);
+)

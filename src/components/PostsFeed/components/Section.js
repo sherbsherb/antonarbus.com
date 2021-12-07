@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export function Section(props) {
-  return <SectionStyled className="section">{props.children}</SectionStyled>;
+  return <SectionStyled className="section">{props.children}</SectionStyled>
 }
 
 const SectionStyled = styled.section`
@@ -20,4 +20,4 @@ const SectionStyled = styled.section`
   background-color: transparent;
   background-image: linear-gradient(to right bottom,rgb(255 255 255 / 90%),rgb(255 255 255 / 90%));
   box-shadow: rgb(122 122 122 / 90%) 6px 6px 20px;
-`;
+`

@@ -1,22 +1,22 @@
-import React, { useRef } from 'react';
-const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px' };
+import { useRef } from 'react'
+const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
 
 function Parent() {
-  const ref = useRef();
+  const ref = useRef()
 
   function isClickedElInsideThisEl(clickedEl, thisEl) {
-    if (!thisEl) return;
-    return thisEl.contains(clickedEl) ? true : false;
+    if (!thisEl) return
+    return !!thisEl.contains(clickedEl)
   }
 
   function listenForClick() {
     document.addEventListener('click', e => {
-      const clickedEl = e.target;
-      const cBox = ref.current;
+      const clickedEl = e.target
+      const cBox = ref.current
       const clickedInside = isClickedElInsideThisEl(clickedEl, cBox)
       clickedEl.style.background = clickedInside ? 'lightgreen' : 'lightpink'
-      setTimeout(() => clickedEl.style.background = '', 1000);
-    });
+      setTimeout(() => { clickedEl.style.background = '' }, 1000)
+    })
   }
 
   return (
@@ -38,10 +38,10 @@ function Parent() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const clickedInsideOutside = {
   title: 'Clicked inside or outside element',
@@ -102,4 +102,4 @@ export const clickedInsideOutside = {
       val: toRender,
     },
   ],
-};
+}

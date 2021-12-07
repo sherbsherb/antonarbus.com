@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
 
 function InputWithState() {
-  const [inpVal, setInpVal] = useState('initial text');
+  const [inpVal, setInpVal] = useState('initial text')
 
   return (
     <>
@@ -13,7 +13,7 @@ function InputWithState() {
         onChange={e => setInpVal(e.target.value)}
       />
     </>
-  );
+  )
 }
 
 const toRender = <InputWithState />
@@ -69,4 +69,4 @@ export const useStateAndInput = {
       val: toRender
     },
   ],
-};
+}

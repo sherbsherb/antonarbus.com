@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-import { Lnk } from '../components/Lnk';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styled from 'styled-components';
+import { useEffect, useRef } from 'react'
+import { Lnk } from '../components/Lnk'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import styled from 'styled-components'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 function Cmpt() {
   const ref = useRef()
@@ -17,12 +17,12 @@ function Cmpt() {
       scrollTrigger: {
         scroller: container,
         trigger: box1,
-        start: "center 20%", // 20% of scroller hits center of box
-        end: "+=400", // 400px from the start
+        start: 'center 20%', // 20% of scroller hits center of box
+        end: '+=400', // 400px from the start
         markers: true,
         horizontal: false,
         scrub: 1, // links animation directly to scrollbar progress with 1s delay
-        pin: box1, // stick box to starting position while the rest scrolling 
+        pin: box1, // stick box to starting position while the rest scrolling
         onEnter: () => console.log('onEnter'),
         onEnterBack: () => console.log('onEnterBack'),
         onLeave: () => console.log('onLeave'),
@@ -36,13 +36,13 @@ function Cmpt() {
 
       },
       duration: 5, // not applied here 'coz scrub is enabled
-      rotate: 360*2,
+      rotate: 360 * 2,
       x: 300,
-    });
+    })
   }, [])
 
   return (
-    <div style={{overflow: "auto", height: "300px"}} ref={ref}>
+    <div style={{ overflow: 'auto', height: '300px' }} ref={ref}>
       Scroll down
       <Box top={100} ref={ref1}>box1</Box>
       <Box top={350}>box2</Box>
@@ -50,7 +50,7 @@ function Cmpt() {
   )
 }
 
-const Box = styled.div `
+const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,4 +150,4 @@ export const gsapScrollTrigger = {
       val: toRender
     },
   ],
-};
+}

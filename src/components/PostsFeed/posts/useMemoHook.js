@@ -1,43 +1,49 @@
-/* eslint-disable */
-
-import React, { useMemo, useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import randomNumFromTo from '../../../helpers/functions/randomNumFromTo';
+import { useMemo, useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import randomNumFromTo from '../../../helpers/functions/randomNumFromTo'
 
 function Parent() {
-  const [state, setState] = useState(false);
-  const [oneOrTwoState, setOneOrTwoState] = useState(randomNumFromTo(1, 2));
-  const ref = useRef(0);
+  const [state, setState] = useState(false)
+  const [oneOrTwoState, setOneOrTwoState] = useState(randomNumFromTo(1, 2))
+  const ref = useRef(0)
 
   const funcWithInterruption = () => {
     // skip first render to avoid site load blocking
-    if (ref.current === 0) return;
-    alert('hi');
-  };
+    if (ref.current === 0) return
+    alert('hi')
+  }
 
-  // returns memorized value only of val in dep array is changed 
-  useMemo(funcWithInterruption, [oneOrTwoState]);
-  ref.current++;
+  // returns memorized value only of val in dep array is changed
+  useMemo(funcWithInterruption, [oneOrTwoState])
+  ref.current++
 
   return (
     <>
-      <div>Rendered x<b>{ref.current}</b></div>
-      <div>State: <b>{state.toString()}</b></div>
-      <div>One or two: <b>{oneOrTwoState}</b></div>
-      <div><i>'Hi'</i> message will pop only when number above changes</div>
+      <div>
+        Rendered x<b>{ref.current}</b>
+      </div>
+      <div>
+        State: <b>{state.toString()}</b>
+      </div>
+      <div>
+        One or two: <b>{oneOrTwoState}</b>
+      </div>
+      <div>
+        <i>'Hi'</i> message will pop only when number above changes
+      </div>
       <button
         onClick={() => {
-          setOneOrTwoState(randomNumFromTo(1, 2));
-          setState(!state);
+          setOneOrTwoState(randomNumFromTo(1, 2))
+          setState(!state)
         }}
       >
         Update state
       </button>
     </>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const useMemoHook = {
   title: (
@@ -71,9 +77,9 @@ export const useMemoHook = {
       type: 'text',
       val: (
         <>
-          <i>useCallback</i> and <i>useMemo</i> both expect a function and an array of
-          dependencies. <i>useCallback</i> returns its function
-          when the dependencies change while <i>useMemo</i> calls its function and
+          <i>useCallback</i> and <i>useMemo</i> both expect a function and an
+          array of dependencies. <i>useCallback</i> returns its function when
+          the dependencies change while <i>useMemo</i> calls its function and
           returns the result.
         </>
       ),
@@ -82,8 +88,8 @@ export const useMemoHook = {
       type: 'text',
       val: (
         <>
-          <i>useCallback</i> returns its function uncalled so you can call it later, 
-          while <i>useMemo</i> calls its function and returns the result.
+          <i>useCallback</i> returns its function uncalled so you can call it
+          later, while <i>useMemo</i> calls its function and returns the result.
         </>
       ),
     },
@@ -91,7 +97,8 @@ export const useMemoHook = {
       type: 'text',
       val: (
         <>
-          <CodeSpan>useCallback(fn, deps)</CodeSpan> is equivalent to <CodeSpan>useMemo(() => fn, deps)</CodeSpan> 
+          <CodeSpan>useCallback(fn, deps)</CodeSpan> is equivalent to{' '}
+          <CodeSpan>{'useMemo(() => fn, deps)'}</CodeSpan>
         </>
       ),
     },
@@ -145,14 +152,32 @@ export const useMemoHook = {
     {
       val: (
         <ul>
-          <li>We trigger the component render by the button click updating the <i>state</i></li>
-          <li>On the same button we update another <i>state</i> which can randomly be 1 or 2</li>
-          <li>In the component's function body we have the <CodeSpan>funcWithInterruption()</CodeSpan> which just alerts 'hi'</li>
-          <li>We memoize it with <CodeSpan>useMemo(funcWithInterruption, [oneOrTwoState])</CodeSpan></li>
-          <li>Memoized function will run only if <i>oneOrTwoState</i> state variable changes</li>
-          <li>Click multiple times on the button and 'hi' shows up only in 50% of clicks</li>
-        </ul> 
+          <li>
+            We trigger the component render by the button click updating the{' '}
+            <i>state</i>
+          </li>
+          <li>
+            On the same button we update another <i>state</i> which can randomly
+            be 1 or 2
+          </li>
+          <li>
+            In the component's function body we have the{' '}
+            <CodeSpan>funcWithInterruption()</CodeSpan> which just alerts 'hi'
+          </li>
+          <li>
+            We memoize it with{' '}
+            <CodeSpan>useMemo(funcWithInterruption, [oneOrTwoState])</CodeSpan>
+          </li>
+          <li>
+            Memoized function will run only if <i>oneOrTwoState</i> state
+            variable changes
+          </li>
+          <li>
+            Click multiple times on the button and 'hi' shows up only in 50% of
+            clicks
+          </li>
+        </ul>
       ),
     },
   ],
-};
+}

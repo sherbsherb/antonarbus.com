@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const btnCss = {
   padding: '5px 20px',
   margin: '10px 10px 0px 0px',
   cursor: 'pointer',
-};
+}
 
 class ClassComponent extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       likes: 0,
-    };
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+    }
+    this.increment = this.increment.bind(this)
+    this.decrement = this.decrement.bind(this)
   }
 
   increment() {
-    this.setState({ likes: this.state.likes + 1 });
+    this.setState({ likes: this.state.likes + 1 })
   }
 
   decrement() {
-    this.setState({ likes: this.state.likes - 1 });
+    this.setState({ likes: this.state.likes - 1 })
   }
 
   render() {
@@ -35,17 +35,17 @@ class ClassComponent extends React.Component {
           -1
         </button>
       </div>
-    );
+    )
   }
 }
 
 const toRender1 = <ClassComponent />
 
 function FunctionComponent() {
-  const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState(0)
 
-  const increment = () => setLikes(likes + 1);
-  const decrement = () => setLikes(likes - 1);
+  const increment = () => setLikes(likes + 1)
+  const decrement = () => setLikes(likes - 1)
 
   return (
     <div>
@@ -57,7 +57,7 @@ function FunctionComponent() {
         -1
       </button>
     </div>
-  );
+  )
 }
 
 const toRender2 = <FunctionComponent />
@@ -125,12 +125,12 @@ export const classVsFunctionComponent = {
     },
     {
       type: 'text',
-      val: "Function component",
+      val: 'Function component',
     },
     {
       type: 'code',
       lang: 'jsx',
-      val:  `
+      val: `
         import React, { useState } from 'react';
         
         const btnCss = {
@@ -167,8 +167,8 @@ export const classVsFunctionComponent = {
     },
     {
       type: 'text',
-      val: "Function component is a modern way to write a component in react."
+      val: 'Function component is a modern way to write a component in react.'
     }
 
   ],
-};
+}

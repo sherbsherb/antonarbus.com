@@ -1,22 +1,22 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-import { MdOutlineMenuBook } from 'react-icons/md';
-import { FaRedhat as HatIcon } from 'react-icons/fa';
+import React from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+import { MdOutlineMenuBook } from 'react-icons/md'
+import { FaRedhat as HatIcon } from 'react-icons/fa'
 const icon = React.createElement(MdOutlineMenuBook)
 const styles = { verticalAlign: 'middle', fill: 'red', fontSize: '100px', width: '100px', height: 'auto', margin: '3px', color: 'blue', opacity: '.5', strokeWidth: '10px' }
 
 function Component() {
   return (
     <>
-      <div> --- <MdOutlineMenuBook /> --- </div> 
+      <div> --- <MdOutlineMenuBook /> --- </div>
       <div> --- {icon} --- </div>
       <div> --- <HatIcon style={styles}/> --- </div>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const reactIcons = {
   title: 'React icons package',
@@ -90,4 +90,4 @@ export const reactIcons = {
       val: toRender,
     },
   ],
-};
+}

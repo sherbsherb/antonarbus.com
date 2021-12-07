@@ -1,21 +1,21 @@
-import React, { useEffect, useRef } from 'react';
-import { Lnk } from '../components/Lnk';
-import { gsap } from 'gsap';
-import { TextPlugin } from 'gsap/TextPlugin';
+import { useEffect, useRef } from 'react'
+import { Lnk } from '../components/Lnk'
+import { gsap } from 'gsap'
+import { TextPlugin } from 'gsap/TextPlugin'
 
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(TextPlugin)
 
 function Cmpt() {
   const textRef = useRef()
   const cursorRef = useRef()
 
-  //blink cursor
+  // blink cursor
   useEffect(() => {
-    gsap.to(cursorRef.current, { opacity: 0, ease: 'power2.inOut', repeat: -1, duration: .9 })
+    gsap.to(cursorRef.current, { opacity: 0, ease: 'power2.inOut', repeat: -1, duration: 0.9 })
   }, [])
 
-  const replaceByCharacters = () =>{
-    textRef.current.innerText = ""
+  const replaceByCharacters = () => {
+    textRef.current.innerText = ''
     gsap.to(textRef.current, {
       duration: 2,
       text: {
@@ -23,13 +23,13 @@ function Cmpt() {
         delimiter: '',
       },
       ease: 'none',
-    });
+    })
   }
 
   return (
     <>
       <button onClick={replaceByCharacters}>Type text</button> <br />
-      <span ref={textRef}></span><span ref={cursorRef} style={{marginLeft:"1px"}}>|</span>
+      <span ref={textRef}></span><span ref={cursorRef} style={{ marginLeft: '1px' }}>|</span>
     </>
   )
 }
@@ -104,4 +104,4 @@ export const gsapText = {
       val: toRender
     },
   ],
-};
+}

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import secToHHMMSS from '../../../helpers/functions/secToHHMMSS';
+import { useEffect, useRef, useState } from 'react'
+import secToHHMMSS from '../../../helpers/functions/secToHHMMSS'
 
 function Component() {
   const [timerState, setTimerState] = useState(0)
@@ -15,9 +15,8 @@ function Component() {
     intervalRef.current = setInterval(function() {
       setTimerState(prevVal => prevVal + 1)
     }, 1000)
-    
-    return () => clearInterval(intervalRef.current)
 
+    return () => clearInterval(intervalRef.current)
   }, [timerState])
 
   return (
@@ -31,10 +30,10 @@ function Component() {
         firstRenderRef.current = true
       }}>Reset</button>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const timerInReact = {
   title: 'Timer in React',
@@ -103,4 +102,4 @@ export const timerInReact = {
       val: toRender,
     },
   ],
-};
+}

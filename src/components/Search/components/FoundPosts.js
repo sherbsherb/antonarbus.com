@@ -1,29 +1,34 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { store } from '../../../App';
+import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
+import { store } from '../../../App'
 
 export function FoundPosts() {
-  const foundPostsState = useSelector(state => state.foundPosts);
-  const dispatch = useDispatch();
+  const foundPostsState = useSelector(state => state.foundPosts)
+  const dispatch = useDispatch()
 
-  if (foundPostsState.length === 0)
-    return <FoundPostsStyled>Not found</FoundPostsStyled>;
-  const ending = foundPostsState.length !== 1 ? 's' : '';
+  if (foundPostsState.length === 0) {
+    return <FoundPostsStyled>Not found</FoundPostsStyled>
+  }
+
+  const ending = foundPostsState.length !== 1 ? 's' : ''
   return (
     <FoundPostsStyled
       onClick={e => {
-        e.preventDefault();
-        dispatch({ type: 'close search menu' });
+        e.preventDefault()
+        dispatch({ type: 'close search menu' })
         dispatch({ type: 'remove tags input val' })
-        dispatch({ type: 'show found posts msg' });
-        dispatch({ type: 'show remove found posts msg' });
-        dispatch({ type: 'display following posts', postsToShow: store.getState().foundPosts });
-        dispatch({ type: 'show 5 pages' });
+        dispatch({ type: 'show found posts msg' })
+        dispatch({ type: 'show remove found posts msg' })
+        dispatch({
+          type: 'display following posts',
+          postsToShow: store.getState().foundPosts,
+        })
+        dispatch({ type: 'show 5 pages' })
       }}
     >
       Show {ending ? 'all' : ''} {foundPostsState.length} post{ending}
     </FoundPostsStyled>
-  );
+  )
 }
 
 const FoundPostsStyled = styled.span`
@@ -40,4 +45,4 @@ const FoundPostsStyled = styled.span`
   &:hover {
     color: #1c1c1c;
   }
-`;
+`

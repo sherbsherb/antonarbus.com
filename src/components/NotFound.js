@@ -1,9 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 export function NotFound(props) {
-  
   return (
     <Div>
       <div style={{ color: 'rgb(255 255 255 / 58%)' }}>Not found</div>
@@ -12,15 +10,15 @@ export function NotFound(props) {
           to="/"
           style={{ textDecoration: 'underline', color: '#5e5e5e' }}
           onClick={e => {
-            e.preventDefault();
-            props.history.goBack();
+            e.preventDefault()
+            props.history.goBack()
           }}
         >
           Go back
         </Link>
       </div>
     </Div>
-  );
+  )
 }
 
 const Div = styled.div`
@@ -29,4 +27,4 @@ const Div = styled.div`
   text-align: center;
   margin-top: 30px;
   font-weight: 600;
-`;
+`

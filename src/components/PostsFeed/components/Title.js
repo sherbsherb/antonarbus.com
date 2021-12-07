@@ -1,16 +1,16 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export function Title(props) {
   return (
     <H3Styled className="title">
       <Link
-        to={`/post/${  props.uriPostName}`}
+        to={`/post/${props.uriPostName}`}
       >
         {props.children}
       </Link>
     </H3Styled>
-  );
+  )
 }
 
 const H3Styled = styled.h3`
@@ -31,4 +31,4 @@ const H3Styled = styled.h3`
       opacity: .8;
     }
   }
-`;
+`

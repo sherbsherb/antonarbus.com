@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { postsArr } from '../../PostsFeed/postsArr';
+import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
+import { postsArr } from '../../PostsFeed/postsArr'
 
 export function RemoveFoundPosts() {
-  const dispatch = useDispatch();
-  const postsOnDisplayState = useSelector(state => state.postsOnDisplay);
-  const postsNum = postsOnDisplayState.length;
+  const dispatch = useDispatch()
+  const postsOnDisplayState = useSelector(state => state.postsOnDisplay)
+  const postsNum = postsOnDisplayState.length
 
   if (postsNum === postsArr.length) return null
 
@@ -20,25 +20,25 @@ export function RemoveFoundPosts() {
       </span>
       <span
         onClick={e => {
-          e.preventDefault();
-          dispatch({ type: 'remove search input val' });
-          dispatch({ type: 'display following posts', postsToShow: postsArr });
-          dispatch({ type: 'close search menu' });
-          dispatch({ type: 'remove remove found posts msg' });
-          dispatch({ type: 'remove tags input val' });
-          dispatch({ type: 'forget tags from input' });
-          dispatch({ type: 'forget words from input' });
-          dispatch({ type: 'reset posts' });
-          dispatch({ type: 'get tags from all posts' });
-          dispatch({ type: 'show 5 pages' });
-          document.querySelector('#input').innerHTML = '';
-          window.history.pushState({}, null, "/");
+          e.preventDefault()
+          dispatch({ type: 'remove search input val' })
+          dispatch({ type: 'display following posts', postsToShow: postsArr })
+          dispatch({ type: 'close search menu' })
+          dispatch({ type: 'remove remove found posts msg' })
+          dispatch({ type: 'remove tags input val' })
+          dispatch({ type: 'forget tags from input' })
+          dispatch({ type: 'forget words from input' })
+          dispatch({ type: 'reset posts' })
+          dispatch({ type: 'get tags from all posts' })
+          dispatch({ type: 'show 5 pages' })
+          document.querySelector('#input').innerHTML = ''
+          window.history.pushState({}, null, '/')
         }}
       >
         ⨉
       </span>
     </DivStyled>
-  );
+  )
 }
 
 const DivStyled = styled.div`
@@ -63,4 +63,4 @@ const DivStyled = styled.div`
       color: #f75151;
     }
   }
-`;
+`

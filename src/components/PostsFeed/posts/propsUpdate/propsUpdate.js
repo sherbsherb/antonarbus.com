@@ -1,18 +1,17 @@
-import React from 'react';
 import { CodeSpan } from '../../components/CodeSpan'
-import { Img } from '../../components/Img';
-import consolePic from './console.png';
-import errorPic from './error.png';
+import { Img } from '../../components/Img'
+import consolePic from './console.png'
+import errorPic from './error.png'
 
 const style = {
   border: '2px solid grey',
   padding: '10px',
   margin: '10px',
   maxWidth: '500px',
-};
+}
 
 function ParentComponent() {
-  let a = 0;
+  let a = 0
 
   return (
     <div style={style}>
@@ -24,15 +23,15 @@ function ParentComponent() {
       </h3>
       <button
         onClick={() => {
-          a++;
-          console.log(a);
+          a++
+          console.log(a)
         }}
       >
         Update variable
       </button>
       <ChildComponent variable={a} />
     </div>
-  );
+  )
 }
 
 function ChildComponent(props) {
@@ -46,17 +45,17 @@ function ChildComponent(props) {
       </h3>
       <button
         onClick={() => {
-          props.a++;
-          console.log(props.a);
+          props.a++
+          console.log(props.a)
         }}
       >
         Update variable
       </button>
     </div>
-  );
+  )
 }
 
-const toRender = <ParentComponent />;
+const toRender = <ParentComponent />
 
 export const propsUpdate = {
   title: 'Props update',
@@ -171,6 +170,5 @@ export const propsUpdate = {
       ),
     },
 
-    
   ],
-};
+}

@@ -1,5 +1,4 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { CodeSpan } from '../components/CodeSpan'
 
 function ParentComponent(props) {
   return (
@@ -7,15 +6,15 @@ function ParentComponent(props) {
       Props of parent component: {JSON.stringify(props)} <br/>
       <ChildComponent {...props} />
     </>
-  );
+  )
 }
 
 function ChildComponent(props) {
   return (
-    <> 
+    <>
       Props of child component: {JSON.stringify(props)}
     </>
-  );
+  )
 }
 
 const toRender = <ParentComponent prop1='hello' prop2='my' prop3='friend' />
@@ -27,7 +26,7 @@ export const forwardLotsOfProps = {
   postParts: [
     {
       type: 'text',
-      val: 
+      val:
         <>
           Sometimes we need to pass tons of props from a component to a component.
           That can create a mess.<br/><br/>
@@ -64,6 +63,5 @@ export const forwardLotsOfProps = {
       val: toRender,
     },
 
-  
   ],
-};
+}

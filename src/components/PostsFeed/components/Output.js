@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export function Output(props) {
-  return <DivStyled>{props.children}</DivStyled>;
+  return <DivStyled>{props.children}</DivStyled>
 }
 
 const DivStyled = styled.div`
@@ -11,4 +11,4 @@ const DivStyled = styled.div`
   overflow: auto;
   border-radius: 4px;
   position: relative;
-`;
+`

@@ -1,31 +1,30 @@
-import styled from 'styled-components';
-import setCaretToEnd from './../../../helpers/functions/setCaretToEnd';
+import styled from 'styled-components'
+import setCaretToEnd from './../../../helpers/functions/setCaretToEnd'
 
 export function Tag(props) {
-
   return (
     <DivStyled contentEditable={false} onClick={clickHandler}>
       {props.tag}
     </DivStyled>
-  );
+  )
 }
 
 function clickHandler(e) {
-  e.stopPropagation();
+  e.stopPropagation()
   // add tag to search input
-  const inputEl = document.getElementById('input');
-  const tagEl = e.target;
-  const clonedTag = tagEl.cloneNode(true);
-  clonedTag.classList.add('tag');
-  inputEl.appendChild(clonedTag);
-  inputEl.append('\u00A0');
-  setCaretToEnd(inputEl);
-  inputEl.scrollLeft = 10000;
+  const inputEl = document.getElementById('input')
+  const tagEl = e.target
+  const clonedTag = tagEl.cloneNode(true)
+  clonedTag.classList.add('tag')
+  inputEl.appendChild(clonedTag)
+  inputEl.append('\u00A0')
+  setCaretToEnd(inputEl)
+  inputEl.scrollLeft = 10000
   window.scroll({
     top: 0,
     left: 0,
     behavior: 'smooth',
-  });
+  })
 }
 
 const DivStyled = styled.div`
@@ -63,4 +62,4 @@ const DivStyled = styled.div`
   &:hover {
     background: #5a5a5a;
   }
-`;
+`

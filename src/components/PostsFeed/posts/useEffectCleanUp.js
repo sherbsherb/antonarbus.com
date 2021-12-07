@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { useEffect, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
 
 const style = {
   border: '2px solid grey',
   padding: '10px',
   margin: '10px',
   maxWidth: '500px',
-};
+}
 
 function Parent1() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false)
   return (
     <div style={style}>
       <div>Parent component</div>
       <button onClick={() => setToggle(!toggle)}>show / hide component </button>
       {toggle && <Child1 />}
     </div>
-  );
+  )
 }
 
 function Child1() {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
 
   function logMouseCords(e) {
-    setX(e.clientX);
-    setY(e.clientY);
-    document.title = `x: ${e.clientX} + y: ${e.clientY}`;
+    setX(e.clientX)
+    setY(e.clientY)
+    document.title = `x: ${e.clientX} + y: ${e.clientY}`
   }
 
   useEffect(() => {
-    document.addEventListener('mousemove', logMouseCords);
-  }, []);
+    document.addEventListener('mousemove', logMouseCords)
+  }, [])
 
   return (
     <div style={style}>
@@ -43,39 +43,39 @@ function Child1() {
         yCord: <b>{y}</b>
       </div>
     </div>
-  );
+  )
 }
 
-const toRender1 = <Parent1 />;
+const toRender1 = <Parent1 />
 
 function Parent2() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false)
   return (
     <div style={style}>
       <div>Parent component</div>
       <button onClick={() => setToggle(!toggle)}>show / hide component </button>
       {toggle && <Child2 />}
     </div>
-  );
+  )
 }
 
 function Child2() {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
 
   function logMouseCords(e) {
-    setX(e.clientX);
-    setY(e.clientY);
-    document.title = `x: ${e.clientX} + y: ${e.clientY}`;
+    setX(e.clientX)
+    setY(e.clientY)
+    document.title = `x: ${e.clientX} + y: ${e.clientY}`
   }
 
   useEffect(() => {
-    document.addEventListener('mousemove', logMouseCords);
+    document.addEventListener('mousemove', logMouseCords)
     return () => {
-      console.log('component unmounting code');
-      document.removeEventListener('mousemove', logMouseCords);
-    };
-  }, []);
+      console.log('component unmounting code')
+      document.removeEventListener('mousemove', logMouseCords)
+    }
+  }, [])
 
   return (
     <div style={style}>
@@ -87,10 +87,10 @@ function Child2() {
         yCord: <b>{y}</b>
       </div>
     </div>
-  );
+  )
 }
 
-const toRender2 = <Parent2 />;
+const toRender2 = <Parent2 />
 
 export const useEffectCleanUp = {
   title: (
@@ -235,4 +235,4 @@ export const useEffectCleanUp = {
       val: toRender2,
     },
   ],
-};
+}

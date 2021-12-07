@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
+import { useState } from 'react'
+import { CSSTransition } from 'react-transition-group'
+import styled from 'styled-components'
 
 function Component() {
-  const [state, setState] = useState(true);
-  const toggle = () => setState(!state);
-  const [radioValueState, setRadioValueState] = useState('forward');
-  const onValueChange = e => setRadioValueState(e.target.value);
+  const [state, setState] = useState(true)
+  const toggle = () => setState(!state)
+  const [radioValueState, setRadioValueState] = useState('forward')
+  const onValueChange = e => setRadioValueState(e.target.value)
   return (
     <Div>
       <form>
@@ -65,7 +65,7 @@ function Component() {
         <div className={radioValueState}>2</div>
       </CSSTransition>
     </Div>
-  );
+  )
 }
 
 const Div = styled.div`
@@ -144,9 +144,9 @@ const Div = styled.div`
   .backwards-exit-done {
     transform: translateX(-150%);
   }
-`;
+`
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const SlideSidewaysWithCSSTransition = {
   title: 'Slide sideways with CSSTransition',
@@ -317,4 +317,4 @@ export const SlideSidewaysWithCSSTransition = {
       val: toRender,
     },
   ],
-};
+}

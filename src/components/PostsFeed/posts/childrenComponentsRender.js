@@ -1,20 +1,19 @@
-import React, { useRef, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useRef, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
 const style = {
   border: '2px solid grey',
   padding: '10px',
   margin: '10px',
   maxWidth: '500px',
-};
+}
 
 function ParentComponent(props) {
-  const [parentState, setParentState] = useState(0);
+  const [parentState, setParentState] = useState(0)
   const ref = useRef()
 
-  if (!!ref.current)
-    ref.current.innerHTML += '<div>ParentComponent triggered</div>';
+  if (ref.current) { ref.current.innerHTML += '<div>ParentComponent triggered</div>' }
 
   return (
     <div style={style}>
@@ -25,14 +24,13 @@ function ParentComponent(props) {
       <ChildComponent text={'Child component 2 - included in Parent'}/>
       {props.children}
     </div>
-  );
+  )
 }
 
 function ChildComponent(props) {
-  const [childState, setChildState1] = useState(0);
+  const [childState, setChildState1] = useState(0)
   const ref = useRef()
-  if (!!ref.current)
-    ref.current.innerHTML += '<div>ChildComponent triggered</div>';
+  if (ref.current) { ref.current.innerHTML += '<div>ChildComponent triggered</div>' }
 
   return (
     <div style={style}>
@@ -40,7 +38,7 @@ function ChildComponent(props) {
       <button onClick={() => setChildState1(childState + 1)}>Change state</button>
       <div ref={ref}></div>
     </div>
-  );
+  )
 }
 
 const toRender = (
@@ -50,7 +48,7 @@ const toRender = (
       <ChildComponent text={'Child component 4 - passed as props.children'}/>
     </ParentComponent>
   </>
-);
+)
 
 export const childrenComponentsRender = {
   title: 'Children components render',
@@ -59,8 +57,8 @@ export const childrenComponentsRender = {
   postParts: [
     {
       type: 'text',
-      val:<>
-        Have read the <Lnk path={'https://felixgerschau.com/react-rerender-components/#when-does-react-re-render'}>article</Lnk> which 
+      val: <>
+        Have read the <Lnk path={'https://felixgerschau.com/react-rerender-components/#when-does-react-re-render'}>article</Lnk> which
         says <q>... all its subsequent child components will re-render, regardless of whether their props have changed or not.</q>
       </>,
     },
@@ -70,7 +68,7 @@ export const childrenComponentsRender = {
         Tried to prove it, but it is not 100% true. 
       `,
     },
-    
+
     {
       type: 'code',
       lang: 'jsx',
@@ -141,14 +139,14 @@ export const childrenComponentsRender = {
       type: 'text',
       val: <>
         If children components are included directly into the Parent then
-        they will be rendered too as component function executed. 
+        they will be rendered too as component function executed.
       </>,
     },
     {
       type: 'text',
       val: <>
-        But Parent's render does not trigger a render of components inside its tags passed as <CodeSpan>props.children</CodeSpan>. 
+        But Parent's render does not trigger a render of components inside its tags passed as <CodeSpan>props.children</CodeSpan>.
       </>,
     },
   ],
-};
+}

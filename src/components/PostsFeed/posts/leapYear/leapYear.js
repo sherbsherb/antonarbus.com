@@ -1,6 +1,6 @@
-import { Main } from './Main';
-import img from './tests.png';
-const toRender = <Main />;
+import { Main } from './Main'
+import img from './tests.png'
+const toRender = <Main />
 
 export const leapYear = {
   title: 'Leap year',
@@ -253,4 +253,4 @@ export const leapYear = {
       alt: 'jest test results',
     },
   ],
-};
+}

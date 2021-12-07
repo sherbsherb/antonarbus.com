@@ -1,16 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { CodeSpan } from '../components/CodeSpan';
+import styled from 'styled-components'
+import { CodeSpan } from '../components/CodeSpan'
 
 function Parent() {
   return (
     <Div>
       <kbd>Esc</kbd><kbd>F4</kbd><kbd>Alt</kbd><kbd>Ctrl</kbd><kbd>Tab</kbd>
     </Div>
-  );
+  )
 }
 
-const Div = styled.div `
+const Div = styled.div`
   kbd {
     margin: 0px 0.1em;
     padding: 0.1em 0.6em;
@@ -27,7 +26,7 @@ const Div = styled.div `
   }
 `
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const kbdStyle = {
   title: 'kbd tag style',
@@ -42,8 +41,8 @@ export const kbdStyle = {
         </>
       ),
     },
-    { 
-      type: 'code', 
+    {
+      type: 'code',
       lang: 'jsx',
       val: `
         function Parent() {
@@ -72,9 +71,9 @@ export const kbdStyle = {
         \`
       `
     },
-    { 
-      type: 'output', 
+    {
+      type: 'output',
       val: toRender
     },
   ],
-};
+}

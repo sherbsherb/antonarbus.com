@@ -1,21 +1,21 @@
-import axios from 'axios';
-import React, { useReducer, useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-import randomNumFromTo from '../../../helpers/functions/randomNumFromTo';
-import sleeper from '../../../helpers/functions/sleeper';
+import axios from 'axios'
+import { useReducer, useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+import randomNumFromTo from '../../../helpers/functions/randomNumFromTo'
+import sleeper from '../../../helpers/functions/sleeper'
 
 function ComponentWithUseState() {
-  const [state, setState] = useState({ loading: false, errorMsg: '', title: '', postNum: -1 });
+  const [state, setState] = useState({ loading: false, errorMsg: '', title: '', postNum: -1 })
 
   function getTitle() {
-    const postNum = randomNumFromTo(1, 150);
-    const url = `https://jsonplaceholder.typicode.com/posts/${  postNum}`
-    setState({ ...state, loading: true, postNum: postNum, errorMsg: '' });
+    const postNum = randomNumFromTo(1, 150)
+    const url = `https://jsonplaceholder.typicode.com/posts/${postNum}`
+    setState({ ...state, loading: true, postNum: postNum, errorMsg: '' })
     axios(url)
       .then(sleeper(1000))
       .then(res => setState({ loading: false, errorMsg: '', title: res.data.title, postNum: postNum }))
-      .catch(err => setState({ loading: false, errorMsg: 'smth went wrong', title: '', postNum: postNum }));
+      .catch(() => setState({ loading: false, errorMsg: 'smth went wrong', title: '', postNum: postNum }))
   }
 
   return (
@@ -24,14 +24,14 @@ function ComponentWithUseState() {
       Post #{state.postNum} Title: {state.loading ? 'Loading...' : state.title}
       <span style={{ color: 'red' }}>{state.errorMsg}</span>
     </>
-  );
+  )
 }
 
-const toRender1 = <ComponentWithUseState />;
+const toRender1 = <ComponentWithUseState />
 
 function ComponentWithUseReducer() {
-  const initState = { loading: false, errorMsg: '', title: '', postNum: -1 };
-  
+  const initState = { loading: false, errorMsg: '', title: '', postNum: -1 }
+
   function reducer(state, action) {
     if (action.type === 'loading') return { ...state, loading: true, postNum: action.postNum, errorMsg: '' }
     if (action.type === 'fetchSuccess') return { ...state, loading: false, errorMsg: '', title: action.title, postNum: action.postNum }
@@ -39,16 +39,16 @@ function ComponentWithUseReducer() {
     return state
   }
 
-  const [state, dispatch] = useReducer(reducer, initState);
+  const [state, dispatch] = useReducer(reducer, initState)
 
   function getTitle() {
     const postNum = randomNumFromTo(1, 150)
-    const url = `https://jsonplaceholder.typicode.com/posts/${  postNum}`
+    const url = `https://jsonplaceholder.typicode.com/posts/${postNum}`
     dispatch({ type: 'loading', postNum: postNum })
     axios(url)
       .then(sleeper(1000))
       .then(res => dispatch({ type: 'fetchSuccess', title: res.data.title, postNum: postNum }))
-      .catch(err => dispatch({ type: 'fetchFail', postNum: postNum  }));
+      .catch(() => dispatch({ type: 'fetchFail', postNum: postNum }))
   }
 
   return (
@@ -57,10 +57,10 @@ function ComponentWithUseReducer() {
       Post #{state.postNum} Title: {state.loading ? 'Loading...' : state.title}
       <span style={{ color: 'red' }}>{state.errorMsg}</span>
     </>
-  );
+  )
 }
 
-const toRender2 = <ComponentWithUseReducer />;
+const toRender2 = <ComponentWithUseReducer />
 
 export const fetchWithLoadingIndicator = {
   title: <>Fetch with loading indicator</>,
@@ -184,4 +184,4 @@ export const fetchWithLoadingIndicator = {
       val: toRender2,
     }
   ],
-};
+}

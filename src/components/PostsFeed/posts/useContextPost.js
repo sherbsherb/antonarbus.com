@@ -1,10 +1,10 @@
-import React, { createContext, useContext } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
-const style = { border: '2px solid grey',  padding: '10px',  margin: '10px',  maxWidth: '500px',};
+import { createContext, useContext } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
+const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
 
-const ContextA = createContext('');
-const ContextB = createContext('');
+const ContextA = createContext('')
+const ContextB = createContext('')
 
 function Parent() {
   return (
@@ -19,48 +19,48 @@ function Parent() {
         </div>
       </ContextB.Provider>
     </ContextA.Provider>
-  );
+  )
 }
 
 function ChildA() {
-  const varA = useContext(ContextA);
-  const varB = useContext(ContextB);
+  const varA = useContext(ContextA)
+  const varB = useContext(ContextB)
   return (
     <div style={style}>
       <div>ChildA</div>
       <div> Data from the Parent's context:</div>
-      <b>{`${varA  } + ${  varB}` }</b>
+      <b>{`${varA} + ${varB}` }</b>
       <ChildB />
     </div>
-  );
+  )
 }
 
 function ChildB() {
-  const varA = useContext(ContextA);
-  const varB = useContext(ContextB);
+  const varA = useContext(ContextA)
+  const varB = useContext(ContextB)
   return (
     <div style={style}>
       <div>ChildB</div>
       <div> Data from the Parent's context:</div>
-      <b>{`${varA  } + ${  varB}` }</b>
+      <b>{`${varA} + ${varB}` }</b>
       <ChildC />
     </div>
-  );
+  )
 }
 
 function ChildC() {
-  const varA = useContext(ContextA);
-  const varB = useContext(ContextB);
+  const varA = useContext(ContextA)
+  const varB = useContext(ContextB)
   return (
     <div style={style}>
       <div>ChildC</div>
       <div> Data from the Parent's context:</div>
-      <b>{`${varA  } + ${  varB}` }</b>
+      <b>{`${varA} + ${varB}` }</b>
     </div>
-  );
+  )
 }
 
-const toRender = <Parent />;
+const toRender = <Parent />
 
 export const useContextPost = {
   title: (
@@ -170,4 +170,4 @@ export const useContextPost = {
       val: toRender,
     },
   ],
-};
+}

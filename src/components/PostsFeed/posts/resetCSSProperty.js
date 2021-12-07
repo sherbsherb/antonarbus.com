@@ -1,19 +1,18 @@
-import React from 'react';
-import { CodeSpan } from '../components/CodeSpan';
+import { CodeSpan } from '../components/CodeSpan'
 
 function Component() {
   return (
     <>
       <div style={{ background: 'grey', padding: '10px' }}>
         <CodeSpan lang="css">{'{background: grey}'}</CodeSpan><br /><br />
-        <div style={{ background: 'beige', padding: '10px', border: '1px solid red',  }}>
+        <div style={{ background: 'beige', padding: '10px', border: '1px solid red' }}>
           <CodeSpan lang="css">{'{background: beige}'}</CodeSpan>
         </div>
       </div>
       <br />
       <div style={{ background: 'grey', padding: '10px' }}>
         <CodeSpan lang="css">{'{background: grey}'}</CodeSpan><br /><br />
-        <div style={{background: 'inherit', border: '1px solid red', padding: '10px' }}>
+        <div style={{ background: 'inherit', border: '1px solid red', padding: '10px' }}>
           <CodeSpan lang="css">{'{background: inherit}'}</CodeSpan> sets <i>background</i> property to the parent's color.
         </div>
       </div>
@@ -71,10 +70,10 @@ function Component() {
         Google
       </a>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const resetCSSProperty = {
   title: 'Reset CSS property',
@@ -97,4 +96,4 @@ export const resetCSSProperty = {
       val: toRender,
     },
   ],
-};
+}

@@ -1,7 +1,6 @@
-import styled from "styled-components";
-import React from 'react'
+import styled from 'styled-components'
 
-export  function SearchPreviewContainer(props) {
+export function SearchPreviewContainer(props) {
   return (
     <Div>
       {props.children}
@@ -21,4 +20,4 @@ export const Div = styled.div`
   padding: 35px 10px 10px 10px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 2px #0000003d
-`;
+`

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import { Lnk } from '../components/Lnk';
+import { useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import { Lnk } from '../components/Lnk'
 
-const btnCss = {padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer',}
+const btnCss = { padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer' }
 
 function ComponentWithoutState() {
-  let likes = 0;
+  let likes = 0
 
   function increment() {
     likes += 1
@@ -16,7 +16,7 @@ function ComponentWithoutState() {
     likes -= 1
     alert(likes)
   }
-  
+
   return (
     <>
       <h1>{likes}</h1>
@@ -29,15 +29,14 @@ function ComponentWithoutState() {
 const toRender1 = <ComponentWithoutState />
 
 function ComponentWithState() {
-
   const [likes, setLikes] = useState(0)
 
   function increment() {
-    setLikes(likes + 1) 
+    setLikes(likes + 1)
   }
-  
+
   function decrement() {
-    setLikes(likes - 1) 
+    setLikes(likes - 1)
   }
 
   return (
@@ -59,7 +58,7 @@ export const whyToUseState = {
     {
       type: 'text',
       val: <>Let's create an incrementor.</>,
-    }, 
+    },
     {
       type: 'code',
       lang: 'jsx',
@@ -94,7 +93,7 @@ export const whyToUseState = {
     },
     {
       type: 'text',
-      val: `We can see value change in alert, but not on the screen.`,
+      val: 'We can see value change in alert, but not on the screen.',
     },
     {
       type: 'output',
@@ -102,8 +101,8 @@ export const whyToUseState = {
     },
     {
       type: 'text',
-      val: <>As far as react renders only changes in virtual DOM, we need 
-      to tell him about changes. It can be done with <CodeSpan>useState()</CodeSpan>  
+      val: <>As far as react renders only changes in virtual DOM, we need
+      to tell him about changes. It can be done with <CodeSpan>useState()</CodeSpan>
       {' '} <Lnk link={'https://reactjs.org/docs/hooks-state.html'}>hook</Lnk>.</>,
     },
     {
@@ -164,9 +163,9 @@ export const whyToUseState = {
     {
       type: 'text',
       val: (<>
-        Initial state <CodeSpan>0</CodeSpan> is passed as an argument in <CodeSpan>useState(0)</CodeSpan> 
+        Initial state <CodeSpan>0</CodeSpan> is passed as an argument in <CodeSpan>useState(0)</CodeSpan>
       </>)
     }
 
   ],
-};
+}

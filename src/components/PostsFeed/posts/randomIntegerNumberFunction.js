@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import randomNumFromTo from '../../../helpers/functions/randomNumFromTo';
-import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper';
-import useInput from '../../../helpers/functions/useInput';
-const style = { width: '50px', marginRight: '10px' };
+import { useState } from 'react'
+import randomNumFromTo from '../../../helpers/functions/randomNumFromTo'
+import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper'
+import useInput from '../../../helpers/functions/useInput'
+const style = { width: '50px', marginRight: '10px' }
 
 function Component() {
-  const [valState, setValState] = useState(0);
-  const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper();
+  const [valState, setValState] = useState(0)
+  const [AnimationWrapper, turnAnimationOn] = useAnimatedWrapper()
   const [inputFromState, bindInputFrom] = useInput()
   const [inputToState, bindInputTo] = useInput()
 
@@ -16,8 +16,8 @@ function Component() {
       <input placeholder={'to'} style={style} {...bindInputTo} />
       <button
         onClick={() => {
-          setValState(randomNumFromTo(inputFromState, inputToState));
-          turnAnimationOn();
+          setValState(randomNumFromTo(inputFromState, inputToState))
+          turnAnimationOn()
         }}
       >
         Get random integer
@@ -26,10 +26,10 @@ function Component() {
         Random number: <AnimationWrapper>{valState}</AnimationWrapper>
       </div>
     </>
-  );
+  )
 }
 
-const toRender = <Component />;
+const toRender = <Component />
 
 export const randomIntegerNumberFunction = {
   title: <>Random integer number</>,
@@ -106,4 +106,4 @@ export const randomIntegerNumberFunction = {
       val: toRender,
     },
   ],
-};
+}

@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { CodeSpan } from '../components/CodeSpan';
-import useInput from '../../../helpers/functions/useInput';
+import { useState } from 'react'
+import { CodeSpan } from '../components/CodeSpan'
+import useInput from '../../../helpers/functions/useInput'
 
 function Component1() {
-  const [firstNameState, setFirstNameState] = useState('');
-  const [lastNameState, setLastNameState] = useState('');
+  const [firstNameState, setFirstNameState] = useState('')
+  const [lastNameState, setLastNameState] = useState('')
 
   const submitHandler = e => {
-    e.preventDefault();
-    alert(`hello ${firstNameState} ${lastNameState}`);
-    setFirstNameState('');
-    setLastNameState('');
-  };
+    e.preventDefault()
+    alert(`hello ${firstNameState} ${lastNameState}`)
+    setFirstNameState('')
+    setLastNameState('')
+  }
 
   return (
     <div>
@@ -29,21 +29,21 @@ function Component1() {
         <button>Submit</button>
       </form>
     </div>
-  );
+  )
 }
 
-const toRender1 = <Component1 />;
+const toRender1 = <Component1 />
 
 function Component2() {
-  const [firstNameState, bindFirstName, resetFirstName] = useInput();
-  const [lastNameState, bindLastName, resetLastName] = useInput();
+  const [firstNameState, bindFirstName, resetFirstName] = useInput()
+  const [lastNameState, bindLastName, resetLastName] = useInput()
 
   const submitHandler = e => {
-    e.preventDefault();
-    alert(`hello ${firstNameState} ${lastNameState}`);
-    resetFirstName();
-    resetLastName();
-  };
+    e.preventDefault()
+    alert(`hello ${firstNameState} ${lastNameState}`)
+    resetFirstName()
+    resetLastName()
+  }
 
   return (
     <div>
@@ -53,10 +53,10 @@ function Component2() {
         <button>Submit</button>
       </form>
     </div>
-  );
+  )
 }
 
-const toRender2 = <Component2 />;
+const toRender2 = <Component2 />
 
 export const useInputCustomHook = {
   title: (
@@ -204,4 +204,4 @@ export const useInputCustomHook = {
       val: toRender2,
     },
   ],
-};
+}

@@ -58,6 +58,13 @@ const StyleReset = createGlobalStyle`
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    word-break: break-all;
+    padding: 2px 4px;
+    border-radius: 0.3em;
+    white-space: normal;
+    background: #e7e7e7;
+    border-radius: 4px;
+
   }
 
   ol, ul {

@@ -39,7 +39,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-template-curly-in-string': 'off',
     'no-use-before-define': 'off',
-    'no-console': 'warn',
+    'no-console': 'off',
   },
-  
 }

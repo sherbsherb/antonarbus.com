@@ -86,9 +86,11 @@ import { gsapScrollTrigger } from './posts/gsapScrollTrigger'
 import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 import { leapYear } from './posts/leapYear/leapYear'
 import { esLint } from './posts/esLint/esLint'
+import { babel } from './posts/babel/babel'
 
 const posts = [
   //  typeScriptBasics,
+  babel,
   esLint,
   leapYear,
   gsapScrollTrigger,

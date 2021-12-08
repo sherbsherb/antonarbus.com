@@ -33,8 +33,14 @@ export const esLint = {
     {
       type: 'text',
       val: (
+        <h3>React</h3>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
         <>
-          <i>ESLint</i> comes with{' '}
+          ESLint comes with React{' '}
           <CodeSpan>create-react-app app-name</CodeSpan> by default.
         </>
       ),
@@ -46,7 +52,7 @@ export const esLint = {
           We can extent{' '}
           <Lnk path="https://eslint.org/docs/rules/">ESLint rules</Lnk> by
           adding them into <CodeSpan>package.json</CodeSpan> file under{' '}
-          <i>rules</i>.
+          <CodeSpan>rules</CodeSpan>.
         </>
       ),
     },
@@ -89,11 +95,27 @@ export const esLint = {
     },
     {
       type: 'text',
-      val: <>We have following function.</>,
+      val: <>Let's make a function.</>,
     },
     {
       type: 'img',
       src: functionWithESLintProblems,
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          Run ESLint check in terminal by typing{' '}
+          <CodeSpan>eslint 'path'</CodeSpan>, for ex. check errors for this file{' '}
+          <CodeSpan>
+            eslint 'src/components/PostsFeed/posts/esLint/esLint.js'
+          </CodeSpan>
+        </>
+      ),
+    },
+    {
+      type: 'img',
+      src: ESLintProblemsInTerminal,
     },
     {
       type: 'text',
@@ -111,27 +133,11 @@ export const esLint = {
       type: 'text',
       val: (
         <>
-          Or run ESLint check in terminal by typing{' '}
-          <CodeSpan>eslint 'path'</CodeSpan>, for ex. check errors for this file{' '}
-          <CodeSpan>
-            eslint src/components/PostsFeed/posts/esLint/esLint.js
-          </CodeSpan>
-        </>
-      ),
-    },
-    {
-      type: 'img',
-      src: ESLintProblemsInTerminal,
-    },
-    {
-      type: 'text',
-      val: (
-        <>
           ESLint may try to fix problems with{' '}
           <CodeSpan>eslint 'path' --fix</CodeSpan>, for ex. fix errors for this
           file{' '}
           <CodeSpan>
-            eslint ./src/components/PostsFeed/posts/esLint/esLint.js --fix
+            eslint './src/components/PostsFeed/posts/esLint/esLint.js' --fix
           </CodeSpan>
         </>
       ),
@@ -139,16 +145,16 @@ export const esLint = {
     {
       type: 'text',
       val: (
+        <h3>Manual installation</h3>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
         <>
-          We can use{' '}
-          <Lnk path="https://github.com/standard/standard">standard</Lnk> style
-          guide or from{' '}
-          <Lnk path="https://github.com/airbnb/javascript">Airbnb</Lnk> or{' '}
-          <Lnk path="https://github.com/google/eslint-config-google">
-            Google
-          </Lnk>
-          . There are many guidelines how to add them into a project, but only
-          following worked for me.
+          We may install ESLint manually by <CodeSpan>npm i -D eslint</CodeSpan>{' '}
+          and then initialize configuration by{' '}
+          <CodeSpan>eslint --init</CodeSpan> command.
         </>
       ),
     },
@@ -156,15 +162,16 @@ export const esLint = {
       type: 'text',
       val: (
         <>
-          Install ESLint globally <CodeSpan>npm install -g eslint</CodeSpan> and
-          then we may initialize configuration by{' '}
-          <CodeSpan> eslint --init</CodeSpan> command.
+          Different style guides may be installed{' '}
+          <Lnk path="https://github.com/standard/standard">standard</Lnk> or{' '}
+          <Lnk path="https://github.com/airbnb/javascript">Airbnb</Lnk> or{' '}
+          <Lnk path="https://github.com/google/eslint-config-google">Google</Lnk>.
         </>
       ),
     },
     {
       type: 'text',
-      val: <>Answer questions in terminal.</>,
+      val: <>Installation example.</>,
     },
     {
       type: 'img',
@@ -176,8 +183,7 @@ export const esLint = {
         <>
           Many dev dependencies are inserted into the{' '}
           <CodeSpan>package.json</CodeSpan> file and configuration file{' '}
-          <CodeSpan>.eslintrc.js</CodeSpan> is generated. To use
-          in-build ESLint in React just remove all these lines and files.
+          <CodeSpan>.eslintrc.js</CodeSpan> is generated.
         </>
       ),
     },
@@ -225,15 +231,6 @@ export const esLint = {
             'react',
             '@typescript-eslint'
           ],
-          rules: {
-            'comma-dangle': ['error', 'only-multiline'],
-            'react/no-unescaped-entities': 'off',
-            'space-before-function-paren': ['error', 'never'],
-            'react/prop-types': 'off',
-            'react/react-in-jsx-scope': 'off',
-            'no-template-curly-in-string': 'off',
-            'no-use-before-define': 'off',
-          },
           globals: {
             React: true,
             google: true,
@@ -246,6 +243,16 @@ export const esLint = {
             jsdom: true,
             JSX: true,
           },
+          rules: {
+            'comma-dangle': ['error', 'only-multiline'],
+            'react/no-unescaped-entities': 'off',
+            'space-before-function-paren': ['error', 'never'],
+            'react/prop-types': 'off',
+            'react/react-in-jsx-scope': 'off',
+            'no-template-curly-in-string': 'off',
+            'no-use-before-define': 'off',
+            'no-console': 'off',
+          },
         }
       `,
     },
@@ -253,8 +260,18 @@ export const esLint = {
       type: 'text',
       val: (
         <>
-          If ESLint does not allow to start or build a project we may create <CodeSpan>.env</CodeSpan>{' '}
-          file with following statement.
+          <CodeSpan>eslintConfig</CodeSpan> can be removed from{' '}
+          <CodeSpan>package.json</CodeSpan> if we use a separate{' '}
+          <CodeSpan>.eslintrc.js</CodeSpan>
+        </>
+      ),
+    },
+    {
+      type: 'text',
+      val: (
+        <>
+          If ESLint does not allow to start or build a project we may create{' '}
+          <CodeSpan>.env</CodeSpan> file with following statement.
         </>
       ),
     },
@@ -271,7 +288,8 @@ export const esLint = {
       type: 'text',
       val: (
         <>
-          Run batch error checking with <CodeSpan>eslint 'src/components/PostsFeed/posts/**js'</CodeSpan>
+          Run batch error checking with{' '}
+          <CodeSpan>eslint 'src/components/PostsFeed/posts/**js'</CodeSpan>
         </>
       ),
     },

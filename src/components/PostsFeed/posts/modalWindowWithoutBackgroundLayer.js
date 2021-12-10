@@ -97,11 +97,11 @@ export const modalWindowWithoutBackgroundLayer = {
                 if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeModal();
               }
         
-              document.addEventListener('click', closeModalOnClickOutside);
+              document.addEventListener('mousedown', closeModalOnClickOutside);
               document.addEventListener('keydown', closeModalOnEscape);
         
               return () => {
-                document.removeEventListener('click', closeModalOnClickOutside);
+                document.removeEventListener('mousedown', closeModalOnClickOutside);
                 document.removeEventListener('keydown', closeModalOnEscape);
               };
         
@@ -118,52 +118,35 @@ export const modalWindowWithoutBackgroundLayer = {
           return [showModalState, openModal, Modal];
         }
 
-        const Bkg = styled.div\`
+        const Box = <styled className="div"></styled>\` 
           position: fixed;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          left: 0;
-          background-color: #000000b5;
-          display: flex;
-          justify-content: center;
-          /* align-items: center; */
-          align-items: flex-start;
-          padding-top: 20vh;
-          z-index: 1000;
-        \`;
-
-        const Container = styled.div\`
-          background-color: #e2e2e2;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          justify-content: flex-start;
-          align-items: center;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 20vh;
+          color: white;
+          background-color: #505050;
           padding: 20px;
           border-radius: 10px;
           box-shadow: 0px 0px 10px 0px #8b8b8b;
-          border: 2px solid #494949;
-          position: relative;
-        \`;
+        \`
 
-        const CloseBtn = styled.span\`
+        const CloseBtn = <styled className="span"></styled>\`
           position: absolute;
           top: -48px;
           right: -10px;
-          color: #c1c1c1;
+          color: #4e4e4e;
           font-size: 34px;
           cursor: pointer;
 
           &:hover {
             transition: color 0.3s ease;
-            color: white;
+            color: red;
           }
 
           &:after {
             content: '×';
           }
-        \`;
+        \`
       `,
     },
     {

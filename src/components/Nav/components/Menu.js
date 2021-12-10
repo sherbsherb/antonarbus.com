@@ -134,9 +134,9 @@ export function Menu() {
       if (isClickedElOutsideThisEl(clickedEl, navItem)) closeMenuMemoized()
     }
 
-    document.addEventListener('click', closeModalOnClickOutside)
+    document.addEventListener('mousedown', closeModalOnClickOutside)
     return () => {
-      document.removeEventListener('click', closeModalOnClickOutside)
+      document.removeEventListener('mousedown', closeModalOnClickOutside)
     }
   }, [closeMenuMemoized])
 
@@ -234,6 +234,7 @@ export const MenuContainer = styled.div`
   top: 110%;
   width: 300px;
   background: rgb(52 52 52 / 98%);
+  backdrop-filter: blur(4px);
 
   border: 1px solid #474a4d;
   border-radius: 8px;

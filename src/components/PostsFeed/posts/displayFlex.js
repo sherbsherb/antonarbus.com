@@ -1,48 +1,45 @@
-/* eslint-disable */
-
-import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import useInput from '../../../helpers/functions/useInput';
-import { CodeSpan } from '../components/CodeSpan';
+import { useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
+import useInput from '../../../helpers/functions/useInput'
 
 function Cmpt() {
-  const [childrenQty, bindChildrenQty] = useInput(10);
-  const [rowGapInput, bindRowGapInput] = useInput(0);
-  const [columnGapInput, bindColumnGapInput] = useInput(0);
-  const [paddingParent, bindPaddingParent] = useInput(0);
-  const [heightParent, bindHeightParent] = useInput(200);
-  const [paddingChild, bindPaddingChild] = useInput(0);
-  const [marginChild, bindMarginChild] = useInput(0);
-  const [minWidthChild, bindMinWidthChild] = useInput(75);
+  const [childrenQty, bindChildrenQty] = useInput(10)
+  const [rowGapInput, bindRowGapInput] = useInput(0)
+  const [columnGapInput, bindColumnGapInput] = useInput(0)
+  const [paddingParent, bindPaddingParent] = useInput(0)
+  const [heightParent, bindHeightParent] = useInput(200)
+  const [paddingChild, bindPaddingChild] = useInput(0)
+  const [marginChild, bindMarginChild] = useInput(0)
+  const [minWidthChild, bindMinWidthChild] = useInput(75)
 
-  const [display, setDisplay] = useState('flex');
-  const [flexDirection, setFlexDirection] = useState('row');
-  const [flexWrap, setFlexWrap] = useState('wrap');
-  const [justifyContent, setJustifyContent] = useState('center');
-  const [alignItems, setAlignItems] = useState('center');
-  const [alignContent, setAlignContent] = useState('normal');
+  const [display, setDisplay] = useState('flex')
+  const [flexDirection, setFlexDirection] = useState('row')
+  const [flexWrap, setFlexWrap] = useState('wrap')
+  const [justifyContent, setJustifyContent] = useState('center')
+  const [alignItems, setAlignItems] = useState('center')
+  const [alignContent, setAlignContent] = useState('normal')
 
-  const [order, bindOrder] = useInput(0);
-  const [flexBasis, bindFlexBasis] = useInput('auto');
-  const [flexGrow, bindFlexGrow] = useInput(0);
-  const [flexShrink, bindFlexShrink] = useInput(1);
-  const [alignSelf, setAlignSelf] = useState('auto');
+  const [order, bindOrder] = useInput(0)
+  const [flexBasis, bindFlexBasis] = useInput('auto')
+  const [flexGrow, bindFlexGrow] = useInput(0)
+  const [flexShrink, bindFlexShrink] = useInput(1)
+  const [alignSelf, setAlignSelf] = useState('auto')
 
-  const ref = useRef();
+  const ref = useRef()
   useEffect(() => {
-    ref.current.querySelector('div').style.order = order;
-    ref.current.querySelector('div').style.flexBasis = flexBasis;
-    ref.current.querySelector('div').style.flexGrow = flexGrow;
-    ref.current.querySelector('div').style.flexShrink = flexShrink;
-    ref.current.querySelector('div').style.alignSelf = alignSelf;
-  }, [order, flexBasis, flexGrow, flexShrink, alignSelf]);
+    ref.current.querySelector('div').style.order = order
+    ref.current.querySelector('div').style.flexBasis = flexBasis
+    ref.current.querySelector('div').style.flexGrow = flexGrow
+    ref.current.querySelector('div').style.flexShrink = flexShrink
+    ref.current.querySelector('div').style.alignSelf = alignSelf
+  }, [order, flexBasis, flexGrow, flexShrink, alignSelf])
 
   const parentStyle = {
     border: '1px solid red',
     borderRadius: '6px',
     marginBottom: '10px',
     overflow: 'auto',
-  };
+  }
   const parentCustomStyle = {
     display: display,
     flexDirection: flexDirection,
@@ -54,20 +51,24 @@ function Cmpt() {
     columnGap: columnGapInput + 'px',
     padding: paddingParent + 'px',
     height: heightParent + 'px',
-  };
+  }
   const childrenStyle = {
     border: '1px solid grey',
     borderRadius: '6px',
-  };
+  }
   const containerChildrenStyle = {
     padding: paddingChild + 'px',
     margin: marginChild + 'px',
     minWidth: minWidthChild + 'px',
-  };
+  }
 
   return (
     <Div>
-      <div style={{ ...parentStyle, ...parentCustomStyle }} ref={ref} className="parent">
+      <div
+        style={{ ...parentStyle, ...parentCustomStyle }}
+        ref={ref}
+        className="parent"
+      >
         {parseInt(childrenQty) > 0 &&
           new Array(parseInt(childrenQty))
             .fill('', 0, parseInt(childrenQty))
@@ -104,7 +105,7 @@ function Cmpt() {
                 type="radio"
                 name="display"
                 value={'flex'}
-                checked={display === 'flex' ? true : false}
+                checked={display === 'flex'}
                 onChange={() => setDisplay('flex')}
               />
               flex
@@ -114,7 +115,7 @@ function Cmpt() {
                 type="radio"
                 name="display"
                 value={'block'}
-                checked={display === 'block' ? true : false}
+                checked={display === 'block'}
                 onChange={() => setDisplay('block')}
               />
               block
@@ -128,7 +129,7 @@ function Cmpt() {
                 type="radio"
                 name="flexDirection"
                 value={'row'}
-                checked={flexDirection === 'row' ? true : false}
+                checked={flexDirection === 'row'}
                 onChange={() => setFlexDirection('row')}
               />
               row
@@ -138,7 +139,7 @@ function Cmpt() {
                 type="radio"
                 name="flexDirection"
                 value={'row-reverse'}
-                checked={flexDirection === 'row-reverse' ? true : false}
+                checked={flexDirection === 'row-reverse'}
                 onChange={() => setFlexDirection('row-reverse')}
               />
               row-reverse
@@ -148,7 +149,7 @@ function Cmpt() {
                 type="radio"
                 name="flexDirection"
                 value={'column'}
-                checked={flexDirection === 'column' ? true : false}
+                checked={flexDirection === 'column'}
                 onChange={() => setFlexDirection('column')}
               />
               column
@@ -158,7 +159,7 @@ function Cmpt() {
                 type="radio"
                 name="flexDirection"
                 value={'column-reverse'}
-                checked={flexDirection === 'column-reverse' ? true : false}
+                checked={flexDirection === 'column-reverse'}
                 onChange={() => setFlexDirection('column-reverse')}
               />
               column-reverse
@@ -172,7 +173,7 @@ function Cmpt() {
                 type="radio"
                 name="flexWrap"
                 value={'nowrap'}
-                checked={flexWrap === 'nowrap' ? true : false}
+                checked={flexWrap === 'nowrap'}
                 onChange={() => setFlexWrap('nowrap')}
               />
               nowrap
@@ -182,7 +183,7 @@ function Cmpt() {
                 type="radio"
                 name="flexWrap"
                 value={'wrap'}
-                checked={flexWrap === 'wrap' ? true : false}
+                checked={flexWrap === 'wrap'}
                 onChange={() => setFlexWrap('wrap')}
               />
               wrap
@@ -192,7 +193,7 @@ function Cmpt() {
                 type="radio"
                 name="flexWrap"
                 value={'wrap-reverse'}
-                checked={flexWrap === 'wrap-reverse' ? true : false}
+                checked={flexWrap === 'wrap-reverse'}
                 onChange={() => setFlexWrap('wrap-reverse')}
               />
               wrap-reverse
@@ -206,7 +207,7 @@ function Cmpt() {
                 type="radio"
                 name="justifyContent"
                 value={'flex-start'}
-                checked={justifyContent === 'flex-start' ? true : false}
+                checked={justifyContent === 'flex-start'}
                 onChange={() => setJustifyContent('flex-start')}
               />
               flex-start
@@ -216,7 +217,7 @@ function Cmpt() {
                 type="radio"
                 name="justifyContent"
                 value={'flex-end'}
-                checked={justifyContent === 'flex-end' ? true : false}
+                checked={justifyContent === 'flex-end'}
                 onChange={() => setJustifyContent('flex-end')}
               />
               flex-end
@@ -226,7 +227,7 @@ function Cmpt() {
                 type="radio"
                 name="justifyContent"
                 value={'center'}
-                checked={justifyContent === 'center' ? true : false}
+                checked={justifyContent === 'center'}
                 onChange={() => setJustifyContent('center')}
               />
               center
@@ -236,7 +237,7 @@ function Cmpt() {
                 type="radio"
                 name="justifyContent"
                 value={'space-between'}
-                checked={justifyContent === 'space-between' ? true : false}
+                checked={justifyContent === 'space-between'}
                 onChange={() => setJustifyContent('space-between')}
               />
               space-between
@@ -246,7 +247,7 @@ function Cmpt() {
                 type="radio"
                 name="justifyContent"
                 value={'space-around'}
-                checked={justifyContent === 'space-around' ? true : false}
+                checked={justifyContent === 'space-around'}
                 onChange={() => setJustifyContent('space-around')}
               />
               space-around
@@ -256,7 +257,7 @@ function Cmpt() {
                 type="radio"
                 name="justifyContent"
                 value={'space-evenly'}
-                checked={justifyContent === 'space-evenly' ? true : false}
+                checked={justifyContent === 'space-evenly'}
                 onChange={() => setJustifyContent('space-evenly')}
               />
               space-evenly
@@ -270,7 +271,7 @@ function Cmpt() {
                 type="radio"
                 name="alignItems"
                 value={'stretch'}
-                checked={alignItems === 'stretch' ? true : false}
+                checked={alignItems === 'stretch'}
                 onChange={() => setAlignItems('stretch')}
               />
               stretch
@@ -280,7 +281,7 @@ function Cmpt() {
                 type="radio"
                 name="alignItems"
                 value={'flex-start'}
-                checked={alignItems === 'flex-start' ? true : false}
+                checked={alignItems === 'flex-start'}
                 onChange={() => setAlignItems('flex-start')}
               />
               flex-start
@@ -290,7 +291,7 @@ function Cmpt() {
                 type="radio"
                 name="alignItems"
                 value={'flex-end'}
-                checked={alignItems === 'flex-end' ? true : false}
+                checked={alignItems === 'flex-end'}
                 onChange={() => setAlignItems('flex-end')}
               />
               flex-end
@@ -300,7 +301,7 @@ function Cmpt() {
                 type="radio"
                 name="alignItems"
                 value={'center'}
-                checked={alignItems === 'center' ? true : false}
+                checked={alignItems === 'center'}
                 onChange={() => setAlignItems('center')}
               />
               center
@@ -310,7 +311,7 @@ function Cmpt() {
                 type="radio"
                 name="alignItems"
                 value={'baseline'}
-                checked={alignItems === 'baseline' ? true : false}
+                checked={alignItems === 'baseline'}
                 onChange={() => setAlignItems('baseline')}
               />
               baseline
@@ -324,7 +325,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'normal'}
-                checked={alignContent === 'normal' ? true : false}
+                checked={alignContent === 'normal'}
                 onChange={() => setAlignContent('normal')}
               />
               normal
@@ -334,7 +335,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'flex-start'}
-                checked={alignContent === 'flex-start' ? true : false}
+                checked={alignContent === 'flex-start'}
                 onChange={() => setAlignContent('flex-start')}
               />
               flex-start
@@ -344,7 +345,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'flex-end'}
-                checked={alignContent === 'flex-end' ? true : false}
+                checked={alignContent === 'flex-end'}
                 onChange={() => setAlignContent('flex-end')}
               />
               flex-end
@@ -354,7 +355,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'center'}
-                checked={alignContent === 'center' ? true : false}
+                checked={alignContent === 'center'}
                 onChange={() => setAlignContent('center')}
               />
               center
@@ -364,7 +365,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'space-between'}
-                checked={alignContent === 'space-between' ? true : false}
+                checked={alignContent === 'space-between'}
                 onChange={() => setAlignContent('space-between')}
               />
               space-between
@@ -374,7 +375,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'space-around'}
-                checked={alignContent === 'space-around' ? true : false}
+                checked={alignContent === 'space-around'}
                 onChange={() => setAlignContent('space-around')}
               />
               space-around
@@ -384,7 +385,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'space-evenly'}
-                checked={alignContent === 'space-evenly' ? true : false}
+                checked={alignContent === 'space-evenly'}
                 onChange={() => setAlignContent('space-evenly')}
               />
               space-evenly
@@ -394,7 +395,7 @@ function Cmpt() {
                 type="radio"
                 name="alignContent"
                 value={'stretch'}
-                checked={alignContent === 'stretch' ? true : false}
+                checked={alignContent === 'stretch'}
                 onChange={() => setAlignContent('stretch')}
               />
               stretch
@@ -493,8 +494,6 @@ function Cmpt() {
             />
             px
           </div>
-
-          
         </div>
         <div>{'}'}</div>
 
@@ -502,8 +501,7 @@ function Cmpt() {
 
         <div>{'.child:first-child {'}</div>
         <div className="grid">
-
-        <div>order:</div>
+          <div>order:</div>
           <div>
             <input
               type="number"
@@ -539,7 +537,7 @@ function Cmpt() {
                 type="radio"
                 name="alignSelf"
                 value={'auto'}
-                checked={alignSelf === 'auto' ? true : false}
+                checked={alignSelf === 'auto'}
                 onChange={() => setAlignSelf('auto')}
               />
               auto
@@ -549,7 +547,7 @@ function Cmpt() {
                 type="radio"
                 name="alignSelf"
                 value={'stretch'}
-                checked={alignSelf === 'stretch' ? true : false}
+                checked={alignSelf === 'stretch'}
                 onChange={() => setAlignSelf('stretch')}
               />
               stretch
@@ -559,7 +557,7 @@ function Cmpt() {
                 type="radio"
                 name="alignSelf"
                 value={'flex-start'}
-                checked={alignSelf === 'flex-start' ? true : false}
+                checked={alignSelf === 'flex-start'}
                 onChange={() => setAlignSelf('flex-start')}
               />
               flex-start
@@ -569,7 +567,7 @@ function Cmpt() {
                 type="radio"
                 name="alignSelf"
                 value={'flex-end'}
-                checked={alignSelf === 'flex-end' ? true : false}
+                checked={alignSelf === 'flex-end'}
                 onChange={() => setAlignSelf('flex-end')}
               />
               flex-end
@@ -579,7 +577,7 @@ function Cmpt() {
                 type="radio"
                 name="alignSelf"
                 value={'center'}
-                checked={alignSelf === 'center' ? true : false}
+                checked={alignSelf === 'center'}
                 onChange={() => setAlignSelf('center')}
               />
               center
@@ -589,19 +587,17 @@ function Cmpt() {
                 type="radio"
                 name="alignSelf"
                 value={'baseline'}
-                checked={alignSelf === 'baseline' ? true : false}
+                checked={alignSelf === 'baseline'}
                 onChange={() => setAlignSelf('baseline')}
               />
               baseline
             </label>
           </div>
-
         </div>
         <div>{'}'}</div>
-
       </div>
     </Div>
-  );
+  )
 }
 
 const Div = styled.div`
@@ -633,10 +629,9 @@ const Div = styled.div`
     gap: 5px 10px;
     justify-self: end;
 
-
     & > *:nth-child(2n + 1) {
       justify-self: end;
-      
+
       display: flex;
       align-items: center;
     }
@@ -646,9 +641,9 @@ const Div = styled.div`
       align-items: center;
     }
   }
-`;
+`
 
-const toRender = <Cmpt />;
+const toRender = <Cmpt />
 
 export const displayFlex = {
   title: 'display: flex',
@@ -664,4 +659,4 @@ export const displayFlex = {
       val: toRender,
     },
   ],
-};
+}

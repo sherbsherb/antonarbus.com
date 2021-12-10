@@ -19,7 +19,7 @@ function Component() {
 export const esLint = {
   title: 'ESLint configuration',
   date: '2021.12.07',
-  tagsArr: ['ESLint'],
+  tagsArr: ['tools', 'js'],
   postParts: [
     {
       type: 'text',

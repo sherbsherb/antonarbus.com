@@ -25,11 +25,11 @@ export function useModalWithoutBackground() {
         if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeModal()
       }
 
-      document.addEventListener('click', closeModalOnClickOutside)
+      document.addEventListener('mousedown', closeModalOnClickOutside)
       document.addEventListener('keydown', closeModalOnEscape)
 
       return () => {
-        document.removeEventListener('click', closeModalOnClickOutside)
+        document.removeEventListener('mousedown', closeModalOnClickOutside)
         document.removeEventListener('keydown', closeModalOnEscape)
       }
     }, [])
@@ -55,7 +55,6 @@ const Box = styled.div`
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px #8b8b8b;
-  border: 2px solid #2a2a2a;
 `
 
 const CloseBtn = styled.span`

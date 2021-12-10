@@ -104,7 +104,6 @@ export const modalWindowWithBackgroundLayer = {
             document.body.style.overflowY = 'hidden';
 
             useEffect(() => {
-
               function closeModalOnEscape(e) {
                 if (e.key === 'Escape') closeModal();
               }
@@ -143,14 +142,14 @@ export const modalWindowWithBackgroundLayer = {
           background-color: #000000b5;
           display: flex;
           justify-content: center;
-          /* align-items: center; */
           align-items: flex-start;
           padding-top: 20vh;
           z-index: 1000;
+          backdrop-filter: blur(4px);
         \`;
 
         const Container = styled.div\`
-          background-color: #e2e2e2;
+          position: relative;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -158,9 +157,8 @@ export const modalWindowWithBackgroundLayer = {
           align-items: center;
           padding: 20px;
           border-radius: 10px;
-          box-shadow: 0px 0px 10px 0px #8b8b8b;
-          border: 2px solid #494949;
-          position: relative;
+          background-color: transparent;
+          background-image: linear-gradient(to right bottom, rgb(255 255 255 / 70%), rgb(255 255 255 / 90%));
         \`;
 
         const CloseBtn = styled.span\`

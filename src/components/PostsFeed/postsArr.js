@@ -87,8 +87,12 @@ import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 import { leapYear } from './posts/leapYear/leapYear'
 import { esLint } from './posts/esLint/esLint'
 import { babel } from './posts/babel/babel'
+import { webpack } from './posts/webpack/webpack'
+import { backdropFilter } from './posts/backdropFilter'
 
 const posts = [
+  // webpack,
+  backdropFilter,
   //  typeScriptBasics,
   babel,
   esLint,

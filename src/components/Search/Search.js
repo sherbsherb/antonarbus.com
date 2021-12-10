@@ -56,11 +56,11 @@ export default function Search() {
       if (isClickedElOutsideThisEl(clickedEl, modalWindow)) closeSearchPreviewMemo()
     }
 
-    document.addEventListener('click', closeModalOnClickOutside)
+    document.addEventListener('mousedown', closeModalOnClickOutside)
     document.addEventListener('keydown', closeModalOnEscape)
 
     return () => {
-      document.removeEventListener('click', closeModalOnClickOutside)
+      document.removeEventListener('mousedown', closeModalOnClickOutside)
       document.removeEventListener('keydown', closeModalOnEscape)
     }
 

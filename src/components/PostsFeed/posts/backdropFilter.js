@@ -69,6 +69,34 @@ function Cmpt() {
       ${sepiaState.checked ? 'sepia(' + sepiaState.cssVal + '%)' : ''}
       ${saturateState.checked ? 'saturate(' + saturateState.cssVal + '%)' : ''}
     `,
+    WebkitBackdropFilter: `
+      ${blurState.checked ? 'blur(' + blurState.cssVal + 'px)' : ''}  
+      ${
+        brightnessState.checked
+          ? 'brightness(' + brightnessState.cssVal + '%)'
+          : ''
+      }
+      ${contrastState.checked ? 'contrast(' + contrastState.cssVal + '%)' : ''}
+      ${
+        dropShadowState.checked
+          ? 'drop-shadow(' + dropShadowState.cssVal + ')'
+          : ''
+      }
+      ${
+        grayscaleState.checked
+          ? 'grayscale(' + grayscaleState.cssVal + '%)'
+          : ''
+      }
+      ${
+        hueRotateState.checked
+          ? 'hue-rotate(' + hueRotateState.cssVal + 'deg)'
+          : ''
+      }
+      ${invertState.checked ? 'invert(' + invertState.cssVal + '%)' : ''}
+      ${opacityState.checked ? 'opacity(' + opacityState.cssVal + '%)' : ''}
+      ${sepiaState.checked ? 'sepia(' + sepiaState.cssVal + '%)' : ''}
+      ${saturateState.checked ? 'saturate(' + saturateState.cssVal + '%)' : ''}
+    `,
   }
 
   return (

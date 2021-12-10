@@ -184,6 +184,14 @@ export const backdropFilter = {
       ),
     },
     {
+      type: 'number',
+      val: (
+        <>
+          That's nice to make a semi-transparent layer and blur anything behind.
+        </>
+      ),
+    },
+    {
       type: 'output',
       val: toRender,
     },

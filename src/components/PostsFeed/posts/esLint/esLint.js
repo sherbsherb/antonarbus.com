@@ -31,7 +31,6 @@ export const esLint = {
       ),
     },
     {
-      type: 'text',
       val: (
         <h3>React</h3>
       ),
@@ -143,7 +142,6 @@ export const esLint = {
       ),
     },
     {
-      type: 'text',
       val: (
         <h3>Manual installation</h3>
       ),

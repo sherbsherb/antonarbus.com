@@ -83,14 +83,16 @@ import { gsapMotionPathPlugin } from './posts/gsapMotionPath'
 import { gsapScrollTo } from './posts/gsapScrollTo'
 import { gsapText } from './posts/gsapText'
 import { gsapScrollTrigger } from './posts/gsapScrollTrigger'
-import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
+// import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 import { leapYear } from './posts/leapYear/leapYear'
 import { esLint } from './posts/esLint/esLint'
 import { babel } from './posts/babel/babel'
-import { webpack } from './posts/webpack/webpack'
+// import { webpack } from './posts/webpack/webpack'
 import { backdropFilter } from './posts/backdropFilter'
+import { webServices } from './posts/webServices/webServices'
 
 const posts = [
+  webServices,
   // webpack,
   backdropFilter,
   //  typeScriptBasics,

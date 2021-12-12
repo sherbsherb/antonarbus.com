@@ -344,9 +344,5 @@ export const webpack = {
         ;
       `,
     },
-    {
-      type: 'img',
-      // src: babeledFile,
-    },
   ],
 }

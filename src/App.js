@@ -22,6 +22,7 @@ export default function App() {
         {/* <Nav /> */}
         {/* <Search /> */}
         <Switch>
+
           <Route
             path="/post/:uriPostName"
             exact

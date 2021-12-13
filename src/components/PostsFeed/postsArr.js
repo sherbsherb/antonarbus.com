@@ -88,12 +88,12 @@ import { esLint } from './posts/esLint/esLint'
 import { babel } from './posts/babel/babel'
 import { backdropFilter } from './posts/backdropFilter'
 import { webServices } from './posts/webServices/webServices'
-// import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 import { webpack } from './posts/webpack/webpack'
+// import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
+  // typeScriptBasics,
   webpack,
-  //  typeScriptBasics,
   webServices,
   backdropFilter,
   babel,

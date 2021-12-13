@@ -1,19 +1,26 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'none',
   entry: path.resolve(__dirname, 'input', 'js.js'),
-  // devtool: 'eval-source-map',
+  devtool: 'source-map',
   output: {
     path: path.resolve('public', 'webpack'),
-    // filename: 'bundle.[contenthash].js',
-    filename: 'bundle.js',
+    filename: 'bundle.[contenthash].js',
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: 'styles.[contenthash].css',
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'input', 'template.html'),
+      title: 'Webpack generated file',
+      filename: 'index.html',
+      inject: 'head',
+      scriptLoading: 'defer'
+    })
   ],
   module: {
     rules: [

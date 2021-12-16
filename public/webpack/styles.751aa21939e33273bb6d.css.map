@@ -1,1 +1,0 @@
-{"version":3,"file":"styles.751aa21939e33273bb6d.css","mappings":"AAAA;EACE;AACF;AAAE;EACE;AAEJ,C","sources":["webpack://antonarbus.com/./src/components/PostsFeed/posts/webpack/input/style.scss"],"sourcesContent":["body {\r\n  background: rgb(20 136 68 / 26%);\r\n  h1 {\r\n    color: brown;\r\n  }\r\n}\r\n\r\n"],"names":[],"sourceRoot":""}

@@ -89,10 +89,12 @@ import { babel } from './posts/babel/babel'
 import { backdropFilter } from './posts/backdropFilter'
 import { webServices } from './posts/webServices/webServices'
 import { webpack } from './posts/webpack/webpack'
+import { rubySyntax } from './posts/rubySyntax/rubySyntax'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  rubySyntax,
   webpack,
   webServices,
   backdropFilter,

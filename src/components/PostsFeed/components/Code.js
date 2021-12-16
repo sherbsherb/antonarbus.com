@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react'
 
+import './prism.css'
 import * as Prism from 'prismjs'
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-json'
-import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
-import './prism.css'
+// import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-python'
 
 Prism.plugins.NormalizeWhitespace.setDefaults({
   'remove-trailing': true,
@@ -12,6 +14,8 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
   'left-trim': true,
   'right-trim': true,
   'break-lines': 600, // max number of characters in a line before break
+  // indent: 0,
+  // 'remove-initial-line-feed': true,
 })
 
 export function Code(props) {

@@ -6,7 +6,7 @@ export function Div(props) {
 
 const DivStyled = styled.div`
   margin-top: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   align-self: flex-start;
   width: 100%;
 `

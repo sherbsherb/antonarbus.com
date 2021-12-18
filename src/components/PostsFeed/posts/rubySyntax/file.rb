@@ -1,6 +1,2 @@
-File.open("file.txt") do |line|
-  line.each do |item|
-    p item
-  end
-end
-
+arr = [1, 2, 3]
+        p arr.reverse # "1 2 3"

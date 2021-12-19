@@ -1115,7 +1115,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <><Lnk path="https://overapi.com/python">Ruby cheat-sheet</Lnk> on every property and method.</>,
+      val: <><Lnk path="https://overapi.com/python">Python cheat-sheet</Lnk> on every property and method.</>,
     },
   ],
 }

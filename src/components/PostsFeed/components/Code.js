@@ -5,7 +5,7 @@ import * as Prism from 'prismjs'
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-json'
-// import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-ruby'
 import 'prismjs/components/prism-python'
 
 Prism.plugins.NormalizeWhitespace.setDefaults({

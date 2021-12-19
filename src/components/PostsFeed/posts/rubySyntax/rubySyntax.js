@@ -33,9 +33,9 @@ export const rubySyntax = {
       type: 'text',
       val: (
         <>
-          Create a file <code>syntax.rb</code> with the following code{' '}
+          Create a file <code>file.rb</code> with the following code{' '}
           <CodeSpan lang="ruby">puts 'hello world'</CodeSpan>, run it from the terminal with command{' '}
-          <code>ruby syntax.rb</code> and get output <CodeOutput>hello world</CodeOutput>. So Ruby
+          <code>ruby file.rb</code> and get output <CodeOutput>hello world</CodeOutput>. So Ruby
           is installed and executable.
         </>
       ),
@@ -558,17 +558,10 @@ export const rubySyntax = {
 
         p arr.drop(3) # [4, 5, 6]
         p arr # [1, 2, 3, 4, 5, 6]
-
-        p arr.concat([7, 8, 9]) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        p arr # [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-        arrWithDuplicates = [1, 1, 2, 2, 3, 3]
-        p arrWithDuplicates.uniq # [1, 2, 3]
-        p arrWithDuplicates # [1, 1, 2, 2, 3, 3]
       `,
     },
     {
-      val: <h5>Include</h5>,
+      val: <h5>Include?</h5>,
     },
     {
       type: 'code',
@@ -590,7 +583,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Empty</h5>,
+      val: <h5>Empty?</h5>,
     },
     {
       type: 'code',
@@ -609,6 +602,91 @@ export const rubySyntax = {
       val: `
         arr = [1, 2, 3]
         p arr.join(" ") # "1 2 3"
+        p arr.join # "123"
+      `,
+    },
+    {
+      val: <h5>Reverse</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        arr = [1, 2, 3]
+        p arr.reverse # [3, 2, 1]
+      `,
+    },
+    {
+      val: <h5>Select</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        arr = [1, 2, 3, 4, 5]
+        p arr.select { |num| num > 2 } # [3, 4, 5]
+        p arr # [1, 2, 3, 4, 5]
+      `,
+    },
+    {
+      val: <h5>flatten</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        p [1, 2, [3, 4, 5]].flatten # [1, 2, 3, 4, 5]
+        p [1, 2, [3, [4, 5]]].flatten # [1, 2, 3, 4, 5]
+        
+      `,
+    },
+    {
+      val: <h5>each</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        arr = [1, 2, 3, 4, 5]
+        arr.each do |el|
+          p el
+        end
+        # 1 2 3 4 5
+      `,
+    },
+    {
+      val: <h5>map</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        arr = [1, 2, 3, 4, 5]
+        p arr.map { |el| el * 2 } # [2, 4, 6, 8, 10]
+      `,
+    },
+    {
+      val: <h5>concat</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        arr = [1, 2, 3]
+        p arr.concat([4, 5, 6]) # [1, 2, 3, 4, 5, 6]
+        p arr # [1, 2, 3, 4, 5, 6]
+      `
+    },
+    {
+      val: <h5>uniq</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        arr = [1, 1, 2, 2, 3, 3]
+        p arr.uniq # [1, 2, 3]
+        p arr # [1, 1, 2, 2, 3, 3]
       `,
     },
     {

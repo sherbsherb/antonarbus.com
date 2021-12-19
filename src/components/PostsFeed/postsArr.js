@@ -90,10 +90,12 @@ import { backdropFilter } from './posts/backdropFilter'
 import { webServices } from './posts/webServices/webServices'
 import { webpack } from './posts/webpack/webpack'
 import { rubySyntax } from './posts/rubySyntax/rubySyntax'
+import { pythonSyntax } from './posts/pythonSyntax/pythonSyntax'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  pythonSyntax,
   rubySyntax,
   webpack,
   webServices,

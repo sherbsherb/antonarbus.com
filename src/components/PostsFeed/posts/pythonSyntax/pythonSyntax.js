@@ -164,7 +164,22 @@ export const pythonSyntax = {
         5 // 2 # 2
       `,
     },
+    {
+      val: <h3>String</h3>,
+    },
+    {
+      type: 'code',
+      lang: 'py',
+      val: `
+        str = "single line string"
+        str = "\"single line string with quotation mark"
+        str = '''
+          multiline
+          text
+        '''
 
+      `,
+    },
 
     {
       val: <><Lnk path="https://overapi.com/python">Ruby cheat-sheet</Lnk> on every property and method.</>,

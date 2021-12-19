@@ -1351,36 +1351,6 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Polymorphism</h5>,
-    },
-    {
-      type: 'code',
-      lang: 'ruby',
-      val: `
-        class Bird
-          def tweet(bird_type)
-            bird_type.tweet
-          end
-        end
-        
-        class Cardinal < Bird
-          def tweet
-            p "Tweet tweet"
-          end
-        end
-        
-        class Parrot < Bird
-          def tweet
-            p "Squawk"
-          end
-        end
-        
-        generic_bird = Bird.new
-        generic_bird.tweet(Cardinal.new) # "Tweet tweet"
-        generic_bird.tweet(Parrot.new) # "Squawk"
-      `,
-    },
-    {
       val: <h3>Module</h3>,
     },
     {

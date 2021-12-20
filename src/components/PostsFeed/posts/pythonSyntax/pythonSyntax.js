@@ -68,8 +68,8 @@ export const pythonSyntax = {
       lang: 'py',
       val: `
         # print w/o line break
-        print("line 1 ",end="")
-        print("line 2 ",end="")
+        print("line 1 ", end = "")
+        print("line 2 ", end = "")
         # line 1 line 2 
       `,
     },
@@ -80,7 +80,7 @@ export const pythonSyntax = {
       type: 'code',
       lang: 'py',
       val: `
-        print("5 + 2 =", 5+2) # 5 + 2 = 7
+        print("5 + 2 =", 5 + 2) # 5 + 2 = 7
 
         var1 = "like"
         var2 = "to"
@@ -864,6 +864,17 @@ export const pythonSyntax = {
           print('can drive a car')
         else:
           print('can not drive')
+      `,
+    },
+    {
+      val: <h5>ternary</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'py',
+      val: `
+        a = 1 if (1 == 1) else 0
+        print(a) # 1
       `,
     },
     {

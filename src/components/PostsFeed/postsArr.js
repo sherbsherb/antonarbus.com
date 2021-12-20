@@ -91,10 +91,12 @@ import { webServices } from './posts/webServices/webServices'
 import { webpack } from './posts/webpack/webpack'
 import { rubySyntax } from './posts/rubySyntax/rubySyntax'
 import { pythonSyntax } from './posts/pythonSyntax/pythonSyntax'
+import { phpSyntax } from './posts/phpSyntax/phpSyntax'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  phpSyntax,
   pythonSyntax,
   rubySyntax,
   webpack,

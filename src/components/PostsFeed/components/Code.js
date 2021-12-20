@@ -1,11 +1,15 @@
 import { useEffect, useRef } from 'react'
 
 import './prism.css'
-import * as Prism from 'prismjs'
+import Prism from 'prismjs'
+// import * as Prism from 'prismjs'
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
+import 'prismjs/components/prism-markup'
+import 'prismjs/components/prism-markup-templating'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-php'
 import 'prismjs/components/prism-python'
 
 Prism.plugins.NormalizeWhitespace.setDefaults({

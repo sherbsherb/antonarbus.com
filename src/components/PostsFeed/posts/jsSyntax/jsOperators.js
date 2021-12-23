@@ -23,7 +23,7 @@ export const jsOperators = {
       ),
     },
     {
-      val: <h5>unary vs binary operator</h5>,
+      val: <h5>Unary vs binary operator</h5>,
     },
     {
       val: (
@@ -34,12 +34,12 @@ export const jsOperators = {
       ),
     },
     {
-      val: <h5>arithmetical</h5>,
+      val: <h5>Arithmetical</h5>,
     },
     {
       val: (
         <>
-          <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>**</code>
+          <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code>
         </>
       ),
     },
@@ -63,15 +63,12 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>comparison</h5>,
+      val: <h5>Comparison</h5>,
     },
     {
       val: (
         <>
-          <code>{'>'}</code> <code>{'<'}</code> <code>{'>='}</code> <code>{'<='}</code>{' '}
-          <code>{'=='}</code> <code>{'==='}</code>
-          <code>{'!='}</code>
-          <code>{'!=='}</code>
+          <code>{'>'}</code>, <code>{'<'}</code>, <code>{'>='}</code>, <code>{'<='}</code>, <code>{'=='}</code>, <code>{'==='}</code>, <code>{'!='}</code>, <code>{'!=='}</code>
         </>
       ),
     },
@@ -102,7 +99,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>bitwise</h5>,
+      val: <h5>Bitwise</h5>,
     },
     {
       val: (
@@ -126,19 +123,19 @@ export const jsOperators = {
       ),
     },
     {
-      val: <h5>logical</h5>,
+      val: <h5>Logical</h5>,
     },
     {
       val: (
         <>
-          <code>{'||'}</code> <code>{'&&'}</code> <code>{'!'}</code> <code>{'??'}</code>
+          <code>{'||'}</code>, <code>{'&&'}</code>, <code>{'!'}</code>, <code>{'??'}</code>
         </>
       ),
     },
     {
       val: (
         <>
-          OR "||" finds the first truthy value, returns it and stops"||" finds the first truthy
+          <code>||</code> ('OR') finds the first truthy value, returns it and stops"||" finds the first truthy
           value, returns it and stops
         </>
       ),
@@ -161,7 +158,7 @@ export const jsOperators = {
     {
       val: (
         <>
-          AND “&&” finds the first falsy value and returns it, if all operands are truthy, returns
+          <code>&&</code> (AND) finds the first falsy value and returns it, if all operands are truthy, returns
           the last operand
         </>
       ),
@@ -184,7 +181,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <>! (NOT) is used for negation</>,
+      val: <><code>!</code> (NOT) is used for negation</>,
     },
     {
       type: 'code',
@@ -199,7 +196,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <>?? (Nullish Coalescing) returns the first defined value</>,
+      val: <><code>??</code> (Nullish Coalescing) returns the first defined value</>,
     },
     {
       type: 'code',
@@ -238,13 +235,24 @@ export const jsOperators = {
     {
       val: (
         <>
-          Grouping <code>{'()'}</code>, not <code>{'!'}</code>, unary operator <code>{'+'}</code>,{' '}
-          <code>{'-'}</code>, exponentiation <code>{'**'}</code>, multiplication <code>{'*'}</code>,
-          division <code>{'/'}</code>, reminder <code>{'%'}</code>, addition <code>{'+'}</code>,
-          subtraction <code>{'-'}</code>, less than <code>{'<'}</code>, greater then{' '}
-          <code>{'>'}</code>, equality <code>{'=='}</code>, inequality <code>{'!='}</code>, and{' '}
-          <code>{'&&'}</code>, or <code>{'||'}</code>, subtraction <code>{'-'}</code>, assignment{' '}
-          <code>{'='}</code>, comma <code>{','}</code>
+          Grouping <code>{'()'}</code> -->
+          Not <code>{'!'}</code> -->
+          Unary operator <code>{'+'}</code>, <code>{'-'}</code> -->
+          Exponentiation <code>{'**'}</code> -->
+          Multiplication <code>{'*'}</code> -->
+          Division <code>{'/'}</code> -->
+          Reminder <code>{'%'}</code> -->
+          Addition <code>{'+'}</code> -->
+          Subtraction <code>{'-'}</code> -->
+          Less than <code>{'<'}</code> -->
+          Greater then <code>{'>'}</code> -->
+          Equality <code>{'=='}</code> -->
+          Inequality <code>{'!='}</code> -->
+          And <code>{'&&'}</code> -->
+          Or <code>{'||'}</code> -->
+          Subtraction <code>{'-'}</code> -->
+          Assignment <code>{'='}</code> -->
+          Comma <code>{','}</code>
         </>
       ),
     },

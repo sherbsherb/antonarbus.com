@@ -9,12 +9,11 @@ export const jsDataTypes = {
   tagsArr: ['js', 'basics'],
   postParts: [
     {
-      val: <h3>Data types</h3>,
+      val: <h5>Primitives</h5>,
     },
     {
       val: (
         <>
-          Primitives
           <ul>
             <li>
               <code>number</code> numbers of any kind: integer or floating-point, integers are
@@ -41,7 +40,15 @@ export const jsDataTypes = {
               <code>symbol</code> unique identifiers
             </li>
           </ul>
-          Objects
+        </>
+      ),
+    },
+    {
+      val: <h5>Objects</h5>,
+    },
+    {
+      val: (
+        <>
           <ul>
             <li>
               <code>object</code> for more complex data structures
@@ -54,7 +61,7 @@ export const jsDataTypes = {
       ),
     },
     {
-      val: <h5>typeof</h5>,
+      val: <h5>Typeof</h5>,
     },
     {
       type: 'code',
@@ -66,7 +73,7 @@ export const jsDataTypes = {
       `,
     },
     {
-      val: <h5>type conversion</h5>,
+      val: <h5>Type conversion</h5>,
     },
     {
       type: 'code',

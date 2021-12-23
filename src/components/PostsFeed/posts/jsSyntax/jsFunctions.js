@@ -502,22 +502,5 @@ export const jsFunctions = {
         // bound function can not be re-bound
       `,
     },
-    {
-      val: <h3>Debugger</h3>,
-    },
-    {
-      val: <>Debugger pauses the code</>,
-    },
-    {
-      type: 'code',
-      lang: 'js',
-      val: `
-      function hello(name) {
-        let phrase = \`Hello, \${name}!\`;
-        debugger;  // <-- the debugger stops here
-        say(phrase);
-      }
-      `,
-    },
   ],
 }

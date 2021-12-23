@@ -196,7 +196,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>property value shorthand</h5>,
+      val: <h5>Property value shorthand</h5>,
     },
     {
       type: 'code',
@@ -213,7 +213,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>property existence test, “in” operator</h5>,
+      val: <h5>Property existence, “in” operator</h5>,
     },
     {
       type: 'code',
@@ -227,7 +227,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>"for…in" loop</h5>,
+      val: <h5>For…in loop</h5>,
     },
     {
       type: 'code',
@@ -249,7 +249,7 @@ export const jsObjects = {
       val: <h5>Order</h5>,
     },
     {
-      val: <>integer properties are sorted, others appear in creation order</>,
+      val: <>Integer properties are sorted, others appear in creation order</>,
     },
     {
       type: 'code',
@@ -513,8 +513,8 @@ export const jsObjects = {
     {
       val: <>
         <ul>
-          <li>primitives also have methods, but how? they are not objects</li>
-          <li>a special object is created that has useful methods, like <code>toUpperCase()</code>, runs and destroyed</li>
+          <li>Primitives also have methods, but how? they are not objects</li>
+          <li>A special object is created that has useful methods, like <code>toUpperCase()</code>, runs and destroyed</li>
           <li><code>null</code> & <code>undefined</code> have no methods</li>
           <li><CodeSpan>{'"Hello".toUpperCase(); // HELLO'}</CodeSpan></li>
         </ul>

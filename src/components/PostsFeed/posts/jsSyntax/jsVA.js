@@ -40,5 +40,30 @@ export const jsVA = {
       }
       `,
     },
+    {
+      val: <h3>Console</h3>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      console.log(val) // prints value
+      console.dir(obj) // displays an interactive list of the properties 
+
+      // others
+      console.assert(false, 'msg') // writes an error message to the console if the assertion is false
+      console.clear() // clears the console if the environment allows
+      console.count('msg') // logs the number of this count() calls has been called
+      console.countReset('msg') // resets counter used with console.count()
+      console.error('msg') // outputs an error message
+      console.info('msg') // outputs an informational message 
+      console.warn('msg') // outputs a warning message 
+      console.table(objOrArr) // displays tabular data as a table
+      console.trace(objOrMsg) // outputs a stack trace
+      console.time(timerName) // starts a timer
+      console.timeLog(timerName) // logs the current value of a timer
+      console.timeEnd(timerEnd) // stops a timer
+      `,
+    },
   ],
 }

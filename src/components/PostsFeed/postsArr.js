@@ -101,10 +101,14 @@ import { jsLoops } from './posts/jsSyntax/jsLoops'
 import { jsFunctions } from './posts/jsSyntax/jsFunctions'
 import { jsObjects } from './posts/jsSyntax/jsObjects'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
-// import { jsSyntax } from './posts/jsSyntax/jsSyntax'
+import { jsSymbol } from './posts/jsSyntax/jsSymbol'
+import { jsNumbers } from './posts/jsSyntax/jsNumbers'
+import { jsStrings } from './posts/jsSyntax/jsStrings'
 
 const posts = [
-  // jsSyntax,
+  jsStrings,
+  jsNumbers,
+  jsSymbol,
   // typeScriptBasics,
   jsObjects,
   jsFunctions,

@@ -763,7 +763,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Arrow function</h5>,
+      val: <h5>Arrow function (lambda)</h5>,
     },
     {
       type: 'code',

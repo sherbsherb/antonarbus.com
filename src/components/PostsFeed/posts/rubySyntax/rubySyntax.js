@@ -1155,31 +1155,62 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Function (method)</h3>,
+      val: <h3>Function</h3>,
+    },
+    {
+      val: <h5>Function declaration</h5>,
     },
     {
       type: 'code',
       lang: 'ruby',
       val: `
-        def hello1
+        def hello
           p "hello from method"
         end
-        hello1 # "hello from method"
+        hello # "hello from method"
         
-        def hello2()
+        def hello()
           p "hello from method"
         end
-        hello2() # "hello from method"
+        hello() # "hello from method"
 
-        def hello3(name)
+        def hello(name)
           p "hello from #{name}"
         end
-        hello3('John') # "hello from John"
+        hello('John') # "hello from John"
 
-        def hello4(name = "John")
+        def hello(name = "John")
           puts "Hello from #{name}"
         end
-        hello4 # "hello from John"
+        hello # "hello from John"
+      `,
+    },
+    {
+      val: <h5>Function expression (lambda)</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        hello = lambda {p 'hello'}
+        hello.call # "hello"
+        hello.() # "hello"
+        hello.[] # "hello"
+        hello.=== # "hello"
+      `,
+    },
+    {
+      val: <h5>Arrow function</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'ruby',
+      val: `
+        hello = -> { puts "hello" }
+        hello.call # "hello"
+
+        hello = -> (arg) { puts "hello " + arg }
+        hello.call("John") # "hello John"
       `,
     },
     {

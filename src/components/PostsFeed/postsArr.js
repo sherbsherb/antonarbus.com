@@ -92,10 +92,28 @@ import { webpack } from './posts/webpack/webpack'
 import { rubySyntax } from './posts/rubySyntax/rubySyntax'
 import { pythonSyntax } from './posts/pythonSyntax/pythonSyntax'
 import { phpSyntax } from './posts/phpSyntax/phpSyntax'
+import { jsVA } from './posts/jsSyntax/jsVA'
+import { jsVariables } from './posts/jsSyntax/jsVariables'
+import { jsDataTypes } from './posts/jsSyntax/jsDataTypes'
+import { jsOperators } from './posts/jsSyntax/jsOperators'
+import { jsConditions } from './posts/jsSyntax/jsConditions'
+import { jsLoops } from './posts/jsSyntax/jsLoops'
+import { jsFunctions } from './posts/jsSyntax/jsFunctions'
+import { jsObjects } from './posts/jsSyntax/jsObjects'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
+// import { jsSyntax } from './posts/jsSyntax/jsSyntax'
 
 const posts = [
+  // jsSyntax,
   // typeScriptBasics,
+  jsObjects,
+  jsFunctions,
+  jsLoops,
+  jsConditions,
+  jsOperators,
+  jsDataTypes,
+  jsVariables,
+  jsVA,
   phpSyntax,
   pythonSyntax,
   rubySyntax,

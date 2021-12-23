@@ -959,6 +959,9 @@ export const pythonSyntax = {
       val: <>Variables defined in function are not visible outside.</>,
     },
     {
+      val: <h3>Functions declaration</h3>,
+    },
+    {
       type: 'code',
       lang: 'py',
       val: `
@@ -967,6 +970,28 @@ export const pythonSyntax = {
           return sumNum
         
         print(sum(1, 2)) # 3
+      `,
+    },
+    {
+      val: <h3>Lambda function (arrow)</h3>,
+    },
+    {
+      type: 'code',
+      lang: 'py',
+      val: `
+        sum = lambda num1, num2 : num1 + num2
+        print(sum(1, 2)) # 3 
+      `,
+    },
+    {
+      type: 'code',
+      lang: 'py',
+      val: `
+        def func(n):
+          return lambda a : a * n
+
+        tripler = myfunc(3)
+        print(tripler(11)) # 33
       `,
     },
     {

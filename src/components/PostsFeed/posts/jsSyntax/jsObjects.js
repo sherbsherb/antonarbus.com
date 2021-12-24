@@ -723,5 +723,115 @@ export const jsObjects = {
       john.age // 29
       `,
     },
+    {
+      val: <h5>Iterable object</h5>,
+    },
+    {
+      val: <>Iterable has <code>for..of</code> loop functionality</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      // strings are iterables
+      for (let char of "test") {
+        console.log(char) // t, e, s, t
+      }
+      `,
+    },
+    {
+      val: <>
+        To make an iterable we need to add <code>Symbol.iterator</code> & <code>next()</code> method.
+      </>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let range = {
+        from: 1,
+        to: 5,
+      
+        [Symbol.iterator]() {
+          this.current = this.from;
+          return this;
+        },
+      
+        next() {
+          if (this.current <= this.to) {
+            return { done: false, value: this.current++ };
+          } else {
+            return { done: true };
+          }
+        }
+      };
+      
+      for (let num of range) alert(num); // 1, then 2, 3, 4, 5
+      `,
+    },
+    {
+      val: <h5>Array-like object</h5>,
+    },
+    {
+      val: <>Array-likes are objects that have indexes and length, so they look like arrays</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      // strings are array-like objects
+      "test".length // 4
+      "test"[2] // 's'
+      `,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      // here’s the object that is array-like, but not iterable:
+      let arrayLike = { // has indexes and length => array-like
+        0: "Hello",
+        1: "World",
+        length: 2
+      };
+      
+      for (let item of arrayLike) {}  // Error (no Symbol.iterator)
+      `,
+    },
+    {
+      val: <h5>From iterables & array-like object to array</h5>,
+    },
+    {
+      val: <ul>
+      <li>iterables & array-likes are not arrays, they don’t have push, pop etc. methods</li>
+      <li><CodeSpan>Array.from()</CodeSpan> makes a “real” array</li>
+      </ul>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let arrayLike = {
+        0: "Hello",
+        1: "World",
+        length: 2
+      };
+      
+      let arr = Array.from(arrayLike);
+      arr.pop(); // World (method works)
+  
+      // optional args
+      Array.from(obj[, mapFn, thisArg])
+      let arr = Array.from(arrayLike, str => " - " + str); // [" - Hello", " - World"]
+  
+      // string into array
+      let str = "Hello"
+      let strArr1 = Array.from(str)
+      let strArr2 = str.split("")
+      console.log(strArr1, strArr2) // ["H", "e", "l", "l", "o"] ["H", "e", "l", "l", "o"]
+  
+      // we can convert jQuery collection into array with such method
+      `,
+    },
   ],
 }

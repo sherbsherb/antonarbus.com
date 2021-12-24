@@ -9,9 +9,6 @@ export const jsConditions = {
   tagsArr: ['js', 'basics'],
   postParts: [
     {
-      val: <h3>Conditions</h3>,
-    },
-    {
       val: <h5>If</h5>,
     },
     {

@@ -104,8 +104,14 @@ import { jsObjects } from './posts/jsSyntax/jsObjects'
 import { jsSymbol } from './posts/jsSyntax/jsSymbol'
 import { jsNumbers } from './posts/jsSyntax/jsNumbers'
 import { jsStrings } from './posts/jsSyntax/jsStrings'
+import { jsArrays } from './posts/jsSyntax/jsArrays'
+import { jsMap } from './posts/jsSyntax/jsMap'
+import { jsSet } from './posts/jsSyntax/jsSet'
 
 const posts = [
+  // jsSet,
+  // jsMap,
+  jsArrays,
   jsStrings,
   jsNumbers,
   jsSymbol,

@@ -100,22 +100,22 @@ import { jsConditions } from './posts/jsSyntax/jsConditions'
 import { jsLoops } from './posts/jsSyntax/jsLoops'
 import { jsFunctions } from './posts/jsSyntax/jsFunctions'
 import { jsObjects } from './posts/jsSyntax/jsObjects'
-// import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 import { jsSymbol } from './posts/jsSyntax/jsSymbol'
 import { jsNumbers } from './posts/jsSyntax/jsNumbers'
 import { jsStrings } from './posts/jsSyntax/jsStrings'
 import { jsArrays } from './posts/jsSyntax/jsArrays'
 import { jsMap } from './posts/jsSyntax/jsMap'
 import { jsSet } from './posts/jsSyntax/jsSet'
+// import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
-  // jsSet,
-  // jsMap,
+  // typeScriptBasics,
+  jsSet,
+  jsMap,
   jsArrays,
   jsStrings,
   jsNumbers,
   jsSymbol,
-  // typeScriptBasics,
   jsObjects,
   jsFunctions,
   jsLoops,

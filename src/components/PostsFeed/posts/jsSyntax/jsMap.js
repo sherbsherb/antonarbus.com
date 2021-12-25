@@ -9,20 +9,243 @@ export const jsMap = {
   tagsArr: ['js', 'basics'],
   postParts: [
     {
-      val: <h5>Declaration</h5>,
+      val: <>Map is is a special type collection, like an object with keys of any data type.</>,
     },
-    
-
+    {
+      val: <h5>Object vs Map</h5>,
+    },
     {
       type: 'code',
       lang: 'js',
       val: `
-      xxx
+      let john = { name: "John" };
+      let obj = {};
+      obj[john] = 123;
+      obj // {[object Object]: 123}
+
+      let map = new Map(); 
+      map.set(john, 123); 
+      map // [key: {name: "John"}, value: 123]
       `,
     },
     {
-      val: <h5>xxx</h5>,
+      val: <h5>Declaration</h5>,
     },
-    
+    {
+      val: <><CodeSpan>{'new Map([iterable])'}</CodeSpan></>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let map = new Map() // creates the map
+      // or
+      let map = new Map([
+        ['1',  'str1'],
+        [1,    'num1'],
+        [true, 'bool1']
+      ]);
+      `,
+    },
+    {
+      val: <h5>Add</h5>,
+    },
+    {
+      val: <><CodeSpan>{'map.set(key, value)'}</CodeSpan></>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      map.set('1', 'str1') // a string key
+      map.set(1, 'num1') // a numeric key
+      map.set(true, 'bool1') // a boolean key
+      `,
+    },
+    {
+      val: <h5>Get</h5>,
+    },
+    {
+      val: <>
+      <ul>
+        <li><CodeSpan>{'map.get(key)'}</CodeSpan></li>
+        <li>returns the value by the key</li>
+        <li><code>undefined</code> if key doesn’t exist in map</li>
+        <li><CodeSpan>{'map[key]'}</CodeSpan> -  works, but isn’t the right way</li>
+      </ul>
+      </>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      map.get('1'); // 'str1'
+      map.get(1); // 'num1'
+      `,
+    },
+    {
+      val: <h5>Size</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      map.size; // 3
+      `,
+    },
+    {
+      val: <h5>Delete</h5>,
+    },
+    {
+      val: <>
+      <ul>
+        <li><CodeSpan>{'map.delete(key)'}</CodeSpan> - removes the value by the key</li>
+        <li><CodeSpan>{'map.clear() '}</CodeSpan> - removes everything from the map</li>
+      </ul>
+      </>,
+    },
+    {
+      val: <h5>Has</h5>,
+    },
+    {
+      val: <>
+      <ul>
+        <li><CodeSpan>{'map.has(key)'}</CodeSpan> - returns true if the key exists, false otherwise</li>
+      </ul>
+      </>,
+    },
+    {
+      val: <h5>Iteration</h5>,
+    },
+    {
+      val: <>Iteration goes in the same order as the values were inserted</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let recipeMap = new Map([
+        ['cucumber', 500],
+        ['tomatoes', 350],
+        ['onion', 50]
+      ]);
+  
+      // returns iterable of keys, values & entries
+      recipeMap.keys() // MapIterator {"cucumber", "tomatoes", "onion"}
+      recipeMap.values() // MapIterator {500, 350, 50}
+      recipeMap.entries() // MapIterator {"cucumber" => 500, "tomatoes" => 350, "onion" => 50} // it’s used by default in for..of.
+  
+      for (let key of recipeMap.keys()) alert(key) // cucumber, tomatoes, onion
+      for (let value of recipeMap.values()) alert(value) // 500, 350, 50
+      for (let entry of recipeMap) alert(entry) // cucumber,500 (and so on) // the same as of recipeMap.entries()
+      
+      recipeMap.forEach( (value, key, map) => {
+        alert(\`\${key}: \${value}\`) // cucumber: 500 etc
+      })
+      `,
+    },
+    {
+      val: <h5>Chaining</h5>,
+    },
+    {
+      val: <><code>map.set</code> call returns the map itself</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+        map.set('1', 'str1').set(1, 'num1').set(true, 'bool1')
+        map // Map(3) {'1' => 'str1', 1 => 'num1', true => 'bool1'}
+      `,
+    },
+    {
+      val: <h5>Array --> Map </h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let map = new Map([
+        ['1',  'str1'],
+        [1,    'num1'],
+        [true, 'bool1']
+      ]);
+  
+      map.get('1') // "str1"
+      `,
+    },
+    {
+      val: <h5>Object --> Map </h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let obj = {
+        name: "John",
+        age: 30
+      };
+      
+      let map = new Map(Object.entries(obj));
+      map.get('name') // "John"
+      `,
+    },
+    {
+      val: <h5>Map --> Object </h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let prices = Object.fromEntries([
+        ['banana', 1],
+        ['orange', 2],
+      ])
+      prices // { banana: 1, orange: 2, meat: 4 }
+      `,
+    },
+    {
+      val: <h5>WeakMap</h5>,
+    },
+    {
+      val: <>
+      <ul>
+        <li>allows only objects as keys</li>
+        <li>removes them together with associated value once they become inaccessible</li>
+        <li>main advantages are that they have weak reference to objects</li>
+        <li>they can easily be removed by garbage collector</li>
+        <li>disadvantages are not having support for clear, size, keys, values…</li>
+        <li>idea is that object key stays in map if we even delete the object reference, it is not garbage collected</li>
+        <li>but in weakMap if we kill the obj it will be also removed from the weakMap</li>
+        <li>If we’re working with an object that “belongs” to another code, maybe even a third-party library, 
+        and would like to store some data associated with it, 
+        that should only exist while the object is alive – then WeakMap is exactly what’s needed.</li>
+      </ul>
+      </>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let map = new Map();
+      let obj1 = {name: "Jane"}
+      let obj2 = {name: "Anton"}
+      map.set(obj1, "good girl");
+      map.set(obj2, "good boy");
+      obj1 = null
+      obj2 = null
+      map.size // 2 // bad
+
+      let weakMap = new WeakMap();
+      let obj1 = {name: "Jane"}
+      let obj2 = {name: "Anton"}
+      weakMap.set(obj1, "good girl");
+      weakMap.set(obj2, "good boy");
+      obj1 = null
+      obj2 = null
+      weakMap.size // undefined
+      // When obj gets garbage collected, weakMap will be removed as well   
+      `,
+    },    
   ],
 }

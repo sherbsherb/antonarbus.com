@@ -538,39 +538,43 @@ export const jsArrays = {
       val: <h5>copyWithin()</h5>,
     },
     {
-      val: <CodeSpan>{'arr.copyWithin(targetIndex, [startIndex], [endIndex])'}</CodeSpan>,
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.copyWithin(targetIndex, [startIndex], [endIndex])'}</CodeSpan></li>
+          <li>copies part of an array to another location in the same array and returns it w/o modifying its length</li>
+          <li>targetIndex - index where to copy. If negative - counted from the end</li>
+          <li>startIndex - index start copying elements from. If negative - counted from the end. Default - 0</li>
+          <li>endIndex - index end copying elements from. copyWithin() copies up to but not including end. If negative - counted from the end. Default = arr.length</li>
+        </ul>
+      </>,
     },
     {
       type: 'code',
       lang: 'js',
       val: `
-      //  copies part of an array to another location in the same array and returns it w/o modifying its length
-
-      // targetIndex - index where to copy. If negative - counted from the end
-      // startIndex - index start copying elements from. If negative - counted from the end. Default - 0
-      // endIndex - index end copying elements from. copyWithin() copies up to but not including end. If negative - counted from the end. Default = arr.length
-
       let arr = ['a', 'b', 'c', 'd', 'e'];
       arr.copyWithin(0, 3, 4); // ["d", "b", "c", "d", "e"] // copy to index 0 the element at index 3
       arr // ["d", "b", "c", "d", "e"] 
 
       arr.copyWithin(1, 3); // ["d", "d", "e", "d", "e"] // copy to index 1 els from index 3 to the end
-    
       `,
     },
     {
       val: <h5>flat()</h5>,
     },
     {
-      val: <CodeSpan>{'arr.flat([depth])'}</CodeSpan>,
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.flat([depth])'}</CodeSpan></li>
+          <li>returns a new array with concatenated sub-array elements with specified depth.</li>
+          <li>depth - The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.</li>
+        </ul>
+      </>,
     },
     {
       type: 'code',
       lang: 'js',
       val: `
-      // returns a new array with concatenated sub-array elements with specified depth.
-      // depth - The depth level specifying how deep a nested array structure should be flattened. Defaults to 1.
-
       let arr = [0, 1, 2, [3, 4]]
       arr.flat() // [0, 1, 2, 3, 4]
       arr // [0, 1, 2, [3, 4]] // not mutated
@@ -579,21 +583,26 @@ export const jsArrays = {
       arr.flat(2) // [0, 1, 2, [3, 4]]
       arr.flat() // [0, 1, 2, [[3, 4]]]
 
-      [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]].flat(Infinity); //  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]].flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       `,
     },
     {
       val: <h5>map()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'let result = arr.map(function(item, [index], [array]) {...}, [thisArg]);'}</CodeSpan></li>
+          <li>method calls the function for each element of the array</li>
+          <li>returns an array of function returns</li>
+          <li>It is identical to a map() followed by a flat() of depth 1</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      let result = arr.map(function(item, index, array) {
-        // method calls the function for each element of the array 
-        // returns an array of function returns
-      }, thisArg);
-
       let arr = ["Bilbo", "Gandalf", "Nazgul"]
       arr.map(item => item.length) // [5, 7, 6]
       arr // ["Bilbo", "Gandalf", "Nazgul"]
@@ -603,18 +612,19 @@ export const jsArrays = {
       val: <h5>flatMap()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.flatMap(function callbackFn(currentValue, [index], [array]) {...}, [thisArg]) '}</CodeSpan></li>
+          <li>method returns a new array formed by applying a given callback function to each element of the array</li>
+          <li>Result is flattened by one level</li>
+          <li>It is identical to a map() followed by a flat() of depth 1</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      // method returns a new array formed by applying a given callback function to each element of the array, 
-      // and then flattening the result by one level.
-
-      // It is identical to a map() followed by a flat() of depth 1
-
-      arr.flatMap(function callbackFn(currentValue, [index], [array]) { 
-        // Function that produces an element of the new Array
-      }, [thisArg])
-
       var arr = [1, 2, 3, 4];
       arr.flatMap(x => [x, x * 2]); // [1, 2, 2, 4, 3, 6, 4, 8]
       arr // [1, 2, 3, 4]
@@ -624,11 +634,18 @@ export const jsArrays = {
       val: <><h5>sort()</h5> - mutates!</>,
     },
     {
+      val: <>
+        <ul>
+          <li>returns sorted modified array</li>
+          <li><CodeSpan>{'sort(function compareFn(firstEl, secondEl) {...})'}</CodeSpan></li>
+          <li>comparison function is required to return a positive number to say “greater” and a negative number to say “less”.</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      //  returns sorted modified array
-
       let arr = [ 1, 2, 15 ]
       arr.sort() // [1, 15, 2] // items are sorted as strings by default
       arr // 1, 15, 2
@@ -641,8 +658,7 @@ export const jsArrays = {
       arr.sort(compareFn);
       arr // 1, 2, 15
 
-      // comparison function is required to return a positive number to say “greater” and a negative number to say “less”.
-      // That allows to write shorter functions
+      // shorter function
       let arr = [ 1, 2, 15 ]
       arr.sort(function(a, b) { return a - b })
       arr  // 1, 2, 15
@@ -657,15 +673,19 @@ export const jsArrays = {
       val: <h5>filter()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.filter(function(element, [index], [array]) {...}, [thisArg]) '}</CodeSpan></li>
+          <li>returns a new array of all matching elements</li>
+          <li>if 'true' item is pushed to results and the iteration continues</li>
+          <li>returns empty array if nothing found</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      let results = arr.filter(function(item, index, array) {
-        // returns a new array of all matching elements
-        // if 'true' item is pushed to results and the iteration continues
-        // returns empty array if nothing found
-      }, thisArg);
-
       // returns array of the first two users
       const users = [{id: 1, name: "John"},{id: 2, name: "Pete"}, {id: 3, name: "Felix"}]
       let someUsers = users.filter(item => item.id < 3); 
@@ -676,14 +696,18 @@ export const jsArrays = {
       val: <h5>some()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.some(function(element, [index], [array]) {...}, [thisArg]) '}</CodeSpan></li>
+          <li>method tests if one element in the array passes the test function</li>
+          <li>returns true if it finds an el for which the function returns true, otherwise it returns false</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      arr.some(function(element, [index], [array]) { 
-        // method tests if one element in the array passes the test function
-        // returns true if it finds an el for which the function returns true, otherwise it returns false
-      }, [thisArg])
-
       const array = [1, 2, 3, 4, 5]
       const even = (el) => el % 2 === 0 // checks whether an element is even
       array.some(even) // true
@@ -693,14 +717,18 @@ export const jsArrays = {
       val: <h5>every()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.every(function(element, [index], [array]) {...}, [thisArg]) '}</CodeSpan></li>
+          <li>method tests whether all elements in the array pass the test function.</li>
+          <li>returns true or false</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      arr.every(function(element, [index], [array]) { 
-        // method tests whether all elements in the array pass the test function.
-        // returns true or false
-      }, [thisArg])
-
       const isBelowThreshold = (el) => el < 40;
       const arr = [1, 30, 39, 29, 10, 13];
       arr.every(isBelowThreshold); // true
@@ -710,16 +738,21 @@ export const jsArrays = {
       val: <h5>find()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'let result = arr.find(function(item, index, array) {}, thisArg)'}</CodeSpan></li>
+          <li>returns index of the first element in the array that passes the test. Otherwise, -1.</li>
+          <li>if fn returns TRUE, item is returned and iteration is stopped</li>
+          <li>for falsy scenario returns undefined</li>
+          <li>index, array, thisArg: optional arguments</li>
+          <li>The find method looks for a single (first) element that makes the function return true.</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      let result = arr.find(function(item, index, array) {
-        // if fn returns TRUE, item is returned and iteration is stopped
-        // for falsy scenario returns undefined
-        // index, array, thisArg: optional arguments
-        // The find method looks for a single (first) element that makes the function return true.
-      }, thisArg);
-
       let users = [
         {id: 1, name: "John"},
         {id: 2, name: "Pete"},
@@ -735,13 +768,17 @@ export const jsArrays = {
       val: <h5>findIndex()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'arr.findIndex(function(item, index, array) {...}, thisArg);'}</CodeSpan></li>
+          <li>returns index of the first element in the array that passes the test. Otherwise, -1.</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      arr.findIndex(function(item, index, array) {
-        // returns index of the first element in the array that passes the test. Otherwise, -1.
-      }, thisArg);
-
       let index = users.findIndex(item => item.id == 3); // index = 2
       `,
     },
@@ -749,19 +786,23 @@ export const jsArrays = {
       val: <h5>reduce()</h5>,
     },
     {
+      val: <>
+        <ul>
+          <li><CodeSpan>{'let value = arr.reduce(function(previousValue, currentValue, [currentIndex], [array]) {...}, [initial]);'}</CodeSpan></li>
+          <li><code>previousValue</code> – result of the previous function call, equals initial the first time (if initial is provided)</li>
+          <li><code>currentValue</code> – is the current array item</li>
+          <li><code>[currentIndex]</code> – is its position</li>
+          <li><code>[array]</code> – is the array</li>
+          <li><code>[initial]</code> - A value to use as the first argument</li>
+          <li>the result of the previous function call is passed to the next one as the first argument</li>
+        </ul>
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      let value = arr.reduce(function(accumulator, item, [index], [array]) {
-        // the result of the previous function call is passed to the next one as the first argument
-        /*
-          accumulator – result of the previous function call, equals initial the first time (if initial is provided)
-          item – is the current array item
-          [index] – is its position
-          [array] – is the array
-          [initial] - A value to use as the first argument
-        */
-      }, [initial]);
+      
 
       [1, 2, 3, 4, 5].reduce((sum, item) => sum + item) // 15
       [1, 2, 3, 4, 5].reduce((sum, item) => sum + item, 0) // 15

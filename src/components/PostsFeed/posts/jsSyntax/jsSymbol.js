@@ -245,5 +245,62 @@ export const jsSymbol = {
       alert(user + 500); // 1500
       `,
     },
+    {
+      val: <h5>Make iterable concatable</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+        let arr = [1, 2]
+        let arrayLike = {
+          0: "something",
+          length: 1,
+        }
+        arr.concat(arrayLike) // [1,2,[object]]
+
+        let arr = [1, 2];
+        let arrayLike = {
+          0: "something",
+          1: "else",
+          [Symbol.isConcatSpreadable]: true,
+          length: 2,
+        };
+        arr.concat(arrayLike) //[1, 2, "something", "else"]
+      `,
+    },
+    {
+      val: <h5>Make object iterable</h5>,
+    },
+    {
+      val: <>
+        To make an iterable we need to add <code>Symbol.iterator</code> & <code>next()</code> method.
+      </>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let range = {
+        from: 1,
+        to: 5,
+      
+        [Symbol.iterator]() {
+          this.current = this.from;
+          return this;
+        },
+      
+        next() {
+          if (this.current <= this.to) {
+            return { done: false, value: this.current++ };
+          } else {
+            return { done: true };
+          }
+        }
+      };
+      
+      for (let num of range) alert(num); // 1, then 2, 3, 4, 5
+      `,
+    },
   ],
 }

@@ -106,10 +106,20 @@ import { jsStrings } from './posts/jsSyntax/jsStrings'
 import { jsArrays } from './posts/jsSyntax/jsArrays'
 import { jsMap } from './posts/jsSyntax/jsMap'
 import { jsSet } from './posts/jsSyntax/jsSet'
+import { jsDestructuring } from './posts/jsSyntax/jsDestructuring'
+import { jsDate } from './posts/jsSyntax/jsDate'
+import { jsJson } from './posts/jsSyntax/jsJson'
+import { jsClass } from './posts/jsSyntax/jsClass'
+import { jsPrototype } from './posts/jsSyntax/jsPrototype'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  jsPrototype,
+  jsClass,
+  jsJson,
+  jsDate,
+  jsDestructuring,
   jsSet,
   jsMap,
   jsArrays,

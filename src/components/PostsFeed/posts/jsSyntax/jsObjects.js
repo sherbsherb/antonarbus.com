@@ -24,6 +24,31 @@ export const jsObjects = {
       `,
     },
     {
+      type: 'code',
+      lang: 'js',
+      val: `
+        let person1 = new Object({
+          name: 'Chris',
+          age: 38,
+          greeting: function() {
+            alert('Hi! I\'m ' + this.name + '.');
+          }
+        });
+      `,
+    },
+    {
+      val: <>create() method</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      let person2 = Object.create(person1);
+      person2.name; // 'Chris'
+      person2.greeting(); // Hi! I'm Chris.
+      `,
+    },
+    {
       val: <>Object literal syntax</>,
     },
     {

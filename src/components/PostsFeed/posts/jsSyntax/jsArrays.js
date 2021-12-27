@@ -325,10 +325,13 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>splice()</h5>,
+      val: <><h5 style={{ display: 'inline' }}>splice()</h5> - mutates!</>,
     },
     {
       val: <CodeSpan>{'arr.splice(startIndex, [deleteCount], [elemToInsert1], [elemToInsert2])'}</CodeSpan>,
+    },
+    {
+      val: <><CodeSpan>{'arr.splice(index, 1)'}</CodeSpan> - remove one element</>,
     },
     {
       val: <>
@@ -480,7 +483,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5>reverse()</h5> - mutates!</>,
+      val: <><h5 style={{ display: 'inline' }}>reverse()</h5> - mutates!</>,
     },
     {
       type: 'code',
@@ -517,7 +520,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5>fill()</h5> - mutates!</>,
+      val: <><h5 style={{ display: 'inline' }}>fill()</h5> - mutates!</>,
     },
     {
       val: <CodeSpan>{'arr.fill(value, [startIndex], [endIndex])'}</CodeSpan>,
@@ -631,7 +634,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5>sort()</h5> - mutates!</>,
+      val: <><h5 style={{ display: 'inline' }}>sort()</h5> - mutates!</>,
     },
     {
       val: <>

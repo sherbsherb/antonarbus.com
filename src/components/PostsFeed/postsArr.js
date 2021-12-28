@@ -113,10 +113,12 @@ import { jsClass } from './posts/jsSyntax/jsClass'
 import { jsPrototype } from './posts/jsSyntax/jsPrototype'
 import { jsTimeoutInterval } from './posts/jsSyntax/jsTimeoutInterval'
 import { jsClassVsConstructorFunction } from './posts/jsClassVsConstructorFunction'
+import { jsErrors } from './posts/jsSyntax/jsErrors'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  jsErrors,
   jsTimeoutInterval,
   jsClassVsConstructorFunction,
   jsPrototype,

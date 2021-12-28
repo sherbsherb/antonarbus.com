@@ -91,7 +91,7 @@ const StyleReset = createGlobalStyle`
     border: 1px solid rgb(204, 204, 204);
     color: rgb(51, 51, 51);
     line-height: 1.4;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     box-shadow: 0px 1px 0px rgba(0,0,0,0.2), inset 0px 0px 0px 2px #ffffff;
     background-color: rgb(247, 247, 247);
@@ -107,6 +107,11 @@ const StyleReset = createGlobalStyle`
     &:hover {
       text-decoration-color: #0083bf;
     }
+  }
+
+  h5 {
+    font-size: 16px;
+    color: #5e5c5c;
   }
 
 

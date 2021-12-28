@@ -135,6 +135,25 @@ export const jsClass = {
       `,
     },
     {
+      val: <h3>Methods chaining</h3>,
+    },
+    {
+      val: <>To enable methods chaining just return object's instance by returning <code>this</code></>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      class Greetings {
+        hi() { console.log('hi'); return this; }
+        bye() { console.log('bye'); return this; }
+      }
+
+      const greeting = new Greetings()
+      greeting.hi().bye() // hi // bye
+      `,
+    },
+    {
       val: <h3>Extends</h3>,
     },
     {
@@ -521,7 +540,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <>Good but difficult<Lnk path="https://javascript.info/mixins#eventmixin">example</Lnk> on real mixin usage.</>,
+      val: <>Good but difficult <Lnk path="https://javascript.info/mixins#eventmixin">example</Lnk> on real mixin usage.</>,
     },
   ],
 }

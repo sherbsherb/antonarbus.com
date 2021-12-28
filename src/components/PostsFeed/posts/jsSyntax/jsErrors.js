@@ -13,15 +13,15 @@ export const jsErrors = {
     },
     {
       val: <ul>
-        code to be put into <code>try</code> block
-        if no errors, then <code>catch</code> block is ignored
-        if an error the script is not killed
-        <code>try...catch</code> works synchronously, no delayed functions will be executed
-        if an error occurs, then execution in <code>try</code> block is stopped
-        <code>try...catch</code> can only handle errors that occur in valid code
-        <code>catch</code> block has default <code>error</code> variable which contains an error object
-        <code>finally</code> block always executes
-        <code>finally</code> can be omitted
+        <li>code to be put into <code>try</code> block</li>
+        <li>if no errors, then <code>catch</code> block is ignored</li>
+        <li>if an error the script is not killed</li>
+        <li><code>try...catch</code> works synchronously, no delayed functions will be executed</li>
+        <li>if an error occurs, then execution in <code>try</code> block is stopped</li>
+        <li><code>try...catch</code> can only handle errors that occur in valid code</li>
+        <li><code>catch</code> block has default <code>error</code> variable which contains an error object</li>
+        <li><code>finally</code> block always executes</li>
+        <li><code>finally</code> can be omitted</li>
       </ul>,
     },
     {

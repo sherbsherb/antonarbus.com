@@ -9,7 +9,7 @@ export const jsFunctions = {
   tagsArr: ['js', 'basics'],
   postParts: [
     {
-      val: <h5>Function declaration</h5>,
+      val: <h3>Function declaration</h3>,
     },
     {
       val: <>Function declaration is "hoisted", like "var" in variable declarations. Can be called earlier than it is defined.</>,
@@ -43,7 +43,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Parameters</h5>,
+      val: <h3>Parameters</h3>,
     },
     {
       val: <>Full <Lnk path="https://antonarbus.com/post/pass-arguments-into-function">article</Lnk> about default parameters can be found here.</> ,
@@ -81,7 +81,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Return</h5>,
+      val: <h3>Return</h3>,
     },
     {
       val: <>Function stops at <code>return</code></>,
@@ -101,7 +101,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Call without parenthesis</h5>,
+      val: <h3>Call without parenthesis</h3>,
     },
     {
       val: <>Shows string representation of the source code</>,
@@ -117,24 +117,21 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Copy function</h5>,
+      val: <h3>Copy function</h3>,
     },
     {
       type: 'code',
       lang: 'js',
       val: `
-        function sayHi() {   // (1) create
-          alert( "Hello" );
-        }
-    
-        let func = sayHi;    // (2) copy
+        function sayHi() { alert( "Hello" ); }
+        let func = sayHi;
         sayHi === func // true
         func(); // Hello
         sayHi(); // Hello
       `,
     },
     {
-      val: <h5>Callback</h5>,
+      val: <h3>Callback</h3>,
     },
     {
       val: <>It is a function passed to another function as an argument.</>,
@@ -159,7 +156,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Recursion</h5>,
+      val: <h3>Recursion</h3>,
     },
     {
       val: <>Recursion is when a function calls itself. JavaScript engine allows 10000 calls maximum.</>,
@@ -176,7 +173,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Arguments</h5>,
+      val: <h3>Arguments</h3>,
     },
     {
       val: <>Functions have special array-like object named 'arguments' that contains all arguments by their index.</>,
@@ -193,7 +190,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Immediately-invoked function expressions</h5>,
+      val: <h3>Immediately-invoked function expressions</h3>,
     },
     {
       val: <>IIFE requires semicolon before</>,
@@ -223,7 +220,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Function object</h5>,
+      val: <h3>Function is object</h3>,
     },
     {
       val: <>.name property</>,
@@ -264,7 +261,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Function expression</h5>,
+      val: <h3>Function expression</h3>,
     },
     {
       type: 'code',
@@ -274,7 +271,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Named Function Expression</h5>,
+      val: <h3>Named Function Expression</h3>,
     },
     {
       val: <>Allows the function to reference itself internally</>,
@@ -294,7 +291,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Function declaration vs expression</h5>,
+      val: <h3>Function declaration vs expression</h3>,
     },
     {
       val: <>Hoisting, function expression is created when the execution reaches it and is usable only from that moment (not "hoisted")</>,
@@ -323,7 +320,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Arrow function expression</h5>,
+      val: <h3>Arrow function expression</h3>,
     },
     {
       val: <>
@@ -364,7 +361,7 @@ export const jsFunctions = {
     },
     {
       val: <>
-        Don’t have own "this" & “arguments”. They are taken from outer lexical environment.
+        Don’t have own "this" & “arguments”. They are taken from outer LE.
       </>,
     },
     {
@@ -397,10 +394,10 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>new Function</h5>,
+      val: <h3>new Function</h3>,
     },
     {
-      val: <>Function is created from a string & have access only to global, but not lexical environment</>,
+      val: <>Function is created from a string & have access only to global, but not LE</>,
     },
     {
       type: 'code',
@@ -411,7 +408,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Decorators (call/apply/bind)</h5>,
+      val: <h3>Decorators (call/apply/bind)</h3>,
     },
     {
       val: <>Function that takes another function and alters its behavior, the main job is still carried out by the function</>,
@@ -500,6 +497,70 @@ export const jsFunctions = {
         double(5) // = mul(2, 5) = 10
 
         // bound function can not be re-bound
+      `,
+    },
+    {
+      val: <h3>Lexical Environment</h3>,
+    },
+    {
+      val: <ul>
+        <li><b>Execution Context</b> (EC, stack, call stack) is the internal JS engine to track execution of a function or the global code</li>
+        <li><i>EC</i> tracks where statement of the corresponding function is being executed</li>
+        <li>New <i>EC</i> is created and pushed to the stack when execution of a function begins and deleted when stops</li>
+        <li>For every <i>EC</i> a corresponding LE is created</li>
+        <li><b>Lexical Environment</b> (LE) is the internal JS engine that holds names of variables/functions & a reference to a parent <i>LE</i></li>
+        <li>Running function, block <code>{'{}'}</code>, and the script as a whole have an internal hidden object <code>[[Environment]]</code> with reference to its <i>LE</i></li>
+        <li>Every function tracks the <i>LE</i> related to the <i>EC</i>it was created in & its parent <i>LE</i></li>
+        <li><code>[[Environment]]</code> stores all local variables & 'this' & other...& a reference to outer <i>LE</i></li>
+        <li>With <code>[[Environment]]</code> a function remembers where it was born</li>
+        <li>Variable is a property of <code>[[Environment]]</code> object, associated with the executing block/function/script</li>
+        <li>Variable change means a change of <code>[[Environment]]</code> property object</li>
+        <li>On function start <i>LE</i> is pre-populated with variables, but their state is <code>uninitialized</code></li>
+        <li>Engine knows about variables, but cannot be referenced until it has been declared with with <code>let</code>, <code>const</code></li>
+        <li>When <code>let</code> definition appears, variable's value is <code>undefined</code></li>
+        <li>Variable goes to <i>LE</i>, but get initialized in code execution flow</li>
+        <li><i>Function declaration</i> is instantly fully initialized unlike <i>function expressions</i></li>
+        <li><i>LE</i> is a specification object & exists “theoretically”, we can’t get this object in our code</li>
+        <li>When the code accesses a variable the JS searches it in <i>LE</i> chain up to the global one</li>
+        <li><i>LE</i> is removed from memory with all the variables after the function call finishes</li>
+        <li>But not in case of nested functions. <span>LE</span> object dies when it becomes unreachable (just like other objects)</li>
+      </ul>,
+    },
+    {
+      val: <h3>Closure</h3>,
+    },
+    {
+      val: <ul>
+        <li><b>Closure</b> is a function that remembers its outer variables and can access them</li>
+        <li>Functions in JavaScript are <i>closures</i></li>
+        <li>In some languages, that’s not possible</li>
+        <li><i>Closures</i> remember where they were created using a hidden <code>[[Environment]]</code> property</li>
+        <li>Their code can access outer variables</li>
+        <li>The <code>new Function</code> syntax is not a <i>closure</i></li>
+        <li>Function can be returned and then used somewhere else and no matter where, it still has access to the same outer variables</li>
+        <li><i>Lexical environment</i> is created on function initialization & it is separate for every function</li>
+      </ul>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      function makeCounter() {
+        let count = 0
+      
+        return function() {
+          return count++
+        }
+      }
+      
+      let counter = makeCounter()
+      let counter2 = makeCounter()
+      
+      counter() // 0
+      counter() // 1
+      
+      counter2() // 0
+      counter2() // 1
       `,
     },
   ],

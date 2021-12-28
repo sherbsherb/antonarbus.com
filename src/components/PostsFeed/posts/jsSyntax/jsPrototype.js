@@ -9,12 +9,12 @@ export const jsPrototype = {
   tagsArr: ['js', 'basics', 'OOP'],
   postParts: [
     {
-      val: <h3><code>[[Prototype]]</code> & <code>__proto__</code></h3>,
+      val: <h3><code>[[Prototype]]</code></h3>,
     },
     {
       val: <ul>
-        <li>objects have a hidden property <code>[[Prototype]]</code> which references to another <code>prototype</code> object</li>
-        <li>when read a none existing property or call method, JS tries to find it in the prototype - <i>prototypal inheritance</i></li>
+        <li>objects have a hidden property <code>[[Prototype]]</code> which references to another object and contains its properties and methods</li>
+        <li>when read a none existing property or call method, JS tries to find it in the <code>[[Prototype]]</code> - <i>prototypal inheritance</i></li>
         <li><code>[[Prototype]]</code> is hidden, but can be set via special name <code>__proto__</code></li>
         <li><code>this</code> is always the object from where the method is called</li>
       </ul>,
@@ -56,13 +56,13 @@ export const jsPrototype = {
     {
       val: <ul>
         <li><code>__proto__</code> is a getter/setter for <code>[[Prototype]]</code></li>
-        <li>resides in <CodeSpan>Object.prototype</CodeSpan>, just like other methods</li>
+        <li>It resides in <CodeSpan>Object.prototype</CodeSpan>, just like other methods.</li>
         <li><code>__proto__</code> is not the same as <code>[[Prototype]]</code></li>
-        <li><code>__proto__</code> value can be either an object or <code>null</code>, other types are ignored</li>
-        <li>there can be only one <code>[[Prototype]]</code>. An object may not inherit from two others.</li>
-        <li>it is outdated & exists for historical reasons</li>
-        <li>references can’t go in circles. JavaScript will throw an error</li>
-        <li>instead of <code>__proto__</code> recommended to use methods</li>
+        <li><code>__proto__</code> value can be either an object or <code>null</code>, other types are ignored.</li>
+        <li>There can be only one <code>[[Prototype]]</code> per object. An object may not inherit from two others.</li>
+        <li>It is outdated & exists for historical reasons.</li>
+        <li>References can’t go in circles. JavaScript will throw an error.</li>
+        <li>Instead of <code>__proto__</code> recommended to use follwoing methods:</li>
         <li><CodeSpan>Object.create(proto, [descriptors])</CodeSpan> - creates an empty object with given proto as [[Prototype]] and optional property descriptors.</li>
         <li><CodeSpan>Object.getPrototypeOf(obj2)</CodeSpan></li>
         <li><CodeSpan>Object.setPrototypeOf(obj2, obj1)</CodeSpan></li>
@@ -178,7 +178,7 @@ export const jsPrototype = {
     },
     {
       val: <ul>
-        <li>we may also add some properties to <code>.prototype</code> </li>
+        <li>May also add some properties to <code>.prototype</code> </li>
       </ul>,
     },
     {
@@ -200,12 +200,12 @@ export const jsPrototype = {
       src: rabbitPrototype,
     },
     {
-      val: <h3>Constructor function & <code>.prototype</code></h3>,
+      val: <h3>Native prototypes</h3>,
     },
     {
       val: <ul>
-        <li>built-in prototypes have <code>Object.prototype</code> on the top</li>
-        <li>strings, numbers and booleans are not objects, but wrapper object silently created with built-in constructors <code>String</code>, <code>Number</code> and <code>Boolean</code> and destroyed methods are inherited from</li>
+        <li>All built-in prototypes have <code>Object.prototype</code> on the top</li>
+        <li>Strings, numbers and booleans are not objects, but wrapper object silently created with built-in constructors <code>String</code>, <code>Number</code> and <code>Boolean</code></li>
         <li><code>null</code> & <code>undefined</code> do not have object wrappers</li>
       </ul>
     },
@@ -225,8 +225,8 @@ export const jsPrototype = {
     {
       val: <ul>
         <li>Native prototypes can be modified</li>
-        <li>it becomes available to all variables</li>
-        <li>it is considered a BAD practice!!!</li>
+        <li>It becomes available to all variables</li>
+        <li style={{color: 'red'}}>BAD practice!!!</li>
       </ul>
     },
     {
@@ -246,13 +246,6 @@ export const jsPrototype = {
     },
     {
       val: <h3>Borrow from prototypes</h3>,
-    },
-    {
-      val: <ul>
-        <li>Native prototypes can be modified</li>
-        <li>it becomes available to all variables</li>
-        <li>it is considered a BAD practice!!!</li>
-      </ul>
     },
     {
       type: 'code',

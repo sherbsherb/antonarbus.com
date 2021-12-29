@@ -728,7 +728,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>async/await + Promise.all</h5>,
+      val: <h5>async/await + <CodeSpan>Promise.all()</CodeSpan></h5>,
     },
     {
       type: 'code',

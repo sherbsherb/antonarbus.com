@@ -115,10 +115,14 @@ import { jsTimeoutInterval } from './posts/jsSyntax/jsTimeoutInterval'
 import { jsClassVsConstructorFunction } from './posts/jsClassVsConstructorFunction'
 import { jsErrors } from './posts/jsSyntax/jsErrors'
 import { jsPromise } from './posts/jsSyntax/jsPromise'
+import { jsEval } from './posts/jsSyntax/jsEval'
+import { jsGenerator } from './posts/jsSyntax/jsGenerator'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  jsGenerator,
+  jsEval,
   jsPromise,
   jsErrors,
   jsTimeoutInterval,

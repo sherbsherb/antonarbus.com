@@ -64,7 +64,10 @@ const StyleReset = createGlobalStyle`
     white-space: normal;
     background: #e7e7e7;
     border-radius: 4px;
+  }
 
+  i {
+    color: #9a6e3a;
   }
 
   ol, ul {

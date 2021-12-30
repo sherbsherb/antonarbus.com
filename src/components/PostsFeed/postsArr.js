@@ -118,10 +118,12 @@ import { jsPromise } from './posts/jsSyntax/jsPromise'
 import { jsEval } from './posts/jsSyntax/jsEval'
 import { jsGenerator } from './posts/jsSyntax/jsGenerator'
 import { jsModules } from './posts/jsSyntax/jsModules'
+import { jsEventLoop } from './posts/jsSyntax/jsEventLoop'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  jsEventLoop,
   jsModules,
   jsGenerator,
   jsEval,

@@ -19,7 +19,7 @@ export const jsGenerator = {
       </ul>,
     },
     {
-      val: <h3>Comments</h3>,
+      val: <h3>Syntax</h3>,
     },
     {
       type: 'code',

@@ -95,15 +95,13 @@ export const jsEventLoop = {
     },
     {
       val: <ul>
-      <li>JS execution flow is based on an <i>event loop</i></li>
-      <li>It's endless loop</li>
-      <li>JS executes tasks one by one starting from the oldest</li>
-      <li>When there are no tasks anymore JS waits for new ones</li>
-      <li>Task may come while the engine is busy, then it’s queued</li>
-      <li>Queue of tasks is called <i>macrotask queue</i></li>
-      <li>Rendering never happens while the engine executes a task</li>
-      <li>Changes to the DOM are painted only after the task is complete</li>
-      <li>If a task takes long, the browser is blocked & raises an alert like "page unresponsive”</li>
+        <li>JS execution flow is based on an endless <i>event loop</i></li>
+        <li>JS executes tasks one by one starting from the oldest</li>
+        <li>When there are no tasks anymore JS waits for new ones</li>
+        <li>Task may come while the engine is busy, then it’s queued</li>
+        <li>Queue of tasks is called <i>macrotask queue</i></li>
+        <li>Rendering happens only after the task is completed</li>
+        <li>If a task takes long, the browser is blocked & raises an alert like "page unresponsive”</li>
       </ul>,
     },
     {
@@ -113,7 +111,7 @@ export const jsEventLoop = {
       val: <ul>
       <li>Scripts we call</li>
       <li>Event handlers</li>
-      <li>Scripts added to the end of the <i>macrotask queue</i> by <CodeSpan>{'setTimeout(() => func)'}</CodeSpan> with no delay</li>
+      <li>Scripts added to the end of the <i>macrotask queue</i> by <CodeSpan>{'setTimeout(func)'}</CodeSpan> with no delay</li>
       </ul>,
     },
     {
@@ -121,13 +119,11 @@ export const jsEventLoop = {
     },
     {
       val: <ul>
-      <li>After every macrotask all tasks from microtask queue are executed</li>
+      <li>After every macrotask tasks from microtask queue are executed</li>
       <li>It's done before running other macrotasks or rendering or event handling</li>
       <li>It guarantees that the environment is the same between microtasks (no mouse coordinate changes, no new network data, etc) </li>
-      <li>Microtask is a script called by <CodeSpan>promises.then()</CodeSpan> and <CodeSpan>queueMicrotask()</CodeSpan></li>
-      <li>Execution of <code>.then/catch/finally</code> handler becomes a microtask</li>
+      <li>Microtask is a script called by promise handlers <CodeSpan>.then/catch/finally()</CodeSpan> or <CodeSpan>queueMicrotask(func)</CodeSpan></li>
       <li>Microtasks are used “under the cover” of <code>await</code> as well</li>
-      <li><CodeSpan>queueMicrotask(func)</CodeSpan> - queues <code>func</code> in the microtask queue</li>
       </ul>,
     },
     {
@@ -135,7 +131,7 @@ export const jsEventLoop = {
     },
     {
       val: <>So if  we’d like to execute a function asynchronously (after the current code), but before changes are rendered or new events handled, we can schedule it with 
-      <CodeSpan>{"queueMicrotask(() => { console.log('hi') })"}</CodeSpan></>,
+      <CodeSpan>{'queueMicrotask(() => { func() })'}</CodeSpan></>,
     },
     {
       val: <h3>Event loop sequence</h3>,
@@ -143,9 +139,9 @@ export const jsEventLoop = {
     {
       val: <>
         1. macrotask (script, event handler) <br />
-        2. microtask (promises.then(func) & queueMicrotask(func)) <br />
+        2. microtask (promises handlers & <CodeSpan>queueMicrotask(func)</CodeSpan>) <br />
         3. render <br />
-        4. setTimeout func
+        4. <CodeSpan>setTimeout(func)</CodeSpan>
       </>,
     },
     {
@@ -158,7 +154,8 @@ export const jsEventLoop = {
       <li>Web Workers can exchange messages with the main process</li>
       <li>They have their own variables, and their own event loop.</li>
       <li>Web Workers do not have access to DOM</li>
-      <li>They are useful, mainly, for calculations, to use multiple CPU cores simultaneously</li>
+      <li>They are useful, mainly, for calculations</li>
+      <li>They can use multiple CPU cores simultaneously</li>
       </ul>,
     },
     {
@@ -166,8 +163,8 @@ export const jsEventLoop = {
     },
     {
       val: <ul>
-      <li><CodeSpan>process.nextTick(func)</CodeSpan> -  execute on the current iteration of the event loop, after the current operation ends, before <CodeSpan>setTimeout()</CodeSpan> and <CodeSpan>setImmediate()</CodeSpan></li>
-      <li><CodeSpan>setImmediate(func)</CodeSpan> same as <CodeSpan>setTimeout(func, 0)</CodeSpan> - execute in the next iteration of the event loop, as soon as possible</li>
+      <li><CodeSpan>process.nextTick(func)</CodeSpan> executes function on the current iteration of the event loop, after the current operation ends, before <CodeSpan>setTimeout()</CodeSpan> and <CodeSpan>setImmediate()</CodeSpan></li>
+      <li><CodeSpan>setImmediate(func)</CodeSpan> is the same as <CodeSpan>setTimeout(func, 0)</CodeSpan> and executes in the next iteration of the event loop, as soon as possible</li>
       </ul>,
     },
     {
@@ -198,7 +195,7 @@ export const jsEventLoop = {
       `,
     },
     {
-      val: <h5>Microtask runs before render</h5>,
+      val: <h5>All microtasks runs before render</h5>,
     },
     {
       type: 'output',
@@ -237,9 +234,10 @@ export const jsEventLoop = {
     },
     {
       val: <ul>
-      <li>changes to DOM are painted after running task is completed</li>
-      <li>so we’ll see only the last value instead of progress</li>
-      <li>code freezes the browser</li>
+        <li>Run whole code at one time</li>
+        <li>Changes to DOM are painted after running task is completed</li>
+        <li>We’ll see only the last value instead of progress</li>
+        <li>Code freezes the browser</li>
       </ul>,
     },
     {
@@ -272,13 +270,11 @@ export const jsEventLoop = {
     },
     {
       val: <ul>
-      <li>Split long counting into parts and queue them</li>
-      <li>1 mln + 1 mln + ... up to 1 bln</li>
-      <li>Split the task into pieces with setTimeout, then changes are painted out in-between</li>
-      <li>If an onclick event appears while the engine is busy it is queued mixed together with main counting tasks</li>
-      <li>Page is responsive</li>
-      <li>There’s in-browser minimal delay of 4ms for many nested setTimeout calls</li>
-      <li>Because of that earlier we schedule task via setTimeout – the faster it runs</li>
+        <li>Split code into parts and queue them: 1 mln + 1 mln + ... up to 1 bln</li>
+        <li>Splitting with <CodeSpan>setTimeout()</CodeSpan> we make multiple macrotasks and changes are painted in-between</li>
+        <li>If an onclick event appears while the engine is busy it is queued mixed together with main counting tasks</li>
+        <li>Page is responsive</li>
+        <li>There’s in-browser minimal delay of 4ms for many nested setTimeout calls and the earlier we schedule task via setTimeout, the faster it runs</li>
       </ul>,
     },
     {
@@ -324,18 +320,18 @@ export const jsEventLoop = {
       val: <h5>Let event bubble</h5>,
     },
     {
+      val: <>
+        Schedule an action until the event bubbled up and was handled on all levels.
+      </>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
-      // postpone some actions until the event bubbled up and was handled on all levels.
       menu.onclick = function() {
-        // create a custom event with the clicked menu item data
-        let customEvent = new CustomEvent("menu-open", { bubbles: true })
-        // dispatch the custom event asynchronously
-        setTimeout(() => menu.dispatchEvent(customEvent))
+        let customEvent = new CustomEvent("menu-open", { bubbles: true }) // create a custom event with the clicked menu item data
+        setTimeout(() => menu.dispatchEvent(customEvent)) // dispatch the custom event asynchronously
       }
-  
-      // used in event handlers to schedule an action after the event is fully handled
       `,
     },
   ],

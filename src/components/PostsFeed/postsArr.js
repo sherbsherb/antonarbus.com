@@ -119,10 +119,14 @@ import { jsEval } from './posts/jsSyntax/jsEval'
 import { jsGenerator } from './posts/jsSyntax/jsGenerator'
 import { jsModules } from './posts/jsSyntax/jsModules'
 import { jsEventLoop } from './posts/jsSyntax/jsEventLoop'
+import { jsProxy } from './posts/jsSyntax/jsProxy'
+import { jsRegExp } from './posts/jsSyntax/jsRegExp'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  jsRegExp,
+  jsProxy,
   jsEventLoop,
   jsModules,
   jsGenerator,

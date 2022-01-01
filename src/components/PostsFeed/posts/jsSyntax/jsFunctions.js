@@ -563,5 +563,68 @@ export const jsFunctions = {
       counter2() // 1
       `,
     },
+    {
+      val: <h3>Currying</h3>,
+    },
+    {
+      val: <>
+        Currying is a transformation of <CodeSpan>func(a, b, c)</CodeSpan> into <CodeSpan>func(a)(b)(c)</CodeSpan>
+      </>,
+    },
+    {
+      val: <h5>Simple example</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      function curry(f) { 
+        return function(a) {
+          return function(b) {
+            return f(a, b)
+          }
+        }
+      }
+      
+      function sum(a, b) {
+        return a + b
+      }
+      
+      let curriedSum = curry(sum)
+      curriedSum(1)(2) // 3
+      `,
+    },
+    {
+      val: <h5>Advanced example</h5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      function curry(func) {
+        return function curried(...args) {
+          if (args.length >= func.length) return func.apply(this, args)
+          // Function.length - number of parameters expected by the function
+  
+          return function(...args2) {
+            return curried.apply(this, args.concat(args2))
+          }
+        }
+      }
+      
+      function sum(a, b, c) {
+        return a + b + c
+      }
+      
+      let curriedSum = curry(sum)
+      
+      alert( curriedSum(1, 2, 3) ) // 6, still callable normally
+      alert( curriedSum(1)(2, 3) ) // 6, currying of 1st arg
+      alert( curriedSum(1)(2)(3) ) // 6, full currying
+      `,
+    },
+    {
+      val: <>Maybe better to use <Lnk path="https://lodash.com/docs/4.17.15#curry">_.curry</Lnk> function from Lodash.</>,
+    },
   ],
 }

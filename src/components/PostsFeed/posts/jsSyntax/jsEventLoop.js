@@ -57,29 +57,34 @@ const toRender2 = <Cmpt2 />
 
 function Cmpt3() {
   const ref = React.useRef()
-  let i = 0, j = 0, start = Date.now()
 
-  function countToMln() {
-    for (let k = 0; k < 1e6; k++) i++
-    ref.current.innerHTML = i
-  }
+  function func() {
+    let i = 0, j = 0, start = Date.now()
 
-  function countToBln() {
-    if (i < 1e9) {
-      setTimeout(countToBln) // schedule the new call // 1000 calls
-      j++
+    function countToMln() {
+      for (let k = 0; k < 1e6; k++) i++
+      ref.current.innerHTML = i
     }
-    if (i === 1e9) {
-      alert(`Done in ${Date.now() - start} ms with ${j} timeout() calls`)
-      return
+
+    function countToBln() {
+      if (i < 1e9) {
+        setTimeout(countToBln) // schedule the new call // 1000 calls
+        j++
+      }
+      if (i === 1e9) {
+        alert(`Done in ${Date.now() - start} ms with ${j} timeout() calls`)
+        return
+      }
+      countToMln()
     }
-    countToMln()
+
+    countToBln()
   }
 
   return (
     <div>
       <div ref={ref}>0</div>
-      <button onClick={countToBln}>Click</button>
+      <button onClick={func}>Click</button>
     </div>
   )
 }
@@ -100,7 +105,7 @@ export const jsEventLoop = {
         <li>When there are no tasks anymore JS waits for new ones</li>
         <li>Task may come while the engine is busy, then it’s queued</li>
         <li>Queue of tasks is called <i>macrotask queue</i></li>
-        <li>Rendering happens only after the task is completed</li>
+        <li>Rendering happens only after the task is completed, before another macrotask</li>
         <li>If a task takes long, the browser is blocked & raises an alert like "page unresponsive”</li>
       </ul>,
     },
@@ -138,10 +143,11 @@ export const jsEventLoop = {
     },
     {
       val: <>
-        1. macrotask (script, event handler) <br />
-        2. microtask (promises handlers & <CodeSpan>queueMicrotask(func)</CodeSpan>) <br />
-        3. render <br />
-        4. <CodeSpan>setTimeout(func)</CodeSpan>
+        1. M<span style={{color: 'brown', fontWeight: 600}}>a</span>crotask (script, event handler) <br />
+        2. M<span style={{color: 'red', fontWeight: 600}}>i</span>crotask (promises handlers & <CodeSpan>queueMicrotask(func)</CodeSpan>) <br />
+        3. Render <br />
+        4. M<span style={{color: 'brown', fontWeight: 600}}>a</span>crotask set by <CodeSpan>setTimeout(func)</CodeSpan> <br />
+        5. ... again & again
       </>,
     },
     {
@@ -195,42 +201,7 @@ export const jsEventLoop = {
       `,
     },
     {
-      val: <h5>All microtasks runs before render</h5>,
-    },
-    {
-      type: 'output',
-      val: toRender1,
-    },
-    {
-      val: <>This code acts as a synchronous, window is frozen</>,
-    },
-    {
-      type: 'code',
-      lang: 'js',
-      val: `
-      function Cmpt1() {
-        const ref = React.useRef()
-        let i = 0
-        function count() {
-          do {
-            i++
-            ref.current.innerHTML = i
-          } while (i % 1e3 !== 0)
-          if (i < 1e6) queueMicrotask(count)
-        }
-      
-        return (
-          <div>
-            <div ref={ref}>0</div>
-            <button onClick={count}>Click</button>
-          </div>
-        )
-      }
-      const toRender1 = <Cmpt1 />
-      `,
-    },
-    {
-      val: <h5>Count to billion with progress indication</h5>,
+      val: <h5>Count to billion without <CodeSpan>setTimeout()</CodeSpan></h5>,
     },
     {
       val: <ul>
@@ -269,6 +240,9 @@ export const jsEventLoop = {
       `,
     },
     {
+      val: <h5>Count to billion with <CodeSpan>setTimeout()</CodeSpan></h5>,
+    },
+    {
       val: <ul>
         <li>Split code into parts and queue them: 1 mln + 1 mln + ... up to 1 bln</li>
         <li>Splitting with <CodeSpan>setTimeout()</CodeSpan> we make multiple macrotasks and changes are painted in-between</li>
@@ -287,33 +261,73 @@ export const jsEventLoop = {
       val: `
       function Cmpt3() {
         const ref = React.useRef()
-        let i = 0, j = 0, start = Date.now()
       
-        function countToMln() {
-          for (let k = 0; k < 1e6; k++) i++
-          ref.current.innerHTML = i
-        }
+        function func() {
+          let i = 0, j = 0, start = Date.now()
       
-        function countToBln() {
-          if (i < 1e9) {
-            setTimeout(countToBln) // schedule the new call // 1000 calls
-            j++
+          function countToMln() {
+            for (let k = 0; k < 1e6; k++) i++
+            ref.current.innerHTML = i
           }
-          if (i === 1e9) {
-            alert(\`Done in \${Date.now() - start} ms with \${j} timeout() calls\`)
-            return
+      
+          function countToBln() {
+            if (i < 1e9) {
+              setTimeout(countToBln) // schedule the new call // 1000 calls
+              j++
+            }
+            if (i === 1e9) {
+              alert(\`Done in \${Date.now() - start} ms with \${j} timeout() calls\`)
+              return
+            }
+            countToMln()
           }
-          countToMln()
+      
+          countToBln()
         }
       
         return (
           <div>
             <div ref={ref}>0</div>
-            <button onClick={countToBln}>Click</button>
+            <button onClick={func}>Click</button>
           </div>
         )
       }
       const toRender3 = <Cmpt3 />
+      `,
+    },
+    {
+      val: <h5>All microtasks runs before render</h5>,
+    },
+    {
+      type: 'output',
+      val: toRender1,
+    },
+    {
+      val: <>This code acts as a synchronous, window is frozen</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      function Cmpt1() {
+        const ref = React.useRef()
+        let i = 0
+        function count() {
+          do {
+            i++
+            ref.current.innerHTML = i
+          } while (i % 1e3 !== 0)
+          if (i < 1e6) queueMicrotask(count)
+        }
+      
+        return (
+          <div>
+            <div ref={ref}>0</div>
+            <button onClick={count}>Click</button>
+          </div>
+        )
+      }
+      const toRender1 = <Cmpt1 />
       `,
     },
     {

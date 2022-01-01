@@ -5,7 +5,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 
 export const jsRegExp = {
   title: 'Regular expressions in JavaScript',
-  date: '2022.02.01',
+  date: '2022.01.01',
   tagsArr: ['js', 'basics'],
   postParts: [
     {

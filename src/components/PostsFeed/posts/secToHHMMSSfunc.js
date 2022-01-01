@@ -27,7 +27,7 @@ const toRender = <Component />
 export const secToHHMMSSfunc = {
   title: <>Seconds to human format</>,
   date: '2021.10.21',
-  tagsArr: ['function', 'vanilla', 'js', 'JavaScript', 'time', 'mine'],
+  tagsArr: ['function', 'vanilla', 'JavaScript', 'time', 'mine'],
   postParts: [
     {
       type: 'text',

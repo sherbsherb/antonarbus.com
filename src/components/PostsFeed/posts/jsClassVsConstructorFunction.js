@@ -5,7 +5,7 @@ import { CodeSpan } from '../components/CodeSpan'
 export const jsClassVsConstructorFunction = {
   title: 'Class vs constructor function in JS',
   date: '2021.12.28',
-  tagsArr: ['js', 'OOP'],
+  tagsArr: ['JavaScript', 'OOP'],
   postParts: [
     {
       val: <>Example is taken from the <Lnk path="https://www.youtube.com/playlist?list=PL4cUxeGkcC9i5yvDkJgt60vNVWffpblB7">OOP lesson</Lnk>, which shows how classes are internally done in JavaScript by prototyping.</>,

@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsModules = {
   title: 'Modules in JavaScript',
   date: '2021.12.30',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <ul>

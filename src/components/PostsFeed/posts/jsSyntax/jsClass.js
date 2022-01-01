@@ -6,7 +6,7 @@ import userObjectInConsole from './userObjectInConsole.png'
 export const jsClass = {
   title: 'Class in JavaScript',
   date: '2021.12.26',
-  tagsArr: ['js', 'basics', 'OOP'],
+  tagsArr: ['JavaScript', 'basics', 'OOP'],
   postParts: [
     {
       val: <ul>

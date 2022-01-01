@@ -5,7 +5,7 @@ const toRender = <Main />
 export const leapYear = {
   title: 'Leap year',
   date: '2021.11.30',
-  tagsArr: ['interview', 'js'],
+  tagsArr: ['interview', 'react'],
   postParts: [
     {
       val: (

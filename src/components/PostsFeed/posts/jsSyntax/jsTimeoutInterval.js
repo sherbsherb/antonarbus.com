@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsTimeoutInterval = {
   title: 'setTimeout & setInterval in JavaScript',
   date: '2021.12.28',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <h3>setTimeout()</h3>,

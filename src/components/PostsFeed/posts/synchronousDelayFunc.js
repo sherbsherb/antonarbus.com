@@ -25,7 +25,7 @@ export const synchronousDelayFunc = {
     </>
   ),
   date: '2021.10.21',
-  tagsArr: ['JS', 'javascript', 'vanilla', 'function'],
+  tagsArr: ['JavaScript', 'vanilla', 'function'],
   postParts: [
     {
       type: 'text',

@@ -6,7 +6,7 @@ import rabbitPrototype from './rabbitPrototype.png'
 export const jsPrototype = {
   title: 'Prototype in JavaScript',
   date: '2021.12.27',
-  tagsArr: ['js', 'basics', 'OOP'],
+  tagsArr: ['JavaScript', 'basics', 'OOP'],
   postParts: [
     {
       val: <h3><code>[[Prototype]]</code></h3>,

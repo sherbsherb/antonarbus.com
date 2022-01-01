@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsConditions = {
   title: 'Conditions in JavaScript',
   date: '2021.12.22',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <h5>If</h5>,

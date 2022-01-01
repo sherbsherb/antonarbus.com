@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsMap = {
   title: 'Map in JavaScript',
   date: '2021.12.22',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <>Map is is a special type collection, like an object with keys of any data type.</>,

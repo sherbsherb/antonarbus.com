@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsProxy = {
   title: 'Proxy in JavaScript',
   date: '2021.12.31',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <ul>

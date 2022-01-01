@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsPromise = {
   title: 'Promise in JavaScript',
   date: '2021.12.29',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <h3>Syntax</h3>,

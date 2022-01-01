@@ -4,7 +4,7 @@ import babeledFile from './babeledFile.png'
 export const babel = {
   title: 'Babel',
   date: '2021.12.08',
-  tagsArr: ['tools', 'js'],
+  tagsArr: ['tools', 'JavaScript'],
   postParts: [
     {
       val: (

@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsErrors = {
   title: 'Error handling in JavaScript',
   date: '2021.12.29',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <h3>try…catch…finally</h3>,

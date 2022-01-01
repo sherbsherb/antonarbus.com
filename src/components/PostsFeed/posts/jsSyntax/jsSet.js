@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsSet = {
   title: 'Set in JavaScript',
   date: '2021.12.22',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <>Set is a special type collection, like an array where each value may occur only once.</>,

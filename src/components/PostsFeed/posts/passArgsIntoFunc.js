@@ -3,7 +3,7 @@ import { CodeSpan } from '../components/CodeSpan'
 export const passArgsIntoFunc = {
   title: 'Pass arguments into function',
   date: '2021.10.30',
-  tagsArr: ['vanilla', 'JS', 'javascript'],
+  tagsArr: ['vanilla', 'JavaScript'],
   postParts: [
     {
       type: 'text',

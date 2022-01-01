@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsObjects = {
   title: 'Objects in JavaScript',
   date: '2021.12.22',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <h5>Declaration</h5>,

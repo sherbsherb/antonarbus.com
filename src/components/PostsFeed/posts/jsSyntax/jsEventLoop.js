@@ -93,7 +93,7 @@ const toRender3 = <Cmpt3 />
 export const jsEventLoop = {
   title: 'Event loop in JavaScript',
   date: '2021.12.31',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <h3>Event loop</h3>,

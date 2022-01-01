@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsDestructuring = {
   title: 'Destructuring in JavaScript',
   date: '2021.12.22',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <>Destructuring assignment is a syntax that allows us to “unpack” arrays or objects into variables</>,

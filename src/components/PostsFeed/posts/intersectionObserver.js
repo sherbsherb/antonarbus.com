@@ -55,7 +55,7 @@ const toRender = <Component />
 export const intersectionObserver = {
   title: <>Intersection observer</>,
   date: '2021.11.10',
-  tagsArr: ['javascript', 'vanilla'],
+  tagsArr: ['JavaScript', 'vanilla'],
   postParts: [
     {
       type: 'text',

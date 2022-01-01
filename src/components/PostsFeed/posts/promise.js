@@ -3,7 +3,7 @@ import { CodeSpan } from '../components/CodeSpan'
 export const promisePost = {
   title: 'Promise',
   date: '2021.11.17',
-  tagsArr: ['javascript', 'vanilla', 'js'],
+  tagsArr: ['JavaScript', 'vanilla'],
   postParts: [
     {
       type: 'text',

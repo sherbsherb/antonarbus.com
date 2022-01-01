@@ -40,7 +40,7 @@ const toRender = <Component />
 export const delayPromise = {
   title: <>Function to delay a promise</>,
   date: '2021.10.19',
-  tagsArr: ['function', 'vanilla', 'js', 'JavaScript', 'delay', 'promise'],
+  tagsArr: ['function', 'vanilla', 'JavaScript', 'delay', 'promise'],
   postParts: [
     {
       type: 'text',

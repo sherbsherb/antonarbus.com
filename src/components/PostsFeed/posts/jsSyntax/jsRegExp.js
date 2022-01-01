@@ -6,7 +6,7 @@ import { CodeSpan } from '../../components/CodeSpan'
 export const jsRegExp = {
   title: 'Regular expressions in JavaScript',
   date: '2022.01.01',
-  tagsArr: ['js', 'basics'],
+  tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
       val: <>Regular expressions is a pattern to search and replace in text</>,
@@ -60,12 +60,15 @@ export const jsRegExp = {
     },
     {
       val: <ul>
+        <li><code>/./</code> any character, except a newline</li>
         <li><code>/\d/</code> digit</li>
         <li><code>/\s/</code> space, including tabs <code>\t</code>, newlines <code>\n</code>, <code>\v</code>, <code>\f</code>, <code>\r</code></li>
         <li><code>/\w/</code> word, either a letter of Latin alphabet or a digit or an underscore</li>
         <li><code>/\D/</code> non-digit, any character except \d, for ex a letter</li>
         <li><code>/\S/</code> non-space, any character except \s, for ex a letter</li>
         <li><code>/\W/</code> non-wordy character, anything but \w, e.g a non-latin letter or a space</li>
+        <li><code>/\s\S/</code> anything, a space character OR not a space character</li>
+        <li><code>/\d\D/</code> anything</li>
         <li><code>/[^]/</code> anything</li>
       </ul>,
     },
@@ -73,6 +76,7 @@ export const jsRegExp = {
       type: 'code',
       lang: 'js',
       val: `
+      "Z".match(/./) // Z
       "Is there CSS4".match(/CSS\\d/g) // ['CSS4'] // matches a string 'CSS' with a digit after it
       "+7(903)-123-45-67".match(/\\d/g) // ['7']
       "+7(903)-123-45-67".match(/\\d/g) // ['7', '9', '0', '3', '1', '2', '3', '4', '5', '6', '7']

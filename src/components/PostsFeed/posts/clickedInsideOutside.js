@@ -46,7 +46,7 @@ const toRender = <Parent />
 export const clickedInsideOutside = {
   title: 'Clicked inside or outside element',
   date: '2021.10.29',
-  tagsArr: ['javascript', 'JS', 'vanilla', 'function'],
+  tagsArr: ['JavaScript', 'vanilla', 'function'],
   postParts: [
     {
       type: 'code',

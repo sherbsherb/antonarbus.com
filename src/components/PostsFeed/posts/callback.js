@@ -16,7 +16,7 @@ const toRender = <Cmpt />
 export const callback = {
   title: 'Callback',
   date: '2021.11.16',
-  tagsArr: ['javascript', 'vanilla', 'js'],
+  tagsArr: ['JavaScript', 'vanilla'],
   postParts: [
     {
       type: 'text',

@@ -4,7 +4,7 @@ import { Lnk } from '../../components/Lnk'
 export const webpack = {
   title: 'Webpack',
   date: '2021.12.13',
-  tagsArr: ['tools', 'js'],
+  tagsArr: ['tools', 'JavaScript'],
   postParts: [
     {
       val: (

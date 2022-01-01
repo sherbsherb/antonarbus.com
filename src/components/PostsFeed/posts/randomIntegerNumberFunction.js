@@ -34,7 +34,7 @@ const toRender = <Component />
 export const randomIntegerNumberFunction = {
   title: <>Random integer number</>,
   date: '2021.10.31',
-  tagsArr: ['function', 'vanilla', 'js', 'JavaScript', 'animation'],
+  tagsArr: ['function', 'vanilla', 'JavaScript', 'animation'],
   postParts: [
     {
       type: 'text',

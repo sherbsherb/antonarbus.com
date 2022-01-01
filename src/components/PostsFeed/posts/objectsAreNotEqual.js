@@ -3,7 +3,7 @@ import { Lnk } from '../components/Lnk'
 export const objectsAreNotEqual = {
   title: <>Same objects are not equal</>,
   date: '2021.10.20',
-  tagsArr: ['object', 'JavaScript', 'JS', 'vanilla', 'data', 'types', 'basics'],
+  tagsArr: ['object', 'JavaScript', 'vanilla', 'data', 'types'],
   postParts: [
     {
       type: 'text',

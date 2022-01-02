@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Mark from 'mark.js'
 import { store } from '../../App'
@@ -11,10 +11,12 @@ import { postsArr } from './postsArr'
 export function PostsFeed(props) {
   const dispatch = useDispatch()
   const postsOnDisplayState = useSelector(state => state.postsOnDisplay)
+  const typedWords = useSelector(state => state.typedWords)
   const fromToPages = useSelector(state => state.fromToPages)
   const location = useLocation()
   const postNameFromUri = props?.match?.params?.uriPostName
 
+  // show specific or all posts
   useEffect(() => {
     const doesPostFromUriExist = postsArr.some(
       o => o.uriPostName === postNameFromUri
@@ -26,7 +28,9 @@ export function PostsFeed(props) {
         postsToShow: postsArr.filter(o => o.uriPostName === postNameFromUri),
       })
       dispatch({ type: 'show remove found posts msg' })
-    } else {
+    }
+
+    if (!doesPostFromUriExist) {
       dispatch({
         type: 'display following posts',
         postsToShow: postsArr,
@@ -34,18 +38,29 @@ export function PostsFeed(props) {
     }
   }, [location, dispatch, postNameFromUri])
 
+  // highlight found words
   useEffect(() => {
-    // highlight found words
     const context = document.querySelector('main')
     const instance = new Mark(context)
-    if (window.location.pathname !== '/') {
-      instance.unmark()
-      return
-    }
-
     instance.unmark()
-    instance.mark(store.getState().typedWords)
-  }, [postsOnDisplayState])
+    instance.mark(typedWords)
+  }, [postsOnDisplayState, typedWords])
+
+  // scroll to the hash
+  // not working just with useEffect, when component is ready there are not children yet
+  // with setTimeout we put macrotask to the end of the event loop & by that time all children are ready
+  // found solutions by experimenting, did not find proper solution on the Internet
+  useEffect(() => {
+    setTimeout(() => {
+      const hash = location.hash
+      if (!hash) return
+      // at H3 & H5 components we assign following ids from text
+      const id = encodeURI(hash.replace(/\s/g, '-').toLowerCase())
+      const el = document.querySelector(id)
+      if (!el) return
+      el.scrollIntoView({ behavior: 'smooth', alignToTop: true })
+    })
+  }, [])
 
   // do not re-render posts on screen when search dropdown menu toggles
   const returnPostsMemo = useMemo(() => {

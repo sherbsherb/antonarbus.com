@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsMap = {
   title: 'Map in JavaScript',
@@ -12,7 +14,7 @@ export const jsMap = {
       val: <>Map is is a special type collection, like an object with keys of any data type.</>,
     },
     {
-      val: <h5>Object vs Map</h5>,
+      val: <H5>Object vs Map</H5>,
     },
     {
       type: 'code',
@@ -29,7 +31,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Declaration</h5>,
+      val: <H5>Declaration</H5>,
     },
     {
       val: <><CodeSpan>{'new Map([iterable])'}</CodeSpan></>,
@@ -48,7 +50,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Add</h5>,
+      val: <H5>Add</H5>,
     },
     {
       val: <><CodeSpan>{'map.set(key, value)'}</CodeSpan></>,
@@ -63,7 +65,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Get</h5>,
+      val: <H5>Get</H5>,
     },
     {
       val: <>
@@ -84,7 +86,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Size</h5>,
+      val: <H5>Size</H5>,
     },
     {
       type: 'code',
@@ -94,7 +96,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Delete</h5>,
+      val: <H5>Delete</H5>,
     },
     {
       val: <>
@@ -105,7 +107,7 @@ export const jsMap = {
       </>,
     },
     {
-      val: <h5>Has</h5>,
+      val: <H5>Has</H5>,
     },
     {
       val: <>
@@ -115,7 +117,7 @@ export const jsMap = {
       </>,
     },
     {
-      val: <h5>Iteration</h5>,
+      val: <H5>Iteration</H5>,
     },
     {
       val: <>Iteration goes in the same order as the values were inserted</>,
@@ -145,7 +147,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Chaining</h5>,
+      val: <H5>Chaining</H5>,
     },
     {
       val: <><code>map.set</code> call returns the map itself</>,
@@ -159,7 +161,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Array --> Map </h5>,
+      val: <H5>Array --> Map </H5>,
     },
     {
       type: 'code',
@@ -175,7 +177,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Object --> Map </h5>,
+      val: <H5>Object --> Map </H5>,
     },
     {
       type: 'code',
@@ -191,7 +193,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>Map --> Object </h5>,
+      val: <H5>Map --> Object </H5>,
     },
     {
       type: 'code',
@@ -205,7 +207,7 @@ export const jsMap = {
       `,
     },
     {
-      val: <h5>WeakMap</h5>,
+      val: <H5>WeakMap</H5>,
     },
     {
       val: <>

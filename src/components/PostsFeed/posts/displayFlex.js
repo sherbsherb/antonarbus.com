@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import useInput from '../../../helpers/functions/useInput'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Cmpt() {
   const [childrenQty, bindChildrenQty] = useInput(10)

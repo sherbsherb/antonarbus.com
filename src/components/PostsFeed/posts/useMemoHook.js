@@ -1,6 +1,8 @@
 import { useMemo, useRef, useState } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import randomNumFromTo from '../../../helpers/functions/randomNumFromTo'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Parent() {
   const [state, setState] = useState(false)

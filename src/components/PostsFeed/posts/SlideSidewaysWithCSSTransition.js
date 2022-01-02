@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component() {
   const [state, setState] = useState(true)

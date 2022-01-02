@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsConditions = {
   title: 'Conditions in JavaScript',
@@ -9,7 +11,7 @@ export const jsConditions = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>If</h5>,
+      val: <H5>If</H5>,
     },
     {
       type: 'code',
@@ -32,7 +34,7 @@ export const jsConditions = {
       `,
     },
     {
-      val: <h5>If-else</h5>,
+      val: <H5>If-else</H5>,
     },
     {
       type: 'code',
@@ -47,7 +49,7 @@ export const jsConditions = {
       `,
     },
     {
-      val: <h5>Else-if</h5>,
+      val: <H5>Else-if</H5>,
     },
     {
       type: 'code',
@@ -64,7 +66,7 @@ export const jsConditions = {
       `,
     },
     {
-      val: <h5>Ternary operator</h5>,
+      val: <H5>Ternary operator</H5>,
     },
     {
       type: 'code',
@@ -83,7 +85,7 @@ export const jsConditions = {
       `,
     },
     {
-      val: <h5>Switch</h5>,
+      val: <H5>Switch</H5>,
     },
     {
       type: 'code',

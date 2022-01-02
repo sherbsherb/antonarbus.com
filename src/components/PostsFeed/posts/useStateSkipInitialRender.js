@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
+
 const style = {
   border: '2px solid grey',
   padding: '10px',
@@ -12,7 +15,7 @@ function Component() {
   const [stateB, setStateB] = useState(0)
   return (
     <div style={style}>
-      <h3>Parent</h3>
+      <H3>Parent</H3>
       <div>
         <button onClick={() => setStateA(Math.random())}>Render Child A</button>
       </div>
@@ -33,7 +36,7 @@ function ChildA(props) {
   }, [props.stateA])
   return (
     <div style={style}>
-      <h3>Child A</h3>
+      <H3>Child A</H3>
     </div>
   )
 }
@@ -52,7 +55,7 @@ function ChildB(props) {
 
   return (
     <div style={style}>
-      <h3>Child B</h3>
+      <H3>Child B</H3>
     </div>
   )
 }
@@ -98,7 +101,7 @@ export const useStateSkipInitialRender = {
           const [stateB, setStateB] = useState(0);
           return (
             <div style={style}>
-              <h3>Parent</h3>
+              <H3>Parent</H3>
               <div><button onClick={() => setStateA(Math.random())}>Render Child A</button></div>
               <div><button onClick={() => setStateB(Math.random())}>Render Child B without useEffect on initial render</button></div>
               {!!stateA && <ChildA stateA={stateA}/>}
@@ -111,7 +114,7 @@ export const useStateSkipInitialRender = {
           useEffect(() => { alert('I am useEffect in Child A')}, [props.stateA])
           return (
             <div style={style}>
-              <h3>Child A</h3>
+              <H3>Child A</H3>
             </div>
           )
         }
@@ -129,7 +132,7 @@ export const useStateSkipInitialRender = {
         
           return (
             <div style={style}>
-              <h3>Child B</h3>
+              <H3>Child B</H3>
             </div>
           )
         }

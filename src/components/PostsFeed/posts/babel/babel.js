@@ -1,5 +1,7 @@
 import { Lnk } from '../../components/Lnk'
 import babeledFile from './babeledFile.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const babel = {
   title: 'Babel',

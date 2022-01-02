@@ -1,5 +1,7 @@
 import { CodeSpan } from '../../components/CodeSpan'
 import img from './img.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 function jsxToStr(el) {
   if (!el) return ''

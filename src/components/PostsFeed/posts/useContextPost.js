@@ -1,6 +1,9 @@
 import { createContext, useContext } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
+
 const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
 
 const ContextA = createContext('')

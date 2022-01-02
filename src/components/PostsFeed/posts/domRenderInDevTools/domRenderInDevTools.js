@@ -2,6 +2,8 @@ import menuPic from './menu.png'
 import textSplash from './text splash.png'
 import pageSplash from './page splash.png'
 import { useState } from 'react'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 function Component() {
   const [state, setState] = useState('')

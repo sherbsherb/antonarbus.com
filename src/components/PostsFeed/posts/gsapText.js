@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { Lnk } from '../components/Lnk'
 import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 gsap.registerPlugin(TextPlugin)
 

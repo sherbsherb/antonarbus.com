@@ -5,6 +5,8 @@ import { Lnk } from '../../components/Lnk'
 import functionWithESLintProblems from './functionWithESLintProblems.png'
 import ESLintProblemsInTerminal from './ESLintProblemsInTerminal.png'
 import ESLintInit from './ESLintInit.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 function Component() {
   var x = 'hello'
@@ -32,7 +34,7 @@ export const esLint = {
     },
     {
       val: (
-        <h3>React</h3>
+        <H3>React</H3>
       ),
     },
     {
@@ -143,7 +145,7 @@ export const esLint = {
     },
     {
       val: (
-        <h3>Manual installation</h3>
+        <H3>Manual installation</H3>
       ),
     },
     {

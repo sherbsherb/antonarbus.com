@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsOperators = {
   title: 'Operators in JavaScript',
@@ -9,7 +11,7 @@ export const jsOperators = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Operator vs operand</h5>,
+      val: <H5>Operator vs operand</H5>,
     },
     {
       val: (
@@ -23,7 +25,7 @@ export const jsOperators = {
       ),
     },
     {
-      val: <h5>Unary vs binary operator</h5>,
+      val: <H5>Unary vs binary operator</H5>,
     },
     {
       val: (
@@ -34,7 +36,7 @@ export const jsOperators = {
       ),
     },
     {
-      val: <h5>Arithmetical</h5>,
+      val: <H5>Arithmetical</H5>,
     },
     {
       val: (
@@ -63,7 +65,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Comparison</h5>,
+      val: <H5>Comparison</H5>,
     },
     {
       val: (
@@ -99,7 +101,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Bitwise</h5>,
+      val: <H5>Bitwise</H5>,
     },
     {
       val: (
@@ -123,7 +125,7 @@ export const jsOperators = {
       ),
     },
     {
-      val: <h5>Logical</h5>,
+      val: <H5>Logical</H5>,
     },
     {
       val: (
@@ -230,7 +232,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Precedence</h5>,
+      val: <H5>Precedence</H5>,
     },
     {
       val: (
@@ -275,7 +277,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Modify-in-place <code>+=</code></h5>,
+      val: <H5>Modify-in-place <code>+=</code></H5>,
     },
     {
       type: 'code',
@@ -287,7 +289,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Increment/decrement <code>++</code>, <code>--</code></h5>,
+      val: <H5>Increment/decrement <code>++</code>, <code>--</code></H5>,
     },
     {
       type: 'code',
@@ -304,7 +306,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Comma</h5>,
+      val: <H5>Comma</H5>,
     },
     {
       val: <>Each expression is evaluated but only the result of the last one is returned</>,
@@ -319,7 +321,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Spread <code>...</code></h5>,
+      val: <H5>Spread <code>...</code></H5>,
     },
     {
       val: <>Spread syntax allows an iterable to be expanded in places where zero or more arguments or elements are expected:
@@ -342,7 +344,7 @@ export const jsOperators = {
       `,
     },
     {
-      val: <h5>Assignment</h5>,
+      val: <H5>Assignment</H5>,
     },
     {
       val: <>Cause every operator returns a value following works</>,

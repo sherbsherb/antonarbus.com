@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { CodeSpan } from '../components/CodeSpan';
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 let toggle = true;
 
@@ -58,9 +60,9 @@ function Component() {
       <br />
       <hr />
       <br />
-      <h3>state1: {state1}</h3>
+      <H3>state1: {state1}</H3>
       <button onClick={() => setState1(state1 + 1)}>+ 1</button>
-      <h3>state2: {state2}</h3>
+      <H3>state2: {state2}</H3>
       <button onClick={() => setState2(state2 + 1)}>+ 1</button>
     </div>
   );
@@ -170,9 +172,9 @@ export const useEffectPost = {
               <div>useEffect(..., [state1]) <b>{useEffectStateDep}</b></div>
               <div>useEffect(..., [state1, state2]) <b>{useEffectStatesDep}</b></div>
               <hr />
-              <h3>state1: {state1}</h3>
+              <H3>state1: {state1}</H3>
               <button onClick={() => setState1(state1 + 1)}>+ 1</button>
-              <h3>state2: {state2}</h3>
+              <H3>state2: {state2}</H3>
               <button onClick={() => setState2(state2 + 1)}>+ 1</button>
             </div>
           );

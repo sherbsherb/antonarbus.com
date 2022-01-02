@@ -1,6 +1,8 @@
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
 import useToggleBooleanState from '../../../helpers/functions/useToggleBooleanState'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component() {
   const [state, toggleState] = useToggleBooleanState(true)

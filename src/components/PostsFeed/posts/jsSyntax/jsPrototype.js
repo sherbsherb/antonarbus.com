@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 import rabbitPrototype from './rabbitPrototype.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsPrototype = {
   title: 'Prototype in JavaScript',
@@ -9,7 +11,7 @@ export const jsPrototype = {
   tagsArr: ['JavaScript', 'basics', 'OOP'],
   postParts: [
     {
-      val: <h3><code>[[Prototype]]</code></h3>,
+      val: <H3><code>[[Prototype]]</code></H3>,
     },
     {
       val: <ul>
@@ -51,7 +53,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3><code>__proto__</code></h3>,
+      val: <H3><code>__proto__</code></H3>,
     },
     {
       val: <ul>
@@ -69,7 +71,7 @@ export const jsPrototype = {
       </ul>,
     },
     {
-      val: <h3>Prototype chain</h3>,
+      val: <H3>Prototype chain</H3>,
     },
     {
       type: 'code',
@@ -98,7 +100,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3>for…in loop</h3>,
+      val: <H3>for…in loop</H3>,
     },
     {
       val: <>Iterates over inherited properties also</>,
@@ -118,7 +120,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3><CodeSpan>obj.hasOwnProperty(key)</CodeSpan></h3>,
+      val: <H3><CodeSpan>obj.hasOwnProperty(key)</CodeSpan></H3>,
     },
     {
       val: <>Returns true if an object has its own (not inherited) property named key</>,
@@ -144,7 +146,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3>Constructor function & <code>.prototype</code></h3>,
+      val: <H3>Constructor function & <code>.prototype</code></H3>,
     },
     {
       val: <ul>
@@ -200,7 +202,7 @@ export const jsPrototype = {
       src: rabbitPrototype,
     },
     {
-      val: <h3>Native prototypes</h3>,
+      val: <H3>Native prototypes</H3>,
     },
     {
       val: <ul>
@@ -220,7 +222,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3>Change native prototypes</h3>,
+      val: <H3>Change native prototypes</H3>,
     },
     {
       val: <ul>
@@ -245,7 +247,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3>Borrow from prototypes</h3>,
+      val: <H3>Borrow from prototypes</H3>,
     },
     {
       type: 'code',
@@ -263,7 +265,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h3>Prototype methods</h3>,
+      val: <H3>Prototype methods</H3>,
     },
     {
       val: <><CodeSpan>Object.create(protoObj, [propertiesObject])</CodeSpan></>,
@@ -299,7 +301,7 @@ export const jsPrototype = {
       `,
     },
     {
-      val: <h5>Object true cloning</h5>,
+      val: <H5>Object true cloning</H5>,
     },
     {
       val: <>Including all properties: enumerable and non-enumerable, data properties and setters/getters</>,

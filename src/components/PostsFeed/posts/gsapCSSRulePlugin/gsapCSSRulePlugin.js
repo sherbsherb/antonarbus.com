@@ -4,6 +4,8 @@ import randomNumFromTo from '../../../../helpers/functions/randomNumFromTo'
 import { CodeSpan } from '../../components/CodeSpan'
 import './style73.css'
 import { Lnk } from '../../components/Lnk'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 const rand = () => randomNumFromTo(1, 255)
 gsap.registerPlugin(CSSRulePlugin)

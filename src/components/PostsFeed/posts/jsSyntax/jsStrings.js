@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsStrings = {
   title: 'Strings in JavaScript',
@@ -9,7 +11,7 @@ export const jsStrings = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Quotation marks</h5>,
+      val: <H5>Quotation marks</H5>,
     },
     {
       type: 'code',
@@ -21,7 +23,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Interpolation</h5>,
+      val: <H5>Interpolation</H5>,
     },
     {
       type: 'code',
@@ -31,7 +33,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Multiline string</h5>,
+      val: <H5>Multiline string</H5>,
     },
     {
       type: 'code',
@@ -44,7 +46,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Special characters</h5>,
+      val: <H5>Special characters</H5>,
     },
     {
       val: <>Special characters start with a backslash character \, also called an “escape character”
@@ -77,7 +79,7 @@ export const jsStrings = {
     `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -88,7 +90,7 @@ export const jsStrings = {
     `,
     },
     {
-      val: <h5>Access characters</h5>,
+      val: <H5>Access characters</H5>,
     },
     {
       type: 'code',
@@ -107,7 +109,7 @@ export const jsStrings = {
     `,
     },
     {
-      val: <h5>Primitives are immutable</h5>,
+      val: <H5>Primitives are immutable</H5>,
     },
     {
       type: 'code',
@@ -119,7 +121,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Case</h5>,
+      val: <H5>Case</H5>,
     },
     {
       type: 'code',
@@ -130,7 +132,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Character position</h5>,
+      val: <H5>Character position</H5>,
     },
     {
       type: 'code',
@@ -157,7 +159,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Character existence</h5>,
+      val: <H5>Character existence</H5>,
     },
     {
       val: <>With <CodeSpan>indexOf()</CodeSpan></>,
@@ -189,7 +191,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Substring</h5>,
+      val: <H5>Substring</H5>,
     },
     {
       val: <><CodeSpan>slice(start,end)</CodeSpan></>,
@@ -236,7 +238,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>UTF-16 to string</h5>,
+      val: <H5>UTF-16 to string</H5>,
     },
     {
       type: 'code',
@@ -246,7 +248,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>String to UTF-16</h5>,
+      val: <H5>String to UTF-16</H5>,
     },
     {
       type: 'code',
@@ -256,7 +258,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Unicode</h5>,
+      val: <H5>Unicode</H5>,
     },
     {
       type: 'code',
@@ -266,7 +268,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Compare strings</h5>,
+      val: <H5>Compare strings</H5>,
     },
     {
       type: 'code',
@@ -281,7 +283,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Surrogate pairs</h5>,
+      val: <H5>Surrogate pairs</H5>,
     },
     {
       type: 'code',
@@ -293,7 +295,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Diacritical marks & normalization</h5>,
+      val: <H5>Diacritical marks & normalization</H5>,
     },
     {
       type: 'code',
@@ -311,10 +313,10 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5>Some string methods</h5>,
+      val: <H5>Some string methods</H5>,
     },
     {
-      val: <h5><CodeSpan>charAt()</CodeSpan></h5>,
+      val: <H5><CodeSpan>charAt()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -324,7 +326,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>charCodeAt()</CodeSpan></h5>,
+      val: <H5><CodeSpan>charCodeAt()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -334,7 +336,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>codePointAt()</CodeSpan></h5>,
+      val: <H5><CodeSpan>codePointAt()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -344,7 +346,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>concat()</CodeSpan></h5>,
+      val: <H5><CodeSpan>concat()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -354,7 +356,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>match()</CodeSpan></h5>,
+      val: <H5><CodeSpan>match()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -364,7 +366,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>matchAll()</CodeSpan></h5>,
+      val: <H5><CodeSpan>matchAll()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -375,7 +377,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>padStart()</CodeSpan>, <CodeSpan>padEnd()</CodeSpan></h5>,
+      val: <H5><CodeSpan>padStart()</CodeSpan>, <CodeSpan>padEnd()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -388,7 +390,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>repeat()</CodeSpan></h5>,
+      val: <H5><CodeSpan>repeat()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -398,7 +400,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>replace()</CodeSpan></h5>,
+      val: <H5><CodeSpan>replace()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -410,7 +412,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>replaceAll()</CodeSpan></h5>,
+      val: <H5><CodeSpan>replaceAll()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -420,7 +422,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>search()</CodeSpan></h5>,
+      val: <H5><CodeSpan>search()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -431,7 +433,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>split()</CodeSpan></h5>,
+      val: <H5><CodeSpan>split()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -442,7 +444,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>trim()</CodeSpan>, <CodeSpan>trimStart()</CodeSpan>, <CodeSpan>trimEnd()</CodeSpan></h5>,
+      val: <H5><CodeSpan>trim()</CodeSpan>, <CodeSpan>trimStart()</CodeSpan>, <CodeSpan>trimEnd()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -454,7 +456,7 @@ export const jsStrings = {
       `,
     },
     {
-      val: <h5><CodeSpan>toLocaleUpperCase()</CodeSpan>, <CodeSpan>toLocaleLowerCase()</CodeSpan></h5>,
+      val: <H5><CodeSpan>toLocaleUpperCase()</CodeSpan>, <CodeSpan>toLocaleLowerCase()</CodeSpan></H5>,
     },
     {
       type: 'code',

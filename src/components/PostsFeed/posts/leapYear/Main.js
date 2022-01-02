@@ -8,7 +8,7 @@ export function Main() {
 
   return (
     <DivStyled data-testid="cmpt">
-      <h3>Is a leap year?</h3>
+      <H3>Is a leap year?</H3>
       <Input setYearTypeState={setYearTypeState} />
       <Output yearTypeState={yearTypeState} />
     </DivStyled>

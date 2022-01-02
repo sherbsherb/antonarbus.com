@@ -1,6 +1,8 @@
 import { Lnk } from '../components/Lnk'
 import { CodeOutput } from '../components/CodeOutput'
 import { CodeSpan } from '../components/CodeSpan'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 export const jsClassVsConstructorFunction = {
   title: 'Class vs constructor function in JS',
@@ -11,7 +13,7 @@ export const jsClassVsConstructorFunction = {
       val: <>Example is taken from the <Lnk path="https://www.youtube.com/playlist?list=PL4cUxeGkcC9i5yvDkJgt60vNVWffpblB7">OOP lesson</Lnk>, which shows how classes are internally done in JavaScript by prototyping.</>,
     },
     {
-      val: <h3>Class version</h3>,
+      val: <H3>Class version</H3>,
     },
     {
       type: 'code',
@@ -58,7 +60,7 @@ export const jsClassVsConstructorFunction = {
       `,
     },
     {
-      val: <h3>Constructor function version</h3>,
+      val: <H3>Constructor function version</H3>,
     },
     {
       type: 'code',

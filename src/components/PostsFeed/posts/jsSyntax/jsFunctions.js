@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsFunctions = {
   title: 'Functions in JavaScript',
@@ -9,7 +11,7 @@ export const jsFunctions = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>Function declaration</h3>,
+      val: <H3>Function declaration</H3>,
     },
     {
       val: <>Function declaration is "hoisted", like "var" in variable declarations. Can be called earlier than it is defined.</>,
@@ -43,7 +45,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Parameters</h3>,
+      val: <H3>Parameters</H3>,
     },
     {
       val: <>Full <Lnk path="https://antonarbus.com/post/pass-arguments-into-function">article</Lnk> about default parameters can be found here.</> ,
@@ -81,7 +83,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Return</h3>,
+      val: <H3>Return</H3>,
     },
     {
       val: <>Function stops at <code>return</code></>,
@@ -101,7 +103,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Call without parenthesis</h3>,
+      val: <H3>Call without parenthesis</H3>,
     },
     {
       val: <>Shows string representation of the source code</>,
@@ -117,7 +119,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Copy function</h3>,
+      val: <H3>Copy function</H3>,
     },
     {
       type: 'code',
@@ -131,7 +133,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Callback</h3>,
+      val: <H3>Callback</H3>,
     },
     {
       val: <>It is a function passed to another function as an argument.</>,
@@ -156,7 +158,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Recursion</h3>,
+      val: <H3>Recursion</H3>,
     },
     {
       val: <>Recursion is when a function calls itself. JavaScript engine allows 10000 calls maximum.</>,
@@ -173,7 +175,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Arguments</h3>,
+      val: <H3>Arguments</H3>,
     },
     {
       val: <>Functions have special array-like object named 'arguments' that contains all arguments by their index.</>,
@@ -190,7 +192,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Immediately-invoked function expressions</h3>,
+      val: <H3>Immediately-invoked function expressions</H3>,
     },
     {
       val: <>IIFE requires semicolon before</>,
@@ -220,7 +222,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Function is object</h3>,
+      val: <H3>Function is object</H3>,
     },
     {
       val: <>.name property</>,
@@ -261,7 +263,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Function expression</h3>,
+      val: <H3>Function expression</H3>,
     },
     {
       type: 'code',
@@ -271,7 +273,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Named Function Expression</h3>,
+      val: <H3>Named Function Expression</H3>,
     },
     {
       val: <>Allows the function to reference itself internally</>,
@@ -291,7 +293,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Function declaration vs expression</h3>,
+      val: <H3>Function declaration vs expression</H3>,
     },
     {
       val: <>Hoisting, function expression is created when the execution reaches it and is usable only from that moment (not "hoisted")</>,
@@ -320,7 +322,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Arrow function expression</h3>,
+      val: <H3>Arrow function expression</H3>,
     },
     {
       val: <>
@@ -394,7 +396,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>new Function</h3>,
+      val: <H3>new Function</H3>,
     },
     {
       val: <>Function is created from a string & have access only to global, but not LE</>,
@@ -408,13 +410,13 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Decorators (call/apply/bind)</h3>,
+      val: <H3>Decorators (call/apply/bind)</H3>,
     },
     {
       val: <>Function that takes another function and alters its behavior, the main job is still carried out by the function</>,
     },
     {
-      val: <h5>.call()</h5>,
+      val: <H5>.call()</H5>,
     },
     {
       val: <>
@@ -438,7 +440,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>.apply()</h5>,
+      val: <H5>.apply()</H5>,
     },
     {
       val: <>
@@ -465,7 +467,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>.bind()</h5>,
+      val: <H5>.bind()</H5>,
     },
     {
       val: <>
@@ -500,7 +502,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Lexical Environment</h3>,
+      val: <H3>Lexical Environment</H3>,
     },
     {
       val: <ul>
@@ -527,7 +529,7 @@ export const jsFunctions = {
       </ul>,
     },
     {
-      val: <h3>Closure</h3>,
+      val: <H3>Closure</H3>,
     },
     {
       val: <ul>
@@ -564,7 +566,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h3>Currying</h3>,
+      val: <H3>Currying</H3>,
     },
     {
       val: <>
@@ -572,7 +574,7 @@ export const jsFunctions = {
       </>,
     },
     {
-      val: <h5>Simple example</h5>,
+      val: <H5>Simple example</H5>,
     },
     {
       type: 'code',
@@ -595,7 +597,7 @@ export const jsFunctions = {
       `,
     },
     {
-      val: <h5>Advanced example</h5>,
+      val: <H5>Advanced example</H5>,
     },
     {
       type: 'code',

@@ -3,6 +3,8 @@ import { Lnk } from '../components/Lnk'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styled from 'styled-components'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 gsap.registerPlugin(ScrollTrigger)
 

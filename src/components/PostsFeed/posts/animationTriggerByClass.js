@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const popAnimation = keyframes`
   from { transform: scaleY(0); }

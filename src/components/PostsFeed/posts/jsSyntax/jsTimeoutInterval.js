@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsTimeoutInterval = {
   title: 'setTimeout & setInterval in JavaScript',
@@ -9,7 +11,7 @@ export const jsTimeoutInterval = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>setTimeout()</h3>,
+      val: <H3>setTimeout()</H3>,
     },
     {
       val: <ul>
@@ -30,7 +32,7 @@ export const jsTimeoutInterval = {
       `,
     },
     {
-      val: <h5>Pass parameters</h5>,
+      val: <H5>Pass parameters</H5>,
     },
     {
       type: 'code',
@@ -43,7 +45,7 @@ export const jsTimeoutInterval = {
       `,
     },
     {
-      val: <h5>No delay</h5>,
+      val: <H5>No delay</H5>,
     },
     {
       val: <ul>
@@ -68,7 +70,7 @@ export const jsTimeoutInterval = {
       `,
     },
     {
-      val: <h5>Canceling with clearTimeout</h5>,
+      val: <H5>Canceling with clearTimeout</H5>,
     },
     {
       type: 'code',
@@ -79,7 +81,7 @@ export const jsTimeoutInterval = {
       `,
     },
     {
-      val: <h3>setInterval()</h3>,
+      val: <H3>setInterval()</H3>,
     },
     {
       val: <ul>
@@ -99,7 +101,7 @@ export const jsTimeoutInterval = {
       `,
     },
     {
-      val: <h3>Nested setTimeout()</h3>,
+      val: <H3>Nested setTimeout()</H3>,
     },
     {
       val: <ul>
@@ -120,7 +122,7 @@ export const jsTimeoutInterval = {
       `,
     },
     {
-      val: <h3>Garbage collection</h3>,
+      val: <H3>Garbage collection</H3>,
     },
     {
       val: <ul>

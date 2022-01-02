@@ -1,6 +1,8 @@
 import React from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const Input = React.forwardRef((props, ref) => <input ref={ref} {...props} />)
 Input.displayName = 'Custom Input'

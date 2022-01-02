@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component() {
   const [state, setState] = useState(0)
@@ -8,7 +10,7 @@ function Component() {
   if (ref.current) ref.current.innerHTML += '<span>Render triggered </span>'
   return (
     <div>
-      <h5>{new Date().toString()}</h5>
+      <H5>{new Date().toString()}</H5>
       <button onClick={() => setState(state + 1)}>
         Update state with new value
       </button>
@@ -48,7 +50,7 @@ export const stateUpdateWithSameValue = {
           if (!!ref.current) ref.current.innerHTML += '<span>Render triggered </span>';
           return (
             <div>
-              <h5>{new Date().toString()}</h5>
+              <H5>{new Date().toString()}</H5>
               <button onClick={() => setState(state + 1)}>Update state with new value</button>
               &nbsp;&nbsp;&nbsp;
               <button onClick={() => setState(state)}>Update state with same value</button>

@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsVariables = {
   title: 'Variables in JavaScript',
@@ -9,7 +11,7 @@ export const jsVariables = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Naming</h5>,
+      val: <H5>Naming</H5>,
     },
     {
       type: 'code',
@@ -21,7 +23,7 @@ export const jsVariables = {
       `,
     },
     {
-      val: <h5>Declaration (let, const, var)</h5>,
+      val: <H5>Declaration (let, const, var)</H5>,
     },
     {
       val: (

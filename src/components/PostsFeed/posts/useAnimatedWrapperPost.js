@@ -1,5 +1,7 @@
 import { CodeSpan } from '../components/CodeSpan'
 import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const divCss = { background: '#e6c0c0', margin: '5px', padding: '5px', cursor: 'pointer' }
 const options = {

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import img from './headphones.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 const style = { height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }
 

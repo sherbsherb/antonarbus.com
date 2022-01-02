@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Lnk } from '../components/Lnk'
 import { gsap } from 'gsap'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 gsap.registerPlugin(MotionPathPlugin)
 const path = [{ x: 30, y: 100 }, { x: 100, y: 150 }, { x: 200, y: 100 }, { x: 300, y: 50 }, { x: 400, y: 100 }]

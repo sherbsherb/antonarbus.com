@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsModules = {
   title: 'Modules in JavaScript',
@@ -20,7 +22,7 @@ export const jsModules = {
       </ul>,
     },
     {
-      val: <h3>Import is evaluated ones</h3>,
+      val: <H3>Import is evaluated ones</H3>,
     },
     {
       type: 'code',
@@ -35,7 +37,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h3>Scripts duplicates are ignored</h3>,
+      val: <H3>Scripts duplicates are ignored</H3>,
     },
     {
       type: 'code',
@@ -47,7 +49,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h3>External scripts + CORS</h3>,
+      val: <H3>External scripts + CORS</H3>,
     },
     {
       val: <ul>
@@ -63,13 +65,13 @@ export const jsModules = {
       `,
     },
     {
-      val: <h3>Global variable</h3>,
+      val: <H3>Global variable</H3>,
     },
     {
       val: <>To make a global variable we can assign it to a window property <CodeSpan>window.user = "John"</CodeSpan>, but it is not recommended.</>,
     },
     {
-      val: <h3>Defer, async</h3>,
+      val: <H3>Defer, async</H3>,
     },
     {
       val: <ul>
@@ -98,7 +100,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h3><code>this</code> in module</h3>,
+      val: <H3><code>this</code> in module</H3>,
     },
     {
       val: <ul>
@@ -107,7 +109,7 @@ export const jsModules = {
       </ul>,
     },
     {
-      val: <h3>Relative or absolute path</h3>,
+      val: <H3>Relative or absolute path</H3>,
     },
     {
       val: <ul>
@@ -117,10 +119,10 @@ export const jsModules = {
       </ul>,
     },
     {
-      val: <h3>Different exports/imports</h3>,
+      val: <H3>Different exports/imports</H3>,
     },
     {
-      val: <h5>whole file</h5>,
+      val: <H5>whole file</H5>,
     },
     {
       type: 'code',
@@ -134,7 +136,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h5>specific variables, functions, classes</h5>,
+      val: <H5>specific variables, functions, classes</H5>,
     },
     {
       type: 'code',
@@ -158,7 +160,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h5>export apart from declarations</h5>,
+      val: <H5>export apart from declarations</H5>,
     },
     {
       type: 'code',
@@ -175,7 +177,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h5>import * all</h5>,
+      val: <H5>import * all</H5>,
     },
     {
       val: <>Bad for bundle optimizers such as webpack's “tree-shaking”</>,
@@ -195,7 +197,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h5>export as</h5>,
+      val: <H5>export as</H5>,
     },
     {
       type: 'code',
@@ -213,7 +215,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h5>import as</h5>,
+      val: <H5>import as</H5>,
     },
     {
       type: 'code',
@@ -230,7 +232,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h5>export default</h5>,
+      val: <H5>export default</H5>,
     },
     {
       val: <ul>
@@ -294,7 +296,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h3>Re-export</h3>,
+      val: <H3>Re-export</H3>,
     },
     {
       val: <>We may import things and immediately export them</>,
@@ -318,7 +320,7 @@ export const jsModules = {
       `,
     },
     {
-      val: <h3>Dynamic imports</h3>,
+      val: <H3>Dynamic imports</H3>,
     },
     {
       val: <ul>

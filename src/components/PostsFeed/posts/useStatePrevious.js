@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component1() {
   const [state, setState] = useState(0)
 
   return (
     <div>
-      <h3>{state}</h3>
+      <H3>{state}</H3>
       <button
         onClick={() => {
           for (let i = 0; i < 5; i++) setState(state + 1)
@@ -25,7 +27,7 @@ function Component2() {
 
   return (
     <div>
-      <h3>{state}</h3>
+      <H3>{state}</H3>
       <button
         onClick={() => {
           for (let i = 0; i < 5; i++) setState(prevVal => prevVal + 1)
@@ -66,7 +68,7 @@ export const useStatePrevious = {
         
           return (
             <div>
-              <h3>{state}</h3>
+              <H3>{state}</H3>
               <button
                 onClick={() => {
                   for (let i = 0; i < 5; i++) setState(state + 1);
@@ -103,7 +105,7 @@ export const useStatePrevious = {
         
           return (
             <div>
-              <h3>{state}</h3>
+              <H3>{state}</H3>
               <button
                 onClick={() => {
                   for (let i = 0; i < 5; i++) setState(prevVal => prevVal + 1);

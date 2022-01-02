@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const style = {
   border: '2px solid grey',
@@ -17,7 +19,7 @@ function ParentComponent(props) {
 
   return (
     <div style={style}>
-      <h3>{props.text}</h3>
+      <H3>{props.text}</H3>
       <button onClick={() => setParentState(parentState + 1)}>Change state</button>
       <div ref={ref}></div>
       <ChildComponent text={'Child component 1 - included in Parent'}/>
@@ -34,7 +36,7 @@ function ChildComponent(props) {
 
   return (
     <div style={style}>
-      <h3>{props.text}</h3>
+      <H3>{props.text}</H3>
       <button onClick={() => setChildState1(childState + 1)}>Change state</button>
       <div ref={ref}></div>
     </div>
@@ -89,7 +91,7 @@ export const childrenComponentsRender = {
         
           return (
             <div style={style}>
-              <h3>{props.text}</h3>
+              <H3>{props.text}</H3>
               <button onClick={() => setParentState(parentState + 1)}>Change state</button>
               <div ref={ref}></div>
               <ChildComponent text={'Child component 1 - included in Parent'}/>
@@ -107,7 +109,7 @@ export const childrenComponentsRender = {
         
           return (
             <div style={style}>
-              <h3>{props.text}</h3>
+              <H3>{props.text}</H3>
               <button onClick={() => setChildState1(childState + 1)}>Change state</button>
               <div ref={ref}></div>
             </div>

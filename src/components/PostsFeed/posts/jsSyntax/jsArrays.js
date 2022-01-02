@@ -1,6 +1,8 @@
 import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 // import imgFile from './img.jpg'
 
 export const jsArrays = {
@@ -9,7 +11,7 @@ export const jsArrays = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Declaration</h5>,
+      val: <H5>Declaration</H5>,
     },
     {
       type: 'code',
@@ -22,7 +24,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Access</h5>,
+      val: <H5>Access</H5>,
     },
     {
       type: 'code',
@@ -34,7 +36,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Add</h5>,
+      val: <H5>Add</H5>,
     },
     {
       type: 'code',
@@ -45,7 +47,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Delete</h5>,
+      val: <H5>Delete</H5>,
     },
     {
       type: 'code',
@@ -62,7 +64,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Arrays is reference type</h5>,
+      val: <H5>Arrays is reference type</H5>,
     },
     {
       type: 'code',
@@ -75,7 +77,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Arrays is an ordered collection</h5>,
+      val: <H5>Arrays is an ordered collection</H5>,
     },
     {
       val: <>
@@ -88,7 +90,7 @@ export const jsArrays = {
       </>,
     },
     {
-      val: <h5>Keys, values, entries</h5>,
+      val: <H5>Keys, values, entries</H5>,
     },
     {
       type: 'code',
@@ -114,7 +116,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -140,7 +142,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Multidimensional arrays</h5>,
+      val: <H5>Multidimensional arrays</H5>,
     },
     {
       type: 'code',
@@ -155,7 +157,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Loops</h5>,
+      val: <H5>Loops</H5>,
     },
     {
       val: <b>For</b>,
@@ -207,7 +209,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Array.isArray()</h5>,
+      val: <H5>Array.isArray()</H5>,
     },
     {
       type: 'code',
@@ -220,7 +222,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>Array.from()</h5>,
+      val: <H5>Array.from()</H5>,
     },
     {
       val: <>Returns a new shallow-copied array instance from iterable object</>,
@@ -237,7 +239,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>push()</h5>,
+      val: <H5>push()</H5>,
     },
     {
       type: 'code',
@@ -250,7 +252,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>pop()</h5>,
+      val: <H5>pop()</H5>,
     },
     {
       type: 'code',
@@ -262,7 +264,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>unshift()</h5>,
+      val: <H5>unshift()</H5>,
     },
     {
       type: 'code',
@@ -277,7 +279,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>shift() </h5>,
+      val: <H5>shift() </H5>,
     },
     {
       type: 'code',
@@ -290,7 +292,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>String()</h5>,
+      val: <H5>String()</H5>,
     },
     {
       type: 'code',
@@ -302,7 +304,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>toString()</h5>,
+      val: <H5>toString()</H5>,
     },
     {
       type: 'code',
@@ -314,7 +316,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>toLocaleString()</h5>,
+      val: <H5>toLocaleString()</H5>,
     },
     {
       type: 'code',
@@ -325,7 +327,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5 style={{ display: 'inline' }}>splice()</h5> - mutates!</>,
+      val: <><H5 style={{ display: 'inline' }}>splice()</H5> - mutates!</>,
     },
     {
       val: <CodeSpan>{'arr.splice(startIndex, [deleteCount], [elemToInsert1], [elemToInsert2])'}</CodeSpan>,
@@ -371,7 +373,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>slice()</h5>,
+      val: <H5>slice()</H5>,
     },
     {
       val: <CodeSpan>{'arr.slice([beginIndex], [endIndex])'}</CodeSpan>,
@@ -400,7 +402,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>concat()</h5>,
+      val: <H5>concat()</H5>,
     },
     {
       val: <CodeSpan>{'arr.concat(arg1, arg2)'}</CodeSpan>,
@@ -442,7 +444,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>indexOf(), lastIndexOf()</h5>,
+      val: <H5>indexOf(), lastIndexOf()</H5>,
     },
     {
       val: <CodeSpan>{'arr.indexOf(item, [fromIndex])'}</CodeSpan>,
@@ -465,7 +467,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>includes()</h5>,
+      val: <H5>includes()</H5>,
     },
     {
       val: <CodeSpan>{'arr.includes(item, [fromIndex])'}</CodeSpan>,
@@ -483,7 +485,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5 style={{ display: 'inline' }}>reverse()</h5> - mutates!</>,
+      val: <><H5 style={{ display: 'inline' }}>reverse()</H5> - mutates!</>,
     },
     {
       type: 'code',
@@ -496,7 +498,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>split()</h5>,
+      val: <H5>split()</H5>,
     },
     {
       type: 'code',
@@ -508,7 +510,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>join()</h5>,
+      val: <H5>join()</H5>,
     },
     {
       type: 'code',
@@ -520,7 +522,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5 style={{ display: 'inline' }}>fill()</h5> - mutates!</>,
+      val: <><H5 style={{ display: 'inline' }}>fill()</H5> - mutates!</>,
     },
     {
       val: <CodeSpan>{'arr.fill(value, [startIndex], [endIndex])'}</CodeSpan>,
@@ -538,7 +540,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>copyWithin()</h5>,
+      val: <H5>copyWithin()</H5>,
     },
     {
       val: <>
@@ -563,7 +565,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>flat()</h5>,
+      val: <H5>flat()</H5>,
     },
     {
       val: <>
@@ -590,7 +592,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>map()</h5>,
+      val: <H5>map()</H5>,
     },
     {
       val: <>
@@ -612,7 +614,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>flatMap()</h5>,
+      val: <H5>flatMap()</H5>,
     },
     {
       val: <>
@@ -634,7 +636,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <><h5 style={{ display: 'inline' }}>sort()</h5> - mutates!</>,
+      val: <><H5 style={{ display: 'inline' }}>sort()</H5> - mutates!</>,
     },
     {
       val: <>
@@ -673,7 +675,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>filter()</h5>,
+      val: <H5>filter()</H5>,
     },
     {
       val: <>
@@ -696,7 +698,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>some()</h5>,
+      val: <H5>some()</H5>,
     },
     {
       val: <>
@@ -717,7 +719,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>every()</h5>,
+      val: <H5>every()</H5>,
     },
     {
       val: <>
@@ -738,7 +740,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>find()</h5>,
+      val: <H5>find()</H5>,
     },
     {
       val: <>
@@ -768,7 +770,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>findIndex()</h5>,
+      val: <H5>findIndex()</H5>,
     },
     {
       val: <>
@@ -786,7 +788,7 @@ export const jsArrays = {
       `,
     },
     {
-      val: <h5>reduce()</h5>,
+      val: <H5>reduce()</H5>,
     },
     {
       val: <>

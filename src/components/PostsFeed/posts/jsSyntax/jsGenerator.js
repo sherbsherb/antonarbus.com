@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsGenerator = {
   title: 'Generator in JavaScript',
@@ -19,7 +21,7 @@ export const jsGenerator = {
       </ul>,
     },
     {
-      val: <h3>Syntax</h3>,
+      val: <H3>Syntax</H3>,
     },
     {
       type: 'code',
@@ -52,7 +54,7 @@ export const jsGenerator = {
       `,
     },
     {
-      val: <h3>Generator is iterable</h3>,
+      val: <H3>Generator is iterable</H3>,
     },
     {
       type: 'code',
@@ -70,7 +72,7 @@ export const jsGenerator = {
       `,
     },
     {
-      val: <h3>Spread syntax</h3>,
+      val: <H3>Spread syntax</H3>,
     },
     {
       type: 'code',
@@ -80,7 +82,7 @@ export const jsGenerator = {
       `,
     },
     {
-      val: <h3>Iterable object based on generator</h3>,
+      val: <H3>Iterable object based on generator</H3>,
     },
     {
       type: 'code',
@@ -101,7 +103,7 @@ export const jsGenerator = {
       `,
     },
     {
-      val: <h3>Generator inside generator - <code>yield*</code></h3>,
+      val: <H3>Generator inside generator - <code>yield*</code></H3>,
     },
     {
       val: <><code>yield*</code> directive delegates the execution to another generator</>,
@@ -128,7 +130,7 @@ export const jsGenerator = {
       `,
     },
     {
-      val: <h3>Pass values from <code>next</code> to <code>yield</code></h3>,
+      val: <H3>Pass values from <code>next</code> to <code>yield</code></H3>,
     },
     {
       val: <><code>yield</code> not only returns the result to the outside, but can pass the value inside the generator</>,
@@ -151,7 +153,7 @@ export const jsGenerator = {
       `,
     },
     {
-      val: <h3>Throw error into generator</h3>,
+      val: <H3>Throw error into generator</H3>,
     },
     {
       val: <>Outer code may pass error into a generator</>,

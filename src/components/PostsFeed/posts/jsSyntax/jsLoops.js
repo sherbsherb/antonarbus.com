@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsLoops = {
   title: 'Loops in JavaScript',
@@ -9,7 +11,7 @@ export const jsLoops = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>For</h5>,
+      val: <H5>For</H5>,
     },
     {
       type: 'code',
@@ -24,7 +26,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>For without arguments</h5>,
+      val: <H5>For without arguments</H5>,
     },
     {
       type: 'code',
@@ -43,7 +45,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>Continue & break</h5>,
+      val: <H5>Continue & break</H5>,
     },
     {
       type: 'code',
@@ -57,7 +59,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>While</h5>,
+      val: <H5>While</H5>,
     },
     {
       type: 'code',
@@ -71,7 +73,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>Do</h5>,
+      val: <H5>Do</H5>,
     },
     {
       type: 'code',
@@ -85,7 +87,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>Labels for break/continue</h5>,
+      val: <H5>Labels for break/continue</H5>,
     },
     {
       type: 'code',
@@ -103,7 +105,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>for...in</h5>,
+      val: <H5>for...in</H5>,
     },
     {
       val: <>Iterates over all enumerable properties of an object that are keyed by strings (ignoring ones keyed by Symbols)</>,
@@ -121,7 +123,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>for...of</h5>,
+      val: <H5>for...of</H5>,
     },
     {
       val: <>Iterates over iterable objects</>,
@@ -138,7 +140,7 @@ export const jsLoops = {
       `,
     },
     {
-      val: <h5>forEach</h5>,
+      val: <H5>forEach</H5>,
     },
     {
       val: <>Executes a provided function once for each array element</>,

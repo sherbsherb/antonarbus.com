@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsDataTypes = {
   title: 'Data types in JavaScript',
@@ -9,7 +11,7 @@ export const jsDataTypes = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Primitives</h5>,
+      val: <H5>Primitives</H5>,
     },
     {
       val: (
@@ -44,7 +46,7 @@ export const jsDataTypes = {
       ),
     },
     {
-      val: <h5>Objects</h5>,
+      val: <H5>Objects</H5>,
     },
     {
       val: (
@@ -61,7 +63,7 @@ export const jsDataTypes = {
       ),
     },
     {
-      val: <h5>Typeof</h5>,
+      val: <H5>Typeof</H5>,
     },
     {
       type: 'code',
@@ -73,7 +75,7 @@ export const jsDataTypes = {
       `,
     },
     {
-      val: <h5>Type conversion</h5>,
+      val: <H5>Type conversion</H5>,
     },
     {
       type: 'code',

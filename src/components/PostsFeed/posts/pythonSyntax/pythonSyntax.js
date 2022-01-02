@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const pythonSyntax = {
   title: 'Python basic syntax',
@@ -33,7 +35,7 @@ export const pythonSyntax = {
       ),
     },
     {
-      val: <h3>Get started</h3>,
+      val: <H3>Get started</H3>,
     },
     {
       type: 'text',
@@ -47,10 +49,10 @@ export const pythonSyntax = {
       ),
     },
     {
-      val: <h3>Print</h3>,
+      val: <H3>Print</H3>,
     },
     {
-      val: <h5>Quotes</h5>,
+      val: <H5>Quotes</H5>,
     },
     {
       type: 'code',
@@ -61,7 +63,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Line break</h5>,
+      val: <H5>Line break</H5>,
     },
     {
       type: 'code',
@@ -74,7 +76,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Concatenate</h5>,
+      val: <H5>Concatenate</H5>,
     },
     {
       type: 'code',
@@ -89,7 +91,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Interpolation</h5>,
+      val: <H5>Interpolation</H5>,
     },
     {
       type: 'code',
@@ -99,7 +101,7 @@ export const pythonSyntax = {
       `
     },
     {
-      val: <h5>Duplicate</h5>,
+      val: <H5>Duplicate</H5>,
     },
     {
       type: 'code',
@@ -109,7 +111,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Format</h5>,
+      val: <H5>Format</H5>,
     },
     {
       type: 'code',
@@ -121,7 +123,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Comments</h3>,
+      val: <H3>Comments</H3>,
     },
     {
       type: 'code',
@@ -135,7 +137,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Variable</h3>,
+      val: <H3>Variable</H3>,
     },
     {
       type: 'code',
@@ -146,10 +148,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Types</h3>,
+      val: <H3>Types</H3>,
     },
     {
-      val: <h5>Types</h5>,
+      val: <H5>Types</H5>,
     },
     {
       type: 'code',
@@ -173,7 +175,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Check type</h5>,
+      val: <H5>Check type</H5>,
     },
     {
       type: 'code',
@@ -183,7 +185,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Convert type</h5>,
+      val: <H5>Convert type</H5>,
     },
     {
       type: 'code',
@@ -208,10 +210,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Operators</h3>,
+      val: <H3>Operators</H3>,
     },
     {
-      val: <h5>Math</h5>,
+      val: <H5>Math</H5>,
     },
     {
       type: 'code',
@@ -227,7 +229,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Comparison</h5>,
+      val: <H5>Comparison</H5>,
     },
     {
       type: 'code',
@@ -240,7 +242,7 @@ export const pythonSyntax = {
       val: <>No triple equal <code>===</code></>,
     },
     {
-      val: <h5>Logical</h5>,
+      val: <H5>Logical</H5>,
     },
     {
       type: 'code',
@@ -250,10 +252,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>String</h3>,
+      val: <H3>String</H3>,
     },
     {
-      val: <h5>Single vs multiline</h5>,
+      val: <H5>Single vs multiline</H5>,
     },
     {
       type: 'code',
@@ -269,7 +271,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Concatenation</h5>,
+      val: <H5>Concatenation</H5>,
     },
     {
       type: 'code',
@@ -279,7 +281,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>First N chars</h5>,
+      val: <H5>First N chars</H5>,
     },
     {
       type: 'code',
@@ -290,7 +292,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Last N chars</h5>,
+      val: <H5>Last N chars</H5>,
     },
     {
       type: 'code',
@@ -301,7 +303,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Up to N chars</h5>,
+      val: <H5>Up to N chars</H5>,
     },
     {
       type: 'code',
@@ -312,7 +314,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Capitalize</h5>,
+      val: <H5>Capitalize</H5>,
     },
     {
       type: 'code',
@@ -322,7 +324,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Find</h5>,
+      val: <H5>Find</H5>,
     },
     {
       type: 'code',
@@ -332,7 +334,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -342,7 +344,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Is number</h5>,
+      val: <H5>Is number</H5>,
     },
     {
       type: 'code',
@@ -352,7 +354,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Is alpha</h5>,
+      val: <H5>Is alpha</H5>,
     },
     {
       type: 'code',
@@ -362,7 +364,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Replace</h5>,
+      val: <H5>Replace</H5>,
     },
     {
       type: 'code',
@@ -372,7 +374,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Strip</h5>,
+      val: <H5>Strip</H5>,
     },
     {
       type: 'code',
@@ -382,7 +384,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Split</h5>,
+      val: <H5>Split</H5>,
     },
     {
       type: 'code',
@@ -393,7 +395,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Split with empty string</h5>,
+      val: <H5>Split with empty string</H5>,
     },
     {
       type: 'code',
@@ -406,10 +408,10 @@ export const pythonSyntax = {
 
 
     {
-      val: <h3>List (array)</h3>,
+      val: <H3>List (array)</H3>,
     },
     {
-      val: <h5>Create</h5>,
+      val: <H5>Create</H5>,
     },
     {
       type: 'code',
@@ -419,7 +421,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Access</h5>,
+      val: <H5>Access</H5>,
     },
     {
       type: 'code',
@@ -437,7 +439,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Change</h5>,
+      val: <H5>Change</H5>,
     },
     {
       type: 'code',
@@ -449,7 +451,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Add</h5>,
+      val: <H5>Add</H5>,
     },
     {
       type: 'code',
@@ -464,7 +466,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Remove, delete</h5>,
+      val: <H5>Remove, delete</H5>,
     },
     {
       type: 'code',
@@ -479,7 +481,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Reverse</h5>,
+      val: <H5>Reverse</H5>,
     },
     {
       type: 'code',
@@ -491,7 +493,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Concatenate</h5>,
+      val: <H5>Concatenate</H5>,
     },
     {
       type: 'code',
@@ -504,7 +506,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -515,7 +517,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Max, min</h5>,
+      val: <H5>Max, min</H5>,
     },
     {
       type: 'code',
@@ -527,7 +529,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>All</h5>,
+      val: <H5>All</H5>,
     },
     {
       type: 'code',
@@ -539,7 +541,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Filter</h5>,
+      val: <H5>Filter</H5>,
     },
     {
       type: 'code',
@@ -558,7 +560,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Next</h5>,
+      val: <H5>Next</H5>,
     },
     {
       val: <>Returns the first element that meets a condition</>,
@@ -575,7 +577,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Includes</h5>,
+      val: <H5>Includes</H5>,
     },
     {
       type: 'code',
@@ -588,7 +590,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>For each</h5>,
+      val: <H5>For each</H5>,
     },
     {
       type: 'code',
@@ -600,7 +602,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Map</h5>,
+      val: <H5>Map</H5>,
     },
     {
       type: 'code',
@@ -619,7 +621,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Reduce</h5>,
+      val: <H5>Reduce</H5>,
     },
     {
       type: 'code',
@@ -638,7 +640,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Sort</h5>,
+      val: <H5>Sort</H5>,
     },
     {
       type: 'code',
@@ -657,7 +659,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Sort 2</h5>,
+      val: <H5>Sort 2</H5>,
     },
     {
       type: 'code',
@@ -669,7 +671,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Convert to tuple</h5>,
+      val: <H5>Convert to tuple</H5>,
     },
     {
       type: 'code',
@@ -683,13 +685,13 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Tuple</h3>,
+      val: <H3>Tuple</H3>,
     },
     {
       val: <>Same as list, but not changeable</>,
     },
     {
-      val: <h5>Create</h5>,
+      val: <H5>Create</H5>,
     },
     {
       type: 'code',
@@ -699,7 +701,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Convert to a list</h5>,
+      val: <H5>Convert to a list</H5>,
     },
     {
       type: 'code',
@@ -712,7 +714,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -723,7 +725,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Min, max</h5>,
+      val: <H5>Min, max</H5>,
     },
     {
       type: 'code',
@@ -735,13 +737,13 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Dictionary</h3>,
+      val: <H3>Dictionary</H3>,
     },
     {
       val: <>Same as maps, objects, key-valued storage</>,
     },
     {
-      val: <h5>Create</h5>,
+      val: <H5>Create</H5>,
     },
     {
       type: 'code',
@@ -756,7 +758,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Access</h5>,
+      val: <H5>Access</H5>,
     },
     {
       type: 'code',
@@ -775,7 +777,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Delete</h5>,
+      val: <H5>Delete</H5>,
     },
     {
       type: 'code',
@@ -791,7 +793,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -806,7 +808,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Update</h5>,
+      val: <H5>Update</H5>,
     },
     {
       type: 'code',
@@ -822,10 +824,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Conditionals</h3>,
+      val: <H3>Conditionals</H3>,
     },
     {
-      val: <h5>if</h5>,
+      val: <H5>if</H5>,
     },
     {
       type: 'code',
@@ -837,7 +839,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>if-else</h5>,
+      val: <H5>if-else</H5>,
     },
     {
       type: 'code',
@@ -851,7 +853,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>else-if</h5>,
+      val: <H5>else-if</H5>,
     },
     {
       type: 'code',
@@ -867,7 +869,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>ternary</h5>,
+      val: <H5>ternary</H5>,
     },
     {
       type: 'code',
@@ -878,7 +880,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>logical operators</h5>,
+      val: <H5>logical operators</H5>,
     },
     {
       type: 'code',
@@ -893,10 +895,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Loops</h3>,
+      val: <H3>Loops</H3>,
     },
     {
-      val: <h5>For</h5>,
+      val: <H5>For</H5>,
     },
     {
       type: 'code',
@@ -910,7 +912,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>While</h5>,
+      val: <H5>While</H5>,
     },
     {
       type: 'code',
@@ -938,7 +940,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Break, continue</h5>,
+      val: <H5>Break, continue</H5>,
     },
     {
       type: 'code',
@@ -953,13 +955,13 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Functions</h3>,
+      val: <H3>Functions</H3>,
     },
     {
       val: <>Variables defined in function are not visible outside.</>,
     },
     {
-      val: <h3>Functions declaration</h3>,
+      val: <H3>Functions declaration</H3>,
     },
     {
       type: 'code',
@@ -973,7 +975,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Lambda function (arrow)</h3>,
+      val: <H3>Lambda function (arrow)</H3>,
     },
     {
       type: 'code',
@@ -995,7 +997,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Input</h3>,
+      val: <H3>Input</H3>,
     },
     {
       type: 'code',
@@ -1012,10 +1014,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>File</h3>,
+      val: <H3>File</H3>,
     },
     {
-      val: <h5>Create & write</h5>,
+      val: <H5>Create & write</H5>,
     },
     {
       type: 'code',
@@ -1029,7 +1031,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Open & read</h5>,
+      val: <H5>Open & read</H5>,
     },
     {
       type: 'code',
@@ -1042,7 +1044,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Delete</h5>,
+      val: <H5>Delete</H5>,
     },
     {
       type: 'code',
@@ -1053,10 +1055,10 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h3>Class</h3>,
+      val: <H3>Class</H3>,
     },
     {
-      val: <h5>Initialize, setters, getters, methods</h5>,
+      val: <H5>Initialize, setters, getters, methods</H5>,
     },
     {
       type: 'code',
@@ -1113,7 +1115,7 @@ export const pythonSyntax = {
       `,
     },
     {
-      val: <h5>Inherit</h5>,
+      val: <H5>Inherit</H5>,
     },
     {
       type: 'code',

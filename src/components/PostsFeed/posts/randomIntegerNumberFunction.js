@@ -2,6 +2,9 @@ import { useState } from 'react'
 import randomNumFromTo from '../../../helpers/functions/randomNumFromTo'
 import useAnimatedWrapper from '../../../helpers/functions/useAnimatedWrapper'
 import useInput from '../../../helpers/functions/useInput'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
+
 const style = { width: '50px', marginRight: '10px' }
 
 function Component() {

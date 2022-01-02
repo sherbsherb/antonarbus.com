@@ -4,6 +4,8 @@ import { Lnk } from '../../components/Lnk'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import img from './linkProps.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 function Component() {
   return (
@@ -44,9 +46,9 @@ const Shop = () => {
     <>
       <div>Shop: Fortnite toys</div>
       {state.map(o => (
-        <h3 key={o.itemId}>
+        <H3 key={o.itemId}>
           <Link to={`/shop/${o.itemId}`}>{o.item.name}</Link>
-        </h3>
+        </H3>
       ))}
     </>
   )
@@ -233,9 +235,9 @@ export const reactRouting = {
             <>
               <div>Shop: Fortnite toys</div>
               {state.map(o => (
-                <h3 key={o.itemId}>
+                <H3 key={o.itemId}>
                   <Link to={\`/shop/\${o.itemId}\`}>{o.item.name}</Link>
-                </h3>
+                </H3>
               ))}
             </>
           );

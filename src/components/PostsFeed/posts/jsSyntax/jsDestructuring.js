@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsDestructuring = {
   title: 'Destructuring in JavaScript',
@@ -12,7 +14,7 @@ export const jsDestructuring = {
       val: <>Destructuring assignment is a syntax that allows us to “unpack” arrays or objects into variables</>,
     },
     {
-      val: <h5>Array destructuring</h5>,
+      val: <H5>Array destructuring</H5>,
     },
     {
       type: 'code',
@@ -73,7 +75,7 @@ export const jsDestructuring = {
       `,
     },
     {
-      val: <h5>Object destructuring</h5>,
+      val: <H5>Object destructuring</H5>,
     },
     {
       type: 'code',

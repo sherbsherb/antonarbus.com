@@ -3,6 +3,9 @@ import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
 import { MdOutlineMenuBook } from 'react-icons/md'
 import { FaRedhat as HatIcon } from 'react-icons/fa'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
+
 const icon = React.createElement(MdOutlineMenuBook)
 const styles = { verticalAlign: 'middle', fill: 'red', fontSize: '100px', width: '100px', height: 'auto', margin: '3px', color: 'blue', opacity: '.5', strokeWidth: '10px' }
 

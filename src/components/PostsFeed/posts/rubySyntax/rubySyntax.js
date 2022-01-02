@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const rubySyntax = {
   title: 'Ruby basic syntax',
@@ -27,7 +29,7 @@ export const rubySyntax = {
       ),
     },
     {
-      val: <h3>Get started</h3>,
+      val: <H3>Get started</H3>,
     },
     {
       type: 'text',
@@ -41,7 +43,7 @@ export const rubySyntax = {
       ),
     },
     {
-      val: <h3>Print</h3>,
+      val: <H3>Print</H3>,
     },
     {
       type: 'code',
@@ -59,7 +61,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Load</h3>,
+      val: <H3>Load</H3>,
     },
     {
       type: 'code',
@@ -87,7 +89,7 @@ export const rubySyntax = {
       ),
     },
     {
-      val: <h3>Comments</h3>,
+      val: <H3>Comments</H3>,
     },
     {
       type: 'code',
@@ -102,7 +104,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Variables</h3>,
+      val: <H3>Variables</H3>,
     },
     {
       type: 'code',
@@ -119,7 +121,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Types</h3>,
+      val: <H3>Types</H3>,
     },
     {
       type: 'code',
@@ -132,7 +134,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Conversion</h3>,
+      val: <H3>Conversion</H3>,
     },
     {
       type: 'code',
@@ -144,7 +146,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Escape characters</h3>,
+      val: <H3>Escape characters</H3>,
     },
     {
       type: 'code',
@@ -163,7 +165,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Constant is writable</h3>,
+      val: <H3>Constant is writable</H3>,
     },
     {
       type: 'code',
@@ -178,7 +180,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Input</h3>,
+      val: <H3>Input</H3>,
     },
     {
       type: 'code',
@@ -205,10 +207,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Strings</h3>,
+      val: <H3>Strings</H3>,
     },
     {
-      val: <h5>Multiline</h5>,
+      val: <H5>Multiline</H5>,
     },
     {
       type: 'code',
@@ -233,7 +235,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Interpolation</h5>,
+      val: <H5>Interpolation</H5>,
     },
     {
       type: 'code',
@@ -245,7 +247,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -257,7 +259,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Case</h5>,
+      val: <H5>Case</H5>,
     },
     {
       type: 'code',
@@ -270,7 +272,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Reverse</h5>,
+      val: <H5>Reverse</H5>,
     },
     {
       type: 'code',
@@ -281,7 +283,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Include</h5>,
+      val: <H5>Include</H5>,
     },
     {
       type: 'code',
@@ -293,7 +295,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Start with</h5>,
+      val: <H5>Start with</H5>,
     },
     {
       type: 'code',
@@ -303,7 +305,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Index</h5>,
+      val: <H5>Index</H5>,
     },
     {
       type: 'code',
@@ -313,7 +315,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Count</h5>,
+      val: <H5>Count</H5>,
     },
     {
       type: 'code',
@@ -324,7 +326,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Strip (trim)</h5>,
+      val: <H5>Strip (trim)</H5>,
     },
     {
       type: 'code',
@@ -336,7 +338,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>chop</h5>,
+      val: <H5>chop</H5>,
     },
     {
       type: 'code',
@@ -347,7 +349,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>delete</h5>,
+      val: <H5>delete</H5>,
     },
     {
       type: 'code',
@@ -357,7 +359,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>split</h5>,
+      val: <H5>split</H5>,
     },
     {
       type: 'code',
@@ -368,7 +370,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Concatenation</h5>,
+      val: <H5>Concatenation</H5>,
     },
     {
       type: 'code',
@@ -380,7 +382,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Freeze</h5>,
+      val: <H5>Freeze</H5>,
     },
     {
       type: 'code',
@@ -396,7 +398,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Compare</h5>,
+      val: <H5>Compare</H5>,
     },
     {
       type: 'code',
@@ -407,7 +409,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Access characters</h5>,
+      val: <H5>Access characters</H5>,
     },
     {
       type: 'code',
@@ -425,10 +427,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Operators</h3>,
+      val: <H3>Operators</H3>,
     },
     {
-      val: <h5>Math</h5>,
+      val: <H5>Math</H5>,
     },
     {
       type: 'code',
@@ -447,7 +449,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Comparison</h5>,
+      val: <H5>Comparison</H5>,
     },
     {
       type: 'code',
@@ -462,7 +464,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Logical</h5>,
+      val: <H5>Logical</H5>,
     },
     {
       type: 'code',
@@ -477,10 +479,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Array</h3>,
+      val: <H3>Array</H3>,
     },
     {
-      val: <h5>Create</h5>,
+      val: <H5>Create</H5>,
     },
     {
       type: 'code',
@@ -493,7 +495,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Size</h5>,
+      val: <H5>Size</H5>,
     },
     {
       type: 'code',
@@ -508,7 +510,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Access</h5>,
+      val: <H5>Access</H5>,
     },
     {
       type: 'code',
@@ -535,7 +537,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Manipulate</h5>,
+      val: <H5>Manipulate</H5>,
     },
     {
       type: 'code',
@@ -561,7 +563,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Include?</h5>,
+      val: <H5>Include?</H5>,
     },
     {
       type: 'code',
@@ -572,7 +574,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Count</h5>,
+      val: <H5>Count</H5>,
     },
     {
       type: 'code',
@@ -583,7 +585,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Empty?</h5>,
+      val: <H5>Empty?</H5>,
     },
     {
       type: 'code',
@@ -594,7 +596,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Join</h5>,
+      val: <H5>Join</H5>,
     },
     {
       type: 'code',
@@ -606,7 +608,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Reverse</h5>,
+      val: <H5>Reverse</H5>,
     },
     {
       type: 'code',
@@ -617,7 +619,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Select</h5>,
+      val: <H5>Select</H5>,
     },
     {
       type: 'code',
@@ -629,7 +631,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>flatten</h5>,
+      val: <H5>flatten</H5>,
     },
     {
       type: 'code',
@@ -641,7 +643,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>each</h5>,
+      val: <H5>each</H5>,
     },
     {
       type: 'code',
@@ -655,7 +657,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>map</h5>,
+      val: <H5>map</H5>,
     },
     {
       type: 'code',
@@ -666,7 +668,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>concat</h5>,
+      val: <H5>concat</H5>,
     },
     {
       type: 'code',
@@ -678,7 +680,7 @@ export const rubySyntax = {
       `
     },
     {
-      val: <h5>uniq</h5>,
+      val: <H5>uniq</H5>,
     },
     {
       type: 'code',
@@ -690,10 +692,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Hash (object)</h3>,
+      val: <H3>Hash (object)</H3>,
     },
     {
-      val: <h5>Create</h5>,
+      val: <H5>Create</H5>,
     },
     {
       type: 'code',
@@ -716,7 +718,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Default key</h5>,
+      val: <H5>Default key</H5>,
     },
     {
       type: 'code',
@@ -727,7 +729,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Access</h5>,
+      val: <H5>Access</H5>,
     },
     {
       type: 'code',
@@ -751,7 +753,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Add</h5>,
+      val: <H5>Add</H5>,
     },
     {
       type: 'code',
@@ -768,7 +770,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Delete</h5>,
+      val: <H5>Delete</H5>,
     },
     {
       type: 'code',
@@ -785,7 +787,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Merge</h5>,
+      val: <H5>Merge</H5>,
     },
     {
       type: 'code',
@@ -806,7 +808,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Update</h5>,
+      val: <H5>Update</H5>,
     },
     {
       type: 'code',
@@ -827,7 +829,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Has key, value</h5>,
+      val: <H5>Has key, value</H5>,
     },
     {
       type: 'code',
@@ -844,7 +846,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Has key, value</h5>,
+      val: <H5>Has key, value</H5>,
     },
     {
       type: 'code',
@@ -855,10 +857,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Conditions</h3>,
+      val: <H3>Conditions</H3>,
     },
     {
-      val: <h5>if</h5>,
+      val: <H5>if</H5>,
     },
     {
       type: 'code',
@@ -878,7 +880,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>if-else</h5>,
+      val: <H5>if-else</H5>,
     },
     {
       type: 'code',
@@ -893,7 +895,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>else-if</h5>,
+      val: <H5>else-if</H5>,
     },
     {
       type: 'code',
@@ -910,7 +912,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>unless (negated 'if')</h5>,
+      val: <H5>unless (negated 'if')</H5>,
     },
     {
       type: 'code',
@@ -926,7 +928,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Ternary statement</h5>,
+      val: <H5>Ternary statement</H5>,
     },
     {
       type: 'code',
@@ -937,7 +939,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Case statement</h5>,
+      val: <H5>Case statement</H5>,
     },
     {
       type: 'code',
@@ -980,10 +982,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Loops</h3>,
+      val: <H3>Loops</H3>,
     },
     {
-      val: <h5>For</h5>,
+      val: <H5>For</H5>,
     },
     {
       type: 'code',
@@ -1007,7 +1009,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>while</h5>,
+      val: <H5>while</H5>,
     },
     {
       type: 'code',
@@ -1022,7 +1024,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>do</h5>,
+      val: <H5>do</H5>,
     },
     {
       type: 'code',
@@ -1042,7 +1044,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>until</h5>,
+      val: <H5>until</H5>,
     },
     {
       type: 'code',
@@ -1057,7 +1059,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>each</h5>,
+      val: <H5>each</H5>,
     },
     {
       type: 'code',
@@ -1081,7 +1083,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>break</h5>,
+      val: <H5>break</H5>,
     },
     {
       type: 'code',
@@ -1097,7 +1099,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>next</h5>,
+      val: <H5>next</H5>,
     },
     {
       type: 'code',
@@ -1113,7 +1115,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>redo (repeat current iteration)</h5>,
+      val: <H5>redo (repeat current iteration)</H5>,
     },
     {
       type: 'code',
@@ -1137,7 +1139,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>retry</h5>,
+      val: <H5>retry</H5>,
     },
     {
       type: 'code',
@@ -1155,10 +1157,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Function</h3>,
+      val: <H3>Function</H3>,
     },
     {
-      val: <h5>Function declaration</h5>,
+      val: <H5>Function declaration</H5>,
     },
     {
       type: 'code',
@@ -1186,7 +1188,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Function expression (lambda)</h5>,
+      val: <H5>Function expression (lambda)</H5>,
     },
     {
       type: 'code',
@@ -1200,7 +1202,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Arrow function</h5>,
+      val: <H5>Arrow function</H5>,
     },
     {
       type: 'code',
@@ -1214,7 +1216,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Catch errors (begin-rescue)</h3>,
+      val: <H3>Catch errors (begin-rescue)</H3>,
     },
     {
       type: 'code',
@@ -1242,7 +1244,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Symbols</h3>,
+      val: <H3>Symbols</H3>,
     },
     {
       val: <ul>
@@ -1264,10 +1266,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Class</h3>,
+      val: <H3>Class</H3>,
     },
     {
-      val: <h5>Initialize, getter, setter, method, self</h5>,
+      val: <H5>Initialize, getter, setter, method, self</H5>,
     },
     {
       type: 'code',
@@ -1331,7 +1333,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Accessors (shortcut for getters & setters)</h5>,
+      val: <H5>Accessors (shortcut for getters & setters)</H5>,
     },
     {
       type: 'code',
@@ -1356,7 +1358,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Inherit</h5>,
+      val: <H5>Inherit</H5>,
     },
     {
       type: 'code',
@@ -1382,7 +1384,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Module</h3>,
+      val: <H3>Module</H3>,
     },
     {
       type: 'text',
@@ -1422,7 +1424,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>Enumerable</h3>,
+      val: <H3>Enumerable</H3>,
     },
     {
       val: <>Classes that include the Enumerable module get nice methods.
@@ -1486,10 +1488,10 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h3>File</h3>,
+      val: <H3>File</H3>,
     },
     {
-      val: <h5>Create, add, read</h5>,
+      val: <H5>Create, add, read</H5>,
     },
     {
       type: 'code',
@@ -1511,7 +1513,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Append</h5>,
+      val: <H5>Append</H5>,
     },
     {
       type: 'code',
@@ -1524,7 +1526,7 @@ export const rubySyntax = {
       `,
     },
     {
-      val: <h5>Process text</h5>,
+      val: <H5>Process text</H5>,
     },
     {
       type: 'code',

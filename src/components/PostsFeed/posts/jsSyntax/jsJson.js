@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsJson = {
   title: 'JSON in JavaScript',
@@ -9,13 +11,13 @@ export const jsJson = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>JSON.stringify()</h3>,
+      val: <H3>JSON.stringify()</H3>,
     },
     {
       val: <><CodeSpan>JSON.stringify()</CodeSpan> converts objects into JSON</>,
     },
     {
-      val: <h5>Basics</h5>,
+      val: <H5>Basics</H5>,
     },
     {
       val: <>
@@ -54,7 +56,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5>Ignores methods, symbolics, properties with <code>undefined</code></h5>,
+      val: <H5>Ignores methods, symbolics, properties with <code>undefined</code></H5>,
     },
     {
       type: 'code',
@@ -69,7 +71,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5>Nested objects are supported</h5>,
+      val: <H5>Nested objects are supported</H5>,
     },
     {
       type: 'code',
@@ -86,7 +88,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5>No circular references</h5>,
+      val: <H5>No circular references</H5>,
     },
     {
       type: 'code',
@@ -100,7 +102,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5>Optional parameters</h5>,
+      val: <H5>Optional parameters</H5>,
     },
     {
       val: <>
@@ -162,7 +164,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5><code>Space</code> used for nice-output purposes</h5>,
+      val: <H5><code>Space</code> used for nice-output purposes</H5>,
     },
     {
       type: 'code',
@@ -182,7 +184,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h3>JSON.parse()</h3>,
+      val: <H3>JSON.parse()</H3>,
     },
     {
       type: 'code',
@@ -193,7 +195,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5>Incorrect JSON</h5>,
+      val: <H5>Incorrect JSON</H5>,
     },
     {
       val: <ul>
@@ -217,7 +219,7 @@ export const jsJson = {
       `,
     },
     {
-      val: <h5>Reviver function</h5>,
+      val: <H5>Reviver function</H5>,
     },
     {
       val: <ul>

@@ -4,6 +4,8 @@ import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
 import randomNumFromTo from '../../../helpers/functions/randomNumFromTo'
 import sleeper from '../../../helpers/functions/sleeper'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function ComponentWithUseState() {
   const [state, setState] = useState({ loading: false, errorMsg: '', title: '', postNum: -1 })

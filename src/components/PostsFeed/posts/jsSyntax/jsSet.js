@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsSet = {
   title: 'Set in JavaScript',
@@ -12,7 +14,7 @@ export const jsSet = {
       val: <>Set is a special type collection, like an array where each value may occur only once.</>,
     },
     {
-      val: <h5>Declaration</h5>,
+      val: <H5>Declaration</H5>,
     },
     {
       val: <><CodeSpan>{'new Set([iterable])'}</CodeSpan></>,
@@ -27,7 +29,7 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>Add</h5>,
+      val: <H5>Add</H5>,
     },
     {
       type: 'code',
@@ -46,13 +48,13 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>Get</h5>,
+      val: <H5>Get</H5>,
     },
     {
       val: <>It seems there is no native way.</>,
     },
     {
-      val: <h5>Size</h5>,
+      val: <H5>Size</H5>,
     },
     {
       type: 'code',
@@ -62,7 +64,7 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>Delete</h5>,
+      val: <H5>Delete</H5>,
     },
     {
       val: <>
@@ -86,7 +88,7 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>Has</h5>,
+      val: <H5>Has</H5>,
     },
     {
       val: <>
@@ -106,7 +108,7 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>Iteration</h5>,
+      val: <H5>Iteration</H5>,
     },
     {
       type: 'code',
@@ -126,7 +128,7 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>Set --> Array </h5>,
+      val: <H5>Set --> Array </H5>,
     },
     {
       type: 'code',
@@ -139,7 +141,7 @@ export const jsSet = {
       `,
     },
     {
-      val: <h5>WeakSet</h5>,
+      val: <H5>WeakSet</H5>,
     },
     {
       val: <>

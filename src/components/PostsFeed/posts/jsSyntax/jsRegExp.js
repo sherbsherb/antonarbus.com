@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsRegExp = {
   title: 'Regular expressions in JavaScript',
@@ -12,7 +14,7 @@ export const jsRegExp = {
       val: <>Regular expressions is a pattern to search and replace in text</>,
     },
     {
-      val: <h3>Syntax</h3>,
+      val: <H3>Syntax</H3>,
     },
     {
       val: <ul>
@@ -33,7 +35,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Flags</h3>,
+      val: <H3>Flags</H3>,
     },
     {
       val: <ol>
@@ -56,7 +58,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Character classes</h3>,
+      val: <H3>Character classes</H3>,
     },
     {
       val: <ul>
@@ -87,13 +89,13 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Unicode properties</h3>,
+      val: <H3>Unicode properties</H3>,
     },
     {
       val: <>There are 3 categories</>,
     },
     {
-      val: <h5><Lnk path="https://unicode.org/reports/tr18/#General_Category_Property">General category</Lnk></h5>,
+      val: <H5><Lnk path="https://unicode.org/reports/tr18/#General_Category_Property">General category</Lnk></H5>,
     },
     {
       val: <ul>
@@ -116,7 +118,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5><Lnk path="https://tc39.es/ecma262/multipage/text-processing.html#table-unicode-script-values">Script</Lnk></h5>,
+      val: <H5><Lnk path="https://tc39.es/ecma262/multipage/text-processing.html#table-unicode-script-values">Script</Lnk></H5>,
     },
     {
       type: 'code',
@@ -126,7 +128,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5><Lnk path="https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties">Binary Unicode property</Lnk></h5>,
+      val: <H5><Lnk path="https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties">Binary Unicode property</Lnk></H5>,
     },
     {
       val: <>ASCII, ASCII_Hex_Digit, Alphabetic, Any, Dash, Emoji, Hex_Digit, Lowercase, Math, Noncharacter_Code_Point, Pattern_Syntax, Pattern_White_Space, Quotation_Mark, Radical, Regional_Indicator, Sentence_Terminal, Soft_Dotted, Terminal_Punctuation, Unified_Ideograph, Uppercase, White_Space</>
@@ -139,7 +141,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Anchors + word boundary</h3>,
+      val: <H3>Anchors + word boundary</H3>,
     },
     {
       val: <ul>
@@ -190,7 +192,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Escaping, special characters</h3>,
+      val: <H3>Escaping, special characters</H3>,
     },
     {
       val: <><code>{'['}</code> <code>\</code> <code>{'^'}</code> <code>{'$'}</code> <code>{'.'}</code> <code>{'|'}</code> <code>{'?'}</code> <code>{'*'}</code> <code>{'+'}</code> <code>{'('}</code> <code>{')'}</code> <code>{'.'}</code> to be escaped with backslash <code>\</code></>,
@@ -205,7 +207,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3><code>[ab]</code> OR (Sets)</h3>,
+      val: <H3><code>[ab]</code> OR (Sets)</H3>,
     },
     {
       val: <ul>
@@ -229,7 +231,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3><code>|</code> OR</h3>,
+      val: <H3><code>|</code> OR</H3>,
     },
     {
       val: <ul>
@@ -250,7 +252,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Ranges</h3>,
+      val: <H3>Ranges</H3>,
     },
     {
       val: <>
@@ -268,7 +270,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Exclude <code>[^…]</code></h3>,
+      val: <H3>Exclude <code>[^…]</code></H3>,
     },
     {
       val: <>
@@ -285,7 +287,7 @@ export const jsRegExp = {
       ,
     },
     {
-      val: <h3>Quantifiers <code>+</code>, <code>*</code>, <code>?</code>, <code>{'{n}'}</code></h3>,
+      val: <H3>Quantifiers <code>+</code>, <code>*</code>, <code>?</code>, <code>{'{n}'}</code></H3>,
     },
     {
       val: <>
@@ -315,10 +317,10 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Greedy and lazy quantifiers</h3>,
+      val: <H3>Greedy and lazy quantifiers</H3>,
     },
     {
-      val: <h5>Greedy mode</h5>,
+      val: <H5>Greedy mode</H5>,
     },
     {
       type: 'code',
@@ -344,7 +346,7 @@ export const jsRegExp = {
       </ul>,
     },
     {
-      val: <h5>Lazy mode</h5>,
+      val: <H5>Lazy mode</H5>,
     },
     {
       type: 'code',
@@ -365,7 +367,7 @@ export const jsRegExp = {
       </ul>,
     },
     {
-      val: <h3>Capturing groups <code>(...)</code></h3>,
+      val: <H3>Capturing groups <code>(...)</code></H3>,
     },
     {
       val: <>
@@ -406,7 +408,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Capturing groups & <CodeSpan>str.replace()</CodeSpan></h3>,
+      val: <H3>Capturing groups & <CodeSpan>str.replace()</CodeSpan></H3>,
     },
     {
       type: 'code',
@@ -416,7 +418,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Named groups</h3>,
+      val: <H3>Named groups</H3>,
     },
     {
       val: <ul>
@@ -465,7 +467,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Backreference <code>\1</code></h3>,
+      val: <H3>Backreference <code>\1</code></H3>,
     },
     {
       val: <ul>
@@ -494,7 +496,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Lookahead <code>(?=smth)</code></h3>,
+      val: <H3>Lookahead <code>(?=smth)</code></H3>,
     },
     {
       val: <ul>
@@ -512,7 +514,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Negative lookahead <code>(?!=smth)</code></h3>,
+      val: <H3>Negative lookahead <code>(?!=smth)</code></H3>,
     },
     {
       val: <>
@@ -527,7 +529,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Lookbehind <code>{'(?<=Y)X'}</code></h3>,
+      val: <H3>Lookbehind <code>{'(?<=Y)X'}</code></H3>,
     },
     {
       val: <><code>{'(?<=Y)X'}</code> matches X only if there’s Y before it</>,
@@ -540,7 +542,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Negative lookbehind <code>{'(?<!Y)X'}</code></h3>,
+      val: <H3>Negative lookbehind <code>{'(?<!Y)X'}</code></H3>,
     },
     {
       val: <><code>{'(?<!Y)X'}</code> matches X if there’s no Y before it</>,
@@ -555,7 +557,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>Search at position with 'y' flag <code>{'/.../y'}</code></h3>,
+      val: <H3>Search at position with 'y' flag <code>{'/.../y'}</code></H3>,
     },
     {
       val: <ul>
@@ -611,7 +613,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h3>RegExp methods</h3>,
+      val: <H3>RegExp methods</H3>,
     },
     {
       val: <ol>
@@ -626,7 +628,7 @@ export const jsRegExp = {
       </ol>,
     },
     {
-      val: <h5>str.match(regexp)</h5>,
+      val: <H5>str.match(regexp)</H5>,
     },
     {
       val: <ul>
@@ -669,7 +671,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>str.matchAll(regexp)</h5>,
+      val: <H5>str.matchAll(regexp)</H5>,
     },
     {
       val: <ul>
@@ -695,7 +697,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>str.split(regexp, limit)</h5>,
+      val: <H5>str.split(regexp, limit)</H5>,
     },
     {
       val: <>Splits the string using the regexp (or a substring) as a delimiter</>,
@@ -709,7 +711,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>str.search(regexp)</h5>,
+      val: <H5>str.search(regexp)</H5>,
     },
     {
       val: <ul>
@@ -727,7 +729,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>str.replace(str|regexp, str|func)</h5>,
+      val: <H5>str.replace(str|regexp, str|func)</H5>,
     },
     {
       val: <ul>
@@ -787,7 +789,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>str.replaceAll(str|regexp, str|func)</h5>,
+      val: <H5>str.replaceAll(str|regexp, str|func)</H5>,
     },
     {
       val: <ul>
@@ -806,7 +808,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>regexp.exec(str)</h5>,
+      val: <H5>regexp.exec(str)</H5>,
     },
     {
       val: <ul>
@@ -856,7 +858,7 @@ export const jsRegExp = {
       `,
     },
     {
-      val: <h5>regexp.test(str)</h5>,
+      val: <H5>regexp.test(str)</H5>,
     },
     {
       val: <ul>

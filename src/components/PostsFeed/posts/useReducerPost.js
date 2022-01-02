@@ -1,6 +1,8 @@
 import { useReducer } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const initState = 0
 function reducer(state, action) {

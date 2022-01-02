@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsPromise = {
   title: 'Promise in JavaScript',
@@ -9,7 +11,7 @@ export const jsPromise = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>Syntax</h3>,
+      val: <H3>Syntax</H3>,
     },
     {
       type: 'code',
@@ -86,13 +88,13 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>then, catch, finally</h3>,
+      val: <H3>then, catch, finally</H3>,
     },
     {
       val: <><i>Promise</i> object serves as a link between the executor and the consuming functions</>,
     },
     {
-      val: <h5>promise.then()</h5>,
+      val: <H5>promise.then()</H5>,
     },
     {
       type: 'code',
@@ -137,7 +139,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>promise.catch()</h5>,
+      val: <H5>promise.catch()</H5>,
     },
     {
       type: 'code',
@@ -155,7 +157,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>promise.finally()</h5>,
+      val: <H5>promise.finally()</H5>,
     },
     {
       val: <ul>
@@ -179,7 +181,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Example</h3>,
+      val: <H3>Example</H3>,
     },
     {
       type: 'code',
@@ -205,7 +207,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Promises chaining</h3>,
+      val: <H3>Promises chaining</H3>,
     },
     {
       val: <ul>
@@ -257,7 +259,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Make function thenable / chainable</h3>,
+      val: <H3>Make function thenable / chainable</H3>,
     },
     {
       val: <>To make a function thenable, just return a <i>promise</i></>,
@@ -282,7 +284,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Error handling</h3>,
+      val: <H3>Error handling</H3>,
     },
     {
       val: <ul>
@@ -350,7 +352,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Promise.all()</h3>,
+      val: <H3>Promise.all()</H3>,
     },
     {
       val: <ul>
@@ -372,7 +374,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>Rejection</h5>,
+      val: <H5>Rejection</H5>,
     },
     {
       type: 'code',
@@ -386,7 +388,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>Mix <i>promises</i> with regular values</h5>,
+      val: <H5>Mix <i>promises</i> with regular values</H5>,
     },
     {
       type: 'code',
@@ -398,7 +400,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>Promise.all & fetch</h5>,
+      val: <H5>Promise.all & fetch</H5>,
     },
     {
       val: <ul>
@@ -445,7 +447,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Promise.allSettled()</h3>,
+      val: <H3>Promise.allSettled()</H3>,
     },
     {
       val: <>Waits for all promises to settle, regardless of the result</>,
@@ -474,7 +476,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Promise.race()</h3>,
+      val: <H3>Promise.race()</H3>,
     },
     {
       val: <>Waits only for the first settled promise and gets its result</>,
@@ -494,7 +496,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Promise.any()</h3>,
+      val: <H3>Promise.any()</H3>,
     },
     {
       val: <ul>
@@ -526,7 +528,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Promise.resolve() & Promise.reject()</h3>,
+      val: <H3>Promise.resolve() & Promise.reject()</H3>,
     },
     {
       val: <ul>
@@ -560,7 +562,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Task queue</h3>,
+      val: <H3>Task queue</H3>,
     },
     {
       val: <ul>
@@ -592,7 +594,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h3>Common errors</h3>,
+      val: <H3>Common errors</H3>,
     },
     {
       val: <ul>
@@ -601,7 +603,7 @@ export const jsPromise = {
       </ul>,
     },
     {
-      val: <h3>async/await</h3>,
+      val: <H3>async/await</H3>,
     },
     {
       val: <ul>
@@ -624,7 +626,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5><CodeSpan>await</CodeSpan> for <i>promise</i></h5>,
+      val: <H5><CodeSpan>await</CodeSpan> for <i>promise</i></H5>,
     },
     {
       type: 'code',
@@ -655,7 +657,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5><CodeSpan>await</CodeSpan> accepts <i>“thenables”</i></h5>,
+      val: <H5><CodeSpan>await</CodeSpan> accepts <i>“thenables”</i></H5>,
     },
     {
       val: <ul>
@@ -679,7 +681,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5><CodeSpan>async</CodeSpan> class methods</h5>,
+      val: <H5><CodeSpan>async</CodeSpan> class methods</H5>,
     },
     {
       type: 'code',
@@ -698,7 +700,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>Error handling</h5>,
+      val: <H5>Error handling</H5>,
     },
     {
       type: 'code',
@@ -728,7 +730,7 @@ export const jsPromise = {
       `,
     },
     {
-      val: <h5>async/await + <CodeSpan>Promise.all()</CodeSpan></h5>,
+      val: <H5>async/await + <CodeSpan>Promise.all()</CodeSpan></H5>,
     },
     {
       type: 'code',

@@ -6,6 +6,7 @@ import allReducers from './redux/reducers/_allReducers'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { NotFound } from './components/NotFound.js'
 import { PostsFeed } from './components/PostsFeed/PostsFeed.js'
+import React from 'react'
 
 export const store = createStore(
   allReducers,

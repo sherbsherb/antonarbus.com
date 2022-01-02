@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsSymbol = {
   title: 'Symbol in JavaScript',
@@ -19,7 +21,7 @@ export const jsSymbol = {
       </>,
     },
     {
-      val: <h5>Create </h5>,
+      val: <H5>Create </H5>,
     },
     {
       type: 'code',
@@ -34,7 +36,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Description property</h5>,
+      val: <H5>Description property</H5>,
     },
     {
       type: 'code',
@@ -45,7 +47,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Symbol in object literal</h5>,
+      val: <H5>Symbol in object literal</H5>,
     },
     {
       type: 'code',
@@ -59,7 +61,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>“Hidden” properties</h5>,
+      val: <H5>“Hidden” properties</H5>,
     },
     {
       val: <>
@@ -80,7 +82,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Symbols are skipped by for…in loop</h5>,
+      val: <H5>Symbols are skipped by for…in loop</H5>,
     },
     {
       type: 'code',
@@ -94,7 +96,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Copy object with Symbol</h5>,
+      val: <H5>Copy object with Symbol</H5>,
     },
     {
       type: 'code',
@@ -107,7 +109,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Global symbols</h5>,
+      val: <H5>Global symbols</H5>,
     },
     {
       val: <>
@@ -150,7 +152,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Example to understand symbols</h5>,
+      val: <H5>Example to understand symbols</H5>,
     },
     {
       type: 'code',
@@ -166,7 +168,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Object to primitive conversion</h5>,
+      val: <H5>Object to primitive conversion</H5>,
     },
     {
       val: <>
@@ -246,7 +248,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Make iterable concatable</h5>,
+      val: <H5>Make iterable concatable</H5>,
     },
     {
       type: 'code',
@@ -270,7 +272,7 @@ export const jsSymbol = {
       `,
     },
     {
-      val: <h5>Make object iterable</h5>,
+      val: <H5>Make object iterable</H5>,
     },
     {
       val: <>

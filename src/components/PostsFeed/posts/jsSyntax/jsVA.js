@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsVA = {
   title: 'Various in JavaScript',
@@ -9,7 +11,7 @@ export const jsVA = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>Comments</h3>,
+      val: <H3>Comments</H3>,
     },
     {
       type: 'code',
@@ -24,7 +26,7 @@ export const jsVA = {
       `,
     },
     {
-      val: <h3>Debugger</h3>,
+      val: <H3>Debugger</H3>,
     },
     {
       val: <>Debugger pauses the code</>,
@@ -41,7 +43,7 @@ export const jsVA = {
       `,
     },
     {
-      val: <h3>Console</h3>,
+      val: <H3>Console</H3>,
     },
     {
       type: 'code',

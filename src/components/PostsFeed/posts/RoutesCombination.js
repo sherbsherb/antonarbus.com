@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const Nav = () => (
   <div>

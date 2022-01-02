@@ -1,4 +1,6 @@
 import SOAPvsRESTrequest from './SOAPvsRESTrequest.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const webServices = {
   title: 'Web services',
@@ -22,9 +24,9 @@ export const webServices = {
     {
       val: (
         <>
-          <h3>
+          <H3>
             REST
-          </h3>
+          </H3>
         </>
       ),
     },
@@ -45,9 +47,9 @@ export const webServices = {
 
     {
       val: (
-        <h3>
+        <H3>
           SOAP
-        </h3>
+        </H3>
       ),
     },
     {
@@ -71,9 +73,9 @@ export const webServices = {
     },
     {
       val: (
-        <h3>
+        <H3>
           SOAP vs REST request
-        </h3>
+        </H3>
       ),
     },
     {

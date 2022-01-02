@@ -5,6 +5,8 @@ import { gsap } from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { CodeSpan } from '../components/CodeSpan'
 import randomNumFromTo from './../../../helpers/functions/randomNumFromTo'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 gsap.registerPlugin(ScrollToPlugin)
 

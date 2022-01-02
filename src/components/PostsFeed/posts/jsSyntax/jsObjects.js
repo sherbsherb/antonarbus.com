@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsObjects = {
   title: 'Objects in JavaScript',
@@ -9,7 +11,7 @@ export const jsObjects = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Declaration</h5>,
+      val: <H5>Declaration</H5>,
     },
     {
       val: <>Object constructor syntax</>,
@@ -100,7 +102,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Set value</h5>,
+      val: <H5>Set value</H5>,
     },
     {
       type: 'code',
@@ -111,7 +113,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Get property values</h5>,
+      val: <H5>Get property values</H5>,
     },
     {
       type: 'code',
@@ -124,7 +126,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Optional chaining <code>?.</code></h5>,
+      val: <H5>Optional chaining <code>?.</code></H5>,
     },
     {
       val: <>
@@ -189,7 +191,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Remove property</h5>,
+      val: <H5>Remove property</H5>,
     },
     {
       type: 'code',
@@ -200,7 +202,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Dynamic key with square brackets</h5>,
+      val: <H5>Dynamic key with square brackets</H5>,
     },
     {
       type: 'code',
@@ -221,7 +223,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Property value shorthand</h5>,
+      val: <H5>Property value shorthand</H5>,
     },
     {
       type: 'code',
@@ -238,7 +240,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Property existence, “in” operator</h5>,
+      val: <H5>Property existence, “in” operator</H5>,
     },
     {
       type: 'code',
@@ -252,7 +254,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>For…in loop</h5>,
+      val: <H5>For…in loop</H5>,
     },
     {
       type: 'code',
@@ -271,7 +273,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Order</h5>,
+      val: <H5>Order</H5>,
     },
     {
       val: <>Integer properties are sorted, others appear in creation order</>,
@@ -293,7 +295,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Object references</h5>,
+      val: <H5>Object references</H5>,
     },
     {
       val: <>
@@ -341,7 +343,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Cloning</h5>,
+      val: <H5>Cloning</H5>,
     },
     {
       val: <>Shallow copy</>,
@@ -370,7 +372,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Object.keys, values, entries</h5>,
+      val: <H5>Object.keys, values, entries</H5>,
     },
     {
       type: 'code',
@@ -392,7 +394,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Array ---> Object <CodeSpan>Object.fromEntries()</CodeSpan></h5>,
+      val: <H5>Array ---> Object <CodeSpan>Object.fromEntries()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -407,7 +409,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Map over object</h5>,
+      val: <H5>Map over object</H5>,
     },
     {
       type: 'code',
@@ -427,7 +429,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Object & 'this'</h5>,
+      val: <H5>Object & 'this'</H5>,
     },
     {
       val: <><code>this</code> is an object means "current object"</>,
@@ -480,7 +482,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Chainable methods</h5>,
+      val: <H5>Chainable methods</H5>,
     },
     {
       val: <>Just return <code>this</code></>,
@@ -509,7 +511,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Global object</h5>,
+      val: <H5>Global object</H5>,
     },
     {
       val: <>
@@ -533,7 +535,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Primitive as an object</h5>,
+      val: <H5>Primitive as an object</H5>,
     },
     {
       val: <>
@@ -546,7 +548,7 @@ export const jsObjects = {
       </>,
     },
     {
-      val: <h5>Property flags and descriptors</h5>,
+      val: <H5>Property flags and descriptors</H5>,
     },
     {
       val: <>
@@ -650,7 +652,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Getters & setters</h5>,
+      val: <H5>Getters & setters</H5>,
     },
     {
       val: <>In object literal they are denoted by <code>get</code> and <code>set</code> keywords</>,
@@ -749,7 +751,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Iterable object</h5>,
+      val: <H5>Iterable object</H5>,
     },
     {
       val: <>Iterable has <code>for..of</code> loop functionality</>,
@@ -795,7 +797,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>Array-like object</h5>,
+      val: <H5>Array-like object</H5>,
     },
     {
       val: <>Array-likes are objects that have indexes and length, so they look like arrays</>,
@@ -824,7 +826,7 @@ export const jsObjects = {
       `,
     },
     {
-      val: <h5>From iterables & array-like object to array</h5>,
+      val: <H5>From iterables & array-like object to array</H5>,
     },
     {
       val: <ul>

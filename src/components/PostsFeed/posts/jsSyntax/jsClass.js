@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 import userObjectInConsole from './userObjectInConsole.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsClass = {
   title: 'Class in JavaScript',
@@ -16,7 +18,7 @@ export const jsClass = {
       </ul>,
     },
     {
-      val: <h3>Syntax</h3>,
+      val: <H3>Syntax</H3>,
     },
     {
       val: <ul>
@@ -50,7 +52,7 @@ export const jsClass = {
       </ul>,
     },
     {
-      val: <h3>Create</h3>,
+      val: <H3>Create</H3>,
     },
     {
       type: 'code',
@@ -79,7 +81,7 @@ export const jsClass = {
       path: userObjectInConsole,
     },
     {
-      val: <h3>Class expression</h3>,
+      val: <H3>Class expression</H3>,
     },
     {
       type: 'code',
@@ -99,7 +101,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Dynamic method name</h3>,
+      val: <H3>Dynamic method name</H3>,
     },
     {
       type: 'code',
@@ -112,7 +114,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3><code>this</code> in class</h3>,
+      val: <H3><code>this</code> in class</H3>,
     },
     {
       type: 'code',
@@ -135,7 +137,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Methods chaining</h3>,
+      val: <H3>Methods chaining</H3>,
     },
     {
       val: <>To enable methods chaining just return object's instance by returning <code>this</code></>,
@@ -154,7 +156,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Extends</h3>,
+      val: <H3>Extends</H3>,
     },
     {
       type: 'code',
@@ -186,7 +188,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Override method</h3>,
+      val: <H3>Override method</H3>,
     },
     {
       type: 'code',
@@ -217,7 +219,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Override constructor</h3>,
+      val: <H3>Override constructor</H3>,
     },
     {
       val: <ul>
@@ -250,7 +252,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Static methods & properties</h3>,
+      val: <H3>Static methods & properties</H3>,
     },
     {
       val: <ul>
@@ -260,7 +262,7 @@ export const jsClass = {
       </ul>,
     },
     {
-      val: <h5>Static methods</h5>,
+      val: <H5>Static methods</H5>,
     },
     {
       type: 'code',
@@ -285,7 +287,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h5>Static property</h5>,
+      val: <H5>Static property</H5>,
     },
     {
       type: 'code',
@@ -303,7 +305,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Read-only property</h3>,
+      val: <H3>Read-only property</H3>,
     },
     {
       val: <ul>
@@ -326,7 +328,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Private property</h3>,
+      val: <H3>Private property</H3>,
     },
     {
       val: <ul>
@@ -361,7 +363,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Getters & setters</h3>,
+      val: <H3>Getters & setters</H3>,
     },
     {
       type: 'code',
@@ -388,7 +390,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Getters & setters via functions</h3>,
+      val: <H3>Getters & setters via functions</H3>,
     },
     {
       val: <ul>
@@ -419,7 +421,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Extend built-in classes</h3>,
+      val: <H3>Extend built-in classes</H3>,
     },
     {
       val: <ul>
@@ -450,7 +452,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h5>[Symbol.species]</h5>,
+      val: <H5>[Symbol.species]</H5>,
     },
     {
       val: <ul>
@@ -480,7 +482,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>instanceof</h3>,
+      val: <H3>instanceof</H3>,
     },
     {
       val: <ul>
@@ -507,7 +509,7 @@ export const jsClass = {
       `,
     },
     {
-      val: <h3>Mixins</h3>,
+      val: <H3>Mixins</H3>,
     },
     {
       val: <ul>

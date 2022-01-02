@@ -1,4 +1,6 @@
 import { useModalWithoutBackground } from '../../../helpers/functions/useModalWindowWithoutBackgroundLayer'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Parent() {
   const [showModalState, openModal, Modal] = useModalWithoutBackground()

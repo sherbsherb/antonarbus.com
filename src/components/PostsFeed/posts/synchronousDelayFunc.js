@@ -1,3 +1,6 @@
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
+
 function Component() {
   const syncWait = ms => {
     const end = Date.now() + ms

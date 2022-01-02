@@ -3,6 +3,8 @@ import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 import React from 'react'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 function Cmpt0() {
   function func() {
@@ -96,7 +98,7 @@ export const jsEventLoop = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>Event loop</h3>,
+      val: <H3>Event loop</H3>,
     },
     {
       val: <ul>
@@ -110,7 +112,7 @@ export const jsEventLoop = {
       </ul>,
     },
     {
-      val: <h3>Macrotasks</h3>,
+      val: <H3>Macrotasks</H3>,
     },
     {
       val: <ul>
@@ -120,7 +122,7 @@ export const jsEventLoop = {
       </ul>,
     },
     {
-      val: <h3>Microtasks</h3>,
+      val: <H3>Microtasks</H3>,
     },
     {
       val: <ul>
@@ -132,14 +134,14 @@ export const jsEventLoop = {
       </ul>,
     },
     {
-      val: <h5>queueMicrotask()</h5>,
+      val: <H5>queueMicrotask()</H5>,
     },
     {
       val: <>So if  we’d like to execute a function asynchronously (after the current code), but before changes are rendered or new events handled, we can schedule it with 
       <CodeSpan>{'queueMicrotask(() => { func() })'}</CodeSpan></>,
     },
     {
-      val: <h3>Event loop sequence</h3>,
+      val: <H3>Event loop sequence</H3>,
     },
     {
       val: <>
@@ -151,7 +153,7 @@ export const jsEventLoop = {
       </>,
     },
     {
-      val: <h3>Web workers</h3>,
+      val: <H3>Web workers</H3>,
     },
     {
       val: <ul>
@@ -165,7 +167,7 @@ export const jsEventLoop = {
       </ul>,
     },
     {
-      val: <h3>in NodeJS</h3>,
+      val: <H3>in NodeJS</H3>,
     },
     {
       val: <ul>
@@ -174,10 +176,10 @@ export const jsEventLoop = {
       </ul>,
     },
     {
-      val: <h3>Examples</h3>,
+      val: <H3>Examples</H3>,
     },
     {
-      val: <h5>Sequence</h5>,
+      val: <H5>Sequence</H5>,
     },
     {
       type: 'output',
@@ -201,7 +203,7 @@ export const jsEventLoop = {
       `,
     },
     {
-      val: <h5>Count to billion without <CodeSpan>setTimeout()</CodeSpan></h5>,
+      val: <H5>Count to billion without <CodeSpan>setTimeout()</CodeSpan></H5>,
     },
     {
       val: <ul>
@@ -240,7 +242,7 @@ export const jsEventLoop = {
       `,
     },
     {
-      val: <h5>Count to billion with <CodeSpan>setTimeout()</CodeSpan></h5>,
+      val: <H5>Count to billion with <CodeSpan>setTimeout()</CodeSpan></H5>,
     },
     {
       val: <ul>
@@ -296,7 +298,7 @@ export const jsEventLoop = {
       `,
     },
     {
-      val: <h5>All microtasks runs before render</h5>,
+      val: <H5>All microtasks runs before render</H5>,
     },
     {
       type: 'output',
@@ -331,7 +333,7 @@ export const jsEventLoop = {
       `,
     },
     {
-      val: <h5>Let event bubble</h5>,
+      val: <H5>Let event bubble</H5>,
     },
     {
       val: <>

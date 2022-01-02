@@ -2,6 +2,8 @@ import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
 import { createStore, combineReducers } from 'redux'
 import { Provider, useSelector, useDispatch } from 'react-redux'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 // REDUCERS
 const counterReducer = (state = 0, action) => {

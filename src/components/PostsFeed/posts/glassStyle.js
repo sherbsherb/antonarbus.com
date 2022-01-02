@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Cmpt(props) {
   return (
     <Div>
       <div className="bkg" style={{ backgroundImage: props.backgroundImage }}>
         <div className="glass">
-          <h3>Glass style</h3>
+          <H3>Glass style</H3>
           <input type="text" placeholder="search" />
           <div className="container">
             <div className="card">Card 1</div>
@@ -29,7 +31,7 @@ const Div = styled.div`
     justify-content: center;
     align-items: center;
   }
-  h3 {
+  H3 {
     color: #426696;
     font-weight: 600;
     font-size: 20px;
@@ -96,7 +98,7 @@ export const glassStyle = {
             <Div>
               <div className="bkg"> 
                 <div className="glass">
-                  <h3>Glass style</h3>
+                  <H3>Glass style</H3>
                   <input type="text" placeholder="search" />
                   <div className="container">
                     <div className="card">Card 1</div>
@@ -119,7 +121,7 @@ export const glassStyle = {
             justify-content: center;
             align-items: center;
           }
-          h3 {
+          H3 {
             color: #426696;
             font-weight: 600;
             font-size: 20px;

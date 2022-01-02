@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsDate = {
   title: 'Date in JavaScript',
@@ -9,7 +11,7 @@ export const jsDate = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Create</h5>,
+      val: <H5>Create</H5>,
     },
     {
       val: <><CodeSpan>new Date([timestamp])</CodeSpan> - create a Date object with timestamp (milliseconds passed after the Jan 1st of 1970 UTC+0)</>,
@@ -58,7 +60,7 @@ export const jsDate = {
       `,
     },
     {
-      val: <h5>Get</h5>,
+      val: <H5>Get</H5>,
     },
     {
       val: <>Local time zone</>,
@@ -102,7 +104,7 @@ export const jsDate = {
       `,
     },
     {
-      val: <h5>Set</h5>,
+      val: <H5>Set</H5>,
     },
     {
       val: <>Local time zone</>,
@@ -145,7 +147,7 @@ export const jsDate = {
       `,
     },
     {
-      val: <h5>Date correction</h5>,
+      val: <H5>Date correction</H5>,
     },
     {
       type: 'code',
@@ -161,7 +163,7 @@ export const jsDate = {
       `,
     },
     {
-      val: <h5>Time difference in ms</h5>,
+      val: <H5>Time difference in ms</H5>,
     },
     {
       type: 'code',
@@ -176,7 +178,7 @@ export const jsDate = {
       `,
     },
     {
-      val: <h5>Parse</h5>,
+      val: <H5>Parse</H5>,
     },
     {
       val: <ul>
@@ -204,7 +206,7 @@ export const jsDate = {
       `,
     },
     {
-      val: <h5>performance.now()</h5>,
+      val: <H5>performance.now()</H5>,
     },
     {
       val: <>Gives the number of milliseconds from the start of page loading with microsecond precision</>,

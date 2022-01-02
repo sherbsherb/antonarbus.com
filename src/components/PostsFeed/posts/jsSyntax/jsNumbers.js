@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsNumbers = {
   title: 'Numbers in JavaScript',
@@ -9,7 +11,7 @@ export const jsNumbers = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h5>Basic numbers</h5>,
+      val: <H5>Basic numbers</H5>,
     },
     {
       type: 'code',
@@ -23,7 +25,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5>Bigint</h5>,
+      val: <H5>Bigint</H5>,
     },
     {
       type: 'code',
@@ -56,7 +58,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5>Hex, binary and octal numbers</h5>,
+      val: <H5>Hex, binary and octal numbers</H5>,
     },
     {
       type: 'code',
@@ -69,7 +71,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>toString(base)</CodeSpan></h5>,
+      val: <H5><CodeSpan>toString(base)</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -86,7 +88,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5>Rounding</h5>,
+      val: <H5>Rounding</H5>,
     },
     {
       type: 'code',
@@ -103,7 +105,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>isFinite()</CodeSpan> & <CodeSpan>isNaN()</CodeSpan></h5>,
+      val: <H5><CodeSpan>isFinite()</CodeSpan> & <CodeSpan>isNaN()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -123,7 +125,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>Object.is()</CodeSpan></h5>,
+      val: <H5><CodeSpan>Object.is()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -141,7 +143,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>parseInt()</CodeSpan> & <CodeSpan>parseFloat()</CodeSpan></h5>,
+      val: <H5><CodeSpan>parseInt()</CodeSpan> & <CodeSpan>parseFloat()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -159,7 +161,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>Math.random()</CodeSpan></h5>,
+      val: <H5><CodeSpan>Math.random()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -169,7 +171,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>Math.max()</CodeSpan></h5>,
+      val: <H5><CodeSpan>Math.max()</CodeSpan></H5>,
     },
     {
       type: 'code',
@@ -179,7 +181,7 @@ export const jsNumbers = {
       `,
     },
     {
-      val: <h5><CodeSpan>Math.pow()</CodeSpan></h5>,
+      val: <H5><CodeSpan>Math.pow()</CodeSpan></H5>,
     },
     {
       type: 'code',

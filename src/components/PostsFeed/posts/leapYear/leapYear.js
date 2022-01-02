@@ -1,5 +1,8 @@
 import { Main } from './Main'
 import img from './tests.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
+
 const toRender = <Main />
 
 export const leapYear = {
@@ -44,7 +47,7 @@ export const leapYear = {
 
           return (
             <DivStyled data-testid="cmpt">
-              <h3>Is a leap year?</h3>
+              <H3>Is a leap year?</H3>
               <Input setYearTypeState={setYearTypeState} />
               <Output yearTypeState={yearTypeState} />
             </DivStyled>

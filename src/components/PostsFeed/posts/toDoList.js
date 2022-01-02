@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import shortid from 'shortid'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const StyledContainer = styled.div`
   width: 90%;

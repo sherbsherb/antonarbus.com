@@ -1,6 +1,8 @@
 import { createContext, useContext, useState } from 'react'
 import shortid from 'shortid'
 import { CodeSpan } from '../components/CodeSpan'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const Context = createContext('')
 

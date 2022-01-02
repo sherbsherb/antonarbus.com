@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const btnCss = { padding: '5px 20px', margin: '10px 10px 0px 0px', cursor: 'pointer' }
 

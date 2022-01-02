@@ -1,5 +1,7 @@
 import { CodeSpan } from '../../components/CodeSpan'
 import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 const Component = () => (
   <img

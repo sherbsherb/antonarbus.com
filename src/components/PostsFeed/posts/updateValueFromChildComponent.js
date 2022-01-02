@@ -1,5 +1,7 @@
 import React from 'react'
 import { CodeSpan } from '../components/CodeSpan'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Parent() {
   const [state, setState] = React.useState(0)

@@ -3,6 +3,8 @@ import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component() {
   const [showMessage, setShowMessage] = useState(true)

@@ -3,6 +3,8 @@ import { CodeSpan } from '../components/CodeSpan'
 import { Img } from '../components/Img'
 import { Lnk } from '../components/Lnk'
 import syncWait from '../../../helpers/functions/syncWait'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component1() {
   const [state, setState] = useState(false)

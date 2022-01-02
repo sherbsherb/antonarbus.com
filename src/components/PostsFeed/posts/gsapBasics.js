@@ -4,6 +4,8 @@ import { gsap } from 'gsap'
 import { CodeSpan } from '../components/CodeSpan'
 import CocaColaSvg from './svgPics/cocaCola.svg'
 import randomNumFromTo from './../../../helpers/functions/randomNumFromTo'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const style = {
   width: '200px',

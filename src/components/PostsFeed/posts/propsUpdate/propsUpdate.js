@@ -2,6 +2,8 @@ import { CodeSpan } from '../../components/CodeSpan'
 import { Img } from '../../components/Img'
 import consolePic from './console.png'
 import errorPic from './error.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 const style = {
   border: '2px solid grey',
@@ -15,12 +17,12 @@ function ParentComponent() {
 
   return (
     <div style={style}>
-      <h3>Parent component</h3>
+      <H3>Parent component</H3>
       <br />
       <div>Variable lives in the Parent component</div>
-      <h3>
+      <H3>
         a = <span>{a}</span>
-      </h3>
+      </H3>
       <button
         onClick={() => {
           a++
@@ -37,12 +39,12 @@ function ParentComponent() {
 function ChildComponent(props) {
   return (
     <div style={style}>
-      <h3>Child component</h3>
+      <H3>Child component</H3>
       <br />
       <div>Variable comes from the Parent component in props</div>
-      <h3>
+      <H3>
         props.a = <span>{props.variable}</span>
-      </h3>
+      </H3>
       <button
         onClick={() => {
           props.a++
@@ -82,12 +84,12 @@ export const propsUpdate = {
         
           return (
             <div style={style}>
-              <h3>Parent component</h3>
+              <H3>Parent component</H3>
               <br />
               <div>Var lives in the Parent component</div>
-              <h3>
+              <H3>
                 var = <span>{x}</span>
-              </h3>
+              </H3>
               <button
                 onClick={() => {
                   x++;
@@ -104,12 +106,12 @@ export const propsUpdate = {
         function ChildComponent(props) {
           return (
             <div style={style}>
-              <h3>Child component</h3>
+              <H3>Child component</H3>
               <br />
               <div>Var comes from the Parent component in props</div>
-              <h3>
+              <H3>
                 var = <span>{props.variable}</span>
-              </h3>
+              </H3>
               <button
                 onClick={() => {
                   props.x++;

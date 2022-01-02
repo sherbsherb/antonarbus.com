@@ -1,6 +1,9 @@
 import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
+
 // import imgFile from './img.jpg'
 
 export const jsProxy = {
@@ -16,7 +19,7 @@ export const jsProxy = {
       </ul>,
     },
     {
-      val: <h3>Syntax</h3>,
+      val: <H3>Syntax</H3>,
     },
     {
       val: <>
@@ -26,7 +29,7 @@ export const jsProxy = {
       </>,
     },
     {
-      val: <h3>Handler methods</h3>,
+      val: <H3>Handler methods</H3>,
     },
     {
       val: <>
@@ -47,7 +50,7 @@ export const jsProxy = {
       </>,
     },
     {
-      val: <h3>No own properties</h3>,
+      val: <H3>No own properties</H3>,
     },
     {
       val: <>With an empty handler it transparently forwards operations to target</>,
@@ -65,7 +68,7 @@ export const jsProxy = {
       `,
     },
     {
-      val: <h3>Get trap</h3>,
+      val: <H3>Get trap</H3>,
     },
     {
       val: <>Get trap triggers when a property is read</>,
@@ -108,7 +111,7 @@ export const jsProxy = {
       `,
     },
     {
-      val: <h3>Set trap</h3>,
+      val: <H3 id="set-trap">Set trap</H3>,
     },
     {
       val: <>Set trap triggers when a property is written</>,
@@ -133,7 +136,7 @@ export const jsProxy = {
       `,
     },
     {
-      val: <h3>ownKeys</h3>,
+      val: <H3>ownKeys</H3>,
     },
     {
       val: <>Skip props with keys starting from "_"</>,
@@ -160,10 +163,10 @@ export const jsProxy = {
       `,
     },
     {
-      val: <h3>apply</h3>,
+      val: <H3>apply</H3>,
     },
     {
-      val: <h3>Make a wrapper function, which delays original function by 3s</h3>,
+      val: <>Make a wrapper function, which delays original function by 3s</>,
     },
 
 

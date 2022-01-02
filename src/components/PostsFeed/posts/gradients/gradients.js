@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { CodeSpan } from '../../components/CodeSpan'
 import img from './linearGradient.png'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
+
 const style = { height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }
 
 function Cmpt1() {

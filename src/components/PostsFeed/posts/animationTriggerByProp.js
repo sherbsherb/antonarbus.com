@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const shakeAnimation = keyframes`
   0% { transform: translateX(0) }

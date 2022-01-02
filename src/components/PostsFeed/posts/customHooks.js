@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Component1() {
   const [count, setCount] = useState(0)

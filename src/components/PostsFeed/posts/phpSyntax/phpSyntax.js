@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const phpSyntax = {
   title: 'PHP basic syntax',
@@ -19,7 +21,7 @@ export const phpSyntax = {
       ),
     },
     {
-      val: <h3>Get started</h3>,
+      val: <H3>Get started</H3>,
     },
     {
       type: 'text',
@@ -32,7 +34,7 @@ export const phpSyntax = {
       ),
     },
     {
-      val: <h3>Output</h3>,
+      val: <H3>Output</H3>,
     },
     {
       type: 'code',
@@ -48,7 +50,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Comment</h3>,
+      val: <H3>Comment</H3>,
     },
     {
       type: 'code',
@@ -67,7 +69,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Variable</h3>,
+      val: <H3>Variable</H3>,
     },
     {
       val: <>Starts with dollar sign <kbd>$</kbd></>,
@@ -83,7 +85,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Constant</h3>,
+      val: <H3>Constant</H3>,
     },
     {
       type: 'code',
@@ -96,10 +98,10 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Strings</h3>,
+      val: <H3>Strings</H3>,
     },
     {
-      val: <h5>Concatenation</h5>,
+      val: <H5>Concatenation</H5>,
     },
     {
       type: 'code',
@@ -113,7 +115,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Interpolation</h5>,
+      val: <H5>Interpolation</H5>,
     },
     {
       type: 'code',
@@ -129,7 +131,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Multiline string</h5>,
+      val: <H5>Multiline string</H5>,
     },
     {
       type: 'code',
@@ -148,7 +150,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Length</h5>,
+      val: <H5>Length</H5>,
     },
     {
       type: 'code',
@@ -160,7 +162,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Trim</h5>,
+      val: <H5>Trim</H5>,
     },
     {
       type: 'code',
@@ -174,7 +176,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Uppercase, lowercase</h5>,
+      val: <H5>Uppercase, lowercase</H5>,
     },
     {
       type: 'code',
@@ -188,7 +190,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Split, explode</h5>,
+      val: <H5>Split, explode</H5>,
     },
     {
       type: 'code',
@@ -217,7 +219,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Substring</h5>,
+      val: <H5>Substring</H5>,
     },
     {
       type: 'code',
@@ -229,7 +231,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Position</h5>,
+      val: <H5>Position</H5>,
     },
     {
       type: 'code',
@@ -241,7 +243,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Replace</h5>,
+      val: <H5>Replace</H5>,
     },
     {
       type: 'code',
@@ -253,10 +255,10 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Operators</h3>,
+      val: <H3>Operators</H3>,
     },
     {
-      val: <h5>Math</h5>,
+      val: <H5>Math</H5>,
     },
     {
       type: 'code',
@@ -273,7 +275,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Comparison</h5>,
+      val: <H5>Comparison</H5>,
     },
     {
       type: 'code',
@@ -283,7 +285,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Logical</h5>,
+      val: <H5>Logical</H5>,
     },
     {
       type: 'code',
@@ -293,7 +295,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Data types</h3>,
+      val: <H3>Data types</H3>,
     },
     {
       type: 'code',
@@ -326,7 +328,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Type conversion</h5>,
+      val: <H5>Type conversion</H5>,
     },
     {
       type: 'code',
@@ -350,7 +352,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Reference</h3>,
+      val: <H3>Reference</H3>,
     },
     {
       type: 'code',
@@ -365,10 +367,10 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Conditionals</h3>,
+      val: <H3>Conditionals</H3>,
     },
     {
-      val: <h5>If-elseif-else</h5>,
+      val: <H5>If-elseif-else</H5>,
     },
     {
       type: 'code',
@@ -387,7 +389,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Ternary operator</h5>,
+      val: <H5>Ternary operator</H5>,
     },
     {
       type: 'code',
@@ -400,7 +402,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Switch statement</h5>,
+      val: <H5>Switch statement</H5>,
     },
     {
       type: 'code',
@@ -424,10 +426,10 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Loops</h3>,
+      val: <H3>Loops</H3>,
     },
     {
-      val: <h5>for</h5>,
+      val: <H5>for</H5>,
     },
     {
       type: 'code',
@@ -441,7 +443,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>break, continue</h5>,
+      val: <H5>break, continue</H5>,
     },
     {
       type: 'code',
@@ -457,7 +459,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>while</h5>,
+      val: <H5>while</H5>,
     },
     {
       type: 'code',
@@ -475,10 +477,10 @@ export const phpSyntax = {
       val: <><Lnk path="https://overapi.com/php">PHP cheat-sheet</Lnk> on every property and method.</>,
     },
     {
-      val: <h3>Arrays</h3>,
+      val: <H3>Arrays</H3>,
     },
     {
-      val: <h5>Indexed array</h5>,
+      val: <H5>Indexed array</H5>,
     },
     {
       type: 'code',
@@ -494,7 +496,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>For each</h5>,
+      val: <H5>For each</H5>,
     },
     {
       type: 'code',
@@ -509,7 +511,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Associative array (key-value pairs)</h5>,
+      val: <H5>Associative array (key-value pairs)</H5>,
     },
     {
       type: 'code',
@@ -532,7 +534,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Add, modify</h5>,
+      val: <H5>Add, modify</H5>,
     },
     {
       type: 'code',
@@ -557,7 +559,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Combine</h5>,
+      val: <H5>Combine</H5>,
     },
     {
       type: 'code',
@@ -582,7 +584,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Compare</h5>,
+      val: <H5>Compare</H5>,
     },
     {
       val: <>Compares by values, not by reference, like in JS</>,
@@ -599,7 +601,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Sort</h5>,
+      val: <H5>Sort</H5>,
     },
     {
       type: 'code',
@@ -681,7 +683,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Map</h5>,
+      val: <H5>Map</H5>,
     },
     {
       type: 'code',
@@ -707,7 +709,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Filter</h5>,
+      val: <H5>Filter</H5>,
     },
     {
       type: 'code',
@@ -730,10 +732,10 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>Function</h3>,
+      val: <H3>Function</H3>,
     },
     {
-      val: <h5>Function declaration</h5>,
+      val: <H5>Function declaration</H5>,
     },
     {
       type: 'code',
@@ -748,7 +750,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Function expression</h5>,
+      val: <H5>Function expression</H5>,
     },
     {
       type: 'code',
@@ -763,7 +765,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Arrow function (lambda)</h5>,
+      val: <H5>Arrow function (lambda)</H5>,
     },
     {
       type: 'code',
@@ -776,10 +778,10 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h3>File</h3>,
+      val: <H3>File</H3>,
     },
     {
-      val: <h5>Create, write</h5>,
+      val: <H5>Create, write</H5>,
     },
     {
       type: 'code',
@@ -795,7 +797,7 @@ export const phpSyntax = {
       `,
     },
     {
-      val: <h5>Read</h5>,
+      val: <H5>Read</H5>,
     },
     {
       type: 'code',

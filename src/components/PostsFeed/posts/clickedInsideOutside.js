@@ -1,4 +1,7 @@
 import { useRef } from 'react'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
+
 const style = { border: '2px solid grey', padding: '10px', margin: '10px', maxWidth: '500px' }
 
 function Parent() {

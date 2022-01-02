@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 function Cmpt() {
   const [blurState, SETblurState] = React.useState({ checked: true, cssVal: 4 })

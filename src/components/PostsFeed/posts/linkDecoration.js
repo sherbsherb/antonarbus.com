@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { CodeSpan } from '../components/CodeSpan'
 import { Lnk } from '../components/Lnk'
+import { H3 } from '../components/H3'
+import { H5 } from '../components/H5'
 
 const Cmpt0 = () => <Div0><a href="https://google.com" target="_blank" rel="noreferrer">google.com</a></Div0>
 const Div0 = styled.div`

@@ -2,6 +2,8 @@ import { Lnk } from '../../components/Lnk'
 import { CodeOutput } from '../../components/CodeOutput'
 import { CodeSpan } from '../../components/CodeSpan'
 // import imgFile from './img.jpg'
+import { H3 } from '../../components/H3'
+import { H5 } from '../../components/H5'
 
 export const jsErrors = {
   title: 'Error handling in JavaScript',
@@ -9,7 +11,7 @@ export const jsErrors = {
   tagsArr: ['JavaScript', 'basics'],
   postParts: [
     {
-      val: <h3>try…catch…finally</h3>,
+      val: <H3>try…catch…finally</H3>,
     },
     {
       val: <ul>
@@ -41,7 +43,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3>Scheduled function</h3>,
+      val: <H3>Scheduled function</H3>,
     },
     {
       type: 'code',
@@ -57,7 +59,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3>Error object</h3>,
+      val: <H3>Error object</H3>,
     },
     {
       type: 'code',
@@ -77,7 +79,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3>Different ways to create error object</h3>,
+      val: <H3>Different ways to create error object</H3>,
     },
     {
       type: 'code',
@@ -127,7 +129,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3>Throw own error</h3>,
+      val: <H3>Throw own error</H3>,
     },
     {
       type: 'code',
@@ -151,7 +153,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3>Re-throw error</h3>,
+      val: <H3>Re-throw error</H3>,
     },
     {
       type: 'code',
@@ -177,7 +179,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3><code>Finally</code> always executes</h3>,
+      val: <H3><code>Finally</code> always executes</H3>,
     },
     {
       val: <ul>
@@ -205,7 +207,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h3>Global catch error listener</h3>,
+      val: <H3>Global catch error listener</H3>,
     },
     {
       val: <ul>
@@ -238,7 +240,7 @@ export const jsErrors = {
       `,
     },
     {
-      val: <h5>xxx</h5>,
+      val: <H5>xxx</H5>,
     },
   ],
 }

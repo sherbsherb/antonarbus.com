@@ -7,6 +7,7 @@ import { Post } from './components/Post'
 import { useLocation } from 'react-router-dom'
 import { ShowMoreBtn } from './components/ShowMoreBtn'
 import { postsArr } from './postsArr'
+import { elementScrollIntoView } from 'seamless-scroll-polyfill'
 
 export function PostsFeed(props) {
   const dispatch = useDispatch()
@@ -58,7 +59,8 @@ export function PostsFeed(props) {
       const id = encodeURI(hash.replace(/\s/g, '-').toLowerCase())
       const el = document.querySelector(id)
       if (!el) return
-      el.scrollIntoView({ behavior: 'smooth', alignToTop: true })
+      // el.scrollIntoView({ behavior: 'smooth', alignToTop: true })
+      elementScrollIntoView(el, { behavior: 'smooth', alignToTop: true })
     })
   }, [])
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import jsxToStr from '../../../helpers/functions/jsxToStr'
+import { elementScrollIntoView } from 'seamless-scroll-polyfill'
 
 export function H5(props) {
   const ref = React.useRef(null)
@@ -16,7 +17,8 @@ export function H5(props) {
   function addHashToUrl(e) {
     console.log(idFromText())
     history.pushState({}, '', '#' + idFromText())
-    ref.current.scrollIntoView({ behavior: 'smooth', alignToTop: true })
+    // ref.current.scrollIntoView({ behavior: 'smooth', alignToTop: true })
+    elementScrollIntoView(ref.current, { behavior: 'smooth', alignToTop: true })
   }
 
   return (

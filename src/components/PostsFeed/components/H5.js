@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import jsxToStr from '../../../helpers/functions/jsxToStr'
-import { elementScrollIntoView } from 'seamless-scroll-polyfill'
+import { elementScrollIntoView } from 'seamless-scroll-polyfill' // otherwise not working on ios
 
 export function H5(props) {
   const ref = React.useRef(null)

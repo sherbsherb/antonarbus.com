@@ -7,7 +7,7 @@ import { Post } from './components/Post'
 import { useLocation } from 'react-router-dom'
 import { ShowMoreBtn } from './components/ShowMoreBtn'
 import { postsArr } from './postsArr'
-import { elementScrollIntoView } from 'seamless-scroll-polyfill'
+import { elementScrollIntoView } from 'seamless-scroll-polyfill' // otherwise not working on ios
 
 export function PostsFeed(props) {
   const dispatch = useDispatch()

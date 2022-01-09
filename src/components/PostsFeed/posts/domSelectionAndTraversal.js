@@ -384,14 +384,14 @@ export const domSelectionAndTraversal = {
       type: 'text',
       val: <>
         <ul>
-          <li><CodeSpan>el.parentElement</CodeSpan> element one level up the DOM</li>
-          <li><CodeSpan>el.children</CodeSpan> els one level down the DOM</li>
+          <li><CodeSpan>el.parentElement</CodeSpan> parent element one level up the DOM</li>
+          <li><CodeSpan>el.children</CodeSpan> elements one level down the DOM</li>
           <li><CodeSpan>el.childElementCount</CodeSpan> number of children</li>
-          <li><CodeSpan>el.firstElementChild</CodeSpan> 1st child</li>
+          <li><CodeSpan>el.firstElementChild</CodeSpan> first child</li>
           <li><CodeSpan>el.lastElementChild</CodeSpan> last child</li>
-          <li><CodeSpan>el.nextElementSibling</CodeSpan> next el on the same DOM level</li>
-          <li><CodeSpan>el.previousElementSibling</CodeSpan> previous el on the same DOM level</li>
-          <li><CodeSpan>el.closest('selector')</CodeSpan> first matching Element starting from the <code>el</code> itself and upwards, <code>null</code> if no matches.</li>
+          <li><CodeSpan>el.nextElementSibling</CodeSpan> next element on the same DOM level</li>
+          <li><CodeSpan>el.previousElementSibling</CodeSpan> previous element on the same DOM level</li>
+          <li><CodeSpan>el.closest('selector')</CodeSpan> first matching element starting from itself and upwards, <code>null</code> if no matches</li>
           <li><CodeSpan>el.shadowRoot</CodeSpan> shadow root el that is hosted by the element, or null</li>
         </ul>
       </>,

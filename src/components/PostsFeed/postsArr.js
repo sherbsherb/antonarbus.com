@@ -121,12 +121,12 @@ import { jsModules } from './posts/jsSyntax/jsModules'
 import { jsEventLoop } from './posts/jsSyntax/jsEventLoop'
 import { jsProxy } from './posts/jsSyntax/jsProxy'
 import { jsRegExp } from './posts/jsSyntax/jsRegExp'
-import { cssSelectors } from './posts/cssSelectors'
+import { domSelectionAndTraversal } from './posts/domSelectionAndTraversal'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
-  cssSelectors,
+  domSelectionAndTraversal,
   jsRegExp,
   jsProxy,
   jsEventLoop,

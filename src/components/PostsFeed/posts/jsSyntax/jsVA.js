@@ -67,5 +67,11 @@ export const jsVA = {
       console.timeEnd(timerEnd) // stops a timer
       `,
     },
+    {
+      val: <H3>$0</H3>,
+    },
+    {
+      val: <>Reference to the select element in dev tools</>,
+    },
   ],
 }

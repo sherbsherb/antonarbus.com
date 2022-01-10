@@ -300,7 +300,7 @@ const SelectorDiv = styled.div `
 const toRender = <Cmpt />
 
 export const jsDomSelectionAndTraversal = {
-  title: 'DOM selection & traversal',
+  title: 'DOM selection & traversal in JavaScript',
   date: '2022.01.09',
   tagsArr: ['JavaScript', 'basics', 'CSS', 'jQuery', 'style', 'DOM'],
   postParts: [
@@ -308,14 +308,13 @@ export const jsDomSelectionAndTraversal = {
       val: <H3>Glossary</H3>,
     },
     {
-      type: 'text',
       val: <>
         
           <p><i>Ancestors</i> - all elements up the DOM tree</p>
           <p><i>Descendants</i> - all elements down the DOM tree</p>
           <p><i>Children</i> - all elements 1 level down the DOM tree</p>
           <p><i>Siblings</i> - elements on the same DOM level (children of the same parent)</p>
-          <p> DOM tree consists of different <i>Nodes</i>: document, documentFragment, documentType, element, text, comment.</p>
+          <p> DOM tree consists of different nodes: <i>document</i>, <i>documentFragment</i>, <i>documentType</i>, <i>element</i>, <i>text</i>, <i>comment</i>.</p>
           <p><i>Element</i> is a <i>Node</i> object, which represents html tag.</p>
         
       </>,
@@ -324,7 +323,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H3>Selection</H3>,
     },
     {
-      type: 'text',
       val: <>
         DOM elements can be selected by CSS selectors via following methods
         <ul>
@@ -341,7 +339,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H3>Main DOM objects & shortcuts</H3>,
     },
     {
-      type: 'text',
       val: <>
         <ul>
           <li><CodeSpan>window</CodeSpan> global parent object, which contains DOM</li>
@@ -363,7 +360,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H3>Testing</H3>,
     },
     {
-      type: 'text',
       val: <ul>
         <li><CodeSpan>el.matches('selectorStr')</CodeSpan> <code>true</code> if the <code>el</code> matches <code>selectorStr</code></li>
         <li><CodeSpan>node.contains(otherNode)</CodeSpan> <code>true</code> if the <code>node</code> contains <code>otherNode</code> or if they are same nodes</li>
@@ -379,7 +375,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H5>HTML elements</H5>,
     },
     {
-      type: 'text',
       val: <>
         <ul>
           <li><CodeSpan>el.parentElement</CodeSpan> parent element one level up the DOM</li>
@@ -398,7 +393,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H5>Nodes</H5>,
     },
     {
-      type: 'text',
       val: <>
         <ul>
           <li><CodeSpan>node.parentNode</CodeSpan></li>
@@ -416,7 +410,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H5>Table</H5>,
     },
     {
-      type: 'text',
       val: <>
         <CodeSpan>let tbl = document.querySelector('table')</CodeSpan>
         <ul>
@@ -440,7 +433,6 @@ export const jsDomSelectionAndTraversal = {
       val: <H5>Form</H5>,
     },
     {
-      type: 'text',
       val: <>
         Forms are members of the special collection <code>document.forms</code>
         <ul>
@@ -456,7 +448,6 @@ export const jsDomSelectionAndTraversal = {
       </>,
     },
     {
-      type: 'text',
       val: <>
         Forms are members of the special collection <code>document.forms</code>
         <ul>

@@ -71,7 +71,6 @@ import { disableEslintWarning } from './posts/disableEslintWarning'
 import { intersectionObserver } from './posts/intersectionObserver'
 import { gsapAndReact } from './posts/gsapAndReact'
 import { gsapBasics } from './posts/gsapBasics'
-import { promisePost } from './posts/promise'
 import { callback } from './posts/callback'
 import { scrollbarStyle } from './posts/scrollbarStyle'
 import { gradients } from './posts/gradients/gradients'
@@ -121,12 +120,12 @@ import { jsModules } from './posts/jsSyntax/jsModules'
 import { jsEventLoop } from './posts/jsSyntax/jsEventLoop'
 import { jsProxy } from './posts/jsSyntax/jsProxy'
 import { jsRegExp } from './posts/jsSyntax/jsRegExp'
-import { domSelectionAndTraversal } from './posts/domSelectionAndTraversal'
+import { jsDomSelectionAndTraversal } from './posts/jsSyntax/jsDomSelectionAndTraversal'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
-  domSelectionAndTraversal,
+  jsDomSelectionAndTraversal,
   jsRegExp,
   jsProxy,
   jsEventLoop,
@@ -175,7 +174,6 @@ const posts = [
   dimBackgroundImg,
   gradients,
   scrollbarStyle,
-  promisePost,
   callback,
   gsapBasics,
   gsapAndReact,

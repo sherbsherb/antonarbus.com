@@ -14,6 +14,9 @@ export const jsPromise = {
       val: <H3>Syntax</H3>,
     },
     {
+      val: <H5>Promise version</H5>,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
@@ -30,6 +33,27 @@ export const jsPromise = {
         )
         .catch(error => { console.log(error) })
         .finally(() => { /* code */ })
+      `,
+    },
+    {
+      val: <H5>Async await version</H5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      async func() {
+        try {
+          await promise
+          /* code */
+        }
+        finally {
+          /* code */
+        }
+        catch(error) {
+          console.log(error)
+        }
+      }
       `,
     },
     {
@@ -204,6 +228,42 @@ export const jsPromise = {
         error => alert(\`Error: \${error.message}\`)
       )
       promise.then(script => alert('Another handler...'))
+      `,
+    },
+    {
+      val: <H3>Promise vs regular code</H3>,
+    },
+    {
+      val: <H5>Regular code</H5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      console.log(1)
+      console.log(2)
+      setTimeout(() => console.log(3), 1000)
+      console.log(4)
+      // 1, 2, 4, 3
+      `,
+    },
+    {
+      val: <H5>Promise code</H5>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      console.log(1)
+      console.log(2)
+      const log3 = new Promise(resolve => {
+        setTimeout(() => {
+          console.log(3)
+          resolve('done')
+        }, 1000)
+      })
+      log3.then(result => console.log(4))
+      // 1, 2, 3, 4
       `,
     },
     {
@@ -566,9 +626,9 @@ export const jsPromise = {
     },
     {
       val: <ul>
-        <li>When a <i>promise</i> is ready, its <i>.then/catch/finally</i> handlers are put into the 'microtasks' queue</li>
-        <li>When the JS engine becomes free from the current code, it takes a task from the queue and executes it</li>
-        <li>To guarantee that code is executed after <i>.then/catch/finally</i>, add it into a chained <i>.then</i> call</li>
+        <li>When a <i>promise</i> is ready, its <i>.then/catch/finally</i> handlers are put into the <i>microtasks</i> queue</li>
+        <li>When the JS engine becomes free from the <i>macrotask</i>, it executes code from  <i>microtasks</i> queue</li>
+        <li>To guarantee that code is executed code in <i>.then/catch/finally</i>, add it into a chained <i>.then</i> call</li>
       </ul>,
     },
     {

@@ -344,6 +344,35 @@ export const jsOperators = {
       `,
     },
     {
+      val: <H5>Rest <code>...</code></H5>,
+    },
+    {
+      val: <>Rest parameter collects all remaining elements into an array.</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      const days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
+      const [sat, sun, ...weekdays] = days
+      sat // "Sat"
+      sun // "Sun"
+      weekdays // ["Mon", "Tue", "Wed", "Thu", "Fri"]
+      `,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      function rest(first, second, ...remainder) {
+        console.log(first)
+        console.log(second)
+        console.log(remainder)
+      }
+      rest(1, 2, 3, 4, 5) // 1, 2, [3, 4, 5]
+      `,
+    },
+    {
       val: <H5>Assignment</H5>,
     },
     {

@@ -1,7 +1,5 @@
 import { Main } from './Main'
 import img from './tests.png'
-import { H3 } from '../../components/H3'
-import { H5 } from '../../components/H5'
 
 const toRender = <Main />
 

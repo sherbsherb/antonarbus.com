@@ -1,126 +1,125 @@
 import shortid from 'shortid'
 import jsxToStr from '../../helpers/functions/jsxToStr'
-import { classVsFunctionComponent } from './posts/classVsFunctionComponent'
-import { controlledVsUncontrolledComponent } from './posts/controlledVsUncontrolledComponent'
-import { forwardLotsOfProps } from './posts/forwardLotsOfProps'
-import { forwardRef } from './posts/forwardRef'
-import { immutableState } from './posts/immutabilityOfState'
-import { jsVsJsx } from './posts/jsVsJsx'
-import { randomIntegerNumberFunction } from './posts/randomIntegerNumberFunction'
-import { passProps } from './posts/passProps'
-import { updateValueFromChildComponent } from './posts/updateValueFromChildComponent'
-import { toDoList } from './posts/toDoList'
-import { useStateAndInput } from './posts/useStateAndInput'
-import { whyToUseState } from './posts/whyToUseState'
-import { uuid } from './posts/uuid'
-import { useRefExample } from './posts/useRefExample'
-import { jsxToString } from './posts/jsxToString/jsxToString'
-import { imgInReact } from './posts/imgInReact/imgInReact'
-import { styledComponentsAndProps } from './posts/styledComponentsAndProps'
-import { childrenComponentsRender } from './posts/childrenComponentsRender'
-import { stateUpdateWithSameValue } from './posts/stateUpdateWithSameValue.js'
-import { propsUpdate } from './posts/propsUpdate/propsUpdate'
-import { domRenderInDevTools } from './posts/domRenderInDevTools/domRenderInDevTools'
-import { reduxExampleByDevEd } from './posts/reduxExampleByDevEd'
-import { useStatePrevious } from './posts/useStatePrevious'
-import { useEffectPost } from './posts/useEffectPost'
-import { addEventListenerInReact } from './posts/addEventListenerInReact'
-import { useEffectCleanUp } from './posts/useEffectCleanUp'
-import { useEffectFetchData } from './posts/useEffectFetchData'
-import { axiosVsFetch } from './posts/axiosVsFetch'
-import { useContextPost } from './posts/useContextPost'
-import { useReducerPost } from './posts/useReducerPost'
-import { useReducerWithObjStateAndReducer } from './posts/useReducerWithObjStateAndReducer'
-import { oneReducerForMultipleComponents } from './posts/oneReducerForMultipleComponents.js.js'
-import { useContextWithUseReducer } from './posts/useContextWithUseReducer'
-import { fetchWithLoadingIndicator } from './posts/fetchWithLoadingIndicator'
-import { delayPromise } from './posts/delayPromise'
-import { animationTriggerByClass } from './posts/animationTriggerByClass'
-import { animationTriggerByProp } from './posts/animationTriggerByProp'
-import { useRefAsGlobalVar } from './posts/useRefAsGlobalVar'
-import { useStateSkipInitialRender } from './posts/useStateSkipInitialRender'
-import { reactMemo } from './posts/reactMemo'
-import { useCallbackHook } from './posts/useCallbackHook'
-import { useMemoHook } from './posts/useMemoHook'
-import { objectsAreNotEqual } from './posts/objectsAreNotEqual'
-import { synchronousDelayFunc } from './posts/synchronousDelayFunc'
-import { timerInReact } from './posts/timerInReact'
-import { secToHHMMSSfunc } from './posts/secToHHMMSSfunc'
-import { useLayoutEffectHook } from './posts/useLayoutEffectHook'
-import { customHooks } from './posts/customHooks'
-import { useInputCustomHook } from './posts/useInputCustomHook'
-import { useToggleBooleanStateCustomHook } from './posts/useToggleStateCustomHook'
-import { useContextWithUseStateWithoutUseReducer } from './posts/useContextWithUseStateWithoutUseReducer'
-import { reactRouting } from './posts/reactRouting/reactRouting'
-import { expressServerForReact } from './posts/expressServerForReact'
-import { reactIcons } from './posts/reactIcons'
-import { tableOfContent } from './posts/tableOfContent'
-import { RoutesCombination } from './posts/RoutesCombination'
-import { modalWindowWithBackgroundLayer } from './posts/modalWindowWithBackgroundLayer'
-import { modalWindowWithoutBackgroundLayer } from './posts/modalWindowWithoutBackgroundLayer'
-import { kbdStyle } from './posts/kbdStyle'
-import { clickedInsideOutside } from './posts/clickedInsideOutside'
-import { passArgsIntoFunc } from './posts/passArgsIntoFunc'
-import { useAnimatedWrapperPost } from './posts/useAnimatedWrapperPost'
-import { ReactTransitionGroupTransition } from './posts/ReactTransitionGroupTransition'
-import { ReactTransitionGroupCssTransition } from './posts/ReactTransitionGroupCssTransition'
-import { SlideSidewaysWithCSSTransition } from './posts/SlideSidewaysWithCSSTransition'
-import { linkDecoration } from './posts/linkDecoration'
-import { resetCSSProperty } from './posts/resetCSSProperty'
-import { disableEslintWarning } from './posts/disableEslintWarning'
-import { intersectionObserver } from './posts/intersectionObserver'
-import { gsapAndReact } from './posts/gsapAndReact'
-import { gsapBasics } from './posts/gsapBasics'
-import { callback } from './posts/callback'
-import { scrollbarStyle } from './posts/scrollbarStyle'
-import { gradients } from './posts/gradients/gradients'
-import { dimBackgroundImg } from './posts/dimBackgroundImg/dimBackgroundImg'
-import { glassStyle } from './posts/glassStyle'
-import { displayFlex } from './posts/displayFlex'
-import { gsapCSSRulePlugin } from './posts/gsapCSSRulePlugin/gsapCSSRulePlugin'
-import { gsapMotionPathPlugin } from './posts/gsapMotionPath'
-import { gsapScrollTo } from './posts/gsapScrollTo'
-import { gsapText } from './posts/gsapText'
-import { gsapScrollTrigger } from './posts/gsapScrollTrigger'
-import { leapYear } from './posts/leapYear/leapYear'
-import { esLint } from './posts/esLint/esLint'
+import { addEventListenerInReact } from './posts/react/addEventListenerInReact'
+import { animationTriggerByClass } from './posts/react/animationTriggerByClass'
+import { animationTriggerByProp } from './posts/react/animationTriggerByProp'
+import { axiosVsFetch } from './posts/js/axiosVsFetch'
 import { babel } from './posts/babel/babel'
-import { backdropFilter } from './posts/backdropFilter'
-import { webServices } from './posts/webServices/webServices'
-import { webpack } from './posts/webpack/webpack'
-import { rubySyntax } from './posts/rubySyntax/rubySyntax'
-import { pythonSyntax } from './posts/pythonSyntax/pythonSyntax'
+import { backdropFilter } from './posts/css/backdropFilter'
+import { childrenComponentsRender } from './posts/react/childrenComponentsRender'
+import { classVsFunctionComponent } from './posts/react/classVsFunctionComponent'
+import { clickedInsideOutside } from './posts/jsUseful/clickedInsideOutside'
+import { controlledVsUncontrolledComponent } from './posts/react/controlledVsUncontrolledComponent'
+import { customHooks } from './posts/react/customHooks'
+import { delayPromise } from './posts/js/delayPromise'
+import { dimBackgroundImg } from './posts/css/dimBackgroundImg/dimBackgroundImg'
+import { disableEslintWarning } from './posts/esLint/disableEslintWarning'
+import { displayFlex } from './posts/css/displayFlex'
+import { domRenderInDevTools } from './posts/domRenderInDevTools/domRenderInDevTools'
+import { esLint } from './posts/esLint/esLint'
+import { expressServerForReact } from './posts/react/expressServerForReact'
+import { fetchWithLoadingIndicator } from './posts/react/fetchWithLoadingIndicator'
+import { forwardLotsOfProps } from './posts/react/forwardLotsOfProps'
+import { forwardRef } from './posts/react/forwardRef'
+import { glassStyle } from './posts/css/glassStyle'
+import { gradients } from './posts/css/gradients/gradients'
+import { gsapAndReact } from './posts/gsap/gsapAndReact'
+import { gsapBasics } from './posts/gsap/gsapBasics'
+import { gsapCSSRulePlugin } from './posts/gsap/gsapCSSRulePlugin/gsapCSSRulePlugin'
+import { gsapMotionPathPlugin } from './posts/gsap/gsapMotionPath'
+import { gsapScrollTo } from './posts/gsap/gsapScrollTo'
+import { gsapScrollTrigger } from './posts/gsap/gsapScrollTrigger'
+import { gsapText } from './posts/gsap/gsapText'
+import { imgInReact } from './posts/react/imgInReact/imgInReact'
+import { immutableState } from './posts/react/immutabilityOfState'
+import { intersectionObserver } from './posts/js/intersectionObserver'
+import { jsClassVsConstructorFunction } from './posts/js/jsClassVsConstructorFunction'
+import { jsArrays } from './posts/js/jsArrays'
+import { jsClass } from './posts/js/jsClass'
+import { jsConditions } from './posts/js/jsConditions'
+import { jsDataTypes } from './posts/js/jsDataTypes'
+import { jsDate } from './posts/js/jsDate'
+import { jsDestructuring } from './posts/js/jsDestructuring'
+import { jsDomSelectionAndTraversal } from './posts/js/jsDomSelectionAndTraversal'
+import { jsErrors } from './posts/js/jsErrors'
+import { jsEval } from './posts/js/jsEval'
+import { jsEventLoop } from './posts/js/jsEventLoop'
+import { jsFunctions } from './posts/js/jsFunctions'
+import { jsGenerator } from './posts/js/jsGenerator'
+import { jsJson } from './posts/js/jsJson'
+import { jsLoops } from './posts/js/jsLoops'
+import { jsMap } from './posts/js/jsMap'
+import { jsModules } from './posts/js/jsModules'
+import { jsNumbers } from './posts/js/jsNumbers'
+import { jsObjects } from './posts/js/jsObjects'
+import { jsOperators } from './posts/js/jsOperators'
+import { jsPromise } from './posts/js/jsPromise'
+import { jsPrototype } from './posts/js/jsPrototype'
+import { jsProxy } from './posts/js/jsProxy'
+import { jsRegExp } from './posts/js/jsRegExp'
+import { jsSet } from './posts/js/jsSet'
+import { jsStrings } from './posts/js/jsStrings'
+import { jsSymbol } from './posts/js/jsSymbol'
+import { jsTimeoutInterval } from './posts/js/jsTimeoutInterval'
+import { jsVA } from './posts/js/jsVA'
+import { jsVariables } from './posts/js/jsVariables'
+import { jsVsJsx } from './posts/react/jsVsJsx'
+import { jsxToString } from './posts/react/jsxToString/jsxToString'
+import { kbdStyle } from './posts/css/kbdStyle'
+import { leapYear } from './posts/leapYear/leapYear'
+import { linkDecoration } from './posts/css/linkDecoration'
+import { modalWindowWithBackgroundLayer } from './posts/jsUseful/modalWindowWithBackgroundLayer'
+import { modalWindowWithoutBackgroundLayer } from './posts/jsUseful/modalWindowWithoutBackgroundLayer'
+import { objectsAreNotEqual } from './posts/js/objectsAreNotEqual'
+import { oneReducerForMultipleComponents } from './posts/react/oneReducerForMultipleComponents'
+import { passArgsIntoFunc } from './posts/js/passArgsIntoFunc'
+import { passProps } from './posts/react/passProps'
 import { phpSyntax } from './posts/phpSyntax/phpSyntax'
-import { jsVA } from './posts/jsSyntax/jsVA'
-import { jsVariables } from './posts/jsSyntax/jsVariables'
-import { jsDataTypes } from './posts/jsSyntax/jsDataTypes'
-import { jsOperators } from './posts/jsSyntax/jsOperators'
-import { jsConditions } from './posts/jsSyntax/jsConditions'
-import { jsLoops } from './posts/jsSyntax/jsLoops'
-import { jsFunctions } from './posts/jsSyntax/jsFunctions'
-import { jsObjects } from './posts/jsSyntax/jsObjects'
-import { jsSymbol } from './posts/jsSyntax/jsSymbol'
-import { jsNumbers } from './posts/jsSyntax/jsNumbers'
-import { jsStrings } from './posts/jsSyntax/jsStrings'
-import { jsArrays } from './posts/jsSyntax/jsArrays'
-import { jsMap } from './posts/jsSyntax/jsMap'
-import { jsSet } from './posts/jsSyntax/jsSet'
-import { jsDestructuring } from './posts/jsSyntax/jsDestructuring'
-import { jsDate } from './posts/jsSyntax/jsDate'
-import { jsJson } from './posts/jsSyntax/jsJson'
-import { jsClass } from './posts/jsSyntax/jsClass'
-import { jsPrototype } from './posts/jsSyntax/jsPrototype'
-import { jsTimeoutInterval } from './posts/jsSyntax/jsTimeoutInterval'
-import { jsClassVsConstructorFunction } from './posts/jsClassVsConstructorFunction'
-import { jsErrors } from './posts/jsSyntax/jsErrors'
-import { jsPromise } from './posts/jsSyntax/jsPromise'
-import { jsEval } from './posts/jsSyntax/jsEval'
-import { jsGenerator } from './posts/jsSyntax/jsGenerator'
-import { jsModules } from './posts/jsSyntax/jsModules'
-import { jsEventLoop } from './posts/jsSyntax/jsEventLoop'
-import { jsProxy } from './posts/jsSyntax/jsProxy'
-import { jsRegExp } from './posts/jsSyntax/jsRegExp'
-import { jsDomSelectionAndTraversal } from './posts/jsSyntax/jsDomSelectionAndTraversal'
+import { propsAreImmutable } from './posts/react/propsUpdate/propsAreImmutable'
+import { pythonSyntax } from './posts/pythonSyntax/pythonSyntax'
+import { randomIntegerNumberFunction } from './posts/jsUseful/randomIntegerNumberFunction'
+import { useAnimatedWrapperPost } from './posts/react/useAnimatedWrapperPost'
+import { reactIcons } from './posts/react/reactIcons'
+import { reactMemo } from './posts/react/reactMemo'
+import { reactRouting } from './posts/react/reactRouting/reactRouting'
+import { ReactTransitionGroupCssTransition } from './posts/react/ReactTransitionGroupCssTransition'
+import { ReactTransitionGroupTransition } from './posts/react/ReactTransitionGroupTransition'
+import { reduxExampleByDevEd } from './posts/react/reduxExampleByDevEd'
+import { resetCSSProperty } from './posts/css/resetCSSProperty'
+import { RoutesCombination } from './posts/react/RoutesCombination'
+import { rubySyntax } from './posts/rubySyntax/rubySyntax'
+import { scrollbarStyle } from './posts/css/scrollbarStyle'
+import { secToHHMMSSfunc } from './posts/jsUseful/secToHHMMSSfunc'
+import { SlideSidewaysWithCSSTransition } from './posts/react/SlideSidewaysWithCSSTransition'
+import { stateUpdateWithSameValue } from './posts/react/stateUpdateWithSameValue'
+import { styledComponentsAndProps } from './posts/react/styledComponentsAndProps'
+import { synchronousDelayFunc } from './posts/jsUseful/synchronousDelayFunc'
+import { tableOfContent } from './posts/tableOfContent'
+import { timerInReact } from './posts/react/timerInReact'
+import { toDoList } from './posts/react/toDoList'
+import { updateValueFromChildComponent } from './posts/react/updateValueFromChildComponent'
+import { uuid } from './posts/jsUseful/uuid'
+import { webpack } from './posts/webpack/webpack'
+import { webServices } from './posts/webServices/webServices'
+import { whyToUseState } from './posts/react/whyToUseState'
+import { useContextWithUseStateWithoutUseReducer } from './posts/react/useContextWithUseStateWithoutUseReducer'
+import { useToggleBooleanStateCustomHook } from './posts/react/useToggleBooleanStateCustomHook'
+import { useInputCustomHook } from './posts/react/useInputCustomHook'
+import { useLayoutEffectHook } from './posts/react/useLayoutEffectHook'
+import { useMemoHook } from './posts/react/useMemoHook'
+import { useCallbackHook } from './posts/react/useCallbackHook'
+import { useStateSkipInitialRender } from './posts/react/useStateSkipInitialRender'
+import { useRefAsGlobalVar } from './posts/react/useRefAsGlobalVar'
+import { useContextWithUseReducer } from './posts/react/useContextWithUseReducer'
+import { useReducerWithObjStateAndReducer } from './posts/react/useReducerWithObjStateAndReducer'
+import { useReducerPost } from './posts/react/useReducerPost'
+import { useContextPost } from './posts/react/useContextPost'
+import { useEffectFetchData } from './posts/react/useEffectFetchData'
+import { useEffectCleanUp } from './posts/react/useEffectCleanUp'
+import { useEffectPost } from './posts/react/useEffectPost'
+import { useStatePrevious } from './posts/react/useStatePrevious'
+import { useStateAndInput } from './posts/react/useStateAndInput'
+import { useRefExample } from './posts/react/useRefExample'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
@@ -174,7 +173,6 @@ const posts = [
   dimBackgroundImg,
   gradients,
   scrollbarStyle,
-  callback,
   gsapBasics,
   gsapAndReact,
   intersectionObserver,
@@ -196,44 +194,45 @@ const posts = [
   reactIcons,
   expressServerForReact,
   reactRouting,
-  useContextWithUseStateWithoutUseReducer,
-  useToggleBooleanStateCustomHook,
-  useInputCustomHook,
   customHooks,
-  useLayoutEffectHook,
   timerInReact,
   secToHHMMSSfunc,
   synchronousDelayFunc,
-  useMemoHook,
-  useCallbackHook,
   reactMemo,
   objectsAreNotEqual,
-  useStateSkipInitialRender,
-  useRefAsGlobalVar,
   animationTriggerByProp,
   animationTriggerByClass,
   delayPromise,
   fetchWithLoadingIndicator,
-  useContextWithUseReducer,
   oneReducerForMultipleComponents,
+  axiosVsFetch,
+  addEventListenerInReact,
+  useContextWithUseStateWithoutUseReducer,
+  useToggleBooleanStateCustomHook,
+  useInputCustomHook,
+  useLayoutEffectHook,
+  useMemoHook,
+  useCallbackHook,
+  useStateSkipInitialRender,
+  useRefAsGlobalVar,
+  useContextWithUseReducer,
   useReducerWithObjStateAndReducer,
   useReducerPost,
   useContextPost,
-  axiosVsFetch,
   useEffectFetchData,
   useEffectCleanUp,
-  addEventListenerInReact,
   useEffectPost,
   useStatePrevious,
+  useStateAndInput,
+  useRefExample,
   reduxExampleByDevEd,
   domRenderInDevTools,
-  propsUpdate,
+  propsAreImmutable,
   stateUpdateWithSameValue,
   childrenComponentsRender,
   styledComponentsAndProps,
   imgInReact,
   jsxToString,
-  useRefExample,
   uuid,
   updateValueFromChildComponent,
   forwardRef,
@@ -243,7 +242,6 @@ const posts = [
   immutableState,
   toDoList,
   classVsFunctionComponent,
-  useStateAndInput,
   whyToUseState,
   jsVsJsx,
 ]
@@ -256,5 +254,3 @@ export const postsArr = posts.map((o, index) => ({
   id: shortid(),
   postNum: posts.length - index,
 }))
-
-// console.log(postsArr)

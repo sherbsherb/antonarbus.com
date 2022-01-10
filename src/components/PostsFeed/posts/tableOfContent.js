@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { postsArr } from '../postsArr'
-import { H3 } from '../components/H3'
-import { H5 } from '../components/H5'
 
 export function TblOfContent() {
   return (

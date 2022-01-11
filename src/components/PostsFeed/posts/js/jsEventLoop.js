@@ -141,13 +141,13 @@ export const jsEventLoop = {
       val: <H3>Event loop sequence</H3>,
     },
     {
-      val: <>
-        1. M<span style={{color: 'brown', fontWeight: 600}}>a</span>crotask (script, event handler) <br />
-        2. M<span style={{color: 'red', fontWeight: 600}}>i</span>crotask (promises handlers & <CodeSpan>queueMicrotask(func)</CodeSpan>) <br />
-        3. Render <br />
-        4. M<span style={{color: 'brown', fontWeight: 600}}>a</span>crotask set by <CodeSpan>setTimeout(func)</CodeSpan> <br />
-        5. ... again & again
-      </>,
+      val: <ol>
+        <li>M<span style={{ color: 'red', fontWeight: 600 }}>a</span>crotask (script, event handler) <br /></li>
+        <li>M<span style={{ color: 'red', fontWeight: 600 }}>i</span>crotask (promise handlers & <CodeSpan>queueMicrotask(func)</CodeSpan>) <br /></li>
+        <li>Render <br /></li>
+        <li>M<span style={{ color: 'red', fontWeight: 600 }}>a</span>crotask set by <CodeSpan>setTimeout(func)</CodeSpan> <br /></li>
+        <li>... again & again</li>
+      </ol>,
     },
     {
       val: <H3>Web workers</H3>,

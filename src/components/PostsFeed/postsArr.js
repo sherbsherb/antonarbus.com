@@ -40,7 +40,7 @@ import { jsConditions } from './posts/js/jsConditions'
 import { jsDataTypes } from './posts/js/jsDataTypes'
 import { jsDate } from './posts/js/jsDate'
 import { jsDestructuring } from './posts/js/jsDestructuring'
-import { jsDomSelectionAndTraversal } from './posts/js/jsDomSelectionAndTraversal'
+import { jsDomTraversal } from './posts/js/jsDomTraversal'
 import { jsErrors } from './posts/js/jsErrors'
 import { jsEval } from './posts/js/jsEval'
 import { jsEventLoop } from './posts/js/jsEventLoop'
@@ -120,11 +120,13 @@ import { useEffectPost } from './posts/react/useEffectPost'
 import { useStatePrevious } from './posts/react/useStatePrevious'
 import { useStateAndInput } from './posts/react/useStateAndInput'
 import { useRefExample } from './posts/react/useRefExample'
+import { oopConcepts } from './posts/programming/oopConcepts'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
-  jsDomSelectionAndTraversal,
+  oopConcepts,
+  jsDomTraversal,
   jsRegExp,
   jsProxy,
   jsEventLoop,

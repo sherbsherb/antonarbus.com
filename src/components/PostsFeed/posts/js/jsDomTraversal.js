@@ -88,14 +88,14 @@ function Cmpt() {
           <span id='before'>span with ::before</span>
           <span id='after'>span with ::after</span>
           <span>span</span>
-          <input type="text" required value="required"/>
-          <input type="text" disabled value="disabled"/>
-          <input type="text" readonly value="readonly"/>
-          <input type="checkbox" checked value="checked"/>
-          <input type="checkbox" value="not checked"/>
-          <input type="number" min='1' max='5' value='3'/>
-          <input type="number" min='1' max='5' value='10'/>
-          <input type="text" placeholder='placeholder'/>
+          <input type="text" required value="required" onChange={()=>{ }}/>
+          <input type="text" disabled value="disabled" onChange={()=>{ }}/>
+          <input type="text" readOnly value="readonly" onChange={()=>{ }}/>
+          <input type="checkbox" checked value="checked" onChange={()=>{ }}/>
+          <input type="checkbox" value="not checked" onChange={()=>{ }}/>
+          <input type="number" min='1' max='5' value='3' onChange={()=>{ }}/>
+          <input type="number" min='1' max='5' value='10' onChange={()=>{ }}/>
+          <input type="text" placeholder='placeholder' onChange={()=>{ }}/>
           <a href="https://google.com" target={'_blank'}>google</a>
           <div><p>first line</p> <p>second line</p> <p>third line</p></div>
           <span></span>
@@ -299,8 +299,8 @@ const SelectorDiv = styled.div `
 `
 const toRender = <Cmpt />
 
-export const jsDomSelectionAndTraversal = {
-  title: 'DOM selection & traversal in JavaScript',
+export const jsDomTraversal = {
+  title: 'DOM traversal with CSS & JavaScript',
   date: '2022.01.09',
   tagsArr: ['JavaScript', 'basics', 'CSS', 'jQuery', 'style', 'DOM'],
   postParts: [
@@ -309,14 +309,13 @@ export const jsDomSelectionAndTraversal = {
     },
     {
       val: <>
-        
+          <p><i>DOM</i> - document object model which represents a web page.</p>
+          <p> DOM tree consists of different Nodes: <i>document</i>, <i>documentFragment</i>, <i>documentType</i>, <i>element</i>, <i>text</i>, <i>comment</i>.</p>
+          <p><i>Element</i> - <i>Node</i> object, which represents html tag.</p>
           <p><i>Ancestors</i> - all elements up the DOM tree</p>
           <p><i>Descendants</i> - all elements down the DOM tree</p>
           <p><i>Children</i> - all elements 1 level down the DOM tree</p>
           <p><i>Siblings</i> - elements on the same DOM level (children of the same parent)</p>
-          <p> DOM tree consists of different nodes: <i>document</i>, <i>documentFragment</i>, <i>documentType</i>, <i>element</i>, <i>text</i>, <i>comment</i>.</p>
-          <p><i>Element</i> is a <i>Node</i> object, which represents html tag.</p>
-        
       </>,
     },
     {

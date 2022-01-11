@@ -334,7 +334,7 @@ export const jsClass = {
         <li>only accessible from inside the class</li>
         <li>not supported widely yet</li>
         <li>should start with <code>#</code></li>
-        <li>inherits have no direct direct access</li>
+        <li>inherits have no direct access</li>
       </ul>,
     },
     {

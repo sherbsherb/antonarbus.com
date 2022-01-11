@@ -7,6 +7,9 @@ export const oopConcepts = {
   tagsArr: ['OOP', 'basics'],
   postParts: [
     {
+      val: <>Here are 4 object oriented programming key concepts.</>,
+    },
+    {
       val: <H3>Encapsulation</H3>,
     },
     {
@@ -111,11 +114,11 @@ export const oopConcepts = {
     },
     {
       val: <ul>
-        <li>Abstraction is when we hide the complexity of the code, and also not letting the user access some of our functions.</li>
-        <li>Can do that by using <i>let</i>, <i>const</i> keywords</li>
+        <li>Abstraction is when we hide the complexity of the code, and also not letting the user access some data</li>
+        <li>Can do that by using <i>let</i>, <i>const</i> keywords & # <i>private</i> methods</li>
         <li>Can be easily done in function constructors, but not in class</li>
-        <li>In class we can use <i>let</i>, <i>const</i> inside functions, but it is not always elegant</li>
-        <li>If we use <i>this</i> keyword that function will be shown to the user</li>
+        <li>In class we can use <i>let</i> & <i>const</i> only inside functions, but it is not always elegant</li>
+        <li>If we use <i>this</i> keyword that property will be exposed to a user</li>
       </ul>,
     },
     {
@@ -127,9 +130,12 @@ export const oopConcepts = {
           this.name = name
           this.yearsInCompany = yearsInCompany
         }
-        get salary() {
+        #calcSalarySecretly() {
           const hiddenBaseSalary = 2000
           return (1 + this.yearsInCompany / 10) * hiddenBaseSalary
+        }
+        get salary() {
+          return this.#calcSalarySecretly()
         }
         tellSalary() {
           console.log('Salary of ' + this.name + ' is ' + this.salary + ' $/m')
@@ -139,6 +145,8 @@ export const oopConcepts = {
       const john = new Employee('John', 5)
       john.salary // 3000
       john.tellSalary() // 'Salary of John is 3000 $/m'
+      john.#calcSalarySecretly() // SyntaxError: Private field
+      john.hiddenBaseSalary // undefined
       `,
     },
   ],

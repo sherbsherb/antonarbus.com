@@ -365,6 +365,29 @@ export const jsClass = {
       val: <H3>Getters & setters</H3>,
     },
     {
+      val: <>Getters & setters can modify property values when we write or read them from the object.</>,
+    },
+    {
+      type: 'code',
+      lang: 'js',
+      val: `
+      class Human {
+        get name() {
+          return this._name
+        }
+        set name(str) {
+          const letters = [...str]
+          const [firstLetter, ...otherLetters] = letters
+          this._name = [firstLetter.toUpperCase(), ...otherLetters].join('')
+        }
+      }
+      
+      const john = new Human
+      john.name = 'john'
+      john.name // 'John'
+      `,
+    },
+    {
       type: 'code',
       lang: 'js',
       val: `
@@ -388,6 +411,7 @@ export const jsClass = {
       machine.waterAmount // 100
       `,
     },
+
     {
       val: <H3>Getters & setters via functions</H3>,
     },

@@ -121,10 +121,12 @@ import { useStatePrevious } from './posts/react/useStatePrevious'
 import { useStateAndInput } from './posts/react/useStateAndInput'
 import { useRefExample } from './posts/react/useRefExample'
 import { oopConcepts } from './posts/programming/oopConcepts'
+import { laravelBasics } from './posts/laravel/laravelBasics'
 // import { typeScriptBasics } from './posts/typeScriptBasics/typeScriptBasics.tsx'
 
 const posts = [
   // typeScriptBasics,
+  laravelBasics,
   oopConcepts,
   jsDomTraversal,
   jsRegExp,

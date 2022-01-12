@@ -1,4 +1,3 @@
-import { CodeSpan } from '../../components/CodeSpan'
 import { H3 } from '../../components/H3'
 
 export const oopConcepts = {

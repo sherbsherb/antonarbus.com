@@ -11,6 +11,7 @@ import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-ruby'
 import 'prismjs/components/prism-php'
 import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-apacheconf'
 
 Prism.plugins.NormalizeWhitespace.setDefaults({
   'remove-trailing': true,

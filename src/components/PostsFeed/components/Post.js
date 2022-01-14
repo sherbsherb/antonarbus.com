@@ -34,7 +34,7 @@ export function Post(props) {
         return (
           <Img
             key={id}
-            src={el.src || el.link || el.path}
+            src={el.src || el.link || el.path || el.val}
             width={el.width}
             alt={el.alt}
           />

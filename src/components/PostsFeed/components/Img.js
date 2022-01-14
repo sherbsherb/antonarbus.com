@@ -7,6 +7,7 @@ export function Img(props) {
       width={props.width}
       path={props.path}
       link={props.link}
+      val={props.val}
       alt={props.alt}
     />
   )
@@ -14,7 +15,7 @@ export function Img(props) {
 
 const ImgStyled = styled.img.attrs(props => ({
   // we can define static props
-  src: props.src || props.path || props.link,
+  src: props.src || props.path || props.link || props.val,
   alt: props.alt || 'alt text',
   // or we can define dynamic ones
   width: props.width || 'auto',
